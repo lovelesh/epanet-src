@@ -639,7 +639,7 @@ void compute_flows(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	// Call epanet for computation
 	ENopenH();
 	for(temp_count=0; temp_count<Nvalves; temp_count++) {
-		ENsetlinkvalue(valvecontrol[temp_count].ValveLink,EN_INITSETTING,valvecontrol[temp_count].ValveValues[simulation_time]);
+		ENsetlinkvalue(valvecontrol[temp_count].ValveLink,EN_INITSETTING,valvecontrol[temp_count].ValveValues[simulation_time])
 	}
 	ENinitH(10);
 	do {
@@ -763,12 +763,12 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		memcpy(valvecontrol_previous,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
 		
 		// Schedule the jobs
-		simulation_time = Job_Handler(tankcontrol_current, valvecontrol_current);
+		simulation_time = Job_Handler(tankcontrol_current,valvecontrol_current);
 		
 		// Run EPANET Engine
 			
-		compute_gradient(tankcontrol_current, valvecontrol_current,tankcontrol_gradient,valvecontrol_gradient);
-		update_control(tankcontrol_current, valvecontrol_current,tankcontrol_gradient,valvecontrol_gradient, iteration_count);
+		compute_gradient(tankcontrol_current,valvecontrol_current,tankcontrol_gradient,valvecontrol_gradient);
+		update_control(tankcontrol_current,valvecontrol_current,tankcontrol_gradient,valvecontrol_gradient,iteration_count);
 		function_value_previous = function_value_current;
 		// Calculating the objective_function for current setting
 		
