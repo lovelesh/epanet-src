@@ -764,7 +764,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 	
 			
 		if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
-			// Schedule the jobs
+			// Perform the jobs
 			printf("popping jobs from queue");
 			simulation_time = Job_Handler(tankcontrol_current,valvecontrol_current);
 		}
