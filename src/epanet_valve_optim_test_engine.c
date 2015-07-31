@@ -148,7 +148,7 @@ int f=0,r=-1;       	//For Priority Queue
 float epsilon = 0.05;  //Arbitary value taken
 int iteration_count = 1;
 unsigned long elapsed_time = 0; // Starting clock is considered at 00:00 hrs
-
+int hourly_scheduler = 2;      // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
 
 // Main function starts here
 
@@ -547,7 +547,7 @@ unsigned long Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *va
 	int flag = 1;
 	PriorityQ p;
 	
-	Qdisplay();
+	//Qdisplay();
 	// Handling Jobs
 	while(!Qempty()){
 		p=Qpop(); //Popping the first element from the queue
@@ -603,12 +603,12 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 {
 	int temp_count2;
 	int temp_count;
-		
+			
 	PriorityQ p;
 	
 	// Scheduling Jobs
 	for(temp_count2 = 0; temp_count2 < Nvalves; temp_count2++){
-		for(temp_count = 0; temp_count < valvecontrol[temp_count2].TimePeriod; temp_count++){
+		for(temp_count = 0; temp_count < valvecontrol[temp_count2].TimePeriod; temp_count = temp_count + hourly_scheduler){
 			strcpy(p.keyword, "valve");
 			p.hours = temp_count;
 			p.minutes = 0;
@@ -639,7 +639,7 @@ void compute_flows(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	// Call epanet for computation
 	ENopenH();
 	for(temp_count=0; temp_count<Nvalves; temp_count++) {
-		ENsetlinkvalue(valvecontrol[temp_count].ValveLink,EN_INITSETTING,valvecontrol[temp_count].ValveValues[simulation_time])
+		ENsetlinkvalue(valvecontrol[temp_count].ValveLink,EN_INITSETTING,valvecontrol[temp_count].ValveValues[simulation_time]);
 	}
 	ENinitH(10);
 	do {
@@ -761,9 +761,13 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		//printf("\n Iteration Count = %d Function Value = %f",iteration_count,function_value_current);
 		memcpy(tankcontrol_previous,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
 		memcpy(valvecontrol_previous,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
-		
-		// Schedule the jobs
-		simulation_time = Job_Handler(tankcontrol_current,valvecontrol_current);
+	
+			
+		if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
+			// Schedule the jobs
+			printf("popping jobs from queue");
+			simulation_time = Job_Handler(tankcontrol_current,valvecontrol_current);
+		}
 		
 		// Run EPANET Engine
 			
@@ -772,8 +776,6 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		function_value_previous = function_value_current;
 		// Calculating the objective_function for current setting
 		
-		// From the settings schedule the jobs
-		Job_Scheduler(tankcontrol_current, valvecontrol_current);
 		
 		function_value_current = objective_function(tankcontrol_current,valvecontrol_current);
 		iteration_count++;
@@ -787,7 +789,10 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			printf("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
 			printf("Iteration Count = %d",iteration_count);
 			
-			display_output(tankcontrol_current, tankcontrol_gradient, valvecontrol_current, valvecontrol_gradient);
+			// From the settings schedule the jobs
+			Job_Scheduler(tankcontrol_current, valvecontrol_current);
+	
+			display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
 		}
 
 
