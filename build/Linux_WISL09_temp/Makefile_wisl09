@@ -1,0 +1,7 @@
+SHELL = /bin/sh
+all:
+	gcc -g -fPIC -o epanet_valve_optim_wisl09  -L ./  -lepanet2 -lm ../../src/epanet_valve_optim_test_engine.c
+
+clean:
+	rm -rf epanet_valve_optim_wisl09
+

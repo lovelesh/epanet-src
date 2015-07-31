@@ -1,0 +1,1479 @@
+size of TankStruct = 1192, Size of Valve Struct = 552
+tankcount = 0
+ Tank 1: Tank ID = 34,
+tankcount = 1
+ Tank 2: Tank ID = Veeranageeri,
+tankcount = 2
+ Tank 3: Tank ID = NR_mohalla2,
+tankcount = 3
+ Tank 4: Tank ID = NR_Mohalla1,
+tankcount = 4
+ Tank 5: Tank ID = Rajiv_nagar_II,
+tankcount = 5
+ Tank 6: Tank ID = Tippu_Park,
+ Tank ID = 34, Tank Max Level (meter^3) = 990.779907
+ Tank ID = 34, Tank Input Link ID = 84
+ Tank ID = 34, Tank Output Link ID = DVRTMP3
+ Tank ID = Veeranageeri, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Veeranageeri, Tank Input Link ID = 79
+ Tank ID = Veeranageeri, Tank Output Link ID = 10
+ Tank ID = NR_mohalla2, Tank Max Level (meter^3) = 251.123215
+ Tank ID = NR_mohalla2, Tank Input Link ID = 77
+ Tank ID = NR_mohalla2, Tank Output Link ID = 8
+ Tank ID = NR_Mohalla1, Tank Max Level (meter^3) = 990.779663
+ Tank ID = NR_Mohalla1, Tank Input Link ID = 75
+ Tank ID = NR_Mohalla1, Tank Output Link ID = 7
+ Tank ID = Rajiv_nagar_II, Tank Max Level (meter^3) = 1475.370239
+ Tank ID = Rajiv_nagar_II, Tank Input Link ID = 73
+ Tank ID = Rajiv_nagar_II, Tank Output Link ID = 1
+ Tank ID = Tippu_Park, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Tippu_Park, Tank Input Link ID = 55
+ Tank ID = Tippu_Park, Tank Output Link ID = 2 Gradient Norm = 962631422705664.000000 alpha mult = 0.000014
+ Iteration Count = 11	Function Value = 471420320.000000 	 Percentage Difference = -0.039585 Gradient Norm = 1850160840704.000000 alpha mult = 0.000044
+ Iteration Count = 21	Function Value = 357811936.000000 	 Percentage Difference = -0.010552 Gradient Norm = 822471688192.000000 alpha mult = 0.000044
+ Iteration Count = 31	Function Value = 329847232.000000 	 Percentage Difference = -0.003382 Gradient Norm = 424644870144.000000 alpha mult = 0.000054
+ Iteration Count = 41	Function Value = 316148480.000000 	 Percentage Difference = -0.003593 Gradient Norm = 378388185088.000000 alpha mult = 0.000044
+ Iteration Count = 51	Function Value = 302311520.000000 	 Percentage Difference = -0.005356 Gradient Norm = 408913575936.000000 alpha mult = 0.000054
+ Iteration Count = 61	Function Value = 287887040.000000 	 Percentage Difference = -0.005725 Gradient Norm = 374770991104.000000 alpha mult = 0.000054
+ Iteration Count = 71	Function Value = 274115648.000000 	 Percentage Difference = -0.004275 Gradient Norm = 366863056896.000000 alpha mult = 0.000054
+ Iteration Count = 81	Function Value = 263060624.000000 	 Percentage Difference = -0.002934 Gradient Norm = 369425874944.000000 alpha mult = 0.000044
+ Iteration Count = 91	Function Value = 238600208.000000 	 Percentage Difference = -0.004644 Gradient Norm = 299639668736.000000 alpha mult = 0.000054
+ Iteration Count = 101	Function Value = 231314416.000000 	 Percentage Difference = -0.002131 Gradient Norm = 223036833792.000000 alpha mult = 0.000054
+ Iteration Count = 111	Function Value = 227195344.000000 	 Percentage Difference = -0.002040 Gradient Norm = 202170204160.000000 alpha mult = 0.000068
+ Iteration Count = 121	Function Value = 223642544.000000 	 Percentage Difference = -0.001346 Gradient Norm = 208676552704.000000 alpha mult = 0.000054
+ Iteration Count = 131	Function Value = 220695040.000000 	 Percentage Difference = -0.001377 Gradient Norm = 197555240960.000000 alpha mult = 0.000054
+ Iteration Count = 141	Function Value = 217996592.000000 	 Percentage Difference = -0.001281 Gradient Norm = 189704388608.000000 alpha mult = 0.000054
+ Iteration Count = 151	Function Value = 215641472.000000 	 Percentage Difference = -0.001106 Gradient Norm = 184337940480.000000 alpha mult = 0.000054
+ Iteration Count = 161	Function Value = 213451792.000000 	 Percentage Difference = -0.001060 Gradient Norm = 188410183680.000000 alpha mult = 0.000054
+ Iteration Count = 171	Function Value = 211346288.000000 	 Percentage Difference = -0.001027 Gradient Norm = 178472386560.000000 alpha mult = 0.000054
+ Iteration Count = 181	Function Value = 209282672.000000 	 Percentage Difference = -0.001126 Gradient Norm = 174908801024.000000 alpha mult = 0.000054
+ Iteration Count = 191	Function Value = 207537552.000000 	 Percentage Difference = -0.000838 Gradient Norm = 173050265600.000000 alpha mult = 0.000054
+ Iteration Count = 201	Function Value = 205731632.000000 	 Percentage Difference = -0.000972 Gradient Norm = 170753294336.000000 alpha mult = 0.000068
+ Iteration Count = 211	Function Value = 204170480.000000 	 Percentage Difference = -0.000764 Gradient Norm = 172766085120.000000 alpha mult = 0.000054
+ Iteration Count = 221	Function Value = 202615312.000000 	 Percentage Difference = -0.000856 Gradient Norm = 165687705600.000000 alpha mult = 0.000054
+ Iteration Count = 231	Function Value = 201221792.000000 	 Percentage Difference = -0.000861 Gradient Norm = 166668795904.000000 alpha mult = 0.000054
+ Iteration Count = 241	Function Value = 199920304.000000 	 Percentage Difference = -0.000619 Gradient Norm = 163843194880.000000 alpha mult = 0.000054
+ Iteration Count = 251	Function Value = 198650544.000000 	 Percentage Difference = -0.000816 Gradient Norm = 159863046144.000000 alpha mult = 0.000054
+ Iteration Count = 261	Function Value = 197447952.000000 	 Percentage Difference = -0.000564 Gradient Norm = 159707529216.000000 alpha mult = 0.000054
+ Iteration Count = 271	Function Value = 196276512.000000 	 Percentage Difference = -0.000710 Gradient Norm = 160400605184.000000 alpha mult = 0.000054
+ Iteration Count = 281	Function Value = 195145248.000000 	 Percentage Difference = -0.000531 Gradient Norm = 152089542656.000000 alpha mult = 0.000068
+ Iteration Count = 291	Function Value = 194110992.000000 	 Percentage Difference = -0.000456 Gradient Norm = 154449248256.000000 alpha mult = 0.000054
+ Iteration Count = 301	Function Value = 193111936.000000 	 Percentage Difference = -0.000585 Gradient Norm = 154403176448.000000 alpha mult = 0.000054
+ Iteration Count = 311	Function Value = 192180144.000000 	 Percentage Difference = -0.000489 Gradient Norm = 154285441024.000000 alpha mult = 0.000054
+ Iteration Count = 321	Function Value = 191282848.000000 	 Percentage Difference = -0.000425 Gradient Norm = 153441255424.000000 alpha mult = 0.000054
+ Iteration Count = 331	Function Value = 190402752.000000 	 Percentage Difference = -0.000517 Gradient Norm = 147513524224.000000 alpha mult = 0.000068
+ Iteration Count = 341	Function Value = 189554416.000000 	 Percentage Difference = -0.000425 Gradient Norm = 153157713920.000000 alpha mult = 0.000054
+ Iteration Count = 351	Function Value = 188735552.000000 	 Percentage Difference = -0.000466 Gradient Norm = 147546849280.000000 alpha mult = 0.000054
+ Iteration Count = 361	Function Value = 187955760.000000 	 Percentage Difference = -0.000403 Gradient Norm = 149235154944.000000 alpha mult = 0.000054
+ Iteration Count = 371	Function Value = 187197056.000000 	 Percentage Difference = -0.000444 Gradient Norm = 142202224640.000000 alpha mult = 0.000054
+ Iteration Count = 381	Function Value = 186449952.000000 	 Percentage Difference = -0.000466 Gradient Norm = 141101416448.000000 alpha mult = 0.000054
+ Iteration Count = 391	Function Value = 185750944.000000 	 Percentage Difference = -0.000438 Gradient Norm = 146753241088.000000 alpha mult = 0.000054
+ Iteration Count = 401	Function Value = 185087744.000000 	 Percentage Difference = -0.000434 Gradient Norm = 143052128256.000000 alpha mult = 0.000054
+ Iteration Count = 411	Function Value = 184441296.000000 	 Percentage Difference = -0.000305 Gradient Norm = 140763447296.000000 alpha mult = 0.000054
+ Iteration Count = 421	Function Value = 183862768.000000 	 Percentage Difference = -0.000260 Gradient Norm = 140690505728.000000 alpha mult = 0.000054
+ Iteration Count = 431	Function Value = 183275824.000000 	 Percentage Difference = -0.000295 Gradient Norm = 138156720128.000000 alpha mult = 0.000068
+ Iteration Count = 441	Function Value = 182752480.000000 	 Percentage Difference = -0.000241 Gradient Norm = 139265277952.000000 alpha mult = 0.000068
+ Iteration Count = 451	Function Value = 182223824.000000 	 Percentage Difference = -0.000264 Gradient Norm = 136723103744.000000 alpha mult = 0.000054
+ Iteration Count = 461	Function Value = 181716224.000000 	 Percentage Difference = -0.000325 Gradient Norm = 134129860608.000000 alpha mult = 0.000068
+ Iteration Count = 471	Function Value = 181221824.000000 	 Percentage Difference = -0.000187 Gradient Norm = 135350943744.000000 alpha mult = 0.000054
+ Iteration Count = 481	Function Value = 180749328.000000 	 Percentage Difference = -0.000273 Gradient Norm = 134388424704.000000 alpha mult = 0.000044
+ Iteration Count = 491	Function Value = 180306416.000000 	 Percentage Difference = -0.000261 Gradient Norm = 130843443200.000000 alpha mult = 0.000044
+ Iteration Count = 501	Function Value = 179820624.000000 	 Percentage Difference = -0.000228 Gradient Norm = 138032594944.000000 alpha mult = 0.000085
+ Iteration Count = 511	Function Value = 179373440.000000 	 Percentage Difference = -0.000292 Gradient Norm = 130730147840.000000 alpha mult = 0.000054
+ Iteration Count = 521	Function Value = 178944080.000000 	 Percentage Difference = -0.000239 Gradient Norm = 131880878080.000000 alpha mult = 0.000085
+ Iteration Count = 531	Function Value = 178540624.000000 	 Percentage Difference = -0.000226 Gradient Norm = 134803767296.000000 alpha mult = 0.000044
+ Iteration Count = 541	Function Value = 178146848.000000 	 Percentage Difference = -0.000173 Gradient Norm = 131566665728.000000 alpha mult = 0.000044
+ Iteration Count = 551	Function Value = 177785904.000000 	 Percentage Difference = -0.000182 Gradient Norm = 128940720128.000000 alpha mult = 0.000054
+ Iteration Count = 561	Function Value = 177433280.000000 	 Percentage Difference = -0.000185 Gradient Norm = 130678956032.000000 alpha mult = 0.000054
+ Iteration Count = 571	Function Value = 177078096.000000 	 Percentage Difference = -0.000196 Gradient Norm = 126281531392.000000 alpha mult = 0.000068
+ Iteration Count = 581	Function Value = 176712064.000000 	 Percentage Difference = -0.000200 Gradient Norm = 129652408320.000000 alpha mult = 0.000044
+ Iteration Count = 591	Function Value = 176400896.000000 	 Percentage Difference = -0.000173 Gradient Norm = 126823587840.000000 alpha mult = 0.000054
+ Iteration Count = 601	Function Value = 176093104.000000 	 Percentage Difference = -0.000196 Gradient Norm = 127075098624.000000 alpha mult = 0.000068
+ Iteration Count = 611	Function Value = 175798816.000000 	 Percentage Difference = -0.000157 Gradient Norm = 128301367296.000000 alpha mult = 0.000054
+ Iteration Count = 621	Function Value = 175499376.000000 	 Percentage Difference = -0.000188 Gradient Norm = 122360864768.000000 alpha mult = 0.000054
+ Iteration Count = 631	Function Value = 175205552.000000 	 Percentage Difference = -0.000169 Gradient Norm = 123173691392.000000 alpha mult = 0.000054
+ Iteration Count = 641	Function Value = 174928912.000000 	 Percentage Difference = -0.000189 Gradient Norm = 124517703680.000000 alpha mult = 0.000106
+ Iteration Count = 651	Function Value = 174645872.000000 	 Percentage Difference = -0.000189 Gradient Norm = 123735605248.000000 alpha mult = 0.000054
+ Iteration Count = 661	Function Value = 174391488.000000 	 Percentage Difference = -0.000111 Gradient Norm = 127256231936.000000 alpha mult = 0.000068
+ Iteration Count = 671	Function Value = 174155904.000000 	 Percentage Difference = -0.000120 Gradient Norm = 123867414528.000000 alpha mult = 0.000054
+ Iteration Count = 681	Function Value = 173901920.000000 	 Percentage Difference = -0.000135 Gradient Norm = 121070665728.000000 alpha mult = 0.000054
+ Iteration Count = 691	Function Value = 173681648.000000 	 Percentage Difference = -0.000138 Gradient Norm = 123327291392.000000 alpha mult = 0.000068
+ Iteration Count = 701	Function Value = 173465504.000000 	 Percentage Difference = -0.000101 Gradient Norm = 120942010368.000000 alpha mult = 0.000068
+ Iteration Count = 711	Function Value = 173246176.000000 	 Percentage Difference = -0.000138 Gradient Norm = 122488242176.000000 alpha mult = 0.000044
+ Iteration Count = 721	Function Value = 173048304.000000 	 Percentage Difference = -0.000080 Gradient Norm = 120991301632.000000 alpha mult = 0.000068
+ Iteration Count = 731	Function Value = 172843616.000000 	 Percentage Difference = -0.000115 Gradient Norm = 122883801088.000000 alpha mult = 0.000085
+ Iteration Count = 741	Function Value = 172609488.000000 	 Percentage Difference = -0.000095 Gradient Norm = 121824542720.000000 alpha mult = 0.000054
+ Iteration Count = 751	Function Value = 172429424.000000 	 Percentage Difference = -0.000097 Gradient Norm = 120677695488.000000 alpha mult = 0.000054
+ Iteration Count = 761	Function Value = 172236976.000000 	 Percentage Difference = -0.000125 Gradient Norm = 120792899584.000000 alpha mult = 0.000068
+ Iteration Count = 771	Function Value = 172058480.000000 	 Percentage Difference = -0.000091 Gradient Norm = 121253044224.000000 alpha mult = 0.000068
+ Iteration Count = 781	Function Value = 171860160.000000 	 Percentage Difference = -0.000081 Gradient Norm = 113081516032.000000 alpha mult = 0.000085
+ Iteration Count = 791	Function Value = 171707552.000000 	 Percentage Difference = -0.000081 Gradient Norm = 119465541632.000000 alpha mult = 0.000054
+ Iteration Count = 801	Function Value = 171546352.000000 	 Percentage Difference = -0.000104 Gradient Norm = 117904556032.000000 alpha mult = 0.000068
+ Iteration Count = 811	Function Value = 171371600.000000 	 Percentage Difference = -0.000068 Gradient Norm = 115957022720.000000 alpha mult = 0.000054
+ Iteration Count = 821	Function Value = 171217344.000000 	 Percentage Difference = -0.000131 Gradient Norm = 116382679040.000000 alpha mult = 0.000085
+ Iteration Count = 831	Function Value = 171039488.000000 	 Percentage Difference = -0.000092 Gradient Norm = 120461361152.000000 alpha mult = 0.000085
+ Iteration Count = 841	Function Value = 170896464.000000 	 Percentage Difference = -0.000078 Gradient Norm = 116732739584.000000 alpha mult = 0.000106
+ Iteration Count = 851	Function Value = 170754272.000000 	 Percentage Difference = -0.000058 Gradient Norm = 117331763200.000000 alpha mult = 0.000054
+ Iteration Count = 861	Function Value = 170630656.000000 	 Percentage Difference = -0.000075 Gradient Norm = 117064892416.000000 alpha mult = 0.000068
+ Iteration Count = 871	Function Value = 170521920.000000 	 Percentage Difference = -0.000062 Gradient Norm = 119069974528.000000 alpha mult = 0.000406
+ Iteration Count = 881	Function Value = 170348192.000000 	 Percentage Difference = -0.000088 Gradient Norm = 117166645248.000000 alpha mult = 0.000068
+ Iteration Count = 891	Function Value = 170216560.000000 	 Percentage Difference = -0.000077 Gradient Norm = 116071579648.000000 alpha mult = 0.000054
+ Iteration Count = 901	Function Value = 170065904.000000 	 Percentage Difference = -0.000100 Gradient Norm = 116413341696.000000 alpha mult = 0.000044
+ Iteration Count = 911	Function Value = 169934944.000000 	 Percentage Difference = -0.000110 Gradient Norm = 120185479168.000000 alpha mult = 0.000054
+ Iteration Count = 921	Function Value = 169830544.000000 	 Percentage Difference = -0.000066 Gradient Norm = 115246645248.000000 alpha mult = 0.000054
+ Iteration Count = 931	Function Value = 169699664.000000 	 Percentage Difference = -0.000154 Gradient Norm = 115386826752.000000 alpha mult = 0.000054
+ Iteration Count = 941	Function Value = 169598704.000000 	 Percentage Difference = -0.000095 Gradient Norm = 117131427840.000000 alpha mult = 0.000068
+ Iteration Count = 951	Function Value = 169465408.000000 	 Percentage Difference = -0.000067 Gradient Norm = 118508732416.000000 alpha mult = 0.000054
+ Iteration Count = 961	Function Value = 169225680.000000 	 Percentage Difference = -0.000081 Gradient Norm = 115718316032.000000 alpha mult = 0.000068
+ Iteration Count = 971	Function Value = 169026736.000000 	 Percentage Difference = -0.000075 Gradient Norm = 113528258560.000000 alpha mult = 0.000068
+ Iteration Count = 981	Function Value = 168932848.000000 	 Percentage Difference = -0.000037 Gradient Norm = 112941359104.000000 alpha mult = 0.000133
+ Iteration Count = 991	Function Value = 168848960.000000 	 Percentage Difference = -0.000009 Gradient Norm = 111526969344.000000 alpha mult = 0.000014
+ Iteration Count = 1001	Function Value = 168754368.000000 	 Percentage Difference = -0.000038 Gradient Norm = 113885315072.000000 alpha mult = 0.000068
+ Iteration Count = 1011	Function Value = 168660192.000000 	 Percentage Difference = -0.000200 Gradient Norm = 113022001152.000000 alpha mult = 0.000106
+ Iteration Count = 1021	Function Value = 168588304.000000 	 Percentage Difference = -0.000027 Gradient Norm = 112482500608.000000 alpha mult = 0.000208
+ Iteration Count = 1031	Function Value = 168512160.000000 	 Percentage Difference = -0.000037 Gradient Norm = 112443424768.000000 alpha mult = 0.000325
+ Iteration Count = 1041	Function Value = 168436992.000000 	 Percentage Difference = -0.000036 Gradient Norm = 113654300672.000000 alpha mult = 0.000044
+ Iteration Count = 1051	Function Value = 168380240.000000 	 Percentage Difference = -0.000044 Gradient Norm = 112108093440.000000 alpha mult = 0.000054
+ Iteration Count = 1061	Function Value = 168296288.000000 	 Percentage Difference = -0.000079 Gradient Norm = 111940370432.000000 alpha mult = 0.000028
+ Iteration Count = 1071	Function Value = 168262112.000000 	 Percentage Difference = -0.000006 Gradient Norm = 113902010368.000000 alpha mult = 0.000014
+ Iteration Count = 1081	Function Value = 168224048.000000 	 Percentage Difference = -0.000018 Gradient Norm = 113918623744.000000 alpha mult = 0.000022
+ Iteration Count = 1091	Function Value = 168195760.000000 	 Percentage Difference = -0.000027 Gradient Norm = 111272255488.000000 alpha mult = 0.000014
+ Iteration Count = 1101	Function Value = 168169552.000000 	 Percentage Difference = -0.000015 Gradient Norm = 113409851392.000000 alpha mult = 0.000106
+ Iteration Count = 1111	Function Value = 168141328.000000 	 Percentage Difference = -0.000017 Gradient Norm = 111641526272.000000 alpha mult = 0.000035
+ Iteration Count = 1121	Function Value = 168126848.000000 	 Percentage Difference = -0.000005 Gradient Norm = 114440880128.000000 alpha mult = 0.000014
+ Iteration Count = 1131	Function Value = 168083344.000000 	 Percentage Difference = -0.000031 Gradient Norm = 111020081152.000000 alpha mult = 0.000044
+ Iteration Count = 1141	Function Value = 168044112.000000 	 Percentage Difference = -0.000053 Gradient Norm = 112259088384.000000 alpha mult = 0.000054
+ Iteration Count = 1151	Function Value = 168005872.000000 	 Percentage Difference = -0.000007 Gradient Norm = 113453350912.000000 alpha mult = 0.000028
+ Iteration Count = 1161	Function Value = 167987904.000000 	 Percentage Difference = -0.000013 Gradient Norm = 108305195008.000000 alpha mult = 0.000018
+ Iteration Count = 1171	Function Value = 167969984.000000 	 Percentage Difference = -0.000006 Gradient Norm = 117424562176.000000 alpha mult = 0.000014
+ Iteration Count = 1181	Function Value = 167956576.000000 	 Percentage Difference = -0.000006 Gradient Norm = 115062996992.000000 alpha mult = 0.000014
+ Iteration Count = 1191	Function Value = 167942640.000000 	 Percentage Difference = -0.000009 Gradient Norm = 110490812416.000000 alpha mult = 0.000035
+ Iteration Count = 1201	Function Value = 167916000.000000 	 Percentage Difference = -0.000006 Gradient Norm = 112668057600.000000 alpha mult = 0.000014
+ Iteration Count = 1211	Function Value = 167897040.000000 	 Percentage Difference = -0.000006 Gradient Norm = 111855271936.000000 alpha mult = 0.000014
+ Iteration Count = 1221	Function Value = 167871200.000000 	 Percentage Difference = -0.000051 Gradient Norm = 114336555008.000000 alpha mult = 0.000085
+ Iteration Count = 1231	Function Value = 167836176.000000 	 Percentage Difference = -0.000010 Gradient Norm = 112217522176.000000 alpha mult = 0.000014
+ Iteration Count = 1241	Function Value = 167815744.000000 	 Percentage Difference = -0.000023 Gradient Norm = 109304250368.000000 alpha mult = 0.000014
+ Iteration Count = 1251	Function Value = 167805392.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110577885184.000000 alpha mult = 0.000014
+ Iteration Count = 1261	Function Value = 167780864.000000 	 Percentage Difference = -0.000010 Gradient Norm = 110675763200.000000 alpha mult = 0.000014
+ Iteration Count = 1271	Function Value = 167768128.000000 	 Percentage Difference = -0.000011 Gradient Norm = 110810169344.000000 alpha mult = 0.000035
+ Iteration Count = 1281	Function Value = 167754384.000000 	 Percentage Difference = -0.000007 Gradient Norm = 113500053504.000000 alpha mult = 0.000014
+ Iteration Count = 1291	Function Value = 167743280.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110027489280.000000 alpha mult = 0.000044
+ Iteration Count = 1301	Function Value = 167729120.000000 	 Percentage Difference = -0.000001 Gradient Norm = 114566963200.000000 alpha mult = 0.000028
+ Iteration Count = 1311	Function Value = 167709664.000000 	 Percentage Difference = -0.000015 Gradient Norm = 113679261696.000000 alpha mult = 0.000014
+ Iteration Count = 1321	Function Value = 167700624.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111388721152.000000 alpha mult = 0.000028
+ Iteration Count = 1331	Function Value = 167688512.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110439596032.000000 alpha mult = 0.000014
+ Iteration Count = 1341	Function Value = 167675152.000000 	 Percentage Difference = -0.000014 Gradient Norm = 111305539584.000000 alpha mult = 0.000014
+ Iteration Count = 1351	Function Value = 167663120.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109905199104.000000 alpha mult = 0.000014
+ Iteration Count = 1361	Function Value = 167651728.000000 	 Percentage Difference = -0.000013 Gradient Norm = 110039597056.000000 alpha mult = 0.000014
+ Iteration Count = 1371	Function Value = 167639744.000000 	 Percentage Difference = -0.000005 Gradient Norm = 114017181696.000000 alpha mult = 0.000014
+ Iteration Count = 1381	Function Value = 167628928.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111936536576.000000 alpha mult = 0.000014
+ Iteration Count = 1391	Function Value = 167613312.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111927574528.000000 alpha mult = 0.000014
+ Iteration Count = 1401	Function Value = 167595792.000000 	 Percentage Difference = -0.000010 Gradient Norm = 108369215488.000000 alpha mult = 0.000014
+ Iteration Count = 1411	Function Value = 167583072.000000 	 Percentage Difference = -0.000009 Gradient Norm = 111704883200.000000 alpha mult = 0.000014
+ Iteration Count = 1421	Function Value = 167571488.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111678005248.000000 alpha mult = 0.000014
+ Iteration Count = 1431	Function Value = 167561248.000000 	 Percentage Difference = -0.000004 Gradient Norm = 109242155008.000000 alpha mult = 0.000014
+ Iteration Count = 1441	Function Value = 167548832.000000 	 Percentage Difference = -0.000004 Gradient Norm = 109490470912.000000 alpha mult = 0.000028
+ Iteration Count = 1451	Function Value = 167536064.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111002845184.000000 alpha mult = 0.000014
+ Iteration Count = 1461	Function Value = 167525280.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105846317056.000000 alpha mult = 0.000022
+ Iteration Count = 1471	Function Value = 167513904.000000 	 Percentage Difference = -0.000007 Gradient Norm = 112318644224.000000 alpha mult = 0.000014
+ Iteration Count = 1481	Function Value = 167503808.000000 	 Percentage Difference = -0.000003 Gradient Norm = 111965339648.000000 alpha mult = 0.000014
+ Iteration Count = 1491	Function Value = 167493536.000000 	 Percentage Difference = -0.000015 Gradient Norm = 113015570432.000000 alpha mult = 0.000014
+ Iteration Count = 1501	Function Value = 167483344.000000 	 Percentage Difference = -0.000014 Gradient Norm = 110365343744.000000 alpha mult = 0.000014
+ Iteration Count = 1511	Function Value = 167468464.000000 	 Percentage Difference = -0.000011 Gradient Norm = 108574654464.000000 alpha mult = 0.000014
+ Iteration Count = 1521	Function Value = 167459824.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111808569344.000000 alpha mult = 0.000014
+ Iteration Count = 1531	Function Value = 167448848.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109839302656.000000 alpha mult = 0.000028
+ Iteration Count = 1541	Function Value = 167436464.000000 	 Percentage Difference = -0.000004 Gradient Norm = 112222633984.000000 alpha mult = 0.000014
+ Iteration Count = 1551	Function Value = 167425392.000000 	 Percentage Difference = -0.000009 Gradient Norm = 112095248384.000000 alpha mult = 0.000014
+ Iteration Count = 1561	Function Value = 167416944.000000 	 Percentage Difference = -0.000000 Gradient Norm = 111246647296.000000 alpha mult = 0.000044
+ Iteration Count = 1571	Function Value = 167399216.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107533975552.000000 alpha mult = 0.000014
+ Iteration Count = 1581	Function Value = 167388912.000000 	 Percentage Difference = -0.000007 Gradient Norm = 112774316032.000000 alpha mult = 0.000014
+ Iteration Count = 1591	Function Value = 167380240.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109748379648.000000 alpha mult = 0.000014
+ Iteration Count = 1601	Function Value = 167363216.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110252736512.000000 alpha mult = 0.000014
+ Iteration Count = 1611	Function Value = 167352752.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111610150912.000000 alpha mult = 0.000014
+ Iteration Count = 1621	Function Value = 167341888.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109544243200.000000 alpha mult = 0.000022
+ Iteration Count = 1631	Function Value = 167331952.000000 	 Percentage Difference = -0.000013 Gradient Norm = 109412409344.000000 alpha mult = 0.000014
+ Iteration Count = 1641	Function Value = 167323344.000000 	 Percentage Difference = -0.000007 Gradient Norm = 110933041152.000000 alpha mult = 0.000014
+ Iteration Count = 1651	Function Value = 167314000.000000 	 Percentage Difference = -0.000005 Gradient Norm = 113067442176.000000 alpha mult = 0.000014
+ Iteration Count = 1661	Function Value = 167305536.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109435453440.000000 alpha mult = 0.000014
+ Iteration Count = 1671	Function Value = 167296976.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109381050368.000000 alpha mult = 0.000014
+ Iteration Count = 1681	Function Value = 167283360.000000 	 Percentage Difference = -0.000009 Gradient Norm = 110775582720.000000 alpha mult = 0.000014
+ Iteration Count = 1691	Function Value = 167274288.000000 	 Percentage Difference = -0.000006 Gradient Norm = 111669690368.000000 alpha mult = 0.000014
+ Iteration Count = 1701	Function Value = 167266432.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108699426816.000000 alpha mult = 0.000014
+ Iteration Count = 1711	Function Value = 167256112.000000 	 Percentage Difference = -0.000008 Gradient Norm = 111187148800.000000 alpha mult = 0.000014
+ Iteration Count = 1721	Function Value = 167247584.000000 	 Percentage Difference = -0.000005 Gradient Norm = 112042811392.000000 alpha mult = 0.000014
+ Iteration Count = 1731	Function Value = 167239568.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109574971392.000000 alpha mult = 0.000014
+ Iteration Count = 1741	Function Value = 167229248.000000 	 Percentage Difference = -0.000008 Gradient Norm = 113106485248.000000 alpha mult = 0.000014
+ Iteration Count = 1751	Function Value = 167221728.000000 	 Percentage Difference = -0.000006 Gradient Norm = 111167283200.000000 alpha mult = 0.000014
+ Iteration Count = 1761	Function Value = 167213344.000000 	 Percentage Difference = -0.000013 Gradient Norm = 108935610368.000000 alpha mult = 0.000014
+ Iteration Count = 1771	Function Value = 167203120.000000 	 Percentage Difference = -0.000018 Gradient Norm = 109363085312.000000 alpha mult = 0.000014
+ Iteration Count = 1781	Function Value = 167195152.000000 	 Percentage Difference = -0.000001 Gradient Norm = 110476689408.000000 alpha mult = 0.000014
+ Iteration Count = 1791	Function Value = 167186176.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107950645248.000000 alpha mult = 0.000014
+ Iteration Count = 1801	Function Value = 167178432.000000 	 Percentage Difference = -0.000008 Gradient Norm = 111190343680.000000 alpha mult = 0.000014
+ Iteration Count = 1811	Function Value = 167170400.000000 	 Percentage Difference = -0.000007 Gradient Norm = 109147455488.000000 alpha mult = 0.000014
+ Iteration Count = 1821	Function Value = 167162624.000000 	 Percentage Difference = -0.000006 Gradient Norm = 110261673984.000000 alpha mult = 0.000014
+ Iteration Count = 1831	Function Value = 167154528.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108702629888.000000 alpha mult = 0.000014
+ Iteration Count = 1841	Function Value = 167144768.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111999950848.000000 alpha mult = 0.000014
+ Iteration Count = 1851	Function Value = 167136976.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109294682112.000000 alpha mult = 0.000014
+ Iteration Count = 1861	Function Value = 167130000.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109782302720.000000 alpha mult = 0.000014
+ Iteration Count = 1871	Function Value = 167121760.000000 	 Percentage Difference = -0.000003 Gradient Norm = 110136221696.000000 alpha mult = 0.000014
+ Iteration Count = 1881	Function Value = 167113488.000000 	 Percentage Difference = -0.000007 Gradient Norm = 110418509824.000000 alpha mult = 0.000014
+ Iteration Count = 1891	Function Value = 167105776.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108944572416.000000 alpha mult = 0.000014
+ Iteration Count = 1901	Function Value = 167097712.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111306153984.000000 alpha mult = 0.000014
+ Iteration Count = 1911	Function Value = 167089872.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108646973440.000000 alpha mult = 0.000014
+ Iteration Count = 1921	Function Value = 167082592.000000 	 Percentage Difference = -0.000004 Gradient Norm = 111156420608.000000 alpha mult = 0.000014
+ Iteration Count = 1931	Function Value = 167074528.000000 	 Percentage Difference = -0.000003 Gradient Norm = 111876382720.000000 alpha mult = 0.000014
+ Iteration Count = 1941	Function Value = 167067024.000000 	 Percentage Difference = -0.000002 Gradient Norm = 111757385728.000000 alpha mult = 0.000014
+ Iteration Count = 1951	Function Value = 167060944.000000 	 Percentage Difference = 0.000003 Gradient Norm = 108870303744.000000 alpha mult = 0.000022
+ Iteration Count = 1961	Function Value = 167051840.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109257506816.000000 alpha mult = 0.000014
+ Iteration Count = 1971	Function Value = 167045008.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111715106816.000000 alpha mult = 0.000014
+ Iteration Count = 1981	Function Value = 167037360.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110343585792.000000 alpha mult = 0.000014
+ Iteration Count = 1991	Function Value = 167030192.000000 	 Percentage Difference = -0.000000 Gradient Norm = 109185236992.000000 alpha mult = 0.000014
+ Iteration Count = 2001	Function Value = 167021248.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108604080128.000000 alpha mult = 0.000014
+ Iteration Count = 2011	Function Value = 167010352.000000 	 Percentage Difference = -0.000008 Gradient Norm = 109760561152.000000 alpha mult = 0.000014
+ Iteration Count = 2021	Function Value = 167003536.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108778176512.000000 alpha mult = 0.000014
+ Iteration Count = 2031	Function Value = 166995216.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108470312960.000000 alpha mult = 0.000014
+ Iteration Count = 2041	Function Value = 166987776.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111076384768.000000 alpha mult = 0.000014
+ Iteration Count = 2051	Function Value = 166976784.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107980701696.000000 alpha mult = 0.000014
+ Iteration Count = 2061	Function Value = 166969664.000000 	 Percentage Difference = -0.000001 Gradient Norm = 110975311872.000000 alpha mult = 0.000014
+ Iteration Count = 2071	Function Value = 166961664.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108207267840.000000 alpha mult = 0.000014
+ Iteration Count = 2081	Function Value = 166953936.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109491765248.000000 alpha mult = 0.000014
+ Iteration Count = 2091	Function Value = 166946736.000000 	 Percentage Difference = -0.000008 Gradient Norm = 112076079104.000000 alpha mult = 0.000014
+ Iteration Count = 2101	Function Value = 166937968.000000 	 Percentage Difference = -0.000005 Gradient Norm = 112264273920.000000 alpha mult = 0.000014
+ Iteration Count = 2111	Function Value = 166931456.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108922798080.000000 alpha mult = 0.000014
+ Iteration Count = 2121	Function Value = 166924496.000000 	 Percentage Difference = -0.000007 Gradient Norm = 112155475968.000000 alpha mult = 0.000014
+ Iteration Count = 2131	Function Value = 166916496.000000 	 Percentage Difference = -0.000001 Gradient Norm = 111255609344.000000 alpha mult = 0.000014
+ Iteration Count = 2141	Function Value = 166910560.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110173347840.000000 alpha mult = 0.000014
+ Iteration Count = 2151	Function Value = 166901824.000000 	 Percentage Difference = -0.000003 Gradient Norm = 112885645312.000000 alpha mult = 0.000014
+ Iteration Count = 2161	Function Value = 166895792.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110732738560.000000 alpha mult = 0.000014
+ Iteration Count = 2171	Function Value = 166889952.000000 	 Percentage Difference = 0.000002 Gradient Norm = 108059410432.000000 alpha mult = 0.000014
+ Iteration Count = 2181	Function Value = 166881920.000000 	 Percentage Difference = -0.000002 Gradient Norm = 111084691456.000000 alpha mult = 0.000014
+ Iteration Count = 2191	Function Value = 166874192.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108623306752.000000 alpha mult = 0.000014
+ Iteration Count = 2201	Function Value = 166867584.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109654941696.000000 alpha mult = 0.000014
+ Iteration Count = 2211	Function Value = 166861248.000000 	 Percentage Difference = -0.000002 Gradient Norm = 110273839104.000000 alpha mult = 0.000014
+ Iteration Count = 2221	Function Value = 166853696.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108508725248.000000 alpha mult = 0.000014
+ Iteration Count = 2231	Function Value = 166847840.000000 	 Percentage Difference = -0.000005 Gradient Norm = 112182935552.000000 alpha mult = 0.000014
+ Iteration Count = 2241	Function Value = 166842528.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109058498560.000000 alpha mult = 0.000014
+ Iteration Count = 2251	Function Value = 166835184.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109592895488.000000 alpha mult = 0.000014
+ Iteration Count = 2261	Function Value = 166829392.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108137488384.000000 alpha mult = 0.000014
+ Iteration Count = 2271	Function Value = 166822976.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110095302656.000000 alpha mult = 0.000014
+ Iteration Count = 2281	Function Value = 166816224.000000 	 Percentage Difference = -0.000011 Gradient Norm = 108207939584.000000 alpha mult = 0.000014
+ Iteration Count = 2291	Function Value = 166808608.000000 	 Percentage Difference = -0.000010 Gradient Norm = 113412390912.000000 alpha mult = 0.000014
+ Iteration Count = 2301	Function Value = 166803744.000000 	 Percentage Difference = 0.000001 Gradient Norm = 111640911872.000000 alpha mult = 0.000014
+ Iteration Count = 2311	Function Value = 166796544.000000 	 Percentage Difference = -0.000001 Gradient Norm = 111231893504.000000 alpha mult = 0.000014
+ Iteration Count = 2321	Function Value = 166790160.000000 	 Percentage Difference = -0.000003 Gradient Norm = 110557978624.000000 alpha mult = 0.000014
+ Iteration Count = 2331	Function Value = 166783296.000000 	 Percentage Difference = -0.000009 Gradient Norm = 111450841088.000000 alpha mult = 0.000014
+ Iteration Count = 2341	Function Value = 166776720.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111461023744.000000 alpha mult = 0.000014
+ Iteration Count = 2351	Function Value = 166769936.000000 	 Percentage Difference = -0.000006 Gradient Norm = 106527907840.000000 alpha mult = 0.000014
+ Iteration Count = 2361	Function Value = 166763168.000000 	 Percentage Difference = -0.000009 Gradient Norm = 109734305792.000000 alpha mult = 0.000014
+ Iteration Count = 2371	Function Value = 166756544.000000 	 Percentage Difference = -0.000004 Gradient Norm = 109147422720.000000 alpha mult = 0.000014
+ Iteration Count = 2381	Function Value = 166752016.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107548065792.000000 alpha mult = 0.000014
+ Iteration Count = 2391	Function Value = 166745104.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110108114944.000000 alpha mult = 0.000014
+ Iteration Count = 2401	Function Value = 166738560.000000 	 Percentage Difference = -0.000009 Gradient Norm = 111043764224.000000 alpha mult = 0.000014
+ Iteration Count = 2411	Function Value = 166729984.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111820701696.000000 alpha mult = 0.000014
+ Iteration Count = 2421	Function Value = 166723840.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108092096512.000000 alpha mult = 0.000014
+ Iteration Count = 2431	Function Value = 166717808.000000 	 Percentage Difference = 0.000001 Gradient Norm = 110187470848.000000 alpha mult = 0.000014
+ Iteration Count = 2441	Function Value = 166711008.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110035795968.000000 alpha mult = 0.000014
+ Iteration Count = 2451	Function Value = 166706160.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110950940672.000000 alpha mult = 0.000014
+ Iteration Count = 2461	Function Value = 166699952.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109416235008.000000 alpha mult = 0.000014
+ Iteration Count = 2471	Function Value = 166693792.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111884115968.000000 alpha mult = 0.000014
+ Iteration Count = 2481	Function Value = 166688064.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107798962176.000000 alpha mult = 0.000014
+ Iteration Count = 2491	Function Value = 166681136.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108949700608.000000 alpha mult = 0.000014
+ Iteration Count = 2501	Function Value = 166674288.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110330806272.000000 alpha mult = 0.000014
+ Iteration Count = 2511	Function Value = 166665456.000000 	 Percentage Difference = -0.000007 Gradient Norm = 109270319104.000000 alpha mult = 0.000014
+ Iteration Count = 2521	Function Value = 166660848.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107946139648.000000 alpha mult = 0.000014
+ Iteration Count = 2531	Function Value = 166652320.000000 	 Percentage Difference = -0.000004 Gradient Norm = 111807954944.000000 alpha mult = 0.000014
+ Iteration Count = 2541	Function Value = 166645200.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108943941632.000000 alpha mult = 0.000014
+ Iteration Count = 2551	Function Value = 166639648.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108723748864.000000 alpha mult = 0.000014
+ Iteration Count = 2561	Function Value = 166633792.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107904548864.000000 alpha mult = 0.000014
+ Iteration Count = 2571	Function Value = 166626752.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106270646272.000000 alpha mult = 0.000014
+ Iteration Count = 2581	Function Value = 166620816.000000 	 Percentage Difference = -0.000001 Gradient Norm = 109998645248.000000 alpha mult = 0.000014
+ Iteration Count = 2591	Function Value = 166615088.000000 	 Percentage Difference = -0.000004 Gradient Norm = 112457523200.000000 alpha mult = 0.000014
+ Iteration Count = 2601	Function Value = 166608896.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108766003200.000000 alpha mult = 0.000014
+ Iteration Count = 2611	Function Value = 166603584.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108474785792.000000 alpha mult = 0.000014
+ Iteration Count = 2621	Function Value = 166596992.000000 	 Percentage Difference = -0.000006 Gradient Norm = 112639295488.000000 alpha mult = 0.000014
+ Iteration Count = 2631	Function Value = 166592032.000000 	 Percentage Difference = -0.000006 Gradient Norm = 111532752896.000000 alpha mult = 0.000014
+ Iteration Count = 2641	Function Value = 166586848.000000 	 Percentage Difference = -0.000001 Gradient Norm = 109811105792.000000 alpha mult = 0.000014
+ Iteration Count = 2651	Function Value = 166580768.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111340093440.000000 alpha mult = 0.000014
+ Iteration Count = 2661	Function Value = 166575376.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110246952960.000000 alpha mult = 0.000014
+ Iteration Count = 2671	Function Value = 166569072.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105898172416.000000 alpha mult = 0.000014
+ Iteration Count = 2681	Function Value = 166562864.000000 	 Percentage Difference = 0.000002 Gradient Norm = 109691478016.000000 alpha mult = 0.000014
+ Iteration Count = 2691	Function Value = 166557760.000000 	 Percentage Difference = 0.000000 Gradient Norm = 111011135488.000000 alpha mult = 0.000014
+ Iteration Count = 2701	Function Value = 166552656.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107839938560.000000 alpha mult = 0.000014
+ Iteration Count = 2711	Function Value = 166546448.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109644742656.000000 alpha mult = 0.000014
+ Iteration Count = 2721	Function Value = 166540432.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110196424704.000000 alpha mult = 0.000014
+ Iteration Count = 2731	Function Value = 166534432.000000 	 Percentage Difference = -0.000009 Gradient Norm = 108620103680.000000 alpha mult = 0.000014
+ Iteration Count = 2741	Function Value = 166528640.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108438986752.000000 alpha mult = 0.000014
+ Iteration Count = 2751	Function Value = 166522624.000000 	 Percentage Difference = -0.000008 Gradient Norm = 107974959104.000000 alpha mult = 0.000014
+ Iteration Count = 2761	Function Value = 166517328.000000 	 Percentage Difference = -0.000011 Gradient Norm = 111390613504.000000 alpha mult = 0.000014
+ Iteration Count = 2771	Function Value = 166511968.000000 	 Percentage Difference = -0.000000 Gradient Norm = 111443763200.000000 alpha mult = 0.000014
+ Iteration Count = 2781	Function Value = 166502928.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107866177536.000000 alpha mult = 0.000014
+ Iteration Count = 2791	Function Value = 166498048.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109935271936.000000 alpha mult = 0.000014
+ Iteration Count = 2801	Function Value = 166491984.000000 	 Percentage Difference = -0.000008 Gradient Norm = 108712239104.000000 alpha mult = 0.000014
+ Iteration Count = 2811	Function Value = 166487456.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107676090368.000000 alpha mult = 0.000014
+ Iteration Count = 2821	Function Value = 166479536.000000 	 Percentage Difference = -0.000003 Gradient Norm = 111163457536.000000 alpha mult = 0.000014
+ Iteration Count = 2831	Function Value = 166473904.000000 	 Percentage Difference = -0.000000 Gradient Norm = 109823303680.000000 alpha mult = 0.000014
+ Iteration Count = 2841	Function Value = 166467088.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105212723200.000000 alpha mult = 0.000014
+ Iteration Count = 2851	Function Value = 166461552.000000 	 Percentage Difference = 0.000002 Gradient Norm = 110830641152.000000 alpha mult = 0.000022
+ Iteration Count = 2861	Function Value = 166454592.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108776849408.000000 alpha mult = 0.000014
+ Iteration Count = 2871	Function Value = 166448496.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110017814528.000000 alpha mult = 0.000014
+ Iteration Count = 2881	Function Value = 166442480.000000 	 Percentage Difference = -0.000009 Gradient Norm = 110374305792.000000 alpha mult = 0.000014
+ Iteration Count = 2891	Function Value = 166439184.000000 	 Percentage Difference = 0.000002 Gradient Norm = 109155778560.000000 alpha mult = 0.000014
+ Iteration Count = 2901	Function Value = 166435024.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106782638080.000000 alpha mult = 0.000014
+ Iteration Count = 2911	Function Value = 166429584.000000 	 Percentage Difference = -0.000001 Gradient Norm = 109724106752.000000 alpha mult = 0.000014
+ Iteration Count = 2921	Function Value = 166423776.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108468396032.000000 alpha mult = 0.000014
+ Iteration Count = 2931	Function Value = 166420048.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106524114944.000000 alpha mult = 0.000014
+ Iteration Count = 2941	Function Value = 166414480.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108504236032.000000 alpha mult = 0.000014
+ Iteration Count = 2951	Function Value = 166409040.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106883121152.000000 alpha mult = 0.000014
+ Iteration Count = 2961	Function Value = 166403648.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108816547840.000000 alpha mult = 0.000014
+ Iteration Count = 2971	Function Value = 166396640.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108769198080.000000 alpha mult = 0.000014
+ Iteration Count = 2981	Function Value = 166390864.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107505844224.000000 alpha mult = 0.000014
+ Iteration Count = 2991	Function Value = 166385600.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110063255552.000000 alpha mult = 0.000014
+ Iteration Count = 3001	Function Value = 166380992.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111048220672.000000 alpha mult = 0.000014
+ Iteration Count = 3011	Function Value = 166376832.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108236111872.000000 alpha mult = 0.000014
+ Iteration Count = 3021	Function Value = 166372112.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111088533504.000000 alpha mult = 0.000014
+ Iteration Count = 3031	Function Value = 166366832.000000 	 Percentage Difference = -0.000007 Gradient Norm = 111710666752.000000 alpha mult = 0.000014
+ Iteration Count = 3041	Function Value = 166362160.000000 	 Percentage Difference = -0.000003 Gradient Norm = 110172733440.000000 alpha mult = 0.000014
+ Iteration Count = 3051	Function Value = 166358224.000000 	 Percentage Difference = -0.000000 Gradient Norm = 109745848320.000000 alpha mult = 0.000014
+ Iteration Count = 3061	Function Value = 166351568.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108339126272.000000 alpha mult = 0.000014
+ Iteration Count = 3071	Function Value = 166347280.000000 	 Percentage Difference = -0.000004 Gradient Norm = 109996703744.000000 alpha mult = 0.000014
+ Iteration Count = 3081	Function Value = 166341968.000000 	 Percentage Difference = -0.000007 Gradient Norm = 106287276032.000000 alpha mult = 0.000014
+ Iteration Count = 3091	Function Value = 166337744.000000 	 Percentage Difference = -0.000002 Gradient Norm = 110045372416.000000 alpha mult = 0.000014
+ Iteration Count = 3101	Function Value = 166333664.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108929851392.000000 alpha mult = 0.000014
+ Iteration Count = 3111	Function Value = 166327952.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109670981632.000000 alpha mult = 0.000014
+ Iteration Count = 3121	Function Value = 166321696.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107259445248.000000 alpha mult = 0.000014
+ Iteration Count = 3131	Function Value = 166315424.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108501057536.000000 alpha mult = 0.000014
+ Iteration Count = 3141	Function Value = 166311232.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107258200064.000000 alpha mult = 0.000014
+ Iteration Count = 3151	Function Value = 166306368.000000 	 Percentage Difference = -0.000007 Gradient Norm = 109653704704.000000 alpha mult = 0.000014
+ Iteration Count = 3161	Function Value = 166301456.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107293360128.000000 alpha mult = 0.000014
+ Iteration Count = 3171	Function Value = 166296976.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108771123200.000000 alpha mult = 0.000014
+ Iteration Count = 3181	Function Value = 166291664.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106710941696.000000 alpha mult = 0.000014
+ Iteration Count = 3191	Function Value = 166285328.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111389982720.000000 alpha mult = 0.000014
+ Iteration Count = 3201	Function Value = 166280080.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108070961152.000000 alpha mult = 0.000014
+ Iteration Count = 3211	Function Value = 166276160.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105538494464.000000 alpha mult = 0.000014
+ Iteration Count = 3221	Function Value = 166271984.000000 	 Percentage Difference = -0.000004 Gradient Norm = 109474496512.000000 alpha mult = 0.000014
+ Iteration Count = 3231	Function Value = 166266912.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108936871936.000000 alpha mult = 0.000014
+ Iteration Count = 3241	Function Value = 166260768.000000 	 Percentage Difference = -0.000006 Gradient Norm = 106099785728.000000 alpha mult = 0.000014
+ Iteration Count = 3251	Function Value = 166256976.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108539469824.000000 alpha mult = 0.000014
+ Iteration Count = 3261	Function Value = 166251552.000000 	 Percentage Difference = -0.000006 Gradient Norm = 104977858560.000000 alpha mult = 0.000014
+ Iteration Count = 3271	Function Value = 166245904.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106479263744.000000 alpha mult = 0.000014
+ Iteration Count = 3281	Function Value = 166241120.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107871272960.000000 alpha mult = 0.000014
+ Iteration Count = 3291	Function Value = 166237152.000000 	 Percentage Difference = -0.000003 Gradient Norm = 110373027840.000000 alpha mult = 0.000014
+ Iteration Count = 3301	Function Value = 166232336.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106792239104.000000 alpha mult = 0.000014
+ Iteration Count = 3311	Function Value = 166228000.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107281219584.000000 alpha mult = 0.000014
+ Iteration Count = 3321	Function Value = 166223600.000000 	 Percentage Difference = -0.000003 Gradient Norm = 110513864704.000000 alpha mult = 0.000014
+ Iteration Count = 3331	Function Value = 166219888.000000 	 Percentage Difference = 0.000000 Gradient Norm = 110726946816.000000 alpha mult = 0.000014
+ Iteration Count = 3341	Function Value = 166214368.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108102320128.000000 alpha mult = 0.000014
+ Iteration Count = 3351	Function Value = 166211056.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108157370368.000000 alpha mult = 0.000014
+ Iteration Count = 3361	Function Value = 166206672.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105280536576.000000 alpha mult = 0.000014
+ Iteration Count = 3371	Function Value = 166201200.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106764091392.000000 alpha mult = 0.000014
+ Iteration Count = 3381	Function Value = 166197072.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108181045248.000000 alpha mult = 0.000014
+ Iteration Count = 3391	Function Value = 166191056.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107992244224.000000 alpha mult = 0.000014
+ Iteration Count = 3401	Function Value = 166187376.000000 	 Percentage Difference = 0.000004 Gradient Norm = 108778184704.000000 alpha mult = 0.000018
+ Iteration Count = 3411	Function Value = 166181824.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107312521216.000000 alpha mult = 0.000014
+ Iteration Count = 3421	Function Value = 166178000.000000 	 Percentage Difference = -0.000009 Gradient Norm = 109883457536.000000 alpha mult = 0.000014
+ Iteration Count = 3431	Function Value = 166173696.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106662313984.000000 alpha mult = 0.000014
+ Iteration Count = 3441	Function Value = 166169744.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108264873984.000000 alpha mult = 0.000014
+ Iteration Count = 3451	Function Value = 166165024.000000 	 Percentage Difference = -0.000001 Gradient Norm = 109214023680.000000 alpha mult = 0.000014
+ Iteration Count = 3461	Function Value = 166159216.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107860377600.000000 alpha mult = 0.000014
+ Iteration Count = 3471	Function Value = 166155072.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109168582656.000000 alpha mult = 0.000014
+ Iteration Count = 3481	Function Value = 166150400.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105498820608.000000 alpha mult = 0.000014
+ Iteration Count = 3491	Function Value = 166145488.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108065857536.000000 alpha mult = 0.000014
+ Iteration Count = 3501	Function Value = 166142192.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107793850368.000000 alpha mult = 0.000014
+ Iteration Count = 3511	Function Value = 166137312.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109294632960.000000 alpha mult = 0.000014
+ Iteration Count = 3521	Function Value = 166132672.000000 	 Percentage Difference = -0.000007 Gradient Norm = 109956399104.000000 alpha mult = 0.000014
+ Iteration Count = 3531	Function Value = 166128640.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107139760128.000000 alpha mult = 0.000014
+ Iteration Count = 3541	Function Value = 166124592.000000 	 Percentage Difference = -0.000006 Gradient Norm = 105845669888.000000 alpha mult = 0.000014
+ Iteration Count = 3551	Function Value = 166120176.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108522782720.000000 alpha mult = 0.000014
+ Iteration Count = 3561	Function Value = 166115968.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108492759040.000000 alpha mult = 0.000014
+ Iteration Count = 3571	Function Value = 166111088.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108958638080.000000 alpha mult = 0.000014
+ Iteration Count = 3581	Function Value = 166105696.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109304889344.000000 alpha mult = 0.000014
+ Iteration Count = 3591	Function Value = 166103968.000000 	 Percentage Difference = 0.000001 Gradient Norm = 110565048320.000000 alpha mult = 0.000014
+ Iteration Count = 3601	Function Value = 166100016.000000 	 Percentage Difference = 0.000004 Gradient Norm = 107496898560.000000 alpha mult = 0.000014
+ Iteration Count = 3611	Function Value = 166095424.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107139096576.000000 alpha mult = 0.000014
+ Iteration Count = 3621	Function Value = 166091056.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108200247296.000000 alpha mult = 0.000014
+ Iteration Count = 3631	Function Value = 166086432.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108172713984.000000 alpha mult = 0.000014
+ Iteration Count = 3641	Function Value = 166081296.000000 	 Percentage Difference = -0.000009 Gradient Norm = 109380403200.000000 alpha mult = 0.000014
+ Iteration Count = 3651	Function Value = 166077344.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108749365248.000000 alpha mult = 0.000014
+ Iteration Count = 3661	Function Value = 166072528.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108898484224.000000 alpha mult = 0.000014
+ Iteration Count = 3671	Function Value = 166068256.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106972102656.000000 alpha mult = 0.000014
+ Iteration Count = 3681	Function Value = 166064672.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108771123200.000000 alpha mult = 0.000014
+ Iteration Count = 3691	Function Value = 166060144.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107220393984.000000 alpha mult = 0.000014
+ Iteration Count = 3701	Function Value = 166055968.000000 	 Percentage Difference = -0.000001 Gradient Norm = 110581719040.000000 alpha mult = 0.000014
+ Iteration Count = 3711	Function Value = 166050688.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107542298624.000000 alpha mult = 0.000014
+ Iteration Count = 3721	Function Value = 166046992.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107233198080.000000 alpha mult = 0.000014
+ Iteration Count = 3731	Function Value = 166043200.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105235759104.000000 alpha mult = 0.000014
+ Iteration Count = 3741	Function Value = 166038816.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107231297536.000000 alpha mult = 0.000014
+ Iteration Count = 3751	Function Value = 166035072.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105386795008.000000 alpha mult = 0.000014
+ Iteration Count = 3761	Function Value = 166031920.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107740110848.000000 alpha mult = 0.000014
+ Iteration Count = 3771	Function Value = 166027872.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108843474944.000000 alpha mult = 0.000014
+ Iteration Count = 3781	Function Value = 166024352.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107286339584.000000 alpha mult = 0.000014
+ Iteration Count = 3791	Function Value = 166019664.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108955467776.000000 alpha mult = 0.000014
+ Iteration Count = 3801	Function Value = 166015712.000000 	 Percentage Difference = -0.000005 Gradient Norm = 110140735488.000000 alpha mult = 0.000014
+ Iteration Count = 3811	Function Value = 166011376.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105880240128.000000 alpha mult = 0.000014
+ Iteration Count = 3821	Function Value = 166008032.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109252386816.000000 alpha mult = 0.000014
+ Iteration Count = 3831	Function Value = 166004512.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108537503744.000000 alpha mult = 0.000014
+ Iteration Count = 3841	Function Value = 166000560.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107565375488.000000 alpha mult = 0.000014
+ Iteration Count = 3851	Function Value = 165996240.000000 	 Percentage Difference = -0.000005 Gradient Norm = 111119269888.000000 alpha mult = 0.000014
+ Iteration Count = 3861	Function Value = 165992880.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107669045248.000000 alpha mult = 0.000014
+ Iteration Count = 3871	Function Value = 165989344.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106987446272.000000 alpha mult = 0.000014
+ Iteration Count = 3881	Function Value = 165985376.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104390320128.000000 alpha mult = 0.000014
+ Iteration Count = 3891	Function Value = 165981424.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106485030912.000000 alpha mult = 0.000014
+ Iteration Count = 3901	Function Value = 165978240.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106641145856.000000 alpha mult = 0.000014
+ Iteration Count = 3911	Function Value = 165972272.000000 	 Percentage Difference = -0.000008 Gradient Norm = 110782005248.000000 alpha mult = 0.000014
+ Iteration Count = 3921	Function Value = 165968208.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107765022720.000000 alpha mult = 0.000014
+ Iteration Count = 3931	Function Value = 165964960.000000 	 Percentage Difference = -0.000007 Gradient Norm = 107853987840.000000 alpha mult = 0.000014
+ Iteration Count = 3941	Function Value = 165961840.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106479927296.000000 alpha mult = 0.000014
+ Iteration Count = 3951	Function Value = 165958928.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106949697536.000000 alpha mult = 0.000014
+ Iteration Count = 3961	Function Value = 165954976.000000 	 Percentage Difference = -0.000006 Gradient Norm = 108594462720.000000 alpha mult = 0.000014
+ Iteration Count = 3971	Function Value = 165951248.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106234150912.000000 alpha mult = 0.000014
+ Iteration Count = 3981	Function Value = 165947584.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107824545792.000000 alpha mult = 0.000014
+ Iteration Count = 3991	Function Value = 165944400.000000 	 Percentage Difference = -0.000004 Gradient Norm = 110280900608.000000 alpha mult = 0.000014
+ Iteration Count = 4001	Function Value = 165939856.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108229664768.000000 alpha mult = 0.000014
+ Iteration Count = 4011	Function Value = 165937088.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107772739584.000000 alpha mult = 0.000014
+ Iteration Count = 4021	Function Value = 165933488.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108598321152.000000 alpha mult = 0.000014
+ Iteration Count = 4031	Function Value = 165929008.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107218501632.000000 alpha mult = 0.000014
+ Iteration Count = 4041	Function Value = 165924816.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107799633920.000000 alpha mult = 0.000014
+ Iteration Count = 4051	Function Value = 165922784.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107729879040.000000 alpha mult = 0.000014
+ Iteration Count = 4061	Function Value = 165919664.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105923780608.000000 alpha mult = 0.000014
+ Iteration Count = 4071	Function Value = 165916448.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106958635008.000000 alpha mult = 0.000014
+ Iteration Count = 4081	Function Value = 165913088.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104629059584.000000 alpha mult = 0.000014
+ Iteration Count = 4091	Function Value = 165909376.000000 	 Percentage Difference = -0.000002 Gradient Norm = 110440931328.000000 alpha mult = 0.000014
+ Iteration Count = 4101	Function Value = 165905984.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106247618560.000000 alpha mult = 0.000014
+ Iteration Count = 4111	Function Value = 165902416.000000 	 Percentage Difference = 0.000004 Gradient Norm = 104661057536.000000 alpha mult = 0.000014
+ Iteration Count = 4121	Function Value = 165898544.000000 	 Percentage Difference = -0.000005 Gradient Norm = 106700750848.000000 alpha mult = 0.000014
+ Iteration Count = 4131	Function Value = 165893952.000000 	 Percentage Difference = -0.000006 Gradient Norm = 106986160128.000000 alpha mult = 0.000014
+ Iteration Count = 4141	Function Value = 165889904.000000 	 Percentage Difference = -0.000008 Gradient Norm = 107958329344.000000 alpha mult = 0.000014
+ Iteration Count = 4151	Function Value = 165887376.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107151278080.000000 alpha mult = 0.000014
+ Iteration Count = 4161	Function Value = 165884064.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104573960192.000000 alpha mult = 0.000014
+ Iteration Count = 4171	Function Value = 165881808.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105368911872.000000 alpha mult = 0.000014
+ Iteration Count = 4181	Function Value = 165878016.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108949651456.000000 alpha mult = 0.000014
+ Iteration Count = 4191	Function Value = 165875440.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107264589824.000000 alpha mult = 0.000014
+ Iteration Count = 4201	Function Value = 165872160.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108959940608.000000 alpha mult = 0.000014
+ Iteration Count = 4211	Function Value = 165868128.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108177195008.000000 alpha mult = 0.000014
+ Iteration Count = 4221	Function Value = 165865552.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108688564224.000000 alpha mult = 0.000014
+ Iteration Count = 4231	Function Value = 165860432.000000 	 Percentage Difference = 0.000002 Gradient Norm = 108458803200.000000 alpha mult = 0.000014
+ Iteration Count = 4241	Function Value = 165855936.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106664247296.000000 alpha mult = 0.000014
+ Iteration Count = 4251	Function Value = 165852480.000000 	 Percentage Difference = -0.000008 Gradient Norm = 109342621696.000000 alpha mult = 0.000014
+ Iteration Count = 4261	Function Value = 165848832.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106298802176.000000 alpha mult = 0.000014
+ Iteration Count = 4271	Function Value = 165845456.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107477663744.000000 alpha mult = 0.000014
+ Iteration Count = 4281	Function Value = 165841248.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109732429824.000000 alpha mult = 0.000014
+ Iteration Count = 4291	Function Value = 165838016.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105686974464.000000 alpha mult = 0.000014
+ Iteration Count = 4301	Function Value = 165835264.000000 	 Percentage Difference = 0.000003 Gradient Norm = 105742647296.000000 alpha mult = 0.000014
+ Iteration Count = 4311	Function Value = 165830848.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105488596992.000000 alpha mult = 0.000014
+ Iteration Count = 4321	Function Value = 165828032.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107947442176.000000 alpha mult = 0.000014
+ Iteration Count = 4331	Function Value = 165824224.000000 	 Percentage Difference = -0.000005 Gradient Norm = 105704882176.000000 alpha mult = 0.000014
+ Iteration Count = 4341	Function Value = 165821024.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108546498560.000000 alpha mult = 0.000014
+ Iteration Count = 4351	Function Value = 165817744.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108615614464.000000 alpha mult = 0.000014
+ Iteration Count = 4361	Function Value = 165814192.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107658821632.000000 alpha mult = 0.000014
+ Iteration Count = 4371	Function Value = 165810384.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109771440128.000000 alpha mult = 0.000014
+ Iteration Count = 4381	Function Value = 165807232.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108117041152.000000 alpha mult = 0.000014
+ Iteration Count = 4391	Function Value = 165804688.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106540711936.000000 alpha mult = 0.000014
+ Iteration Count = 4401	Function Value = 165801328.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108031311872.000000 alpha mult = 0.000014
+ Iteration Count = 4411	Function Value = 165798016.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104908701696.000000 alpha mult = 0.000014
+ Iteration Count = 4421	Function Value = 165794448.000000 	 Percentage Difference = -0.000001 Gradient Norm = 110616248320.000000 alpha mult = 0.000014
+ Iteration Count = 4431	Function Value = 165791072.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107356078080.000000 alpha mult = 0.000014
+ Iteration Count = 4441	Function Value = 165787792.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105924378624.000000 alpha mult = 0.000014
+ Iteration Count = 4451	Function Value = 165784048.000000 	 Percentage Difference = 0.000005 Gradient Norm = 108523421696.000000 alpha mult = 0.000014
+ Iteration Count = 4461	Function Value = 165780096.000000 	 Percentage Difference = 0.000005 Gradient Norm = 108511264768.000000 alpha mult = 0.000014
+ Iteration Count = 4471	Function Value = 165776384.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108798648320.000000 alpha mult = 0.000014
+ Iteration Count = 4481	Function Value = 165772464.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108003753984.000000 alpha mult = 0.000014
+ Iteration Count = 4491	Function Value = 165768976.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107973681152.000000 alpha mult = 0.000014
+ Iteration Count = 4501	Function Value = 165766592.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106861355008.000000 alpha mult = 0.000014
+ Iteration Count = 4511	Function Value = 165763408.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105447571456.000000 alpha mult = 0.000014
+ Iteration Count = 4521	Function Value = 165759984.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108970786816.000000 alpha mult = 0.000014
+ Iteration Count = 4531	Function Value = 165755376.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106651435008.000000 alpha mult = 0.000014
+ Iteration Count = 4541	Function Value = 165752656.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108374343680.000000 alpha mult = 0.000014
+ Iteration Count = 4551	Function Value = 165749600.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108840878080.000000 alpha mult = 0.000014
+ Iteration Count = 4561	Function Value = 165747440.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105717055488.000000 alpha mult = 0.000014
+ Iteration Count = 4571	Function Value = 165744128.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108829982720.000000 alpha mult = 0.000014
+ Iteration Count = 4581	Function Value = 165740960.000000 	 Percentage Difference = -0.000007 Gradient Norm = 105469362176.000000 alpha mult = 0.000014
+ Iteration Count = 4591	Function Value = 165737056.000000 	 Percentage Difference = -0.000007 Gradient Norm = 108318638080.000000 alpha mult = 0.000014
+ Iteration Count = 4601	Function Value = 165733920.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107198021632.000000 alpha mult = 0.000014
+ Iteration Count = 4611	Function Value = 165729264.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108638666752.000000 alpha mult = 0.000014
+ Iteration Count = 4621	Function Value = 165726480.000000 	 Percentage Difference = 0.000004 Gradient Norm = 106952220672.000000 alpha mult = 0.000014
+ Iteration Count = 4631	Function Value = 165723104.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107506499584.000000 alpha mult = 0.000014
+ Iteration Count = 4641	Function Value = 165717984.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106939432960.000000 alpha mult = 0.000014
+ Iteration Count = 4651	Function Value = 165716064.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105379774464.000000 alpha mult = 0.000014
+ Iteration Count = 4661	Function Value = 165712176.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105082175488.000000 alpha mult = 0.000014
+ Iteration Count = 4671	Function Value = 165709152.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104954806272.000000 alpha mult = 0.000014
+ Iteration Count = 4681	Function Value = 165704768.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106497818624.000000 alpha mult = 0.000014
+ Iteration Count = 4691	Function Value = 165700896.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107853357056.000000 alpha mult = 0.000014
+ Iteration Count = 4701	Function Value = 165697136.000000 	 Percentage Difference = -0.000006 Gradient Norm = 112288563200.000000 alpha mult = 0.000014
+ Iteration Count = 4711	Function Value = 165693632.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105399615488.000000 alpha mult = 0.000014
+ Iteration Count = 4721	Function Value = 165690752.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109747740672.000000 alpha mult = 0.000014
+ Iteration Count = 4731	Function Value = 165687984.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106380083200.000000 alpha mult = 0.000014
+ Iteration Count = 4741	Function Value = 165684240.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106835107840.000000 alpha mult = 0.000014
+ Iteration Count = 4751	Function Value = 165681936.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107392573440.000000 alpha mult = 0.000014
+ Iteration Count = 4761	Function Value = 165678496.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107859763200.000000 alpha mult = 0.000014
+ Iteration Count = 4771	Function Value = 165675840.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109400899584.000000 alpha mult = 0.000014
+ Iteration Count = 4781	Function Value = 165672416.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105995419648.000000 alpha mult = 0.000014
+ Iteration Count = 4791	Function Value = 165668768.000000 	 Percentage Difference = -0.000000 Gradient Norm = 107114807296.000000 alpha mult = 0.000014
+ Iteration Count = 4801	Function Value = 165665632.000000 	 Percentage Difference = -0.000010 Gradient Norm = 110797373440.000000 alpha mult = 0.000014
+ Iteration Count = 4811	Function Value = 165663344.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106483761152.000000 alpha mult = 0.000014
+ Iteration Count = 4821	Function Value = 165660720.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107036082176.000000 alpha mult = 0.000014
+ Iteration Count = 4831	Function Value = 165656512.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107150016512.000000 alpha mult = 0.000014
+ Iteration Count = 4841	Function Value = 165652944.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104271282176.000000 alpha mult = 0.000014
+ Iteration Count = 4851	Function Value = 165649904.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105915449344.000000 alpha mult = 0.000014
+ Iteration Count = 4861	Function Value = 165646656.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107839897600.000000 alpha mult = 0.000014
+ Iteration Count = 4871	Function Value = 165643312.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109124403200.000000 alpha mult = 0.000014
+ Iteration Count = 4881	Function Value = 165639440.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108368601088.000000 alpha mult = 0.000014
+ Iteration Count = 4891	Function Value = 165637056.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105196093440.000000 alpha mult = 0.000014
+ Iteration Count = 4901	Function Value = 165633936.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105544908800.000000 alpha mult = 0.000014
+ Iteration Count = 4911	Function Value = 165630128.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105446309888.000000 alpha mult = 0.000014
+ Iteration Count = 4921	Function Value = 165627312.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105904553984.000000 alpha mult = 0.000014
+ Iteration Count = 4931	Function Value = 165625856.000000 	 Percentage Difference = 0.000005 Gradient Norm = 103854014464.000000 alpha mult = 0.000014
+ Iteration Count = 4941	Function Value = 165621648.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106434519040.000000 alpha mult = 0.000014
+ Iteration Count = 4951	Function Value = 165618624.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106803773440.000000 alpha mult = 0.000014
+ Iteration Count = 4961	Function Value = 165614272.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106822975488.000000 alpha mult = 0.000014
+ Iteration Count = 4971	Function Value = 165611088.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105315090432.000000 alpha mult = 0.000014
+ Iteration Count = 4981	Function Value = 165608352.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105955737600.000000 alpha mult = 0.000014
+ Iteration Count = 4991	Function Value = 165605392.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103277379584.000000 alpha mult = 0.000014
+ Iteration Count = 5001	Function Value = 165602768.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106494001152.000000 alpha mult = 0.000014
+ Iteration Count = 5011	Function Value = 165599088.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105411125248.000000 alpha mult = 0.000014
+ Iteration Count = 5021	Function Value = 165595520.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106822336512.000000 alpha mult = 0.000014
+ Iteration Count = 5031	Function Value = 165591568.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105814966272.000000 alpha mult = 0.000014
+ Iteration Count = 5041	Function Value = 165589008.000000 	 Percentage Difference = -0.000000 Gradient Norm = 107265843200.000000 alpha mult = 0.000014
+ Iteration Count = 5051	Function Value = 165585968.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107444436992.000000 alpha mult = 0.000014
+ Iteration Count = 5061	Function Value = 165582816.000000 	 Percentage Difference = -0.000000 Gradient Norm = 107590975488.000000 alpha mult = 0.000014
+ Iteration Count = 5071	Function Value = 165580864.000000 	 Percentage Difference = -0.000002 Gradient Norm = 110148386816.000000 alpha mult = 0.000014
+ Iteration Count = 5081	Function Value = 165577696.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107798323200.000000 alpha mult = 0.000014
+ Iteration Count = 5091	Function Value = 165574624.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107369512960.000000 alpha mult = 0.000014
+ Iteration Count = 5101	Function Value = 165571328.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109583269888.000000 alpha mult = 0.000014
+ Iteration Count = 5111	Function Value = 165568208.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108145180672.000000 alpha mult = 0.000014
+ Iteration Count = 5121	Function Value = 165566064.000000 	 Percentage Difference = 0.000006 Gradient Norm = 107217829888.000000 alpha mult = 0.000014
+ Iteration Count = 5131	Function Value = 165562688.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107166007296.000000 alpha mult = 0.000014
+ Iteration Count = 5141	Function Value = 165560896.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106575937536.000000 alpha mult = 0.000014
+ Iteration Count = 5151	Function Value = 165557280.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104598323200.000000 alpha mult = 0.000014
+ Iteration Count = 5161	Function Value = 165554352.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105397714944.000000 alpha mult = 0.000014
+ Iteration Count = 5171	Function Value = 165551200.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106033864704.000000 alpha mult = 0.000014
+ Iteration Count = 5181	Function Value = 165547632.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106656571392.000000 alpha mult = 0.000014
+ Iteration Count = 5191	Function Value = 165544624.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108122791936.000000 alpha mult = 0.000014
+ Iteration Count = 5201	Function Value = 165541152.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107391279104.000000 alpha mult = 0.000014
+ Iteration Count = 5211	Function Value = 165538224.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107864883200.000000 alpha mult = 0.000014
+ Iteration Count = 5221	Function Value = 165535216.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107205017600.000000 alpha mult = 0.000014
+ Iteration Count = 5231	Function Value = 165532288.000000 	 Percentage Difference = -0.000005 Gradient Norm = 108941361152.000000 alpha mult = 0.000014
+ Iteration Count = 5241	Function Value = 165529232.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105415639040.000000 alpha mult = 0.000014
+ Iteration Count = 5251	Function Value = 165526208.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105309388800.000000 alpha mult = 0.000014
+ Iteration Count = 5261	Function Value = 165522784.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107325997056.000000 alpha mult = 0.000014
+ Iteration Count = 5271	Function Value = 165519856.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104143945728.000000 alpha mult = 0.000014
+ Iteration Count = 5281	Function Value = 165517024.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106291765248.000000 alpha mult = 0.000014
+ Iteration Count = 5291	Function Value = 165513808.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107888558080.000000 alpha mult = 0.000014
+ Iteration Count = 5301	Function Value = 165510544.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105168584704.000000 alpha mult = 0.000014
+ Iteration Count = 5311	Function Value = 165507264.000000 	 Percentage Difference = 0.000001 Gradient Norm = 103674814464.000000 alpha mult = 0.000014
+ Iteration Count = 5321	Function Value = 165504096.000000 	 Percentage Difference = -0.000008 Gradient Norm = 107711938560.000000 alpha mult = 0.000014
+ Iteration Count = 5331	Function Value = 165501424.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107596709888.000000 alpha mult = 0.000014
+ Iteration Count = 5341	Function Value = 165498928.000000 	 Percentage Difference = -0.000000 Gradient Norm = 108662947840.000000 alpha mult = 0.000014
+ Iteration Count = 5351	Function Value = 165495920.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107883470848.000000 alpha mult = 0.000014
+ Iteration Count = 5361	Function Value = 165492352.000000 	 Percentage Difference = -0.000009 Gradient Norm = 108623282176.000000 alpha mult = 0.000014
+ Iteration Count = 5371	Function Value = 165489680.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106170793984.000000 alpha mult = 0.000014
+ Iteration Count = 5381	Function Value = 165486288.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104554135552.000000 alpha mult = 0.000014
+ Iteration Count = 5391	Function Value = 165482800.000000 	 Percentage Difference = -0.000000 Gradient Norm = 108277039104.000000 alpha mult = 0.000014
+ Iteration Count = 5401	Function Value = 165480176.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104525381632.000000 alpha mult = 0.000014
+ Iteration Count = 5411	Function Value = 165477104.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107726635008.000000 alpha mult = 0.000014
+ Iteration Count = 5421	Function Value = 165474272.000000 	 Percentage Difference = 0.000004 Gradient Norm = 106984873984.000000 alpha mult = 0.000014
+ Iteration Count = 5431	Function Value = 165470112.000000 	 Percentage Difference = 0.000003 Gradient Norm = 108580388864.000000 alpha mult = 0.000014
+ Iteration Count = 5441	Function Value = 165467120.000000 	 Percentage Difference = 0.000004 Gradient Norm = 107201822720.000000 alpha mult = 0.000014
+ Iteration Count = 5451	Function Value = 165463648.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104162492416.000000 alpha mult = 0.000014
+ Iteration Count = 5461	Function Value = 165460448.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107415592960.000000 alpha mult = 0.000014
+ Iteration Count = 5471	Function Value = 165458416.000000 	 Percentage Difference = 0.000000 Gradient Norm = 109800243200.000000 alpha mult = 0.000014
+ Iteration Count = 5481	Function Value = 165455200.000000 	 Percentage Difference = -0.000006 Gradient Norm = 105073213440.000000 alpha mult = 0.000014
+ Iteration Count = 5491	Function Value = 165453104.000000 	 Percentage Difference = -0.000008 Gradient Norm = 107702976512.000000 alpha mult = 0.000014
+ Iteration Count = 5501	Function Value = 165451184.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106476044288.000000 alpha mult = 0.000014
+ Iteration Count = 5511	Function Value = 165447936.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106749378560.000000 alpha mult = 0.000014
+ Iteration Count = 5521	Function Value = 165445680.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107144888320.000000 alpha mult = 0.000014
+ Iteration Count = 5531	Function Value = 165442448.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107331731456.000000 alpha mult = 0.000014
+ Iteration Count = 5541	Function Value = 165439952.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107488559104.000000 alpha mult = 0.000014
+ Iteration Count = 5551	Function Value = 165436656.000000 	 Percentage Difference = -0.000003 Gradient Norm = 109692067840.000000 alpha mult = 0.000014
+ Iteration Count = 5561	Function Value = 165434000.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106873503744.000000 alpha mult = 0.000014
+ Iteration Count = 5571	Function Value = 165431600.000000 	 Percentage Difference = 0.000003 Gradient Norm = 107742609408.000000 alpha mult = 0.000014
+ Iteration Count = 5581	Function Value = 165429344.000000 	 Percentage Difference = 0.000004 Gradient Norm = 109566017536.000000 alpha mult = 0.000014
+ Iteration Count = 5591	Function Value = 165425568.000000 	 Percentage Difference = -0.000000 Gradient Norm = 111045689344.000000 alpha mult = 0.000014
+ Iteration Count = 5601	Function Value = 165422496.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106188759040.000000 alpha mult = 0.000014
+ Iteration Count = 5611	Function Value = 165420112.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104977842176.000000 alpha mult = 0.000014
+ Iteration Count = 5621	Function Value = 165416992.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109244710912.000000 alpha mult = 0.000014
+ Iteration Count = 5631	Function Value = 165414976.000000 	 Percentage Difference = 0.000004 Gradient Norm = 106581671936.000000 alpha mult = 0.000014
+ Iteration Count = 5641	Function Value = 165411472.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108582322176.000000 alpha mult = 0.000014
+ Iteration Count = 5651	Function Value = 165409232.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106092675072.000000 alpha mult = 0.000014
+ Iteration Count = 5661	Function Value = 165406336.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105964085248.000000 alpha mult = 0.000014
+ Iteration Count = 5671	Function Value = 165403360.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108767928320.000000 alpha mult = 0.000014
+ Iteration Count = 5681	Function Value = 165400336.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108613689344.000000 alpha mult = 0.000014
+ Iteration Count = 5691	Function Value = 165397632.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108357025792.000000 alpha mult = 0.000014
+ Iteration Count = 5701	Function Value = 165395776.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107935285248.000000 alpha mult = 0.000014
+ Iteration Count = 5711	Function Value = 165392128.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106630348800.000000 alpha mult = 0.000014
+ Iteration Count = 5721	Function Value = 165389648.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106012114944.000000 alpha mult = 0.000014
+ Iteration Count = 5731	Function Value = 165386496.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107578163200.000000 alpha mult = 0.000014
+ Iteration Count = 5741	Function Value = 165383440.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104786493440.000000 alpha mult = 0.000014
+ Iteration Count = 5751	Function Value = 165381616.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106307141632.000000 alpha mult = 0.000014
+ Iteration Count = 5761	Function Value = 165378928.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108117065728.000000 alpha mult = 0.000014
+ Iteration Count = 5771	Function Value = 165375792.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106694959104.000000 alpha mult = 0.000014
+ Iteration Count = 5781	Function Value = 165372672.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107793244160.000000 alpha mult = 0.000014
+ Iteration Count = 5791	Function Value = 165369216.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106916397056.000000 alpha mult = 0.000014
+ Iteration Count = 5801	Function Value = 165366032.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108090802176.000000 alpha mult = 0.000014
+ Iteration Count = 5811	Function Value = 165363184.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108582977536.000000 alpha mult = 0.000014
+ Iteration Count = 5821	Function Value = 165361472.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105062301696.000000 alpha mult = 0.000014
+ Iteration Count = 5831	Function Value = 165358416.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108405047296.000000 alpha mult = 0.000014
+ Iteration Count = 5841	Function Value = 165355984.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104703934464.000000 alpha mult = 0.000014
+ Iteration Count = 5851	Function Value = 165352864.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105599901696.000000 alpha mult = 0.000014
+ Iteration Count = 5861	Function Value = 165350128.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104506163200.000000 alpha mult = 0.000014
+ Iteration Count = 5871	Function Value = 165347040.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106571464704.000000 alpha mult = 0.000014
+ Iteration Count = 5881	Function Value = 165345296.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104799264768.000000 alpha mult = 0.000014
+ Iteration Count = 5891	Function Value = 165341008.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108189384704.000000 alpha mult = 0.000014
+ Iteration Count = 5901	Function Value = 165338112.000000 	 Percentage Difference = -0.000007 Gradient Norm = 106991271936.000000 alpha mult = 0.000014
+ Iteration Count = 5911	Function Value = 165335424.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106131767296.000000 alpha mult = 0.000014
+ Iteration Count = 5921	Function Value = 165333264.000000 	 Percentage Difference = 0.000004 Gradient Norm = 106975272960.000000 alpha mult = 0.000014
+ Iteration Count = 5931	Function Value = 165330160.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107893039104.000000 alpha mult = 0.000014
+ Iteration Count = 5941	Function Value = 165328096.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108540698624.000000 alpha mult = 0.000014
+ Iteration Count = 5951	Function Value = 165326528.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105971744768.000000 alpha mult = 0.000014
+ Iteration Count = 5961	Function Value = 165324560.000000 	 Percentage Difference = 0.000004 Gradient Norm = 105651101696.000000 alpha mult = 0.000014
+ Iteration Count = 5971	Function Value = 165321056.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106438328320.000000 alpha mult = 0.000014
+ Iteration Count = 5981	Function Value = 165318336.000000 	 Percentage Difference = -0.000005 Gradient Norm = 106792878080.000000 alpha mult = 0.000014
+ Iteration Count = 5991	Function Value = 165316032.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105602514944.000000 alpha mult = 0.000014
+ Iteration Count = 6001	Function Value = 165313328.000000 	 Percentage Difference = -0.000001 Gradient Norm = 109359284224.000000 alpha mult = 0.000014
+ Iteration Count = 6011	Function Value = 165311296.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107084095488.000000 alpha mult = 0.000014
+ Iteration Count = 6021	Function Value = 165309024.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105114157056.000000 alpha mult = 0.000014
+ Iteration Count = 6031	Function Value = 165306240.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103864254464.000000 alpha mult = 0.000014
+ Iteration Count = 6041	Function Value = 165303232.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105932701696.000000 alpha mult = 0.000014
+ Iteration Count = 6051	Function Value = 165300736.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107884716032.000000 alpha mult = 0.000014
+ Iteration Count = 6061	Function Value = 165298336.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106250805248.000000 alpha mult = 0.000014
+ Iteration Count = 6071	Function Value = 165295824.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105850167296.000000 alpha mult = 0.000014
+ Iteration Count = 6081	Function Value = 165293008.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104225185792.000000 alpha mult = 0.000014
+ Iteration Count = 6091	Function Value = 165289872.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109044400128.000000 alpha mult = 0.000014
+ Iteration Count = 6101	Function Value = 165287296.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108671942656.000000 alpha mult = 0.000014
+ Iteration Count = 6111	Function Value = 165284608.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107357995008.000000 alpha mult = 0.000014
+ Iteration Count = 6121	Function Value = 165282592.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105221701632.000000 alpha mult = 0.000014
+ Iteration Count = 6131	Function Value = 165279872.000000 	 Percentage Difference = -0.000007 Gradient Norm = 105221668864.000000 alpha mult = 0.000014
+ Iteration Count = 6141	Function Value = 165277776.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108034473984.000000 alpha mult = 0.000014
+ Iteration Count = 6151	Function Value = 165275184.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106984890368.000000 alpha mult = 0.000014
+ Iteration Count = 6161	Function Value = 165272592.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105481535488.000000 alpha mult = 0.000014
+ Iteration Count = 6171	Function Value = 165269600.000000 	 Percentage Difference = -0.000004 Gradient Norm = 102474162176.000000 alpha mult = 0.000014
+ Iteration Count = 6181	Function Value = 165268032.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104876113920.000000 alpha mult = 0.000014
+ Iteration Count = 6191	Function Value = 165265024.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106761551872.000000 alpha mult = 0.000014
+ Iteration Count = 6201	Function Value = 165262976.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106287923200.000000 alpha mult = 0.000014
+ Iteration Count = 6211	Function Value = 165260224.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106794156032.000000 alpha mult = 0.000014
+ Iteration Count = 6221	Function Value = 165258768.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109837369344.000000 alpha mult = 0.000014
+ Iteration Count = 6231	Function Value = 165255536.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106762813440.000000 alpha mult = 0.000014
+ Iteration Count = 6241	Function Value = 165253200.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106532421632.000000 alpha mult = 0.000014
+ Iteration Count = 6251	Function Value = 165250912.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104776859648.000000 alpha mult = 0.000014
+ Iteration Count = 6261	Function Value = 165248304.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106531127296.000000 alpha mult = 0.000014
+ Iteration Count = 6271	Function Value = 165245392.000000 	 Percentage Difference = -0.000008 Gradient Norm = 107954470912.000000 alpha mult = 0.000014
+ Iteration Count = 6281	Function Value = 165243328.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104765988864.000000 alpha mult = 0.000014
+ Iteration Count = 6291	Function Value = 165240528.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106946461696.000000 alpha mult = 0.000014
+ Iteration Count = 6301	Function Value = 165237776.000000 	 Percentage Difference = -0.000005 Gradient Norm = 103535935488.000000 alpha mult = 0.000014
+ Iteration Count = 6311	Function Value = 165234528.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105610805248.000000 alpha mult = 0.000014
+ Iteration Count = 6321	Function Value = 165232416.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105132752896.000000 alpha mult = 0.000014
+ Iteration Count = 6331	Function Value = 165229968.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105825869824.000000 alpha mult = 0.000014
+ Iteration Count = 6341	Function Value = 165227216.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103058472960.000000 alpha mult = 0.000014
+ Iteration Count = 6351	Function Value = 165224848.000000 	 Percentage Difference = -0.000004 Gradient Norm = 104659763200.000000 alpha mult = 0.000014
+ Iteration Count = 6361	Function Value = 165223152.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104814649344.000000 alpha mult = 0.000014
+ Iteration Count = 6371	Function Value = 165220144.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106328268800.000000 alpha mult = 0.000014
+ Iteration Count = 6381	Function Value = 165217872.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107065540608.000000 alpha mult = 0.000014
+ Iteration Count = 6391	Function Value = 165215616.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105813032960.000000 alpha mult = 0.000014
+ Iteration Count = 6401	Function Value = 165214864.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106231627776.000000 alpha mult = 0.000014
+ Iteration Count = 6411	Function Value = 165210976.000000 	 Percentage Difference = -0.000005 Gradient Norm = 106145210368.000000 alpha mult = 0.000014
+ Iteration Count = 6421	Function Value = 165208656.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107305484288.000000 alpha mult = 0.000014
+ Iteration Count = 6431	Function Value = 165206560.000000 	 Percentage Difference = 0.000006 Gradient Norm = 106863263744.000000 alpha mult = 0.000014
+ Iteration Count = 6441	Function Value = 165204816.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107460411392.000000 alpha mult = 0.000014
+ Iteration Count = 6451	Function Value = 165202768.000000 	 Percentage Difference = 0.000004 Gradient Norm = 102545809408.000000 alpha mult = 0.000014
+ Iteration Count = 6461	Function Value = 165199120.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107653021696.000000 alpha mult = 0.000014
+ Iteration Count = 6471	Function Value = 165196624.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106775601152.000000 alpha mult = 0.000014
+ Iteration Count = 6481	Function Value = 165194064.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104429355008.000000 alpha mult = 0.000014
+ Iteration Count = 6491	Function Value = 165191328.000000 	 Percentage Difference = -0.000004 Gradient Norm = 104833835008.000000 alpha mult = 0.000014
+ Iteration Count = 6501	Function Value = 165188688.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107430297600.000000 alpha mult = 0.000014
+ Iteration Count = 6511	Function Value = 165185952.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107866791936.000000 alpha mult = 0.000014
+ Iteration Count = 6521	Function Value = 165182432.000000 	 Percentage Difference = -0.000002 Gradient Norm = 103248560128.000000 alpha mult = 0.000014
+ Iteration Count = 6531	Function Value = 165180240.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108116377600.000000 alpha mult = 0.000014
+ Iteration Count = 6541	Function Value = 165177264.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108872228864.000000 alpha mult = 0.000014
+ Iteration Count = 6551	Function Value = 165175024.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108428066816.000000 alpha mult = 0.000014
+ Iteration Count = 6561	Function Value = 165173232.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105489219584.000000 alpha mult = 0.000014
+ Iteration Count = 6571	Function Value = 165169824.000000 	 Percentage Difference = -0.000002 Gradient Norm = 108089507840.000000 alpha mult = 0.000014
+ Iteration Count = 6581	Function Value = 165167552.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107329167360.000000 alpha mult = 0.000014
+ Iteration Count = 6591	Function Value = 165166000.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108094013440.000000 alpha mult = 0.000014
+ Iteration Count = 6601	Function Value = 165163008.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107582660608.000000 alpha mult = 0.000014
+ Iteration Count = 6611	Function Value = 165161968.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105649209344.000000 alpha mult = 0.000014
+ Iteration Count = 6621	Function Value = 165160448.000000 	 Percentage Difference = 0.000005 Gradient Norm = 104635441152.000000 alpha mult = 0.000014
+ Iteration Count = 6631	Function Value = 165156960.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105153871872.000000 alpha mult = 0.000014
+ Iteration Count = 6641	Function Value = 165154800.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107356733440.000000 alpha mult = 0.000014
+ Iteration Count = 6651	Function Value = 165152112.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105148096512.000000 alpha mult = 0.000014
+ Iteration Count = 6661	Function Value = 165149920.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106757677056.000000 alpha mult = 0.000014
+ Iteration Count = 6671	Function Value = 165149168.000000 	 Percentage Difference = 0.000004 Gradient Norm = 105059770368.000000 alpha mult = 0.000014
+ Iteration Count = 6681	Function Value = 165145536.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106293051392.000000 alpha mult = 0.000014
+ Iteration Count = 6691	Function Value = 165143600.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107322818560.000000 alpha mult = 0.000014
+ Iteration Count = 6701	Function Value = 165140784.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105857818624.000000 alpha mult = 0.000014
+ Iteration Count = 6711	Function Value = 165139248.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104269316096.000000 alpha mult = 0.000014
+ Iteration Count = 6721	Function Value = 165137312.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105666478080.000000 alpha mult = 0.000014
+ Iteration Count = 6731	Function Value = 165135008.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106412081152.000000 alpha mult = 0.000014
+ Iteration Count = 6741	Function Value = 165131920.000000 	 Percentage Difference = -0.000005 Gradient Norm = 109480263680.000000 alpha mult = 0.000014
+ Iteration Count = 6751	Function Value = 165130720.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105883467776.000000 alpha mult = 0.000014
+ Iteration Count = 6761	Function Value = 165128288.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104361508864.000000 alpha mult = 0.000014
+ Iteration Count = 6771	Function Value = 165126240.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106978467840.000000 alpha mult = 0.000014
+ Iteration Count = 6781	Function Value = 165123744.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106873528320.000000 alpha mult = 0.000014
+ Iteration Count = 6791	Function Value = 165121456.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107850792960.000000 alpha mult = 0.000014
+ Iteration Count = 6801	Function Value = 165118528.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108195741696.000000 alpha mult = 0.000014
+ Iteration Count = 6811	Function Value = 165116416.000000 	 Percentage Difference = -0.000007 Gradient Norm = 105738149888.000000 alpha mult = 0.000014
+ Iteration Count = 6821	Function Value = 165114288.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106049191936.000000 alpha mult = 0.000014
+ Iteration Count = 6831	Function Value = 165111936.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106248208384.000000 alpha mult = 0.000014
+ Iteration Count = 6841	Function Value = 165109952.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106346151936.000000 alpha mult = 0.000014
+ Iteration Count = 6851	Function Value = 165108272.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104914477056.000000 alpha mult = 0.000014
+ Iteration Count = 6861	Function Value = 165106320.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105568567296.000000 alpha mult = 0.000014
+ Iteration Count = 6871	Function Value = 165105136.000000 	 Percentage Difference = 0.000003 Gradient Norm = 107948048384.000000 alpha mult = 0.000014
+ Iteration Count = 6881	Function Value = 165101872.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105358622720.000000 alpha mult = 0.000014
+ Iteration Count = 6891	Function Value = 165098896.000000 	 Percentage Difference = -0.000006 Gradient Norm = 104097865728.000000 alpha mult = 0.000014
+ Iteration Count = 6901	Function Value = 165097648.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106677059584.000000 alpha mult = 0.000014
+ Iteration Count = 6911	Function Value = 165095056.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107137196032.000000 alpha mult = 0.000014
+ Iteration Count = 6921	Function Value = 165093360.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106877353984.000000 alpha mult = 0.000014
+ Iteration Count = 6931	Function Value = 165091200.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108076711936.000000 alpha mult = 0.000014
+ Iteration Count = 6941	Function Value = 165089552.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104167579648.000000 alpha mult = 0.000014
+ Iteration Count = 6951	Function Value = 165087808.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107217829888.000000 alpha mult = 0.000014
+ Iteration Count = 6961	Function Value = 165084960.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105372098560.000000 alpha mult = 0.000014
+ Iteration Count = 6971	Function Value = 165082928.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105939722240.000000 alpha mult = 0.000014
+ Iteration Count = 6981	Function Value = 165081072.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105583296512.000000 alpha mult = 0.000014
+ Iteration Count = 6991	Function Value = 165077696.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106662961152.000000 alpha mult = 0.000014
+ Iteration Count = 7001	Function Value = 165075856.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105297854464.000000 alpha mult = 0.000014
+ Iteration Count = 7011	Function Value = 165073712.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107485323264.000000 alpha mult = 0.000014
+ Iteration Count = 7021	Function Value = 165071824.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105488564224.000000 alpha mult = 0.000014
+ Iteration Count = 7031	Function Value = 165070368.000000 	 Percentage Difference = -0.000005 Gradient Norm = 105707438080.000000 alpha mult = 0.000014
+ Iteration Count = 7041	Function Value = 165068144.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106830004224.000000 alpha mult = 0.000014
+ Iteration Count = 7051	Function Value = 165066704.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105510993920.000000 alpha mult = 0.000014
+ Iteration Count = 7061	Function Value = 165062880.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107172380672.000000 alpha mult = 0.000014
+ Iteration Count = 7071	Function Value = 165061104.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103209533440.000000 alpha mult = 0.000014
+ Iteration Count = 7081	Function Value = 165058832.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107545559040.000000 alpha mult = 0.000014
+ Iteration Count = 7091	Function Value = 165056976.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105429032960.000000 alpha mult = 0.000014
+ Iteration Count = 7101	Function Value = 165055456.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106420379648.000000 alpha mult = 0.000014
+ Iteration Count = 7111	Function Value = 165053696.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104797978624.000000 alpha mult = 0.000014
+ Iteration Count = 7121	Function Value = 165051872.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106397351936.000000 alpha mult = 0.000014
+ Iteration Count = 7131	Function Value = 165050624.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104896544768.000000 alpha mult = 0.000014
+ Iteration Count = 7141	Function Value = 165047600.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107103272960.000000 alpha mult = 0.000014
+ Iteration Count = 7151	Function Value = 165045040.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106662346752.000000 alpha mult = 0.000014
+ Iteration Count = 7161	Function Value = 165043504.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105679282176.000000 alpha mult = 0.000014
+ Iteration Count = 7171	Function Value = 165042032.000000 	 Percentage Difference = 0.000003 Gradient Norm = 107338137600.000000 alpha mult = 0.000014
+ Iteration Count = 7181	Function Value = 165039360.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106403774464.000000 alpha mult = 0.000014
+ Iteration Count = 7191	Function Value = 165036448.000000 	 Percentage Difference = -0.000008 Gradient Norm = 103686291456.000000 alpha mult = 0.000014
+ Iteration Count = 7201	Function Value = 165034864.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107186479104.000000 alpha mult = 0.000014
+ Iteration Count = 7211	Function Value = 165033280.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107466162176.000000 alpha mult = 0.000014
+ Iteration Count = 7221	Function Value = 165031120.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105467428864.000000 alpha mult = 0.000014
+ Iteration Count = 7231	Function Value = 165030176.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107048271872.000000 alpha mult = 0.000014
+ Iteration Count = 7241	Function Value = 165027904.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104879300608.000000 alpha mult = 0.000014
+ Iteration Count = 7251	Function Value = 165027072.000000 	 Percentage Difference = 0.000002 Gradient Norm = 108389048320.000000 alpha mult = 0.000014
+ Iteration Count = 7261	Function Value = 165025296.000000 	 Percentage Difference = 0.000005 Gradient Norm = 107055906816.000000 alpha mult = 0.000014
+ Iteration Count = 7271	Function Value = 165022208.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106376257536.000000 alpha mult = 0.000014
+ Iteration Count = 7281	Function Value = 165020048.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107145494528.000000 alpha mult = 0.000014
+ Iteration Count = 7291	Function Value = 165018112.000000 	 Percentage Difference = -0.000000 Gradient Norm = 107320197120.000000 alpha mult = 0.000014
+ Iteration Count = 7301	Function Value = 165016768.000000 	 Percentage Difference = -0.000001 Gradient Norm = 103155146752.000000 alpha mult = 0.000014
+ Iteration Count = 7311	Function Value = 165014848.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106088235008.000000 alpha mult = 0.000014
+ Iteration Count = 7321	Function Value = 165012000.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105365061632.000000 alpha mult = 0.000014
+ Iteration Count = 7331	Function Value = 165010800.000000 	 Percentage Difference = 0.000003 Gradient Norm = 103471906816.000000 alpha mult = 0.000014
+ Iteration Count = 7341	Function Value = 165009008.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107512233984.000000 alpha mult = 0.000014
+ Iteration Count = 7351	Function Value = 165006016.000000 	 Percentage Difference = -0.000003 Gradient Norm = 108012077056.000000 alpha mult = 0.000014
+ Iteration Count = 7361	Function Value = 165004048.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105029664768.000000 alpha mult = 0.000014
+ Iteration Count = 7371	Function Value = 165001984.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105971122176.000000 alpha mult = 0.000014
+ Iteration Count = 7381	Function Value = 164999504.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105110323200.000000 alpha mult = 0.000014
+ Iteration Count = 7391	Function Value = 164997920.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105558343680.000000 alpha mult = 0.000014
+ Iteration Count = 7401	Function Value = 164996320.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107160190976.000000 alpha mult = 0.000014
+ Iteration Count = 7411	Function Value = 164993296.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109231259648.000000 alpha mult = 0.000014
+ Iteration Count = 7421	Function Value = 164991744.000000 	 Percentage Difference = -0.000008 Gradient Norm = 109366312960.000000 alpha mult = 0.000014
+ Iteration Count = 7431	Function Value = 164990208.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105534668800.000000 alpha mult = 0.000014
+ Iteration Count = 7441	Function Value = 164987904.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107613405184.000000 alpha mult = 0.000014
+ Iteration Count = 7451	Function Value = 164985872.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106195795968.000000 alpha mult = 0.000014
+ Iteration Count = 7461	Function Value = 164984032.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104883109888.000000 alpha mult = 0.000014
+ Iteration Count = 7471	Function Value = 164981600.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106273824768.000000 alpha mult = 0.000014
+ Iteration Count = 7481	Function Value = 164979920.000000 	 Percentage Difference = -0.000004 Gradient Norm = 104694964224.000000 alpha mult = 0.000014
+ Iteration Count = 7491	Function Value = 164979648.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103567319040.000000 alpha mult = 0.000014
+ Iteration Count = 7501	Function Value = 164977344.000000 	 Percentage Difference = 0.000004 Gradient Norm = 104929181696.000000 alpha mult = 0.000014
+ Iteration Count = 7511	Function Value = 164975728.000000 	 Percentage Difference = 0.000003 Gradient Norm = 105348399104.000000 alpha mult = 0.000014
+ Iteration Count = 7521	Function Value = 164973856.000000 	 Percentage Difference = 0.000004 Gradient Norm = 105082798080.000000 alpha mult = 0.000014
+ Iteration Count = 7531	Function Value = 164971904.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105119301632.000000 alpha mult = 0.000014
+ Iteration Count = 7541	Function Value = 164969600.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106081828864.000000 alpha mult = 0.000014
+ Iteration Count = 7551	Function Value = 164967312.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106348060672.000000 alpha mult = 0.000014
+ Iteration Count = 7561	Function Value = 164965440.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106709712896.000000 alpha mult = 0.000014
+ Iteration Count = 7571	Function Value = 164963344.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104232239104.000000 alpha mult = 0.000014
+ Iteration Count = 7581	Function Value = 164961280.000000 	 Percentage Difference = 0.000000 Gradient Norm = 103664582656.000000 alpha mult = 0.000014
+ Iteration Count = 7591	Function Value = 164959040.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104310374400.000000 alpha mult = 0.000014
+ Iteration Count = 7601	Function Value = 164956752.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107053359104.000000 alpha mult = 0.000014
+ Iteration Count = 7611	Function Value = 164954736.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108117688320.000000 alpha mult = 0.000014
+ Iteration Count = 7621	Function Value = 164952736.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105340076032.000000 alpha mult = 0.000014
+ Iteration Count = 7631	Function Value = 164951280.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105432252416.000000 alpha mult = 0.000014
+ Iteration Count = 7641	Function Value = 164949328.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107058503680.000000 alpha mult = 0.000014
+ Iteration Count = 7651	Function Value = 164948096.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105869344768.000000 alpha mult = 0.000014
+ Iteration Count = 7661	Function Value = 164946800.000000 	 Percentage Difference = 0.000005 Gradient Norm = 101581373440.000000 alpha mult = 0.000014
+ Iteration Count = 7671	Function Value = 164944688.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104953495552.000000 alpha mult = 0.000014
+ Iteration Count = 7681	Function Value = 164942992.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106026811392.000000 alpha mult = 0.000014
+ Iteration Count = 7691	Function Value = 164941120.000000 	 Percentage Difference = -0.000005 Gradient Norm = 106474143744.000000 alpha mult = 0.000014
+ Iteration Count = 7701	Function Value = 164939936.000000 	 Percentage Difference = 0.000005 Gradient Norm = 105527607296.000000 alpha mult = 0.000014
+ Iteration Count = 7711	Function Value = 164937312.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105173057536.000000 alpha mult = 0.000014
+ Iteration Count = 7721	Function Value = 164935872.000000 	 Percentage Difference = -0.000006 Gradient Norm = 109233192960.000000 alpha mult = 0.000014
+ Iteration Count = 7731	Function Value = 164933904.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104280915968.000000 alpha mult = 0.000014
+ Iteration Count = 7741	Function Value = 164932080.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107244077056.000000 alpha mult = 0.000014
+ Iteration Count = 7751	Function Value = 164929952.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106858184704.000000 alpha mult = 0.000014
+ Iteration Count = 7761	Function Value = 164928416.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106691100672.000000 alpha mult = 0.000014
+ Iteration Count = 7771	Function Value = 164926768.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104307785728.000000 alpha mult = 0.000014
+ Iteration Count = 7781	Function Value = 164925408.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104246312960.000000 alpha mult = 0.000014
+ Iteration Count = 7791	Function Value = 164922592.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106453663744.000000 alpha mult = 0.000014
+ Iteration Count = 7801	Function Value = 164920368.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106277675008.000000 alpha mult = 0.000014
+ Iteration Count = 7811	Function Value = 164918096.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106863304704.000000 alpha mult = 0.000014
+ Iteration Count = 7821	Function Value = 164916688.000000 	 Percentage Difference = 0.000004 Gradient Norm = 108317343744.000000 alpha mult = 0.000014
+ Iteration Count = 7831	Function Value = 164914160.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106457513984.000000 alpha mult = 0.000014
+ Iteration Count = 7841	Function Value = 164913328.000000 	 Percentage Difference = 0.000003 Gradient Norm = 103443136512.000000 alpha mult = 0.000014
+ Iteration Count = 7851	Function Value = 164910832.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107105837056.000000 alpha mult = 0.000014
+ Iteration Count = 7861	Function Value = 164909840.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106416578560.000000 alpha mult = 0.000014
+ Iteration Count = 7871	Function Value = 164907440.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104275771392.000000 alpha mult = 0.000014
+ Iteration Count = 7881	Function Value = 164905024.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107672846336.000000 alpha mult = 0.000014
+ Iteration Count = 7891	Function Value = 164904368.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106245054464.000000 alpha mult = 0.000014
+ Iteration Count = 7901	Function Value = 164901968.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103839334400.000000 alpha mult = 0.000014
+ Iteration Count = 7911	Function Value = 164900624.000000 	 Percentage Difference = -0.000001 Gradient Norm = 103283744768.000000 alpha mult = 0.000014
+ Iteration Count = 7921	Function Value = 164899184.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108796739584.000000 alpha mult = 0.000014
+ Iteration Count = 7931	Function Value = 164896944.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105802842112.000000 alpha mult = 0.000014
+ Iteration Count = 7941	Function Value = 164894688.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107872550912.000000 alpha mult = 0.000014
+ Iteration Count = 7951	Function Value = 164892608.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105971769344.000000 alpha mult = 0.000014
+ Iteration Count = 7961	Function Value = 164890704.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106060095488.000000 alpha mult = 0.000014
+ Iteration Count = 7971	Function Value = 164889568.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105742622720.000000 alpha mult = 0.000014
+ Iteration Count = 7981	Function Value = 164887600.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104900395008.000000 alpha mult = 0.000014
+ Iteration Count = 7991	Function Value = 164885232.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103447592960.000000 alpha mult = 0.000014
+ Iteration Count = 8001	Function Value = 164883280.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105912893440.000000 alpha mult = 0.000014
+ Iteration Count = 8011	Function Value = 164881088.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107386175488.000000 alpha mult = 0.000014
+ Iteration Count = 8021	Function Value = 164880016.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105713156096.000000 alpha mult = 0.000014
+ Iteration Count = 8031	Function Value = 164877680.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104729501696.000000 alpha mult = 0.000014
+ Iteration Count = 8041	Function Value = 164875904.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105590325248.000000 alpha mult = 0.000014
+ Iteration Count = 8051	Function Value = 164873648.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104659124224.000000 alpha mult = 0.000014
+ Iteration Count = 8061	Function Value = 164872176.000000 	 Percentage Difference = 0.000001 Gradient Norm = 107480244224.000000 alpha mult = 0.000014
+ Iteration Count = 8071	Function Value = 164869744.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104426766336.000000 alpha mult = 0.000014
+ Iteration Count = 8081	Function Value = 164869232.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105242787840.000000 alpha mult = 0.000014
+ Iteration Count = 8091	Function Value = 164868192.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107572396032.000000 alpha mult = 0.000014
+ Iteration Count = 8101	Function Value = 164865504.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105356738560.000000 alpha mult = 0.000014
+ Iteration Count = 8111	Function Value = 164864368.000000 	 Percentage Difference = 0.000003 Gradient Norm = 105817522176.000000 alpha mult = 0.000014
+ Iteration Count = 8121	Function Value = 164861248.000000 	 Percentage Difference = -0.000002 Gradient Norm = 103617822720.000000 alpha mult = 0.000014
+ Iteration Count = 8131	Function Value = 164860080.000000 	 Percentage Difference = -0.000005 Gradient Norm = 104917712896.000000 alpha mult = 0.000014
+ Iteration Count = 8141	Function Value = 164857984.000000 	 Percentage Difference = -0.000002 Gradient Norm = 110367965184.000000 alpha mult = 0.000014
+ Iteration Count = 8151	Function Value = 164856928.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105783590912.000000 alpha mult = 0.000014
+ Iteration Count = 8161	Function Value = 164854816.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106863296512.000000 alpha mult = 0.000014
+ Iteration Count = 8171	Function Value = 164853136.000000 	 Percentage Difference = -0.000006 Gradient Norm = 104448565248.000000 alpha mult = 0.000014
+ Iteration Count = 8181	Function Value = 164851248.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107238293504.000000 alpha mult = 0.000014
+ Iteration Count = 8191	Function Value = 164849648.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104523456512.000000 alpha mult = 0.000014
+ Iteration Count = 8201	Function Value = 164847920.000000 	 Percentage Difference = -0.000002 Gradient Norm = 107147411456.000000 alpha mult = 0.000014
+ Iteration Count = 8211	Function Value = 164846432.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109445636096.000000 alpha mult = 0.000014
+ Iteration Count = 8221	Function Value = 164845536.000000 	 Percentage Difference = 0.000002 Gradient Norm = 102006931456.000000 alpha mult = 0.000014
+ Iteration Count = 8231	Function Value = 164843296.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107866169344.000000 alpha mult = 0.000014
+ Iteration Count = 8241	Function Value = 164841472.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106934288384.000000 alpha mult = 0.000014
+ Iteration Count = 8251	Function Value = 164839488.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106771103744.000000 alpha mult = 0.000014
+ Iteration Count = 8261	Function Value = 164836928.000000 	 Percentage Difference = -0.000006 Gradient Norm = 107216519168.000000 alpha mult = 0.000014
+ Iteration Count = 8271	Function Value = 164835424.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105980739584.000000 alpha mult = 0.000014
+ Iteration Count = 8281	Function Value = 164832880.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105086615552.000000 alpha mult = 0.000014
+ Iteration Count = 8291	Function Value = 164831312.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107352850432.000000 alpha mult = 0.000014
+ Iteration Count = 8301	Function Value = 164829952.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105301696512.000000 alpha mult = 0.000014
+ Iteration Count = 8311	Function Value = 164829232.000000 	 Percentage Difference = 0.000004 Gradient Norm = 107345199104.000000 alpha mult = 0.000014
+ Iteration Count = 8321	Function Value = 164826976.000000 	 Percentage Difference = -0.000004 Gradient Norm = 108154159104.000000 alpha mult = 0.000014
+ Iteration Count = 8331	Function Value = 164824576.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105909043200.000000 alpha mult = 0.000014
+ Iteration Count = 8341	Function Value = 164823552.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104165031936.000000 alpha mult = 0.000014
+ Iteration Count = 8351	Function Value = 164821264.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105040543744.000000 alpha mult = 0.000014
+ Iteration Count = 8361	Function Value = 164819776.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104790949888.000000 alpha mult = 0.000014
+ Iteration Count = 8371	Function Value = 164817776.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107133370368.000000 alpha mult = 0.000014
+ Iteration Count = 8381	Function Value = 164816064.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106470989824.000000 alpha mult = 0.000014
+ Iteration Count = 8391	Function Value = 164814160.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104414011392.000000 alpha mult = 0.000014
+ Iteration Count = 8401	Function Value = 164812544.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107163435008.000000 alpha mult = 0.000014
+ Iteration Count = 8411	Function Value = 164810304.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106010165248.000000 alpha mult = 0.000014
+ Iteration Count = 8421	Function Value = 164808896.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106863919104.000000 alpha mult = 0.000014
+ Iteration Count = 8431	Function Value = 164805472.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105581977600.000000 alpha mult = 0.000014
+ Iteration Count = 8441	Function Value = 164804080.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105618472960.000000 alpha mult = 0.000014
+ Iteration Count = 8451	Function Value = 164803072.000000 	 Percentage Difference = 0.000000 Gradient Norm = 103397015552.000000 alpha mult = 0.000014
+ Iteration Count = 8461	Function Value = 164801776.000000 	 Percentage Difference = 0.000001 Gradient Norm = 108364693504.000000 alpha mult = 0.000014
+ Iteration Count = 8471	Function Value = 164799248.000000 	 Percentage Difference = -0.000002 Gradient Norm = 109109035008.000000 alpha mult = 0.000014
+ Iteration Count = 8481	Function Value = 164798432.000000 	 Percentage Difference = 0.000001 Gradient Norm = 101846966272.000000 alpha mult = 0.000014
+ Iteration Count = 8491	Function Value = 164797216.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106143924224.000000 alpha mult = 0.000014
+ Iteration Count = 8501	Function Value = 164794896.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107494342656.000000 alpha mult = 0.000014
+ Iteration Count = 8511	Function Value = 164794048.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105631260672.000000 alpha mult = 0.000014
+ Iteration Count = 8521	Function Value = 164792880.000000 	 Percentage Difference = 0.000007 Gradient Norm = 105291448320.000000 alpha mult = 0.000014
+ Iteration Count = 8531	Function Value = 164790720.000000 	 Percentage Difference = 0.000001 Gradient Norm = 104104263680.000000 alpha mult = 0.000014
+ Iteration Count = 8541	Function Value = 164788720.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107025195008.000000 alpha mult = 0.000014
+ Iteration Count = 8551	Function Value = 164786368.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106815913984.000000 alpha mult = 0.000014
+ Iteration Count = 8561	Function Value = 164784864.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106211770368.000000 alpha mult = 0.000014
+ Iteration Count = 8571	Function Value = 164783152.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105864871936.000000 alpha mult = 0.000014
+ Iteration Count = 8581	Function Value = 164782208.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106527907840.000000 alpha mult = 0.000014
+ Iteration Count = 8591	Function Value = 164779568.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105320267776.000000 alpha mult = 0.000014
+ Iteration Count = 8601	Function Value = 164779280.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105144238080.000000 alpha mult = 0.000014
+ Iteration Count = 8611	Function Value = 164777024.000000 	 Percentage Difference = 0.000002 Gradient Norm = 106000547840.000000 alpha mult = 0.000014
+ Iteration Count = 8621	Function Value = 164775536.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106230964224.000000 alpha mult = 0.000014
+ Iteration Count = 8631	Function Value = 164773344.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106395435008.000000 alpha mult = 0.000014
+ Iteration Count = 8641	Function Value = 164771920.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105123766272.000000 alpha mult = 0.000014
+ Iteration Count = 8651	Function Value = 164770016.000000 	 Percentage Difference = -0.000006 Gradient Norm = 102045319168.000000 alpha mult = 0.000014
+ Iteration Count = 8661	Function Value = 164768544.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104803115008.000000 alpha mult = 0.000014
+ Iteration Count = 8671	Function Value = 164765888.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106151600128.000000 alpha mult = 0.000014
+ Iteration Count = 8681	Function Value = 164764416.000000 	 Percentage Difference = -0.000000 Gradient Norm = 107547435008.000000 alpha mult = 0.000014
+ Iteration Count = 8691	Function Value = 164762256.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105715777536.000000 alpha mult = 0.000014
+ Iteration Count = 8701	Function Value = 164760080.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106529824768.000000 alpha mult = 0.000014
+ Iteration Count = 8711	Function Value = 164758560.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106140745728.000000 alpha mult = 0.000014
+ Iteration Count = 8721	Function Value = 164757072.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106281517056.000000 alpha mult = 0.000014
+ Iteration Count = 8731	Function Value = 164755488.000000 	 Percentage Difference = 0.000001 Gradient Norm = 104806342656.000000 alpha mult = 0.000014
+ Iteration Count = 8741	Function Value = 164754128.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106015277056.000000 alpha mult = 0.000014
+ Iteration Count = 8751	Function Value = 164753104.000000 	 Percentage Difference = 0.000004 Gradient Norm = 106124066816.000000 alpha mult = 0.000014
+ Iteration Count = 8761	Function Value = 164750752.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104361533440.000000 alpha mult = 0.000014
+ Iteration Count = 8771	Function Value = 164748672.000000 	 Percentage Difference = -0.000004 Gradient Norm = 104624570368.000000 alpha mult = 0.000014
+ Iteration Count = 8781	Function Value = 164746592.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107441831936.000000 alpha mult = 0.000014
+ Iteration Count = 8791	Function Value = 164745168.000000 	 Percentage Difference = -0.000004 Gradient Norm = 105681862656.000000 alpha mult = 0.000014
+ Iteration Count = 8801	Function Value = 164742688.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105386770432.000000 alpha mult = 0.000014
+ Iteration Count = 8811	Function Value = 164741968.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103812399104.000000 alpha mult = 0.000014
+ Iteration Count = 8821	Function Value = 164739536.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105720897536.000000 alpha mult = 0.000014
+ Iteration Count = 8831	Function Value = 164738128.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105796403200.000000 alpha mult = 0.000014
+ Iteration Count = 8841	Function Value = 164736336.000000 	 Percentage Difference = -0.000001 Gradient Norm = 105543614464.000000 alpha mult = 0.000014
+ Iteration Count = 8851	Function Value = 164734976.000000 	 Percentage Difference = -0.000004 Gradient Norm = 107175002112.000000 alpha mult = 0.000014
+ Iteration Count = 8861	Function Value = 164734192.000000 	 Percentage Difference = 0.000005 Gradient Norm = 107704860672.000000 alpha mult = 0.000014
+ Iteration Count = 8871	Function Value = 164732080.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105589030912.000000 alpha mult = 0.000014
+ Iteration Count = 8881	Function Value = 164730336.000000 	 Percentage Difference = -0.000005 Gradient Norm = 104933048320.000000 alpha mult = 0.000014
+ Iteration Count = 8891	Function Value = 164729104.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105401516032.000000 alpha mult = 0.000014
+ Iteration Count = 8901	Function Value = 164726272.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105731784704.000000 alpha mult = 0.000014
+ Iteration Count = 8911	Function Value = 164724672.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104385839104.000000 alpha mult = 0.000014
+ Iteration Count = 8921	Function Value = 164723808.000000 	 Percentage Difference = 0.000005 Gradient Norm = 105077669888.000000 alpha mult = 0.000014
+ Iteration Count = 8931	Function Value = 164721776.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104125366272.000000 alpha mult = 0.000014
+ Iteration Count = 8941	Function Value = 164720352.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105957064704.000000 alpha mult = 0.000014
+ Iteration Count = 8951	Function Value = 164718704.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104261681152.000000 alpha mult = 0.000014
+ Iteration Count = 8961	Function Value = 164716768.000000 	 Percentage Difference = -0.000006 Gradient Norm = 104037687296.000000 alpha mult = 0.000014
+ Iteration Count = 8971	Function Value = 164714592.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106444709888.000000 alpha mult = 0.000014
+ Iteration Count = 8981	Function Value = 164713344.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105261383680.000000 alpha mult = 0.000014
+ Iteration Count = 8991	Function Value = 164711360.000000 	 Percentage Difference = -0.000004 Gradient Norm = 102203408384.000000 alpha mult = 0.000014
+ Iteration Count = 9001	Function Value = 164710176.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106279583744.000000 alpha mult = 0.000014
+ Iteration Count = 9011	Function Value = 164707328.000000 	 Percentage Difference = -0.000005 Gradient Norm = 107805999104.000000 alpha mult = 0.000014
+ Iteration Count = 9021	Function Value = 164706880.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105834807296.000000 alpha mult = 0.000014
+ Iteration Count = 9031	Function Value = 164705088.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105832251392.000000 alpha mult = 0.000014
+ Iteration Count = 9041	Function Value = 164703984.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104276410368.000000 alpha mult = 0.000014
+ Iteration Count = 9051	Function Value = 164702752.000000 	 Percentage Difference = 0.000000 Gradient Norm = 102789038080.000000 alpha mult = 0.000014
+ Iteration Count = 9061	Function Value = 164700928.000000 	 Percentage Difference = 0.000003 Gradient Norm = 106044727296.000000 alpha mult = 0.000014
+ Iteration Count = 9071	Function Value = 164699344.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107384889344.000000 alpha mult = 0.000014
+ Iteration Count = 9081	Function Value = 164697888.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104215592960.000000 alpha mult = 0.000014
+ Iteration Count = 9091	Function Value = 164695408.000000 	 Percentage Difference = 0.000001 Gradient Norm = 103990329344.000000 alpha mult = 0.000014
+ Iteration Count = 9101	Function Value = 164694672.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106049216512.000000 alpha mult = 0.000014
+ Iteration Count = 9111	Function Value = 164692528.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106628382720.000000 alpha mult = 0.000014
+ Iteration Count = 9121	Function Value = 164691824.000000 	 Percentage Difference = 0.000000 Gradient Norm = 103333019648.000000 alpha mult = 0.000014
+ Iteration Count = 9131	Function Value = 164689328.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105159581696.000000 alpha mult = 0.000014
+ Iteration Count = 9141	Function Value = 164688576.000000 	 Percentage Difference = 0.000002 Gradient Norm = 104252694528.000000 alpha mult = 0.000014
+ Iteration Count = 9151	Function Value = 164686720.000000 	 Percentage Difference = -0.000002 Gradient Norm = 105340076032.000000 alpha mult = 0.000014
+ Iteration Count = 9161	Function Value = 164684720.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105593544704.000000 alpha mult = 0.000014
+ Iteration Count = 9171	Function Value = 164683376.000000 	 Percentage Difference = -0.000002 Gradient Norm = 102952255488.000000 alpha mult = 0.000014
+ Iteration Count = 9181	Function Value = 164682704.000000 	 Percentage Difference = 0.000005 Gradient Norm = 103366311936.000000 alpha mult = 0.000014
+ Iteration Count = 9191	Function Value = 164680736.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106164387840.000000 alpha mult = 0.000014
+ Iteration Count = 9201	Function Value = 164679360.000000 	 Percentage Difference = 0.000005 Gradient Norm = 104571437056.000000 alpha mult = 0.000014
+ Iteration Count = 9211	Function Value = 164677776.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104657231872.000000 alpha mult = 0.000014
+ Iteration Count = 9221	Function Value = 164676816.000000 	 Percentage Difference = -0.000001 Gradient Norm = 104439578624.000000 alpha mult = 0.000014
+ Iteration Count = 9231	Function Value = 164675184.000000 	 Percentage Difference = 0.000000 Gradient Norm = 104166940672.000000 alpha mult = 0.000014
+ Iteration Count = 9241	Function Value = 164673056.000000 	 Percentage Difference = -0.000005 Gradient Norm = 103877689344.000000 alpha mult = 0.000014
+ Iteration Count = 9251	Function Value = 164670512.000000 	 Percentage Difference = -0.000005 Gradient Norm = 105952542720.000000 alpha mult = 0.000014
+ Iteration Count = 9261	Function Value = 164669568.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103799595008.000000 alpha mult = 0.000014
+ Iteration Count = 9271	Function Value = 164667488.000000 	 Percentage Difference = -0.000001 Gradient Norm = 103971782656.000000 alpha mult = 0.000014
+ Iteration Count = 9281	Function Value = 164666208.000000 	 Percentage Difference = -0.000001 Gradient Norm = 102992527360.000000 alpha mult = 0.000014
+ Iteration Count = 9291	Function Value = 164664848.000000 	 Percentage Difference = 0.000002 Gradient Norm = 103918641152.000000 alpha mult = 0.000014
+ Iteration Count = 9301	Function Value = 164663760.000000 	 Percentage Difference = 0.000001 Gradient Norm = 106391601152.000000 alpha mult = 0.000014
+ Iteration Count = 9311	Function Value = 164662384.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105193521152.000000 alpha mult = 0.000014
+ Iteration Count = 9321	Function Value = 164660928.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103361871872.000000 alpha mult = 0.000014
+ Iteration Count = 9331	Function Value = 164659296.000000 	 Percentage Difference = 0.000000 Gradient Norm = 101802811392.000000 alpha mult = 0.000014
+ Iteration Count = 9341	Function Value = 164657296.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105052078080.000000 alpha mult = 0.000014
+ Iteration Count = 9351	Function Value = 164654688.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107594170368.000000 alpha mult = 0.000014
+ Iteration Count = 9361	Function Value = 164652928.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106434445312.000000 alpha mult = 0.000014
+ Iteration Count = 9371	Function Value = 164651440.000000 	 Percentage Difference = -0.000003 Gradient Norm = 101062311936.000000 alpha mult = 0.000014
+ Iteration Count = 9381	Function Value = 164649776.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106445373440.000000 alpha mult = 0.000014
+ Iteration Count = 9391	Function Value = 164647712.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103542980608.000000 alpha mult = 0.000014
+ Iteration Count = 9401	Function Value = 164646416.000000 	 Percentage Difference = 0.000001 Gradient Norm = 103261995008.000000 alpha mult = 0.000014
+ Iteration Count = 9411	Function Value = 164644768.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105278636032.000000 alpha mult = 0.000014
+ Iteration Count = 9421	Function Value = 164643808.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107418140672.000000 alpha mult = 0.000014
+ Iteration Count = 9431	Function Value = 164642240.000000 	 Percentage Difference = -0.000005 Gradient Norm = 103600570368.000000 alpha mult = 0.000014
+ Iteration Count = 9441	Function Value = 164641072.000000 	 Percentage Difference = 0.000000 Gradient Norm = 107715764224.000000 alpha mult = 0.000014
+ Iteration Count = 9451	Function Value = 164639840.000000 	 Percentage Difference = -0.000001 Gradient Norm = 103566655488.000000 alpha mult = 0.000014
+ Iteration Count = 9461	Function Value = 164637584.000000 	 Percentage Difference = -0.000004 Gradient Norm = 103861673984.000000 alpha mult = 0.000014
+ Iteration Count = 9471	Function Value = 164636288.000000 	 Percentage Difference = 0.000000 Gradient Norm = 105848864768.000000 alpha mult = 0.000014
+ Iteration Count = 9481	Function Value = 164634832.000000 	 Percentage Difference = -0.000001 Gradient Norm = 108514492416.000000 alpha mult = 0.000014
+ Iteration Count = 9491	Function Value = 164633552.000000 	 Percentage Difference = -0.000003 Gradient Norm = 103729201152.000000 alpha mult = 0.000014
+ Iteration Count = 9501	Function Value = 164631952.000000 	 Percentage Difference = -0.000004 Gradient Norm = 102288564224.000000 alpha mult = 0.000014
+ Iteration Count = 9511	Function Value = 164630528.000000 	 Percentage Difference = 0.000000 Gradient Norm = 106509369344.000000 alpha mult = 0.000014
+ Iteration Count = 9521	Function Value = 164629232.000000 	 Percentage Difference = 0.000001 Gradient Norm = 104414674944.000000 alpha mult = 0.000014
+ Iteration Count = 9531	Function Value = 164627616.000000 	 Percentage Difference = -0.000001 Gradient Norm = 103373340672.000000 alpha mult = 0.000014
+ Iteration Count = 9541	Function Value = 164627168.000000 	 Percentage Difference = 0.000005 Gradient Norm = 107731795968.000000 alpha mult = 0.000014
+ Iteration Count = 9551	Function Value = 164624608.000000 	 Percentage Difference = -0.000000 Gradient Norm = 104270659584.000000 alpha mult = 0.000014
+ Iteration Count = 9561	Function Value = 164623136.000000 	 Percentage Difference = -0.000004 Gradient Norm = 106725687296.000000 alpha mult = 0.000014
+ Iteration Count = 9571	Function Value = 164621472.000000 	 Percentage Difference = -0.000005 Gradient Norm = 105587769344.000000 alpha mult = 0.000014
+ Iteration Count = 9581	Function Value = 164619952.000000 	 Percentage Difference = -0.000007 Gradient Norm = 105366323200.000000 alpha mult = 0.000014
+ Iteration Count = 9591	Function Value = 164618272.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107433541632.000000 alpha mult = 0.000014
+ Iteration Count = 9601	Function Value = 164617312.000000 	 Percentage Difference = 0.000001 Gradient Norm = 102221365248.000000 alpha mult = 0.000014
+ Iteration Count = 9611	Function Value = 164615760.000000 	 Percentage Difference = 0.000002 Gradient Norm = 105566027776.000000 alpha mult = 0.000014
+ Iteration Count = 9621	Function Value = 164614480.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104721219584.000000 alpha mult = 0.000014
+ Iteration Count = 9631	Function Value = 164613216.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104369848320.000000 alpha mult = 0.000014
+ Iteration Count = 9641	Function Value = 164612128.000000 	 Percentage Difference = 0.000003 Gradient Norm = 105942974464.000000 alpha mult = 0.000014
+ Iteration Count = 9651	Function Value = 164610224.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106156728320.000000 alpha mult = 0.000014
+ Iteration Count = 9661	Function Value = 164609424.000000 	 Percentage Difference = 0.000004 Gradient Norm = 102467133440.000000 alpha mult = 0.000014
+ Iteration Count = 9671	Function Value = 164607808.000000 	 Percentage Difference = 0.000001 Gradient Norm = 105685696512.000000 alpha mult = 0.000014
+ Iteration Count = 9681	Function Value = 164606640.000000 	 Percentage Difference = 0.000005 Gradient Norm = 104909389824.000000 alpha mult = 0.000014
+ Iteration Count = 9691	Function Value = 164605216.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106761519104.000000 alpha mult = 0.000014
+ Iteration Count = 9701	Function Value = 164603456.000000 	 Percentage Difference = -0.000003 Gradient Norm = 104957329408.000000 alpha mult = 0.000014
+ Iteration Count = 9711	Function Value = 164602656.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104068407296.000000 alpha mult = 0.000014
+ Iteration Count = 9721	Function Value = 164600400.000000 	 Percentage Difference = -0.000005 Gradient Norm = 103653031936.000000 alpha mult = 0.000014
+ Iteration Count = 9731	Function Value = 164600032.000000 	 Percentage Difference = -0.000000 Gradient Norm = 106691788800.000000 alpha mult = 0.000014
+ Iteration Count = 9741	Function Value = 164598272.000000 	 Percentage Difference = 0.000000 Gradient Norm = 108038955008.000000 alpha mult = 0.000014
+ Iteration Count = 9751	Function Value = 164596848.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104956739584.000000 alpha mult = 0.000014
+ Iteration Count = 9761	Function Value = 164595648.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106858168320.000000 alpha mult = 0.000014
+ Iteration Count = 9771	Function Value = 164594256.000000 	 Percentage Difference = 0.000003 Gradient Norm = 109848870912.000000 alpha mult = 0.000014
+ Iteration Count = 9781	Function Value = 164591760.000000 	 Percentage Difference = -0.000003 Gradient Norm = 107414274048.000000 alpha mult = 0.000014
+ Iteration Count = 9791	Function Value = 164591408.000000 	 Percentage Difference = 0.000004 Gradient Norm = 104437006336.000000 alpha mult = 0.000014
+ Iteration Count = 9801	Function Value = 164589488.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107581349888.000000 alpha mult = 0.000014
+ Iteration Count = 9811	Function Value = 164587712.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103257546752.000000 alpha mult = 0.000014
+ Iteration Count = 9821	Function Value = 164587232.000000 	 Percentage Difference = 0.000002 Gradient Norm = 107272224768.000000 alpha mult = 0.000014
+ Iteration Count = 9831	Function Value = 164585008.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106016555008.000000 alpha mult = 0.000014
+ Iteration Count = 9841	Function Value = 164584080.000000 	 Percentage Difference = 0.000003 Gradient Norm = 101805326336.000000 alpha mult = 0.000014
+ Iteration Count = 9851	Function Value = 164582432.000000 	 Percentage Difference = -0.000001 Gradient Norm = 107619106816.000000 alpha mult = 0.000014
+ Iteration Count = 9861	Function Value = 164580208.000000 	 Percentage Difference = -0.000002 Gradient Norm = 106988101632.000000 alpha mult = 0.000014
+ Iteration Count = 9871	Function Value = 164578944.000000 	 Percentage Difference = 0.000001 Gradient Norm = 103702298624.000000 alpha mult = 0.000014
+ Iteration Count = 9881	Function Value = 164577808.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103834820608.000000 alpha mult = 0.000014
+ Iteration Count = 9891	Function Value = 164575440.000000 	 Percentage Difference = -0.000005 Gradient Norm = 103603765248.000000 alpha mult = 0.000014
+ Iteration Count = 9901	Function Value = 164574544.000000 	 Percentage Difference = 0.000003 Gradient Norm = 104582365184.000000 alpha mult = 0.000014
+ Iteration Count = 9911	Function Value = 164572704.000000 	 Percentage Difference = -0.000000 Gradient Norm = 103873224704.000000 alpha mult = 0.000014
+ Iteration Count = 9921	Function Value = 164571136.000000 	 Percentage Difference = 0.000000 Gradient Norm = 102730194944.000000 alpha mult = 0.000014
+ Iteration Count = 9931	Function Value = 164570096.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105183297536.000000 alpha mult = 0.000014
+ Iteration Count = 9941	Function Value = 164568448.000000 	 Percentage Difference = -0.000005 Gradient Norm = 104681488384.000000 alpha mult = 0.000014
+ Iteration Count = 9951	Function Value = 164567152.000000 	 Percentage Difference = -0.000000 Gradient Norm = 105023291392.000000 alpha mult = 0.000014
+ Iteration Count = 9961	Function Value = 164565872.000000 	 Percentage Difference = -0.000002 Gradient Norm = 104278966272.000000 alpha mult = 0.000014
+ Iteration Count = 9971	Function Value = 164563984.000000 	 Percentage Difference = -0.000003 Gradient Norm = 105635774464.000000 alpha mult = 0.000014
+ Iteration Count = 9981	Function Value = 164562784.000000 	 Percentage Difference = -0.000003 Gradient Norm = 106533036032.000000 alpha mult = 0.000014
+ Iteration Count = 9991	Function Value = 164561760.000000 	 Percentage Difference = -0.000001 Gradient Norm = 106332061696.000000 alpha mult = 0.000014
+ Valve Id = 80 
+Valve Value [0] = 0.000000, Gradient [0] = 0.000000 
+Valve Value [1] = 0.000000, Gradient [1] = 0.000000 
+Valve Value [2] = 0.000000, Gradient [2] = 0.000000 
+Valve Value [3] = 0.000000, Gradient [3] = 0.000000 
+Valve Value [4] = 0.000000, Gradient [4] = 0.000000 
+Valve Value [5] = 0.000000, Gradient [5] = 0.000000 
+Valve Value [6] = 0.000000, Gradient [6] = 0.000000 
+Valve Value [7] = 0.000000, Gradient [7] = 0.000000 
+Valve Value [8] = 0.000000, Gradient [8] = 0.000000 
+Valve Value [9] = 0.000000, Gradient [9] = 0.000000 
+Valve Value [10] = 0.000000, Gradient [10] = 0.000000 
+Valve Value [11] = 0.000000, Gradient [11] = 0.000000 
+Valve Value [12] = 0.000000, Gradient [12] = 0.000000 
+Valve Value [13] = 0.000000, Gradient [13] = 0.000000 
+Valve Value [14] = 0.000000, Gradient [14] = 0.000000 
+Valve Value [15] = 0.000000, Gradient [15] = 0.000000 
+Valve Value [16] = 0.000000, Gradient [16] = 0.000000 
+Valve Value [17] = 0.000000, Gradient [17] = 0.000000 
+Valve Value [18] = 0.000000, Gradient [18] = 0.000000 
+Valve Value [19] = 0.000000, Gradient [19] = 0.000000 
+Valve Value [20] = 0.000000, Gradient [20] = 0.000000 
+Valve Value [21] = 0.000000, Gradient [21] = 0.000000 
+Valve Value [22] = 0.000000, Gradient [22] = 0.000000 
+Valve Value [23] = 0.000000, Gradient [23] = 0.000000 
+
+ Valve Id = 78 
+Valve Value [0] = 11513.414062, Gradient [0] = 3200.000000 
+Valve Value [1] = 13989.799805, Gradient [1] = -2400.000000 
+Valve Value [2] = 13046.479492, Gradient [2] = 800.000000 
+Valve Value [3] = 8021.126953, Gradient [3] = -4800.000000 
+Valve Value [4] = 25441.361328, Gradient [4] = 4000.000000 
+Valve Value [5] = 6028.603027, Gradient [5] = 2400.000000 
+Valve Value [6] = 23501.742188, Gradient [6] = 2400.000000 
+Valve Value [7] = 305.903076, Gradient [7] = 800.000000 
+Valve Value [8] = 13151.460938, Gradient [8] = 4800.000000 
+Valve Value [9] = 16236.106445, Gradient [9] = 0.000000 
+Valve Value [10] = 25182.458984, Gradient [10] = 1600.000000 
+Valve Value [11] = 26466.830078, Gradient [11] = 1600.000000 
+Valve Value [12] = 21963.097656, Gradient [12] = -2400.000000 
+Valve Value [13] = 15169.587891, Gradient [13] = 2400.000000 
+Valve Value [14] = 10702.918945, Gradient [14] = 4000.000000 
+Valve Value [15] = 16925.796875, Gradient [15] = -4800.000000 
+Valve Value [16] = 8009.289551, Gradient [16] = 3200.000000 
+Valve Value [17] = 20206.626953, Gradient [17] = -2400.000000 
+Valve Value [18] = 18259.876953, Gradient [18] = -4000.000000 
+Valve Value [19] = 307.868774, Gradient [19] = -2400.000000 
+Valve Value [20] = 14646.094727, Gradient [20] = 1600.000000 
+Valve Value [21] = 8472.681641, Gradient [21] = -2400.000000 
+Valve Value [22] = 9594.405273, Gradient [22] = 1600.000000 
+Valve Value [23] = 12640.818359, Gradient [23] = 2400.000000 
+
+ Valve Id = 76 
+Valve Value [0] = 66.367340, Gradient [0] = -6400.000000 
+Valve Value [1] = 51.652031, Gradient [1] = 1600.000000 
+Valve Value [2] = 46.262066, Gradient [2] = 800.000000 
+Valve Value [3] = 0.000000, Gradient [3] = 3200.000000 
+Valve Value [4] = 0.000000, Gradient [4] = 14400.000000 
+Valve Value [5] = 0.000000, Gradient [5] = 4800.000000 
+Valve Value [6] = 28.441401, Gradient [6] = -800.000000 
+Valve Value [7] = 0.000000, Gradient [7] = 20800.000000 
+Valve Value [8] = 24.143963, Gradient [8] = 3200.000000 
+Valve Value [9] = 0.000000, Gradient [9] = 7200.000000 
+Valve Value [10] = 0.000000, Gradient [10] = 5600.000000 
+Valve Value [11] = 24.764114, Gradient [11] = 0.000000 
+Valve Value [12] = 23.926319, Gradient [12] = 4800.000000 
+Valve Value [13] = 25.005028, Gradient [13] = 4800.000000 
+Valve Value [14] = 0.000000, Gradient [14] = 4000.000000 
+Valve Value [15] = 25.354967, Gradient [15] = 0.000000 
+Valve Value [16] = 25.386726, Gradient [16] = 7200.000000 
+Valve Value [17] = 26.478998, Gradient [17] = -800.000000 
+Valve Value [18] = 0.000000, Gradient [18] = 800.000000 
+Valve Value [19] = 0.000000, Gradient [19] = 19200.000000 
+Valve Value [20] = 0.000000, Gradient [20] = 4000.000000 
+Valve Value [21] = 26.710382, Gradient [21] = 4800.000000 
+Valve Value [22] = 0.000000, Gradient [22] = 5600.000000 
+Valve Value [23] = 24.965235, Gradient [23] = 3200.000000 
+
+ Valve Id = 74 
+Valve Value [0] = 47.992374, Gradient [0] = -2400.000000 
+Valve Value [1] = 54.474907, Gradient [1] = 1600.000000 
+Valve Value [2] = 49.210285, Gradient [2] = -800.000000 
+Valve Value [3] = 78.517296, Gradient [3] = 1600.000000 
+Valve Value [4] = 356.980591, Gradient [4] = 0.000000 
+Valve Value [5] = 108.857491, Gradient [5] = 800.000000 
+Valve Value [6] = 466.630768, Gradient [6] = 800.000000 
+Valve Value [7] = 0.000000, Gradient [7] = 19200.000000 
+Valve Value [8] = 51.387295, Gradient [8] = 2400.000000 
+Valve Value [9] = 0.000000, Gradient [9] = 5600.000000 
+Valve Value [10] = 774.778625, Gradient [10] = -7200.000000 
+Valve Value [11] = 72.176788, Gradient [11] = 800.000000 
+Valve Value [12] = 446.310059, Gradient [12] = -4000.000000 
+Valve Value [13] = 60.297485, Gradient [13] = -2400.000000 
+Valve Value [14] = 122.410828, Gradient [14] = 2400.000000 
+Valve Value [15] = 57.793983, Gradient [15] = 1600.000000 
+Valve Value [16] = 63.165218, Gradient [16] = 0.000000 
+Valve Value [17] = 62.351456, Gradient [17] = -4800.000000 
+Valve Value [18] = 166.453491, Gradient [18] = -5600.000000 
+Valve Value [19] = 0.000000, Gradient [19] = 14400.000000 
+Valve Value [20] = 0.068580, Gradient [20] = 0.000000 
+Valve Value [21] = 387.428925, Gradient [21] = -2400.000000 
+Valve Value [22] = 177.444016, Gradient [22] = -3200.000000 
+Valve Value [23] = 54.706017, Gradient [23] = 4000.000000 
+
+ Valve Id = 72 
+Valve Value [0] = 49336.031250, Gradient [0] = 0.000000 
+Valve Value [1] = 31484.291016, Gradient [1] = -800.000000 
+Valve Value [2] = 22334.712891, Gradient [2] = 2400.000000 
+Valve Value [3] = 30549.603516, Gradient [3] = -1600.000000 
+Valve Value [4] = 15456.248047, Gradient [4] = -4800.000000 
+Valve Value [5] = 42917.820312, Gradient [5] = 5600.000000 
+Valve Value [6] = 43792.089844, Gradient [6] = 5600.000000 
+Valve Value [7] = 0.000000, Gradient [7] = 800.000000 
+Valve Value [8] = 53995.937500, Gradient [8] = -1600.000000 
+Valve Value [9] = 47560.417969, Gradient [9] = -2400.000000 
+Valve Value [10] = 28336.554688, Gradient [10] = 4000.000000 
+Valve Value [11] = 36438.734375, Gradient [11] = -3200.000000 
+Valve Value [12] = 32096.248047, Gradient [12] = 1600.000000 
+Valve Value [13] = 50174.882812, Gradient [13] = 2400.000000 
+Valve Value [14] = 36283.363281, Gradient [14] = -3200.000000 
+Valve Value [15] = 37854.992188, Gradient [15] = -2400.000000 
+Valve Value [16] = 28151.751953, Gradient [16] = -800.000000 
+Valve Value [17] = 23206.542969, Gradient [17] = 0.000000 
+Valve Value [18] = 53936.570312, Gradient [18] = 3200.000000 
+Valve Value [19] = 0.000000, Gradient [19] = 3200.000000 
+Valve Value [20] = 31416.958984, Gradient [20] = 4800.000000 
+Valve Value [21] = 10950.911133, Gradient [21] = -1600.000000 
+Valve Value [22] = 37787.953125, Gradient [22] = 800.000000 
+Valve Value [23] = 22999.806641, Gradient [23] = -1600.000000 
+
+ Valve Id = 40 
+Valve Value [0] = 21616.300781, Gradient [0] = -800.000000 
+Valve Value [1] = 23204.312500, Gradient [1] = 800.000000 
+Valve Value [2] = 10087.277344, Gradient [2] = -800.000000 
+Valve Value [3] = 18033.802734, Gradient [3] = -800.000000 
+Valve Value [4] = 27679.974609, Gradient [4] = -1600.000000 
+Valve Value [5] = 10710.756836, Gradient [5] = -6400.000000 
+Valve Value [6] = 22669.947266, Gradient [6] = 1600.000000 
+Valve Value [7] = 0.000000, Gradient [7] = 214400.000000 
+Valve Value [8] = 15755.253906, Gradient [8] = -5600.000000 
+Valve Value [9] = 8118.337891, Gradient [9] = 800.000000 
+Valve Value [10] = 21603.652344, Gradient [10] = -1600.000000 
+Valve Value [11] = 17634.496094, Gradient [11] = -3200.000000 
+Valve Value [12] = 6651.480957, Gradient [12] = -2400.000000 
+Valve Value [13] = 16111.570312, Gradient [13] = -800.000000 
+Valve Value [14] = 18467.091797, Gradient [14] = 0.000000 
+Valve Value [15] = 24155.566406, Gradient [15] = -2400.000000 
+Valve Value [16] = 5122.501465, Gradient [16] = -6400.000000 
+Valve Value [17] = 10682.629883, Gradient [17] = -5600.000000 
+Valve Value [18] = 18228.443359, Gradient [18] = 800.000000 
+Valve Value [19] = 0.000000, Gradient [19] = 210400.000000 
+Valve Value [20] = 9325.122070, Gradient [20] = -4000.000000 
+Valve Value [21] = 13410.577148, Gradient [21] = 0.000000 
+Valve Value [22] = 6181.725586, Gradient [22] = -1600.000000 
+Valve Value [23] = 9561.452148, Gradient [23] = 4800.000000 
+
+ Valve Id = 6 
+Valve Value [0] = 0.000000, Gradient [0] = 2400.000000 
+Valve Value [1] = 1.179871, Gradient [1] = -1600.000000 
+Valve Value [2] = 85.840904, Gradient [2] = -3200.000000 
+Valve Value [3] = 334.579315, Gradient [3] = -800.000000 
+Valve Value [4] = 400.042358, Gradient [4] = 1600.000000 
+Valve Value [5] = 0.057044, Gradient [5] = 800.000000 
+Valve Value [6] = 352.525909, Gradient [6] = 0.000000 
+Valve Value [7] = 24773.232422, Gradient [7] = 800.000000 
+Valve Value [8] = 318.860870, Gradient [8] = -5600.000000 
+Valve Value [9] = 410.564331, Gradient [9] = 4000.000000 
+Valve Value [10] = 244.686615, Gradient [10] = -4000.000000 
+Valve Value [11] = 189.016159, Gradient [11] = 2400.000000 
+Valve Value [12] = 244.359116, Gradient [12] = 4800.000000 
+Valve Value [13] = 264.007477, Gradient [13] = 1600.000000 
+Valve Value [14] = 59.119473, Gradient [14] = 800.000000 
+Valve Value [15] = 269.658417, Gradient [15] = -4800.000000 
+Valve Value [16] = 172.173462, Gradient [16] = 0.000000 
+Valve Value [17] = 269.966217, Gradient [17] = 4800.000000 
+Valve Value [18] = 155.248016, Gradient [18] = 0.000000 
+Valve Value [19] = 11921.964844, Gradient [19] = -800.000000 
+Valve Value [20] = 273.179321, Gradient [20] = -3200.000000 
+Valve Value [21] = 461.779541, Gradient [21] = -1600.000000 
+Valve Value [22] = 36.362423, Gradient [22] = 7200.000000 
+Valve Value [23] = 596.168762, Gradient [23] = -3200.000000 
+
+ Valve Id = 3 
+Valve Value [0] = 0.000000, Gradient [0] = 24000.000000 
+Valve Value [1] = 0.000000, Gradient [1] = 24800.000000 
+Valve Value [2] = 0.000000, Gradient [2] = 30400.000000 
+Valve Value [3] = 847.997559, Gradient [3] = 2400.000000 
+Valve Value [4] = 309.167419, Gradient [4] = -4800.000000 
+Valve Value [5] = 1719.539185, Gradient [5] = -2400.000000 
+Valve Value [6] = 0.000000, Gradient [6] = 33600.000000 
+Valve Value [7] = 339.918671, Gradient [7] = 0.000000 
+Valve Value [8] = 0.000000, Gradient [8] = 31200.000000 
+Valve Value [9] = 169.078003, Gradient [9] = 7200.000000 
+Valve Value [10] = 523.591675, Gradient [10] = 1600.000000 
+Valve Value [11] = 0.000000, Gradient [11] = 24800.000000 
+Valve Value [12] = 0.000000, Gradient [12] = 32000.000000 
+Valve Value [13] = 0.000000, Gradient [13] = 24000.000000 
+Valve Value [14] = 947.586853, Gradient [14] = 4000.000000 
+Valve Value [15] = 0.000000, Gradient [15] = 24800.000000 
+Valve Value [16] = 0.000000, Gradient [16] = 23200.000000 
+Valve Value [17] = 0.000000, Gradient [17] = 28800.000000 
+Valve Value [18] = 1013.177979, Gradient [18] = -800.000000 
+Valve Value [19] = 484.453033, Gradient [19] = 800.000000 
+Valve Value [20] = 163.640671, Gradient [20] = 8800.000000 
+Valve Value [21] = 0.000000, Gradient [21] = 24000.000000 
+Valve Value [22] = 705.604248, Gradient [22] = -4800.000000 
+Valve Value [23] = 0.000000, Gradient [23] = 24800.000000 
+
+ Valve Id = 5 
+Valve Value [0] = 28115.189453, Gradient [0] = -1600.000000 
+Valve Value [1] = 41751.339844, Gradient [1] = -800.000000 
+Valve Value [2] = 13274.091797, Gradient [2] = -2400.000000 
+Valve Value [3] = 14701.115234, Gradient [3] = -2400.000000 
+Valve Value [4] = 23054.171875, Gradient [4] = -3200.000000 
+Valve Value [5] = 15605.495117, Gradient [5] = 2400.000000 
+Valve Value [6] = 7037.523438, Gradient [6] = 0.000000 
+Valve Value [7] = 979.130432, Gradient [7] = -1600.000000 
+Valve Value [8] = 18264.265625, Gradient [8] = 4800.000000 
+Valve Value [9] = 8903.776367, Gradient [9] = 0.000000 
+Valve Value [10] = 10764.082031, Gradient [10] = 3200.000000 
+Valve Value [11] = 14811.278320, Gradient [11] = 0.000000 
+Valve Value [12] = 8662.123047, Gradient [12] = -3200.000000 
+Valve Value [13] = 11265.700195, Gradient [13] = 1600.000000 
+Valve Value [14] = 15994.061523, Gradient [14] = 1600.000000 
+Valve Value [15] = 20994.578125, Gradient [15] = 800.000000 
+Valve Value [16] = 8951.562500, Gradient [16] = -1600.000000 
+Valve Value [17] = 8827.027344, Gradient [17] = 7200.000000 
+Valve Value [18] = 16898.146484, Gradient [18] = 800.000000 
+Valve Value [19] = 49.090942, Gradient [19] = 0.000000 
+Valve Value [20] = 22879.335938, Gradient [20] = -3200.000000 
+Valve Value [21] = 22019.058594, Gradient [21] = -1600.000000 
+Valve Value [22] = 13970.467773, Gradient [22] = -800.000000 
+Valve Value [23] = 18846.583984, Gradient [23] = -4000.000000 
+
+
+
+
+
+
+ Tank Id = 34 	Tank Value [0] = -915.078186, Gradient Tank Value [0] = -2400.000000 
+ Tank Id = Veeranageeri 	Tank Value [0] = 877.412903, Gradient Tank Value [0] = 800.000000 
+ Tank Id = NR_mohalla2 	Tank Value [0] = -67.245728, Gradient Tank Value [0] = 0.000000 
+ Tank Id = NR_Mohalla1 	Tank Value [0] = 523.146912, Gradient Tank Value [0] = 800.000000 
+ Tank Id = Rajiv_nagar_II 	Tank Value [0] = 1657.251831, Gradient Tank Value [0] = 0.000000 
+ Tank Id = Tippu_Park 	Tank Value [0] = -599.116638, Gradient Tank Value [0] = 0.000000 
+ 
+ 
+ 
+ Valve ID = 80	 Valve Value [0] = 0.000000	 Valve Value [1] = 0.000000	 Valve Value [2] = 0.000000	 Valve Value [3] = 0.000000	 Valve Value [4] = 0.000000	 Valve Value [5] = 0.000000	 Valve Value [6] = 0.000000	 Valve Value [7] = 0.000000	 Valve Value [8] = 0.000000	 Valve Value [9] = 0.000000	 Valve Value [10] = 0.000000	 Valve Value [11] = 0.000000	 Valve Value [12] = 0.000000	 Valve Value [13] = 0.000000	 Valve Value [14] = 0.000000	 Valve Value [15] = 0.000000	 Valve Value [16] = 0.000000	 Valve Value [17] = 0.000000	 Valve Value [18] = 0.000000	 Valve Value [19] = 0.000000	 Valve Value [20] = 0.000000	 Valve Value [21] = 0.000000	 Valve Value [22] = 0.000000	 Valve Value [23] = 0.000000
+ 
+ 
+ 
+ Valve ID = 78	 Valve Value [0] = 11513.414062	 Valve Value [1] = 13989.799805	 Valve Value [2] = 13046.479492	 Valve Value [3] = 8021.126953	 Valve Value [4] = 25441.361328	 Valve Value [5] = 6028.603027	 Valve Value [6] = 23501.742188	 Valve Value [7] = 305.903076	 Valve Value [8] = 13151.460938	 Valve Value [9] = 16236.106445	 Valve Value [10] = 25182.458984	 Valve Value [11] = 26466.830078	 Valve Value [12] = 21963.097656	 Valve Value [13] = 15169.587891	 Valve Value [14] = 10702.918945	 Valve Value [15] = 16925.796875	 Valve Value [16] = 8009.289551	 Valve Value [17] = 20206.626953	 Valve Value [18] = 18259.876953	 Valve Value [19] = 307.868774	 Valve Value [20] = 14646.094727	 Valve Value [21] = 8472.681641	 Valve Value [22] = 9594.405273	 Valve Value [23] = 12640.818359
+ 
+ 
+ 
+ Valve ID = 76	 Valve Value [0] = 66.367340	 Valve Value [1] = 51.652031	 Valve Value [2] = 46.262066	 Valve Value [3] = 0.000000	 Valve Value [4] = 0.000000	 Valve Value [5] = 0.000000	 Valve Value [6] = 28.441401	 Valve Value [7] = 0.000000	 Valve Value [8] = 24.143963	 Valve Value [9] = 0.000000	 Valve Value [10] = 0.000000	 Valve Value [11] = 24.764114	 Valve Value [12] = 23.926319	 Valve Value [13] = 25.005028	 Valve Value [14] = 0.000000	 Valve Value [15] = 25.354967	 Valve Value [16] = 25.386726	 Valve Value [17] = 26.478998	 Valve Value [18] = 0.000000	 Valve Value [19] = 0.000000	 Valve Value [20] = 0.000000	 Valve Value [21] = 26.710382	 Valve Value [22] = 0.000000	 Valve Value [23] = 24.965235
+ 
+ 
+ 
+ Valve ID = 74	 Valve Value [0] = 47.992374	 Valve Value [1] = 54.474907	 Valve Value [2] = 49.210285	 Valve Value [3] = 78.517296	 Valve Value [4] = 356.980591	 Valve Value [5] = 108.857491	 Valve Value [6] = 466.630768	 Valve Value [7] = 0.000000	 Valve Value [8] = 51.387295	 Valve Value [9] = 0.000000	 Valve Value [10] = 774.778625	 Valve Value [11] = 72.176788	 Valve Value [12] = 446.310059	 Valve Value [13] = 60.297485	 Valve Value [14] = 122.410828	 Valve Value [15] = 57.793983	 Valve Value [16] = 63.165218	 Valve Value [17] = 62.351456	 Valve Value [18] = 166.453491	 Valve Value [19] = 0.000000	 Valve Value [20] = 0.068580	 Valve Value [21] = 387.428925	 Valve Value [22] = 177.444016	 Valve Value [23] = 54.706017
+ 
+ 
+ 
+ Valve ID = 72	 Valve Value [0] = 49336.031250	 Valve Value [1] = 31484.291016	 Valve Value [2] = 22334.712891	 Valve Value [3] = 30549.603516	 Valve Value [4] = 15456.248047	 Valve Value [5] = 42917.820312	 Valve Value [6] = 43792.089844	 Valve Value [7] = 0.000000	 Valve Value [8] = 53995.937500	 Valve Value [9] = 47560.417969	 Valve Value [10] = 28336.554688	 Valve Value [11] = 36438.734375	 Valve Value [12] = 32096.248047	 Valve Value [13] = 50174.882812	 Valve Value [14] = 36283.363281	 Valve Value [15] = 37854.992188	 Valve Value [16] = 28151.751953	 Valve Value [17] = 23206.542969	 Valve Value [18] = 53936.570312	 Valve Value [19] = 0.000000	 Valve Value [20] = 31416.958984	 Valve Value [21] = 10950.911133	 Valve Value [22] = 37787.953125	 Valve Value [23] = 22999.806641
+ 
+ 
+ 
+ Valve ID = 40	 Valve Value [0] = 21616.300781	 Valve Value [1] = 23204.312500	 Valve Value [2] = 10087.277344	 Valve Value [3] = 18033.802734	 Valve Value [4] = 27679.974609	 Valve Value [5] = 10710.756836	 Valve Value [6] = 22669.947266	 Valve Value [7] = 0.000000	 Valve Value [8] = 15755.253906	 Valve Value [9] = 8118.337891	 Valve Value [10] = 21603.652344	 Valve Value [11] = 17634.496094	 Valve Value [12] = 6651.480957	 Valve Value [13] = 16111.570312	 Valve Value [14] = 18467.091797	 Valve Value [15] = 24155.566406	 Valve Value [16] = 5122.501465	 Valve Value [17] = 10682.629883	 Valve Value [18] = 18228.443359	 Valve Value [19] = 0.000000	 Valve Value [20] = 9325.122070	 Valve Value [21] = 13410.577148	 Valve Value [22] = 6181.725586	 Valve Value [23] = 9561.452148
+ 
+ 
+ 
+ Valve ID = 6	 Valve Value [0] = 0.000000	 Valve Value [1] = 1.179871	 Valve Value [2] = 85.840904	 Valve Value [3] = 334.579315	 Valve Value [4] = 400.042358	 Valve Value [5] = 0.057044	 Valve Value [6] = 352.525909	 Valve Value [7] = 24773.232422	 Valve Value [8] = 318.860870	 Valve Value [9] = 410.564331	 Valve Value [10] = 244.686615	 Valve Value [11] = 189.016159	 Valve Value [12] = 244.359116	 Valve Value [13] = 264.007477	 Valve Value [14] = 59.119473	 Valve Value [15] = 269.658417	 Valve Value [16] = 172.173462	 Valve Value [17] = 269.966217	 Valve Value [18] = 155.248016	 Valve Value [19] = 11921.964844	 Valve Value [20] = 273.179321	 Valve Value [21] = 461.779541	 Valve Value [22] = 36.362423	 Valve Value [23] = 596.168762
+ 
+ 
+ 
+ Valve ID = 3	 Valve Value [0] = 0.000000	 Valve Value [1] = 0.000000	 Valve Value [2] = 0.000000	 Valve Value [3] = 847.997559	 Valve Value [4] = 309.167419	 Valve Value [5] = 1719.539185	 Valve Value [6] = 0.000000	 Valve Value [7] = 339.918671	 Valve Value [8] = 0.000000	 Valve Value [9] = 169.078003	 Valve Value [10] = 523.591675	 Valve Value [11] = 0.000000	 Valve Value [12] = 0.000000	 Valve Value [13] = 0.000000	 Valve Value [14] = 947.586853	 Valve Value [15] = 0.000000	 Valve Value [16] = 0.000000	 Valve Value [17] = 0.000000	 Valve Value [18] = 1013.177979	 Valve Value [19] = 484.453033	 Valve Value [20] = 163.640671	 Valve Value [21] = 0.000000	 Valve Value [22] = 705.604248	 Valve Value [23] = 0.000000
+ 
+ 
+ 
+ Valve ID = 5	 Valve Value [0] = 28115.189453	 Valve Value [1] = 41751.339844	 Valve Value [2] = 13274.091797	 Valve Value [3] = 14701.115234	 Valve Value [4] = 23054.171875	 Valve Value [5] = 15605.495117	 Valve Value [6] = 7037.523438	 Valve Value [7] = 979.130432	 Valve Value [8] = 18264.265625	 Valve Value [9] = 8903.776367	 Valve Value [10] = 10764.082031	 Valve Value [11] = 14811.278320	 Valve Value [12] = 8662.123047	 Valve Value [13] = 11265.700195	 Valve Value [14] = 15994.061523	 Valve Value [15] = 20994.578125	 Valve Value [16] = 8951.562500	 Valve Value [17] = 8827.027344	 Valve Value [18] = 16898.146484	 Valve Value [19] = 49.090942	 Valve Value [20] = 22879.335938	 Valve Value [21] = 22019.058594	 Valve Value [22] = 13970.467773	 Valve Value [23] = 18846.583984
+ 
+ 
+ Tank ID = 34  
+ Tank Level[0] = -5.541564, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 0.000000, 
+ Tank Level[1] = -0.309321, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 1.179888, 
+ Tank Level[2] = 4.897199, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 85.840919, 
+ Tank Level[3] = 8.258023, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 334.579346, 
+ Tank Level[4] = 6.196097, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 400.042358, 
+ Tank Level[5] = 2.707012, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 0.057063, 
+ Tank Level[6] = 7.938011, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 352.525909, 
+ Tank Level[7] = 5.484832, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 291.306335, 
+ Tank Level[8] = 4.366302, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 318.860870, 
+ Tank Level[9] = 2.647055, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 410.564331, 
+ Tank Level[10] = -1.071419, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 244.686630, 
+ Tank Level[11] = -1.173593, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 189.016174, 
+ Tank Level[12] = -0.062094, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 244.359131, 
+ Tank Level[13] = -0.157127, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 264.007507, 
+ Tank Level[14] = -0.680515, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 59.119492, 
+ Tank Level[15] = 3.262863, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 269.658447, 
+ Tank Level[16] = 2.616279, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 172.173477, 
+ Tank Level[17] = 4.094965, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 269.966248, 
+ Tank Level[18] = 3.441671, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 155.248032, 
+ Tank Level[19] = 5.289350, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 291.306610, 
+ Tank Level[20] = 4.170814, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 273.179352, 
+ Tank Level[21] = 3.447470, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 461.779541, 
+ Tank Level[22] = -1.387548, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 36.362442, 
+ Tank Level[23] = 3.051956, 	 Tank Inflow = 240.000000, 	 Tank Outflow = 596.168762, 
+ Tank Level[24] = -4.712883, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 
+ 
+ 
+ Tank ID = Veeranageeri  
+ Tank Level[0] = 10.530274, 	 Tank Inflow = -91.799820, 	 Tank Outflow = 5.625000, 
+ Tank Level[1] = 6.320994, 	 Tank Inflow = -91.799461, 	 Tank Outflow = 5.625000, 
+ Tank Level[2] = 2.111730, 	 Tank Inflow = -91.799690, 	 Tank Outflow = 5.625000, 
+ Tank Level[3] = -2.097544, 	 Tank Inflow = 166.693100, 	 Tank Outflow = 5.625000, 
+ Tank Level[4] = 4.861470, 	 Tank Inflow = 50.841732, 	 Tank Outflow = 11.250000, 
+ Tank Level[5] = 6.572047, 	 Tank Inflow = 148.451538, 	 Tank Outflow = 28.125000, 
+ Tank Level[6] = 11.770805, 	 Tank Inflow = -91.443863, 	 Tank Outflow = 56.250000, 
+ Tank Level[7] = 5.389631, 	 Tank Inflow = 291.306091, 	 Tank Outflow = 70.312500, 
+ Tank Level[8] = 14.937750, 	 Tank Inflow = -91.300262, 	 Tank Outflow = 70.312500, 
+ Tank Level[9] = 7.955203, 	 Tank Inflow = 74.625595, 	 Tank Outflow = 56.250000, 
+ Tank Level[10] = 8.749128, 	 Tank Inflow = 116.504723, 	 Tank Outflow = 28.125000, 
+ Tank Level[11] = 12.567611, 	 Tank Inflow = -91.322060, 	 Tank Outflow = 28.125000, 
+ Tank Level[12] = 7.406851, 	 Tank Inflow = -91.293053, 	 Tank Outflow = 22.500000, 
+ Tank Level[13] = 2.490376, 	 Tank Inflow = -91.330795, 	 Tank Outflow = 22.500000, 
+ Tank Level[14] = -2.427731, 	 Tank Inflow = 146.760803, 	 Tank Outflow = 28.125000, 
+ Tank Level[15] = 2.697978, 	 Tank Inflow = -91.342461, 	 Tank Outflow = 16.875000, 
+ Tank Level[16] = -1.977602, 	 Tank Inflow = -91.343651, 	 Tank Outflow = 22.500000, 
+ Tank Level[17] = -6.896265, 	 Tank Inflow = -91.380455, 	 Tank Outflow = 28.125000, 
+ Tank Level[18] = -12.059547, 	 Tank Inflow = 136.035751, 	 Tank Outflow = 42.187500, 
+ Tank Level[19] = -8.004795, 	 Tank Inflow = 291.305969, 	 Tank Outflow = 42.187500, 
+ Tank Level[20] = 2.758471, 	 Tank Inflow = 70.792053, 	 Tank Outflow = 28.125000, 
+ Tank Level[21] = 4.601919, 	 Tank Inflow = -91.387833, 	 Tank Outflow = 22.500000, 
+ Tank Level[22] = -0.318652, 	 Tank Inflow = 127.276810, 	 Tank Outflow = 16.875000, 
+ Tank Level[23] = 4.451304, 	 Tank Inflow = -91.329178, 	 Tank Outflow = 11.250000, 
+ Tank Level[24] = 0.019328, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 
+ 
+ 
+ Tank ID = NR_mohalla2  
+ Tank Level[0] = -1.606679, 	 Tank Inflow = 42.781727, 	 Tank Outflow = 2.880132, 
+ Tank Level[1] = 1.825399, 	 Tank Inflow = 42.781734, 	 Tank Outflow = 2.880131, 
+ Tank Level[2] = 5.257478, 	 Tank Inflow = 42.781731, 	 Tank Outflow = 2.880005, 
+ Tank Level[3] = 8.689568, 	 Tank Inflow = 0.000019, 	 Tank Outflow = 2.880006, 
+ Tank Level[4] = 8.441850, 	 Tank Inflow = 0.000006, 	 Tank Outflow = 5.760129, 
+ Tank Level[5] = 7.946401, 	 Tank Inflow = 0.000016, 	 Tank Outflow = 14.400004, 
+ Tank Level[6] = 6.707806, 	 Tank Inflow = 28.441404, 	 Tank Outflow = 28.800005, 
+ Tank Level[7] = 6.676962, 	 Tank Inflow = 0.000039, 	 Tank Outflow = 36.000130, 
+ Tank Level[8] = 3.580466, 	 Tank Inflow = 24.143967, 	 Tank Outflow = 36.000130, 
+ Tank Level[9] = 2.560675, 	 Tank Inflow = 0.000012, 	 Tank Outflow = 28.800003, 
+ Tank Level[10] = 0.083486, 	 Tank Inflow = 0.000008, 	 Tank Outflow = 14.400128, 
+ Tank Level[11] = -1.155120, 	 Tank Inflow = 24.764118, 	 Tank Outflow = 14.399993, 
+ Tank Level[12] = -0.263664, 	 Tank Inflow = 23.926323, 	 Tank Outflow = 11.520006, 
+ Tank Level[13] = 0.803447, 	 Tank Inflow = 25.005032, 	 Tank Outflow = 11.520128, 
+ Tank Level[14] = 1.963331, 	 Tank Inflow = 0.000015, 	 Tank Outflow = 14.400130, 
+ Tank Level[15] = 0.724726, 	 Tank Inflow = 25.354971, 	 Tank Outflow = 8.640005, 
+ Tank Level[16] = 2.162440, 	 Tank Inflow = 25.386730, 	 Tank Outflow = 11.520006, 
+ Tank Level[17] = 3.355166, 	 Tank Inflow = 26.479002, 	 Tank Outflow = 14.399998, 
+ Tank Level[18] = 4.394125, 	 Tank Inflow = 0.000013, 	 Tank Outflow = 21.599997, 
+ Tank Level[19] = 2.536233, 	 Tank Inflow = 0.000039, 	 Tank Outflow = 21.600000, 
+ Tank Level[20] = 0.678344, 	 Tank Inflow = 0.000012, 	 Tank Outflow = 14.400004, 
+ Tank Level[21] = -0.560251, 	 Tank Inflow = 26.710386, 	 Tank Outflow = 11.520129, 
+ Tank Level[22] = 0.746317, 	 Tank Inflow = 0.000011, 	 Tank Outflow = 8.640005, 
+ Tank Level[23] = 0.003161, 	 Tank Inflow = 24.965239, 	 Tank Outflow = 5.760006, 
+ Tank Level[24] = 1.655071, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 
+ 
+ 
+ Tank ID = NR_Mohalla1  
+ Tank Level[0] = 3.168092, 	 Tank Inflow = 13.726337, 	 Tank Outflow = 11.394000, 
+ Tank Level[1] = 3.218939, 	 Tank Inflow = 13.726525, 	 Tank Outflow = 11.394000, 
+ Tank Level[2] = 3.269791, 	 Tank Inflow = 13.726353, 	 Tank Outflow = 11.394000, 
+ Tank Level[3] = 3.320639, 	 Tank Inflow = 78.517311, 	 Tank Outflow = 11.394000, 
+ Tank Level[4] = 4.783995, 	 Tank Inflow = 165.878387, 	 Tank Outflow = 22.788000, 
+ Tank Level[5] = 7.903510, 	 Tank Inflow = 108.857498, 	 Tank Outflow = 56.970001, 
+ Tank Level[6] = 9.034710, 	 Tank Inflow = 27.316172, 	 Tank Outflow = 113.940002, 
+ Tank Level[7] = 7.146223, 	 Tank Inflow = 0.000197, 	 Tank Outflow = 142.425003, 
+ Tank Level[8] = 4.041218, 	 Tank Inflow = 31.313961, 	 Tank Outflow = 142.425003, 
+ Tank Level[9] = 1.618885, 	 Tank Inflow = 0.000193, 	 Tank Outflow = 113.940002, 
+ Tank Level[10] = -0.865118, 	 Tank Inflow = 229.358917, 	 Tank Outflow = 56.970001, 
+ Tank Level[11] = 2.893134, 	 Tank Inflow = 30.738987, 	 Tank Outflow = 56.970001, 
+ Tank Level[12] = 2.321272, 	 Tank Inflow = 31.514963, 	 Tank Outflow = 45.576000, 
+ Tank Level[13] = 2.014727, 	 Tank Inflow = 30.515802, 	 Tank Outflow = 45.576000, 
+ Tank Level[14] = 1.686400, 	 Tank Inflow = 122.410835, 	 Tank Outflow = 56.970001, 
+ Tank Level[15] = 3.113076, 	 Tank Inflow = 30.190680, 	 Tank Outflow = 34.181999, 
+ Tank Level[16] = 3.026061, 	 Tank Inflow = 30.160980, 	 Tank Outflow = 45.576000, 
+ Tank Level[17] = 2.689998, 	 Tank Inflow = 29.145563, 	 Tank Outflow = 56.970001, 
+ Tank Level[18] = 2.083397, 	 Tank Inflow = 166.453491, 	 Tank Outflow = 85.455002, 
+ Tank Level[19] = 3.849246, 	 Tank Inflow = 0.000195, 	 Tank Outflow = 85.455002, 
+ Tank Level[20] = 1.986245, 	 Tank Inflow = 0.068586, 	 Tank Outflow = 56.970001, 
+ Tank Level[21] = 0.745737, 	 Tank Inflow = 28.930521, 	 Tank Outflow = 45.576000, 
+ Tank Level[22] = 0.382848, 	 Tank Inflow = 177.444016, 	 Tank Outflow = 34.181999, 
+ Tank Level[23] = 3.506105, 	 Tank Inflow = 30.552252, 	 Tank Outflow = 22.788000, 
+ Tank Level[24] = 3.675374, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 
+ 
+ 
+ Tank ID = Rajiv_nagar_II  
+ Tank Level[0] = 7.301310, 	 Tank Inflow = -0.000414, 	 Tank Outflow = 15.966128, 
+ Tank Level[1] = 7.048074, 	 Tank Inflow = 1.179855, 	 Tank Outflow = 15.966128, 
+ Tank Level[2] = 6.813558, 	 Tank Inflow = 85.840927, 	 Tank Outflow = 15.966000, 
+ Tank Level[3] = 7.921803, 	 Tank Inflow = -58.599018, 	 Tank Outflow = 15.966000, 
+ Tank Level[4] = 6.739170, 	 Tank Inflow = 90.874832, 	 Tank Outflow = 31.932127, 
+ Tank Level[5] = 7.674026, 	 Tank Inflow = -395.766754, 	 Tank Outflow = 79.830002, 
+ Tank Level[6] = 0.130861, 	 Tank Inflow = 352.525665, 	 Tank Outflow = 159.660004, 
+ Tank Level[7] = 3.189792, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 199.575119, 
+ Tank Level[8] = 0.024446, 	 Tank Inflow = 318.860840, 	 Tank Outflow = 199.575119, 
+ Tank Level[9] = 1.916368, 	 Tank Inflow = 241.486267, 	 Tank Outflow = 159.660004, 
+ Tank Level[10] = 3.214167, 	 Tank Inflow = -229.194611, 	 Tank Outflow = 79.830132, 
+ Tank Level[11] = -1.687096, 	 Tank Inflow = 189.016098, 	 Tank Outflow = 79.830002, 
+ Tank Level[12] = 0.044642, 	 Tank Inflow = 244.359436, 	 Tank Outflow = 63.863998, 
+ Tank Level[13] = 2.907376, 	 Tank Inflow = 264.007507, 	 Tank Outflow = 63.864128, 
+ Tank Level[14] = 6.081735, 	 Tank Inflow = -348.315338, 	 Tank Outflow = 79.830132, 
+ Tank Level[15] = -0.708833, 	 Tank Inflow = 269.658600, 	 Tank Outflow = 47.897999, 
+ Tank Level[16] = 2.808384, 	 Tank Inflow = 172.173416, 	 Tank Outflow = 63.863998, 
+ Tank Level[17] = 4.526217, 	 Tank Inflow = 269.966034, 	 Tank Outflow = 79.830002, 
+ Tank Level[18] = 7.541855, 	 Tank Inflow = -281.878357, 	 Tank Outflow = 119.745003, 
+ Tank Level[19] = 1.171939, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 119.745003, 
+ Tank Level[20] = -0.727268, 	 Tank Inflow = 109.538643, 	 Tank Outflow = 79.830002, 
+ Tank Level[21] = -0.256076, 	 Tank Inflow = 461.779480, 	 Tank Outflow = 63.864128, 
+ Tank Level[22] = 6.055030, 	 Tank Inflow = -398.702271, 	 Tank Outflow = 47.897999, 
+ Tank Level[23] = -1.028240, 	 Tank Inflow = 596.168823, 	 Tank Outflow = 31.931999, 
+ Tank Level[24] = 7.920795, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 
+ 
+ 
+ Tank ID = Tippu_Park  
+ Tank Level[0] = -3.628152, 	 Tank Inflow = 35.291412, 	 Tank Outflow = 7.470128, 
+ Tank Level[1] = -3.021620, 	 Tank Inflow = 35.291649, 	 Tank Outflow = 7.470129, 
+ Tank Level[2] = -2.415083, 	 Tank Inflow = 35.291504, 	 Tank Outflow = 7.470000, 
+ Tank Level[3] = -1.808546, 	 Tank Inflow = 147.967667, 	 Tank Outflow = 7.469999, 
+ Tank Level[4] = 1.254445, 	 Tank Inflow = 92.446983, 	 Tank Outflow = 14.940128, 
+ Tank Level[5] = 2.944173, 	 Tank Inflow = 138.514893, 	 Tank Outflow = 37.349998, 
+ Tank Level[6] = 5.149670, 	 Tank Inflow = 35.686096, 	 Tank Outflow = 74.699997, 
+ Tank Level[7] = 4.299127, 	 Tank Inflow = 0.000036, 	 Tank Outflow = 93.375130, 
+ Tank Level[8] = 2.263456, 	 Tank Inflow = 35.843254, 	 Tank Outflow = 93.375130, 
+ Tank Level[9] = 1.009203, 	 Tank Inflow = 94.451973, 	 Tank Outflow = 74.699997, 
+ Tank Level[10] = 1.439816, 	 Tank Inflow = 128.018097, 	 Tank Outflow = 37.350128, 
+ Tank Level[11] = 3.416469, 	 Tank Inflow = 35.819344, 	 Tank Outflow = 37.349998, 
+ Tank Level[12] = 3.383099, 	 Tank Inflow = 35.851929, 	 Tank Outflow = 29.879999, 
+ Tank Level[13] = 3.513293, 	 Tank Inflow = 35.810261, 	 Tank Outflow = 29.880127, 
+ Tank Level[14] = 3.642576, 	 Tank Inflow = 138.262848, 	 Tank Outflow = 37.350128, 
+ Tank Level[15] = 5.842575, 	 Tank Inflow = 35.797024, 	 Tank Outflow = 22.410000, 
+ Tank Level[16] = 6.134426, 	 Tank Inflow = 35.796173, 	 Tank Outflow = 29.879999, 
+ Tank Level[17] = 6.263405, 	 Tank Inflow = 35.755993, 	 Tank Outflow = 37.349998, 
+ Tank Level[18] = 6.228654, 	 Tank Inflow = 134.636536, 	 Tank Outflow = 56.025002, 
+ Tank Level[19] = 7.942464, 	 Tank Inflow = 0.000144, 	 Tank Outflow = 56.025002, 
+ Tank Level[20] = 6.721066, 	 Tank Inflow = 92.779915, 	 Tank Outflow = 37.349998, 
+ Tank Level[21] = 7.929494, 	 Tank Inflow = 35.747375, 	 Tank Outflow = 29.880129, 
+ Tank Level[22] = 8.057406, 	 Tank Inflow = 130.343216, 	 Tank Outflow = 22.410000, 
+ Tank Level[23] = 10.410460, 	 Tank Inflow = 35.811916, 	 Tank Outflow = 14.939999, 
+ Tank Level[24] = 10.865488, 	 Tank Inflow = 0.000000, 	 Tank Outflow = 0.000000, 

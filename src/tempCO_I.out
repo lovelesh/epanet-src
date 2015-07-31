@@ -1,0 +1,323 @@
+
+ Input File ../Input_Files/test_72_Closed_6_Open.inp 
+ Output File = temp.out
+  o Retrieving network data
+Number of Tanks = 6	 Number of Valves = 9
+
+ 1 Node Index = 30 Node ID = 34 Tank Elev = 1  Input_Type = ,  Input_ID = 84 Output_Type = , Output_ID = DVRTMP3
+ 2 Node Index = 31 Node ID = Veeranageeri Tank Elev = 0  Input_Type = ,  Input_ID = 79 Output_Type = , Output_ID = 10
+ 3 Node Index = 32 Node ID = NR_mohalla2 Tank Elev = 0  Input_Type = ,  Input_ID = 77 Output_Type = , Output_ID = 8
+ 4 Node Index = 33 Node ID = NR_Mohalla1 Tank Elev = 0  Input_Type = ,  Input_ID = 75 Output_Type = , Output_ID = 7
+ 5 Node Index = 34 Node ID = Rajiv_nagar_II Tank Elev = 0  Input_Type = ,  Input_ID = 73 Output_Type = , Output_ID = 1
+ 6 Node Index = 35 Node ID = Tippu_Park Tank Elev = 0  Input_Type = ,  Input_ID = 55 Output_Type = , Output_ID = 2
+Valve Id = 28, Valve Setting = 7.062895e+00
+Valve Id = 29, Valve Setting = 1.103577e+00
+Valve Id = 30, Valve Setting = 5.650316e-01
+Valve Id = 31, Valve Setting = 2.235406e+00
+Valve Id = 32, Valve Setting = -1.000000e+10
+Valve Id = 33, Valve Setting = 3.531448e+00
+Valve Id = 34, Valve Setting = -1.000000e+10
+Valve Id = 35, Valve Setting = 5.369566e+00
+Valve Id = 36, Valve Setting = 2.789844e+00
+ Number of Controls 0
+  o Computing hydraulics at hour 0:00:00                        
+ Link index = 28, Link Type = 6, Valve Setting = 200.000000 Valve Flow 240.000000 Valve Status 1.000000
+ Link index = 29, Link Type = 6, Valve Setting = 31.250000 Valve Flow -3.064488 Valve Status 1.000000
+ Link index = 30, Link Type = 6, Valve Setting = 16.000000 Valve Flow 16.000006 Valve Status 1.000000
+ Link index = 31, Link Type = 6, Valve Setting = 63.299999 Valve Flow 62.999828 Valve Status 1.000000
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000 Valve Flow 0.000000 Valve Status 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 100.000000 Valve Flow 76.114365 Valve Status 1.000000
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000 Valve Flow 152.050247 Valve Status 1.000000
+ Link index = 35, Link Type = 6, Valve Setting = 152.050003 Valve Flow 152.050034 Valve Status 1.000000
+ Link index = 36, Link Type = 6, Valve Setting = 79.000000 Valve Flow 79.000000 Valve Status 1.000000
+ After Computation
+ Link index: 1, Link Flow = 0.000000 
+ Link index: 2, Link Flow = 152.050146 
+ Link index: 3, Link Flow = 240.000000 
+ Link index: 4, Link Flow = -3.064538 
+ Link index: 5, Link Flow = 16.000005 
+ Link index: 6, Link Flow = 62.999867 
+ Link index: 7, Link Flow = 0.000000 
+ Link index: 8, Link Flow = 76.114349 
+ Link index: 9, Link Flow = 31.250000 
+ Link index: 10, Link Flow = 16.000000 
+ Link index: 11, Link Flow = 63.300000 
+ Link index: 12, Link Flow = 87.000000 
+ Link index: 13, Link Flow = 41.500000 
+ Link index: 14, Link Flow = -3.064410 
+ Link index: 15, Link Flow = -3.064410 
+ Link index: 16, Link Flow = 152.050035 
+ Link index: 17, Link Flow = 152.050197 
+ Link index: 18, Link Flow = -3.064410 
+ Link index: 19, Link Flow = 62.999998 
+ Link index: 20, Link Flow = 16.000005 
+ Link index: 21, Link Flow = 79.000003 
+ Link index: 22, Link Flow = 75.935593 
+ Link index: 23, Link Flow = 76.114442 
+ Link index: 24, Link Flow = 152.050035 
+ Link index: 25, Link Flow = 120.000016 
+ Link index: 26, Link Flow = -0.000031 
+ Link index: 27, Link Flow = 120.000016 
+ Link index: 28, Link Flow = 240.000000 
+ Link index: 29, Link Flow = -3.064488 
+ Link index: 30, Link Flow = 16.000005 
+ Link index: 31, Link Flow = 62.999830 
+ Link index: 32, Link Flow = 0.000017 
+ Link index: 33, Link Flow = 76.114364 
+ Link index: 34, Link Flow = 152.050251 
+ Link index: 35, Link Flow = 152.050035 
+ Link index: 36, Link Flow = 79.000003 
+
+
+
+ Hydraulics Solver using ENopenH. UCF[FLOW] = 28.317000
+ 
+ 
+ Simulation Iteration 1
+ Old Valve Setting = 200.000000 New Valve Setting = 199.899994
+ Valve Id = 28, Valve Setting = 7.059363e+00
+ Old Valve Setting = 31.250000 New Valve Setting = 31.150000
+ Valve Id = 29, Valve Setting = 1.100046e+00
+ Old Valve Setting = 16.000000 New Valve Setting = 15.900000
+ Valve Id = 30, Valve Setting = 5.615001e-01
+ Old Valve Setting = 63.299999 New Valve Setting = 63.200001
+ Valve Id = 31, Valve Setting = 2.231875e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 32, Valve Setting = -1.000000e+10
+ Old Valve Setting = 100.000000 New Valve Setting = 99.900002
+ Valve Id = 33, Valve Setting = 3.527916e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 34, Valve Setting = -1.000000e+10
+ Old Valve Setting = 152.050003 New Valve Setting = 151.949997
+ Valve Id = 35, Valve Setting = 5.366034e+00
+ Old Valve Setting = 79.000000 New Valve Setting = 78.900002
+ Valve Id = 36, Valve Setting = 2.786312e+00
+ Link index = 28, Link Type = 6, Valve Setting = 199.899994
+ Link index = 29, Link Type = 6, Valve Setting = 31.150000
+ Link index = 30, Link Type = 6, Valve Setting = 15.900000
+ Link index = 31, Link Type = 6, Valve Setting = 63.200001
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 99.900002
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000
+ Link index = 35, Link Type = 6, Valve Setting = 151.949997
+ Link index = 36, Link Type = 6, Valve Setting = 78.900002
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.061526
+ Link index = 30, Link Type = 6, Valve Flow = 15.900004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.111404
+ Link index = 34, Link Type = 6, Valve Flow = 151.950333
+ Link index = 35, Link Type = 6, Valve Flow = 151.950027
+ Link index = 36, Link Type = 6, Valve Flow = 78.900002
+  o Computing hydraulics at hour 0:00:00                        
+ Solution using ENsolveH
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.061526
+ Link index = 30, Link Type = 6, Valve Flow = 15.900004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.111404
+ Link index = 34, Link Type = 6, Valve Flow = 151.950333
+ Link index = 35, Link Type = 6, Valve Flow = 151.950027
+ Link index = 36, Link Type = 6, Valve Flow = 78.900002
+ 
+ 
+ Simulation Iteration 2
+ Old Valve Setting = 199.899994 New Valve Setting = 199.799988
+ Valve Id = 28, Valve Setting = 7.055832e+00
+ Old Valve Setting = 31.150000 New Valve Setting = 31.049999
+ Valve Id = 29, Valve Setting = 1.096514e+00
+ Old Valve Setting = 15.900000 New Valve Setting = 15.799999
+ Valve Id = 30, Valve Setting = 5.579687e-01
+ Old Valve Setting = 63.200001 New Valve Setting = 63.100002
+ Valve Id = 31, Valve Setting = 2.228343e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 32, Valve Setting = -1.000000e+10
+ Old Valve Setting = 99.900002 New Valve Setting = 99.800003
+ Valve Id = 33, Valve Setting = 3.524385e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 34, Valve Setting = -1.000000e+10
+ Old Valve Setting = 151.949997 New Valve Setting = 151.849991
+ Valve Id = 35, Valve Setting = 5.362503e+00
+ Old Valve Setting = 78.900002 New Valve Setting = 78.800003
+ Valve Id = 36, Valve Setting = 2.782781e+00
+ Link index = 28, Link Type = 6, Valve Setting = 199.799988
+ Link index = 29, Link Type = 6, Valve Setting = 31.049999
+ Link index = 30, Link Type = 6, Valve Setting = 15.799999
+ Link index = 31, Link Type = 6, Valve Setting = 63.100002
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 99.800003
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000
+ Link index = 35, Link Type = 6, Valve Setting = 151.849991
+ Link index = 36, Link Type = 6, Valve Setting = 78.800003
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.058435
+ Link index = 30, Link Type = 6, Valve Flow = 15.800004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.108315
+ Link index = 34, Link Type = 6, Valve Flow = 151.850143
+ Link index = 35, Link Type = 6, Valve Flow = 151.850021
+ Link index = 36, Link Type = 6, Valve Flow = 78.800003
+  o Computing hydraulics at hour 0:00:00                        
+ Solution using ENsolveH
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.058435
+ Link index = 30, Link Type = 6, Valve Flow = 15.800004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.108315
+ Link index = 34, Link Type = 6, Valve Flow = 151.850143
+ Link index = 35, Link Type = 6, Valve Flow = 151.850021
+ Link index = 36, Link Type = 6, Valve Flow = 78.800003
+ 
+ 
+ Simulation Iteration 3
+ Old Valve Setting = 199.799988 New Valve Setting = 199.699982
+ Valve Id = 28, Valve Setting = 7.052300e+00
+ Old Valve Setting = 31.049999 New Valve Setting = 30.949999
+ Valve Id = 29, Valve Setting = 1.092983e+00
+ Old Valve Setting = 15.799999 New Valve Setting = 15.699999
+ Valve Id = 30, Valve Setting = 5.544372e-01
+ Old Valve Setting = 63.100002 New Valve Setting = 63.000004
+ Valve Id = 31, Valve Setting = 2.224812e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 32, Valve Setting = -1.000000e+10
+ Old Valve Setting = 99.800003 New Valve Setting = 99.700005
+ Valve Id = 33, Valve Setting = 3.520853e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 34, Valve Setting = -1.000000e+10
+ Old Valve Setting = 151.849991 New Valve Setting = 151.749985
+ Valve Id = 35, Valve Setting = 5.358971e+00
+ Old Valve Setting = 78.800003 New Valve Setting = 78.700005
+ Valve Id = 36, Valve Setting = 2.779249e+00
+ Link index = 28, Link Type = 6, Valve Setting = 199.699982
+ Link index = 29, Link Type = 6, Valve Setting = 30.949999
+ Link index = 30, Link Type = 6, Valve Setting = 15.699999
+ Link index = 31, Link Type = 6, Valve Setting = 63.000004
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 99.700005
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000
+ Link index = 35, Link Type = 6, Valve Setting = 151.749985
+ Link index = 36, Link Type = 6, Valve Setting = 78.700005
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.055474
+ Link index = 30, Link Type = 6, Valve Flow = 15.700004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105476
+ Link index = 34, Link Type = 6, Valve Flow = 151.750214
+ Link index = 35, Link Type = 6, Valve Flow = 151.750015
+ Link index = 36, Link Type = 6, Valve Flow = 78.700005
+  o Computing hydraulics at hour 0:00:00                        
+ Solution using ENsolveH
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -3.055474
+ Link index = 30, Link Type = 6, Valve Flow = 15.700004
+ Link index = 31, Link Type = 6, Valve Flow = 62.999958
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105476
+ Link index = 34, Link Type = 6, Valve Flow = 151.750214
+ Link index = 35, Link Type = 6, Valve Flow = 151.750015
+ Link index = 36, Link Type = 6, Valve Flow = 78.700005
+ 
+ 
+ Simulation Iteration 4
+ Old Valve Setting = 199.699982 New Valve Setting = 199.599976
+ Valve Id = 28, Valve Setting = 7.048768e+00
+ Old Valve Setting = 30.949999 New Valve Setting = 30.849998
+ Valve Id = 29, Valve Setting = 1.089452e+00
+ Old Valve Setting = 15.699999 New Valve Setting = 15.599998
+ Valve Id = 30, Valve Setting = 5.509058e-01
+ Old Valve Setting = 63.000004 New Valve Setting = 62.900005
+ Valve Id = 31, Valve Setting = 2.221281e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 32, Valve Setting = -1.000000e+10
+ Old Valve Setting = 99.700005 New Valve Setting = 99.600006
+ Valve Id = 33, Valve Setting = 3.517322e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 34, Valve Setting = -1.000000e+10
+ Old Valve Setting = 151.749985 New Valve Setting = 151.649979
+ Valve Id = 35, Valve Setting = 5.355439e+00
+ Old Valve Setting = 78.700005 New Valve Setting = 78.600006
+ Valve Id = 36, Valve Setting = 2.775718e+00
+ Link index = 28, Link Type = 6, Valve Setting = 199.599976
+ Link index = 29, Link Type = 6, Valve Setting = 30.849998
+ Link index = 30, Link Type = 6, Valve Setting = 15.599998
+ Link index = 31, Link Type = 6, Valve Setting = 62.900005
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 99.600006
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000
+ Link index = 35, Link Type = 6, Valve Setting = 151.649979
+ Link index = 36, Link Type = 6, Valve Setting = 78.600006
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -2.955548
+ Link index = 30, Link Type = 6, Valve Flow = 15.600006
+ Link index = 31, Link Type = 6, Valve Flow = 62.900009
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105347
+ Link index = 34, Link Type = 6, Valve Flow = 151.650162
+ Link index = 35, Link Type = 6, Valve Flow = 151.650009
+ Link index = 36, Link Type = 6, Valve Flow = 78.500099
+  o Computing hydraulics at hour 0:00:00                        
+ Solution using ENsolveH
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -2.955548
+ Link index = 30, Link Type = 6, Valve Flow = 15.600006
+ Link index = 31, Link Type = 6, Valve Flow = 62.900009
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105347
+ Link index = 34, Link Type = 6, Valve Flow = 151.650162
+ Link index = 35, Link Type = 6, Valve Flow = 151.650009
+ Link index = 36, Link Type = 6, Valve Flow = 78.500099
+ 
+ 
+ Simulation Iteration 5
+ Old Valve Setting = 199.599976 New Valve Setting = 199.499969
+ Valve Id = 28, Valve Setting = 7.045237e+00
+ Old Valve Setting = 30.849998 New Valve Setting = 30.749998
+ Valve Id = 29, Valve Setting = 1.085920e+00
+ Old Valve Setting = 15.599998 New Valve Setting = 15.499998
+ Valve Id = 30, Valve Setting = 5.473743e-01
+ Old Valve Setting = 62.900005 New Valve Setting = 62.800007
+ Valve Id = 31, Valve Setting = 2.217749e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 32, Valve Setting = -1.000000e+10
+ Old Valve Setting = 99.600006 New Valve Setting = 99.500008
+ Valve Id = 33, Valve Setting = 3.513791e+00
+ Old Valve Setting = -283170013184.000000 New Valve Setting = -283170013184.000000
+ Valve Id = 34, Valve Setting = -1.000000e+10
+ Old Valve Setting = 151.649979 New Valve Setting = 151.549973
+ Valve Id = 35, Valve Setting = 5.351908e+00
+ Old Valve Setting = 78.600006 New Valve Setting = 78.500008
+ Valve Id = 36, Valve Setting = 2.772187e+00
+ Link index = 28, Link Type = 6, Valve Setting = 199.499969
+ Link index = 29, Link Type = 6, Valve Setting = 30.749998
+ Link index = 30, Link Type = 6, Valve Setting = 15.499998
+ Link index = 31, Link Type = 6, Valve Setting = 62.800007
+ Link index = 32, Link Type = 6, Valve Setting = 0.000000
+ Link index = 33, Link Type = 6, Valve Setting = 99.500008
+ Link index = 34, Link Type = 6, Valve Setting = 0.000000
+ Link index = 35, Link Type = 6, Valve Setting = 151.549973
+ Link index = 36, Link Type = 6, Valve Setting = 78.500008
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -2.855621
+ Link index = 30, Link Type = 6, Valve Flow = 15.500006
+ Link index = 31, Link Type = 6, Valve Flow = 62.800011
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105347
+ Link index = 34, Link Type = 6, Valve Flow = 151.549850
+ Link index = 35, Link Type = 6, Valve Flow = 151.550003
+ Link index = 36, Link Type = 6, Valve Flow = 78.300117
+  o Computing hydraulics at hour 0:00:00                        
+ Solution using ENsolveH
+ Link index = 28, Link Type = 6, Valve Flow = 240.000000
+ Link index = 29, Link Type = 6, Valve Flow = -2.855621
+ Link index = 30, Link Type = 6, Valve Flow = 15.500006
+ Link index = 31, Link Type = 6, Valve Flow = 62.800011
+ Link index = 32, Link Type = 6, Valve Flow = 0.000000
+ Link index = 33, Link Type = 6, Valve Flow = 76.105347
+ Link index = 34, Link Type = 6, Valve Flow = 151.549850
+ Link index = 35, Link Type = 6, Valve Flow = 151.550003
+ Link index = 36, Link Type = 6, Valve Flow = 78.300117

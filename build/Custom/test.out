@@ -1,0 +1,124 @@
+  Page 1                                    Fri Oct 31 20:01:12 2014
+
+  ******************************************************************
+  *                           E P A N E T                          *
+  *                   Hydraulic and Water Quality                  *
+  *                   Analysis for Pipe Networks                   *
+  *                         Version 2.00.12                        *
+  ******************************************************************
+  
+  Scenario: Base  
+  Date: 6/2/2014 4:57:00 PM  
+   
+      Input Data File ................... test.inp
+      Number of Junctions................ 29
+      Number of Reservoirs............... 0
+      Number of Tanks ................... 6
+      Number of Pipes ................... 24
+      Number of Pumps ................... 3
+      Number of Valves .................. 9
+      Headloss Formula .................. Hazen-Williams
+      Hydraulic Timestep ................ 1.00 hrs
+      Hydraulic Accuracy ................ 0.001000
+      Status Check Frequency ............ 2
+      Maximum Trials Checked ............ 10
+      Damping Limit Threshold ........... 0.000000
+      Maximum Trials .................... 40
+      Quality Analysis .................. None
+      Specific Gravity .................. 1.00
+      Relative Kinematic Viscosity ...... 1.00
+      Relative Chemical Diffusivity ..... 1.00
+      Demand Multiplier ................. 1.00
+      Total Duration .................... 0.00 hrs
+      Reporting Criteria:
+         All Nodes
+         All Links
+   
+  Analysis begun Fri Oct 31 20:01:12 2014
+
+   
+  Node Results:
+  ----------------------------------------------
+                     Demand      Head  Pressure
+  Node                  L/s         m         m
+  ----------------------------------------------
+  21                   0.00    802.03     18.99
+  19                   0.00    762.14     12.98
+  17                   0.00    752.87     10.83
+  15                   0.00    757.86     15.98
+  13                   0.00    783.40     26.40
+  3                    0.00    757.15     16.00
+  52                   0.00    802.03     18.99
+  10                  31.25    762.12     12.97
+  8                   63.30    757.84     15.96
+  7                   16.00    752.01      9.97
+  4                   87.00    778.38     21.39
+  2                   41.50    756.75     15.60
+  DMA4150_VeeranagereExOHT      0.00    762.14     12.98
+  DMA4849_NRMohallaExOHT      0.00    758.02     15.97
+  DMA4950_NRMohallaNewOHT      0.00    757.86     15.98
+  DMA5200_UdayagiriNewOHT      0.00    761.33     20.17
+  DVRJ-11              0.00    762.55     14.52
+  DVRJ-8               0.00    764.07      9.05
+  DMA5400_RajivnagarIStageNewOHT      0.00    783.40     26.40
+  DVRJ-3               0.00    784.41     26.86
+  DVRJ-12              0.00    762.51     14.25
+  DVRJ-13              0.00    758.11     21.21
+  DVRJ-10              0.00    762.65     21.82
+  DVRJ-7               0.00    783.47     26.52
+  DVRJ-9               0.00    762.98     24.61
+  301-B             -240.00    768.43      9.74
+  47                   0.00    801.96     44.37
+  1                    0.00    764.43    762.91
+  5                    0.00    759.11    757.60
+  34                  -0.00    802.00     18.96  Tank
+  Veeranageeri         0.30    762.13     12.97  Tank
+  NR_mohalla2          0.00    752.02      9.98  Tank
+  NR_Mohalla1         -0.30    757.85     15.97  Tank
+  Rajiv_nagar_II       0.95    783.35      9.98  Tank
+  Tippu_Park           0.00    757.12     15.97  Tank
+   
+   
+  Link Results:
+  ----------------------------------------------
+                       Flow  Velocity  Headloss
+  Link                  L/s       m/s    /1000m
+  ----------------------------------------------
+  DVRTMP23            87.95      1.24      5.06
+  DVRTMP4            240.00      0.92      1.37
+  84                 240.00      1.22      2.70
+  79                  31.55      0.45      0.76
+  77                  16.00      0.33      0.85
+  75                  63.00      0.65      1.29
+  73                  87.95      1.24      5.07
+  55                  41.50      0.85      3.07
+  10                  31.25      0.44      0.74
+  8                   16.00      0.33      0.53
+  7                   63.30      0.66      1.30
+  1                   87.00      1.23      4.97
+  2                   41.50      2.35     36.89
+  DVRTMP18            31.55      0.29      0.26
+  DVRTMP17            31.55      0.18      0.08
+  DVRTMP14           152.05      0.86      1.50
+  DVRTMP3            240.00      1.22      2.70
+  DVRTMP19            31.55      0.45      0.76
+  DVRTMP22            63.00      0.65      1.29
+  DVRTMP21            16.00      0.33      0.52
+  DVRTMP20            79.00      0.56      0.77
+  DVRTMP15           110.55      0.63      0.83
+  DVRTMP16            41.50      0.85      3.06
+  4                  152.05      0.59      0.59
+  62                 120.00      0.00    -33.60  Pump
+  61                   0.00      0.00      0.00  Pump
+  60                 120.00      0.00    -33.60  Pump
+  80                 240.00      1.22      0.00  FCV
+  78                  31.55      0.45      0.00  FCV
+  76                  16.00      0.33      5.14  FCV
+  74                  63.00      0.65      0.00  FCV
+  72                  87.95      1.24      0.00  FCV
+  40                  41.50      0.85      4.18  FCV
+  6                  240.00      0.85     17.55  FCV
+  3                  152.05      0.59     19.04  FCV
+  5                   79.00      0.56      3.53  FCV
+   
+  Analysis ended Fri Oct 31 20:01:12 2014
