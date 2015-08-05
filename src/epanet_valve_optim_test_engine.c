@@ -103,7 +103,7 @@ int f=0,r=-1;       	//For Priority Queue
 float epsilon = 0.05;  //Arbitary value taken
 int iteration_count = 1;
 int elapsed_time = 0; // Starting clock is considered at 00:00 hrs
-int hourly_scheduler = 1;      // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
+int hourly_scheduler = 2;      // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
 
 // Main function starts here
 
@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
 
 	char * f_epanet_input,
 	     * f_demand_input,
+		 * f_job_input,
 	     * f_epanet_Rpt = "temp.out",
 	       * f_valve_init,
 	       * f_blank = " ",
@@ -132,6 +133,7 @@ int main(int argc, char *argv[])
 	printf("size of TankStruct = %d, Size of Valve Struct = %d", sizeof(struct TankStruct), sizeof(struct ValveStruct));
 	f_epanet_input = argv[1]; 			// first argument is EPANET input file
 	f_demand_input = argv[2]; 			// second argument is Tank demand data file
+	f_job_input = argv[3];				// third argument is the joblist file
 	sscanf(argv[4],"%d", &timeperiod); 		//Time period to be used in optimisation.
 	if(argc>5) {
 		open_valve_init_file_flag = 1;
@@ -213,6 +215,12 @@ int main(int argc, char *argv[])
 	// RAndomise random number seed.
 	srand(time(NULL));
 
+	// Initialise the priority Queue
+	Queueing_Engine(f_job_input);
+	
+	simulation_time = Job_Handler(tankcontrol, valvecontrol);
+	compute_flows(tankcontrol, valvecontrol, simulation_time);
+	update_tank_level(tankcontrol);
 
 	//Call Optmisation module;
 	ENOptimiseValve( tankcontrol,  valvecontrol);
@@ -346,33 +354,22 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
 			
 			printf("Iteration Count = %d",iteration_count);
+			// Schedule jobs
+			//Job_Scheduler(tankcontrol_current, valvecontrol_current);
 			
-
+			// Handle the jobs from the Queue
+			//int time = Job_Handler(tankcontrol, valvecontrol);
+			update_tank_level(tankcontrol);
 			// Print final results (Valve Values)
 			display_output(tankcontrol_current, tankcontrol_gradient, valvecontrol_current, valvecontrol_gradient);
 			
 		}
-
-
 	}
 
 	memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
 	memcpy(valvecontrol,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
 
-//Print final gradient
-	for(temp_count=0; temp_count<Nvalves; temp_count++) {
-		printf("\n Valve Id = %s \n",valvecontrol_current[temp_count].ValveID);
-		for(temp_count2=0; temp_count2<tankcontrol_current->TimePeriod; temp_count2++) {
-			printf("Valve Value [%d] = %f, Gradient [%d] = %f \n",temp_count2,valvecontrol_current[temp_count].ValveValues[temp_count2],temp_count2,valvecontrol_gradient[temp_count].ValveValues[temp_count2]);
-		}
-	}
-	printf("\n\n\n\n\n");
-	for(temp_count=0; temp_count<Ntanks; temp_count++) {
-		printf("\n Tank Id = %s \t",tankcontrol_current[temp_count].TankID);
-		printf("Tank Value [0] = %f, Gradient Tank Value [0] = %f ", tankcontrol_current[temp_count].TankLevels[0],tankcontrol_gradient[temp_count].TankLevels[0]);
-	}
-
-	//free all structures
+	// free all structures
 	free(tankcontrol_current);
 	free(tankcontrol_previous);
 	free(tankcontrol_gradient);
@@ -908,7 +905,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 	float value;
 	int temp_count2;
 	int temp_count;
-	unsigned long simulation_time;
+	int simulation_time;
 	int time;
 	int flag = 1;
 	PriorityQ p;
@@ -916,12 +913,15 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 	// Handling Jobs
 	while(!Qempty()){
 		p=Qpop(); //Popping the first element from the queue
+		/*
 		if(flag == 1){
 			time = p.hours;
 			flag = 0;
 		}
+		
 		if(time == p.hours){
-			if(!strncmp(p.keyword,"demand",6)){
+		*/
+		if(!strncmp(p.keyword,"demand",6)){
 				printf("[%s,%d,%d,%s,%f] \n",p.keyword,p.hours,p.minutes,
 						p.id,p.value);
 				for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++){
@@ -931,6 +931,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 						}
 						break;
 					}
+					
 				}
 					
 			}
@@ -952,21 +953,26 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 				for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++){
 					if(!strncmp(tankcontrol[temp_count2].TankID,p.id,15)){
 						tankcontrol[temp_count2].TankLevels[0] = p.value;
+						break;
 					}
-					break;
+					
 				}
 			}
+		/*
 		}
+		 To be used when simulating for particular time
 		else{
 			Qpush(p.keyword,p.hours,p.minutes,p.id,p.value);
 			break;
 		}
+		*/
 	}
 	
+	//Qdisplay();
 	// Calculate the simulation time. 
 	// sim_time = job(seconds) - clock(seconds)
 	//simulation_time = ((p.hours * 60) + p.minutes) - elapsed_time; 
-	simulation_time = time - elapsed_time; // If only hourly manipulations are possoble
+	simulation_time = time - elapsed_time; // If only hourly manipulations are possible
 	
 	// shift the clock to the job time
 	//elapsed_time = ((p.hours * 60) + p.minutes);
