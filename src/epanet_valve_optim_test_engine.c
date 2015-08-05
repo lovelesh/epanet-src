@@ -170,7 +170,6 @@ int main(int argc, char *argv[])
 	        temp_nodeIndex = 0,
 	        open_valve_init_file_flag = 0;
 	int simulation_time = 0; 
-	PriorityQ k;
 	int *tank_struct_index; //a temporary array to store the corresponding index of a tank in Tank struct of epanet.
 	struct TankStruct *tankcontrol;
 	struct ValveStruct *valvecontrol;
