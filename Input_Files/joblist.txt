@@ -22,5 +22,5 @@ valve|1|0|65|20.0066
 valve|1|0|40|35.0177
 valve|1|0|35|27.5497
 valve|1|0|3|121.6906
-tank|0|0|Bademaken|50.25
-tank|0|0|Rajendra_nagar2|50.11
+tank|0|0|Bademakan|250.25
+tank|0|0|Rajendra_nagar2|250.11
