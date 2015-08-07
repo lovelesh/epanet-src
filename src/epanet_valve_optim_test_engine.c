@@ -261,7 +261,7 @@ int main(int argc, char *argv[])
 
 	// Initialise the priority Queue
 	Queueing_Engine(f_job_input);
-	Qpush("abc", 0,25, "xyzzy", 125.1225);
+	//Qpush("abc", 0,25, "xyzzy", 125.1225);
 	Qdisplay();
 	
 	simulation_time = Job_Handler(tankcontrol, valvecontrol);
