@@ -261,24 +261,22 @@ int main(int argc, char *argv[])
 
 	// Initialise the priority Queue
 	Queueing_Engine(f_job_input);
-	//Qpush("abc", 0,25, "xyzzy", 125.1225);
-	//Qdisplay();
-	tankcontrol_gradient = (struct TankStruct *)calloc(Ntanks,sizeof(struct TankStruct));
-	valvecontrol_gradient = (struct ValveStruct *)calloc(Nvalves,sizeof(struct ValveStruct));
+	//valvecontrol_gradient = (struct ValveStruct *)calloc(Nvalves,sizeof(struct ValveStruct));
+	//tankcontrol_gradient = (struct TankStruct *)calloc(Ntanks,sizeof(struct TankStruct));
 	
-	
+	// Simulate for the given tasksin the priority Queue
 	simulation_time = Job_Handler(tankcontrol, valvecontrol);
 	compute_flows(tankcontrol, valvecontrol, simulation_time);
 	update_tank_level(tankcontrol);
-	memcpy(tankcontrol_gradient,tankcontrol,Ntanks*sizeof(struct TankStruct));
-	memcpy(valvecontrol_gradient,valvecontrol,Nvalves*sizeof(struct ValveStruct));
-	display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
+	//memcpy(tankcontrol_gradient,tankcontrol,Ntanks*sizeof(struct TankStruct));
+	//memcpy(valvecontrol_gradient,valvecontrol,Nvalves*sizeof(struct ValveStruct));
+	//display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
 
 	
 	
 
 	//Call Optmisation module;
-	//ENOptimiseValve( tankcontrol,  valvecontrol);
+	ENOptimiseValve( tankcontrol,  valvecontrol);
 
 	// free all pointer
 	for(temp_count=0; temp_count<Ntanks; temp_count++) {
