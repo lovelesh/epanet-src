@@ -396,8 +396,8 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			update_tank_level(tankcontrol);
 			
 			// Print final results (Tank and Valve Values)
-			//memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
-			//memcpy(valvecontrol,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
+			memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
+			memcpy(valvecontrol,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
 			display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
 			
 		}
@@ -873,7 +873,7 @@ void Qpush(char *keyword, int hours, int minutes, char *id, float value)
  {
   i=r;
   ++r;
-  while(PQ[i].hours >= hours && i >= 0) /* Find location for new elem */
+  while(PQ[i].hours >= hours && i >= 0 && !strncmp(PQ[i].keyword,"tank",4)) /* Find location for new elem */
   {
 	if(PQ[i].hours == hours && PQ[i].minutes < minutes)
 	{	
