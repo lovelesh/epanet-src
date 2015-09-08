@@ -1,7 +1,7 @@
 /*
  * Epanet search algorithm for obtaining valve/pumping schedules
- * Author : Lovelesh
- * Reference : Nidhin, EPANET
+ * Author : Lovelesh Patel
+ * Reference : Nidhin Koshy, EPANET
  * 
  * 
  * |-------|    |--------|     |--------|
@@ -138,6 +138,7 @@ void Qdisplay();
 void Qpush(char *keyword, int hours, int minutes, char *id, float value);
 int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
+void Wrapper(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 
 // Global Variable Declarations
 
@@ -169,10 +170,10 @@ int main(int argc, char *argv[])
 	        temp_node2 = 0,
 	        temp_nodeIndex = 0,
 	        open_valve_init_file_flag = 0;
-	int simulation_time = 0; 
+	//int simulation_time = 0; 
 	int *tank_struct_index; //a temporary array to store the corresponding index of a tank in Tank struct of epanet.
-	struct TankStruct *tankcontrol, *tankcontrol_gradient;
-	struct ValveStruct *valvecontrol, *valvecontrol_gradient;
+	//struct TankStruct *tankcontrol, *tankcontrol_gradient;
+	//struct ValveStruct *valvecontrol, *valvecontrol_gradient;
 
 	printf("size of TankStruct = %d, Size of Valve Struct = %d", sizeof(struct TankStruct), sizeof(struct ValveStruct));
 	f_epanet_input = argv[1]; 			// first argument is EPANET input file
@@ -265,18 +266,19 @@ int main(int argc, char *argv[])
 	//tankcontrol_gradient = (struct TankStruct *)calloc(Ntanks,sizeof(struct TankStruct));
 	
 	// Simulate for the given tasksin the priority Queue
-	simulation_time = Job_Handler(tankcontrol, valvecontrol);
-	compute_flows(tankcontrol, valvecontrol, simulation_time);
-	update_tank_level(tankcontrol);
+	//simulation_time = Job_Handler(tankcontrol, valvecontrol);
+	//compute_flows(tankcontrol, valvecontrol, simulation_time);
+	//update_tank_level(tankcontrol);
 	//memcpy(tankcontrol_gradient,tankcontrol,Ntanks*sizeof(struct TankStruct));
 	//memcpy(valvecontrol_gradient,valvecontrol,Nvalves*sizeof(struct ValveStruct));
 	//display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
 
-	
+	//Call Wrapper
+	Wrapper(tankcontrol, valvecontrol);
 	
 
 	//Call Optmisation module;
-	ENOptimiseValve( tankcontrol,  valvecontrol);
+	//ENOptimiseValve( tankcontrol,  valvecontrol);
 
 	// free all pointer
 	for(temp_count=0; temp_count<Ntanks; temp_count++) {
@@ -396,8 +398,8 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			update_tank_level(tankcontrol);
 			
 			// Print final results (Tank and Valve Values)
-			memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
-			memcpy(valvecontrol,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
+			//memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
+			//memcpy(valvecontrol,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
 			display_output(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
 			
 		}
@@ -997,7 +999,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 			}
 		/*
 		}
-		 To be used when simulating for particular time
+		 //To be used when simulating for particular time
 		else{
 			Qpush(p.keyword,p.hours,p.minutes,p.id,p.value);
 			break;
@@ -1048,4 +1050,13 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
   	p = Qpop();
 	elapsed_time = p.hours;
 	Qpush(p.keyword, p.hours, p.minutes, p.id, p.value);
+}
+
+void Wrapper(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
+{
+	int simulation_time;
+	simulation_time = Job_Handler(tankcontrol, valvecontrol);
+	//ENOptimiseValve(tankcontrol, valvecontrol); write a similar program to ENOptimiseValve
+	//display_output(tankcontrol, valvecontrol);To be written
+	
 }
