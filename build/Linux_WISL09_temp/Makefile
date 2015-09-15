@@ -107,3 +107,4 @@ check:
 .PHONY: clean
 clean:
 	-/bin/rm *.o $(libname) $(exename) $(runcmdname)
+	rm -rf en*
