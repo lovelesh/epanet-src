@@ -71,7 +71,7 @@
 #define MAX_TIMEPERIOD 72
 #define MAXTANKLEVEL 100
 #define myMAXITER 30
-#define myOUTER_MAXITER 1000
+#define myOUTER_MAXITER 1001
 #define DEBUG 1
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
@@ -276,7 +276,8 @@ int main(int argc, char *argv[])
 	while(run_flag == 1){
 		simulation_time = Job_Handler(tankcontrol, valvecontrol);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
-		if(!feasiblity_checker(tankcontrol, valvecontrol)){
+		run_flag = feasiblity_checker(tankcontrol, valvecontrol);
+		if(run_flag == 0){
 			Job_Scheduler(tankcontrol, valvecontrol);
 			Display_Output(tankcontrol, valvecontrol);
 		}
@@ -514,7 +515,13 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		}
 	}
 	
-	// Penalise
+	// Penalise the valve changes
+	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
+		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
+			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
+			func_value+=temp_float_var_max;
+		}
+	}
 	func_value = func_value/1000;
 	return func_value;
 }
@@ -1113,7 +1120,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	// Valve Values for discrepancy
 	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
-			if(valvecontrol[temp_count].ValveValues[temp_count2] < MAX_VALVEVALUE){
+			if(valvecontrol[temp_count].ValveValues[temp_count2] > MAX_VALVEVALUE){
 				return 1;
 			}
 		}
