@@ -108,3 +108,4 @@ check:
 clean:
 	-/bin/rm *.o $(libname) $(exename) $(runcmdname)
 	rm -rf en*
+	rm -rf temp.out

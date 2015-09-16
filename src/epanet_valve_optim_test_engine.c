@@ -71,7 +71,7 @@
 #define MAX_TIMEPERIOD 72
 #define MAXTANKLEVEL 100
 #define myMAXITER 30
-#define myOUTER_MAXITER 10000
+#define myOUTER_MAXITER 1000
 #define DEBUG 1
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
@@ -139,6 +139,7 @@ void Qdisplay();
 void Qpush(char *keyword, int hours, int minutes, char *id, float value);
 int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
+int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 
 // Global Variable Declarations
 
@@ -267,15 +268,19 @@ int main(int argc, char *argv[])
 	
 	// Simulate for the jobs in the file
 	simulation_time = Job_Handler(tankcontrol, valvecontrol);
-	compute_flows(tankcontrol, valvecontrol, simulation_time);
-	update_tank_level(tankcontrol);
-
+	//compute_flows(tankcontrol, valvecontrol, simulation_time);
+	//update_tank_level(tankcontrol);
+	//Display_Output(tankcontrol, valvecontrol);
+	
 	// Run the wrapper
 	while(run_flag == 1){
-		ENOptimiseValve(tankcontrol, valvecontrol); //write a similar program to ENOptimiseValve
-		//run = feasiblity_checker(tankcontrol, valvecontrol);
-		Job_Scheduler(tankcontrol, valvecontrol);
-		Display_Output(tankcontrol, valvecontrol);
+		simulation_time = Job_Handler(tankcontrol, valvecontrol);
+		ENOptimiseValve(tankcontrol, valvecontrol); 
+		if(!feasiblity_checker(tankcontrol, valvecontrol)){
+			Job_Scheduler(tankcontrol, valvecontrol);
+			Display_Output(tankcontrol, valvecontrol);
+		}
+		
 	}
 	
 	//Call Optmisation module;
@@ -392,7 +397,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			printf("\nIteration Count = %d\n",iteration_count);
 				
 			// Print final results (Tank and Valve Values)
-			display(tankcontrol, tankcontrol_gradient, valvecontrol, valvecontrol_gradient);
+			display(tankcontrol_current, tankcontrol_gradient, valvecontrol_current, valvecontrol_gradient);
 			
 		}
 	}
@@ -508,6 +513,8 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 			func_value+=temp_float_var_max/MAX_VALVEVALUE;
 		}
 	}
+	
+	// Penalise
 	func_value = func_value/1000;
 	return func_value;
 }
@@ -1076,8 +1083,41 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	Qpush(p.keyword, p.hours, p.minutes, p.id, p.value);
 }
 
-void Wrapper(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
+int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
 {
+	/*
+	 * checks if the solution obtained is feasible or not
+	 * tankcontrol: The tank structure from the simulation
+	 * valvecontrol: The valve structure from the simulation
+	 * 
+	 * returns 0: if any discrepancy is found
+	 * returns 1: if no discrepancy is found
+	 * 
+	 */
+	int temp_count;
+	int temp_count2;
+	int timeperiod;
 	
+	timeperiod = tankcontrol[0].TimePeriod;
+
+	//Tank Levels at each time for discrepancy
+	for(temp_count = 0 ; temp_count < Ntanks; temp_count++) {
+		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
+			if(tankcontrol[temp_count].TankLevels[temp_count2] < tankcontrol[temp_count].MinTankLevel 
+			&& tankcontrol[temp_count].TankLevels[temp_count2] > tankcontrol[temp_count].MaxTankLevel){
+				return 1;
+			}
+		}
+	}
+
+	// Valve Values for discrepancy
+	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
+		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
+			if(valvecontrol[temp_count].ValveValues[temp_count2] < MAX_VALVEVALUE){
+				return 1;
+			}
+		}
+	}
 	
+	return 0;
 }
