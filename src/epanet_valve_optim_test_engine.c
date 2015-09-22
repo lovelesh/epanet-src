@@ -483,14 +483,13 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 
 	//periodicity Computation and Penalty
 	for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
-		// A hack to ignore the main tank in optimisation
+		// Ignoring the main tank in optimisation
 		//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
 
 		// A new approach to take into account tank overflow and emptiness.
 		temp_tank_level_difference = 0.0;
 
-		//penalise only if the tank level at time T is less than the initial.
-
+		//penalise only if the tank level at time T is less than the initial
 		temp_float_var_max = tankcontrol_current[temp_count2].TankLevels[timeperiod]-tankcontrol_current[temp_count2].TankLevels[0]; // penalise non periodicity.
 		func_value += 24*pow(temp_float_var_max,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 	}
@@ -515,11 +514,12 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		}
 	}
 	
-	// Penalise the valve changes
+	// Penalise the valve changes so only important changes are allowed
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
 			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
-			func_value+= 10*abs(temp_float_var_max);
+			func_value+= 1000*abs(temp_float_var_max/MAX_VALVEVALUE); 
+			// Multiplier arbitarily choosen to match the other penalty function values
 		}
 	}
 	
