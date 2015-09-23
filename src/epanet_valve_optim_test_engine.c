@@ -514,7 +514,6 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		}
 	}
 	
-<<<<<<< HEAD
 	// Penalise the valve changes so only important changes are allowed
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
@@ -524,9 +523,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		}
 	}
 	
-=======
 	// Penalise
->>>>>>> 2-hourly
 	func_value = func_value/1000;
 	return func_value;
 }
