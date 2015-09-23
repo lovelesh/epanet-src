@@ -71,7 +71,7 @@
 #define MAX_TIMEPERIOD 72
 #define MAXTANKLEVEL 100
 #define myMAXITER 30
-#define myOUTER_MAXITER 1000
+#define myOUTER_MAXITER 1001
 #define DEBUG 1
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
@@ -149,7 +149,7 @@ int f=0,r=-1;       	//For Priority Queue
 float epsilon = 0.05;  //Arbitary value taken
 int iteration_count = 1;
 int elapsed_time = 0; // Starting clock is considered at 00:00 hrs
-int hourly_scheduler = 2;      // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
+int hourly_scheduler = 1;      // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
 
 // Main function starts here
 
@@ -273,14 +273,17 @@ int main(int argc, char *argv[])
 	//Display_Output(tankcontrol, valvecontrol);
 	
 	// Run the wrapper
-	while(run_flag == 1){
+	while(run_flag < myMAXITER){
 		simulation_time = Job_Handler(tankcontrol, valvecontrol);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
-		if(!feasiblity_checker(tankcontrol, valvecontrol)){
-			Job_Scheduler(tankcontrol, valvecontrol);
-			Display_Output(tankcontrol, valvecontrol);
-		}
 		
+		if(!feasiblity_checker(tankcontrol, valvecontrol)){
+		//run_flag = feasiblity_checker(tankcontrol, valvecontrol);
+		if(run_flag == 0){
+ 			Job_Scheduler(tankcontrol, valvecontrol);
+ 			Display_Output(tankcontrol, valvecontrol);
+ 		}
+		run_flag++;
 	}
 	
 	//Call Optmisation module;
@@ -518,12 +521,12 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
 			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
-			func_value+= 5000*abs(temp_float_var_max/MAX_VALVEVALUE); 
+			func_value+= 0*abs(temp_float_var_max/MAX_VALVEVALUE); 
 			// Multiplier arbitarily choosen to match the other penalty function values
 		}
 	}
 	
-	// Penalise
+	// Total Penalty function
 	func_value = func_value/1000;
 	return func_value;
 }
@@ -787,7 +790,7 @@ void display(struct TankStruct *tankcontrol_current, struct TankStruct *tankcont
 	//Printing final Valve values
 	for(temp_count = 0; temp_count< Nvalves; temp_count++){
 		printf("\n\n\n\n Valve ID = %s",valvecontrol_current[temp_count].ValveID);
-		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2 += hourly_scheduler){
+		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++){
 			printf("\n Valve Value [%d] = %f \t Gradient = %f",
 				   temp_count2,
 				   valvecontrol_current[temp_count].ValveValues[temp_count2],
@@ -798,7 +801,7 @@ void display(struct TankStruct *tankcontrol_current, struct TankStruct *tankcont
 	//Printing final tank levels
 	for(temp_count = 0; temp_count< Ntanks; temp_count++){
 		printf("\n\n\n\n Tank ID = %s",tankcontrol_current[temp_count].TankID);
-		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2 += hourly_scheduler){
+		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++){
 			printf("\n Tank Level [%d] = %f\%, \t Tank Inflow = %f, \t Tank Outflow = %f",
 				   temp_count2,
 			       (tankcontrol_current[temp_count].TankLevels[temp_count2])*100/tankcontrol_current[temp_count].MaxTankLevel,
@@ -1122,7 +1125,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	// Valve Values for discrepancy
 	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
-			if(valvecontrol[temp_count].ValveValues[temp_count2] < MAX_VALVEVALUE){
+			if(valvecontrol[temp_count].ValveValues[temp_count2] > MAX_VALVEVALUE){
 				return 1;
 			}
 		}
