@@ -521,7 +521,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
 			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
-			func_value+= 1000*abs(temp_float_var_max/MAX_VALVEVALUE); 
+			func_value+= 500*abs(temp_float_var_max/MAX_VALVEVALUE); 
 			// Multiplier arbitarily choosen to match the other penalty function values
 		}
 	}
