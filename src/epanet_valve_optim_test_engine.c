@@ -275,16 +275,16 @@ int main(int argc, char *argv[])
 	// Run the wrapper
 	while(run_flag < myMAXITER){
 		simulation_time = Job_Handler(tankcontrol, valvecontrol);
+		printf("OUTER ITERATION COUNT in %d",run_flag);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
-		
-		if(!feasiblity_checker(tankcontrol, valvecontrol)){
 		//run_flag = feasiblity_checker(tankcontrol, valvecontrol);
 		if(run_flag == 0){
- 			Job_Scheduler(tankcontrol, valvecontrol);
- 			Display_Output(tankcontrol, valvecontrol);
- 		}
+			Job_Scheduler(tankcontrol, valvecontrol);
+			Display_Output(tankcontrol, valvecontrol);
+		}
 		run_flag++;
 	}
+
 	
 	//Call Optmisation module;
 	//ENOptimiseValve( tankcontrol,  valvecontrol);
@@ -521,7 +521,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
 			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
-			func_value+= 0*abs(temp_float_var_max/MAX_VALVEVALUE); 
+			func_value+= 1000*abs(temp_float_var_max/MAX_VALVEVALUE); 
 			// Multiplier arbitarily choosen to match the other penalty function values
 		}
 	}

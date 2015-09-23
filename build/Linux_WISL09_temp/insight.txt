@@ -11,3 +11,8 @@ CONCLUSIONS from VALVE CHANGE PENALTY
 5) TANK "NR_mohalla1" overflowing for 5 hours
 
 6) TANK "Rajiv_nagar_I" overflowing for 3 hours
+
+
+SOLUTIONS FOR THE VALVE CHANGES
+
+1) Normalise the valve against MAX_VALVE_VALUE

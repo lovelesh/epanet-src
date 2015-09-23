@@ -109,3 +109,4 @@ clean:
 	-/bin/rm *.o $(libname) $(exename) $(runcmdname)
 	rm -rf en*
 	rm -rf temp.out
+	rm -rf epanet_valve_optim_wisl09
