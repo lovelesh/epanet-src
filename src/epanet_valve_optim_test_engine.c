@@ -71,7 +71,7 @@
 #define MAX_TIMEPERIOD 72
 #define MAXTANKLEVEL 100
 #define myMAXITER 30
-#define myOUTER_MAXITER 1001
+#define myOUTER_MAXITER 1000
 #define DEBUG 1
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
@@ -378,7 +378,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 
 	function_value_previous = objective_function(tankcontrol_current,valvecontrol_current);
 
-	while((iteration_count < myOUTER_MAXITER)) {
+	while((iteration_count <= myOUTER_MAXITER)) {
 
 		//printf("\n Iteration Count = %d Function Value = %f",iteration_count,function_value_current);
 		memcpy(tankcontrol_previous,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
@@ -393,7 +393,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		if((((iteration_count%PRINT_INTERVAL_FUNCTIONVALUE)==0))) {
 			printf("\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
 		}
-
+		/*
 		// Print intermediate valve and tank values
 		if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
 			
@@ -401,8 +401,9 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 				
 			// Print final results (Tank and Valve Values)
 			display(tankcontrol_current, tankcontrol_gradient, valvecontrol_current, valvecontrol_gradient);
-			
+		
 		}
+		*/
 	}
 
 	memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
@@ -1116,7 +1117,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	for(temp_count = 0 ; temp_count < Ntanks; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
 			if(tankcontrol[temp_count].TankLevels[temp_count2] < tankcontrol[temp_count].MinTankLevel 
-			&& tankcontrol[temp_count].TankLevels[temp_count2] > tankcontrol[temp_count].MaxTankLevel){
+			| tankcontrol[temp_count].TankLevels[temp_count2] > tankcontrol[temp_count].MaxTankLevel){
 				return 0;
 			}
 		}
