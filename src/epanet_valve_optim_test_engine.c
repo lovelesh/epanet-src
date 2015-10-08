@@ -277,8 +277,8 @@ int main(int argc, char *argv[])
 		simulation_time = Job_Handler(tankcontrol, valvecontrol);
 		printf("OUTER ITERATION COUNT in %d",run_flag);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
-		//run_flag = feasiblity_checker(tankcontrol, valvecontrol);
-		if(run_flag == 0){
+		
+		if(feasiblity_checker(tankcontrol, valvecontrol)){
 			Job_Scheduler(tankcontrol, valvecontrol);
 			Display_Output(tankcontrol, valvecontrol);
 		}
@@ -1090,9 +1090,9 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	
 	// shift the clock to the first job time
 	//elapsed_time = ((p.hours * 60) + p.minutes);
-  	p = Qpop();
+  	/*p = Qpop();
 	elapsed_time = p.hours;
-	Qpush(p.keyword, p.hours, p.minutes, p.id, p.value);
+	Qpush(p.keyword, p.hours, p.minutes, p.id, p.value);*/
 }
 
 int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
@@ -1117,7 +1117,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
 			if(tankcontrol[temp_count].TankLevels[temp_count2] < tankcontrol[temp_count].MinTankLevel 
 			&& tankcontrol[temp_count].TankLevels[temp_count2] > tankcontrol[temp_count].MaxTankLevel){
-				return 1;
+				return 0;
 			}
 		}
 	}
@@ -1126,10 +1126,10 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
 			if(valvecontrol[temp_count].ValveValues[temp_count2] > MAX_VALVEVALUE){
-				return 1;
+				return 0;
 			}
 		}
 	}
 	
-	return 0;
+	return 1;
 }
