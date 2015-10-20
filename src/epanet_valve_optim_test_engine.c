@@ -274,12 +274,14 @@ int main(int argc, char *argv[])
 	
 	// Run the wrapper
 	while(run_flag < myMAXITER){
-		simulation_time = Job_Handler(tankcontrol, valvecontrol);
 		printf("OUTER ITERATION COUNT in %d",run_flag);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
 		
 		if(feasiblity_checker(tankcontrol, valvecontrol)){
 			Job_Scheduler(tankcontrol, valvecontrol);
+			simulation_time = Job_Handler(tankcontrol, valvecontrol);
+			compute_flows(tankcontrol, valvecontrol, simulation_time);
+			update_tank_level(tankcontrol);
 			Display_Output(tankcontrol, valvecontrol);
 		}
 		run_flag++;
@@ -825,9 +827,10 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	for(temp_count = 0; temp_count< Nvalves; temp_count++){
 		printf("\n\n\n\n Valve ID = %s",valvecontrol[temp_count].ValveID);
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2 += hourly_scheduler){
-			printf("\n Valve Value [%d] = %f",
+			printf("\n Valve Value [%d] = %f, \t Percentage Open = %f\% ",
 				   temp_count2,
-				   valvecontrol[temp_count].ValveValues[temp_count2]);
+				   valvecontrol[temp_count].ValveValues[temp_count2],
+				   valvecontrol[temp_count].ValveValues[temp_count2]*100/MAX_VALVEVALUE);
 		}
 	}
 	
@@ -1055,17 +1058,19 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 	
 	if(DEBUG){
 		Qdisplay();
-		Display_Output(tankcontrol, valvecontrol);
+		//Display_Output(tankcontrol, valvecontrol);
 	}
+	/*
 	// Calculate the simulation time. 
 	// sim_time = job(seconds) - clock(seconds)
-	//simulation_time = ((p.hours * 60) + p.minutes) - elapsed_time; 
-	//simulation_time = time - elapsed_time; // If only hourly manipulations are possible
+	simulation_time = ((p.hours * 60) + p.minutes) - elapsed_time; 
+	simulation_time = time - elapsed_time; // If only hourly manipulations are possible
 	
 	// shift the clock to the job time
-	//elapsed_time = ((p.hours * 60) + p.minutes);
-	//elapsed_time = time;
-	//return(simulation_time);
+	elapsed_time = ((p.hours * 60) + p.minutes);
+	elapsed_time = time;
+	return(simulation_time);
+	*/
 	return 1;
 }
 
@@ -1073,11 +1078,14 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 {
 	int temp_count2;
 	int temp_count;
-	float avg = 0.0;
+	float *avg = calloc(Nvalves,sizeof(float));
+	float valve_val = 0.0;
+	int push_avg_flag = 1; // Flag for pushing the average value to the Queue
+	int push_set_flag = 1; // Flag for pushing the Valve setting to the Queue
 			
 	PriorityQ p;
 	/*
-	// Scheduling Jobs
+	// Scheduling all tank and valve settings as Jobs
 
 	// Initial Tank Settings being pushed to priority queue
 	for(temp_count = 0; temp_count < Ntanks; temp_count++){
@@ -1094,32 +1102,54 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	}
 	*/
 	printf("\n==================================================================\n");
-	//Valve Averaging being done
+	// Valve Averaging being done
 	for(temp_count = 0; temp_count < Nvalves; temp_count++){
 		for(temp_count2 = 0; temp_count2 < valvecontrol[temp_count].TimePeriod; temp_count2 += hourly_scheduler){
-			avg += valvecontrol[temp_count].ValveValues[temp_count2];
+			avg[temp_count] += valvecontrol[temp_count].ValveValues[temp_count2];
 		}
-		avg = avg/valvecontrol[temp_count].TimePeriod;
+		avg[temp_count] = avg[temp_count]/valvecontrol[temp_count].TimePeriod;
 		if(DEBUG){
-			printf("average valve setting for %s is %f\n",valvecontrol[temp_count].ValveID,avg);
+			printf("average valve setting for %s is %f\n",valvecontrol[temp_count].ValveID,avg[temp_count]);
 		}
 	}
 	
+	
+	// Intelligent pushing of Jobs to the Queue
 	for(temp_count = 0; temp_count < Nvalves; temp_count++){
 		for(temp_count2 = 0; temp_count2 < valvecontrol[temp_count].TimePeriod; temp_count2 += hourly_scheduler){
-			if(abs(valvecontrol[temp_count].ValveValues[temp_count2] - avg) <= 20){
-				Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,avg);
-				if(DEBUG){
-					printf("[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,avg);
+			// Main pushing engine
+			
+			if(abs(valvecontrol[temp_count].ValveValues[temp_count2] - avg[temp_count]) <= 20){
+				// Pushing only the first value as average Valve setting
+				if(push_avg_flag){
+					valve_val = avg[temp_count];
+					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,avg[temp_count]);
+					if(DEBUG){
+					printf("[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,avg[temp_count]);
+					}
+					// Setting the appropriate flags
+					push_avg_flag = 0;
+					push_set_flag = 1;
 				}
+				
 			}
-			else{
-				Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valvecontrol[temp_count].ValveValues[temp_count2]);
-				if(DEBUG){
-					printf("[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valvecontrol[temp_count].ValveValues[temp_count2]);
-				}
+			else if(abs(valvecontrol[temp_count].ValveValues[temp_count2] - valve_val) >= 20){
+					// Pushing the actual Valve setting
+					if(push_set_flag){
+						valve_val = valvecontrol[temp_count].ValveValues[temp_count2];
+						Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valvecontrol[temp_count].ValveValues[temp_count2]);
+						if(DEBUG){
+							printf("[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valvecontrol[temp_count].ValveValues[temp_count2]);
+						}
+						// Setting the appropriate flags
+						push_set_flag = 0;
+						push_avg_flag = 1;
+					}
 			}
 		}
+		// RESET the appropriate flags
+		push_set_flag = 1;
+		push_avg_flag = 1;
 	}
 	
 	printf("\n==================================================================\n");
