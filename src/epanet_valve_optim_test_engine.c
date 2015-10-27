@@ -282,7 +282,9 @@ int main(int argc, char *argv[])
 			simulation_time = Job_Handler(tankcontrol, valvecontrol);
 			compute_flows(tankcontrol, valvecontrol, simulation_time);
 			update_tank_level(tankcontrol);
+			
 			Display_Output(tankcontrol, valvecontrol);
+			//break;
 		}
 		run_flag++;
 	}
@@ -827,7 +829,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	for(temp_count = 0; temp_count< Nvalves; temp_count++){
 		printf("\n\n\n\n Valve ID = %s",valvecontrol[temp_count].ValveID);
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2 += hourly_scheduler){
-			printf("\n Valve Value [%d] = %f, \t Percentage Open = %f\% ",
+			printf("\n Valve Value [%d] = %f, \t Percentage Open = %f \% ",
 				   temp_count2,
 				   valvecontrol[temp_count].ValveValues[temp_count2],
 				   valvecontrol[temp_count].ValveValues[temp_count2]*100/MAX_VALVEVALUE);
@@ -1150,6 +1152,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		// RESET the appropriate flags
 		push_set_flag = 1;
 		push_avg_flag = 1;
+		valve_val = 0.0;
 	}
 	
 	printf("\n==================================================================\n");
