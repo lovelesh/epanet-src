@@ -76,7 +76,7 @@
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
 #define FILENAME_JOBS "joblist.txt"
-#define SIZE 2000						/* Size of Queue */
+#define SIZE 20000						/* Size of Queue */
 
 const int PRINT_INTERVAL_FUNCTIONVALUE = 100;
 const int PRINT_INTERVAL_VALVEVALUES = 1000;
@@ -273,7 +273,7 @@ int main(int argc, char *argv[])
 	//Display_Output(tankcontrol, valvecontrol);
 	
 	// Run the wrapper
-	while(run_flag < myMAXITER){
+	while(run_flag){
 		printf("\nOUTER ITERATION COUNT in %d",run_flag);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
 		
@@ -287,6 +287,7 @@ int main(int argc, char *argv[])
 			}
 			
 			if(feasiblity_checker(tankcontrol, valvecontrol)){
+				printf("final output\n");
 				Display_Output(tankcontrol, valvecontrol);
 				break;
 			}
@@ -1132,6 +1133,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		}
 	}
 	
+	printf("Jobs to be scheduled\n");
 	// Intelligent pushing of Jobs to the Queue
 	for(temp_count = 0; temp_count < Nvalves; temp_count++){
 		for(temp_count2 = 0; temp_count2 < valvecontrol[temp_count].TimePeriod; temp_count2 += hourly_scheduler){
