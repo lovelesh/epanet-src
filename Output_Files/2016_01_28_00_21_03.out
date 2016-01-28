@@ -1,0 +1,357 @@
+size of TankStruct = 1192, Size of Valve Struct = 560
+tankcount = 0
+ Tank 1: Tank ID = 34,
+tankcount = 1
+ Tank 2: Tank ID = Rajendra_nagar2,
+tankcount = 2
+ Tank 3: Tank ID = Rajendra_nagar1,
+tankcount = 3
+ Tank 4: Tank ID = Bademakan,
+tankcount = 4
+ Tank 5: Tank ID = Kesare,
+tankcount = 5
+ Tank 6: Tank ID = Rajiv_nagar_II,
+tankcount = 6
+ Tank 7: Tank ID = Veeranageeri,
+tankcount = 7
+ Tank 8: Tank ID = NR_mohalla2,
+tankcount = 8
+ Tank 9: Tank ID = NR_mohalla1,
+tankcount = 9
+ Tank 10: Tank ID = Rajiv_nagar_I,
+tankcount = 10
+ Tank 11: Tank ID = Tippu_park,
+ Tank ID = 34, Tank Max Level (meter^3) = 990.779907
+ Tank ID = 34, Tank Input Link ID = 84
+ Tank ID = 34, Tank Output Link ID = 9
+ Tank ID = Rajendra_nagar2, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajendra_nagar2, Tank Input Link ID = 71
+ Tank ID = Rajendra_nagar2, Tank Output Link ID = 20
+ Tank ID = Rajendra_nagar1, Tank Max Level (meter^3) = 1475.370483
+ Tank ID = Rajendra_nagar1, Tank Input Link ID = 69
+ Tank ID = Rajendra_nagar1, Tank Output Link ID = 18
+ Tank ID = Bademakan, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Bademakan, Tank Input Link ID = 67
+ Tank ID = Bademakan, Tank Output Link ID = 16
+ Tank ID = Kesare, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Kesare, Tank Input Link ID = 64
+ Tank ID = Kesare, Tank Output Link ID = 14
+ Tank ID = Rajiv_nagar_II, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajiv_nagar_II, Tank Input Link ID = 11
+ Tank ID = Rajiv_nagar_II, Tank Output Link ID = 12
+ Tank ID = Veeranageeri, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Veeranageeri, Tank Input Link ID = 79
+ Tank ID = Veeranageeri, Tank Output Link ID = 10
+ Tank ID = NR_mohalla2, Tank Max Level (meter^3) = 251.123215
+ Tank ID = NR_mohalla2, Tank Input Link ID = 77
+ Tank ID = NR_mohalla2, Tank Output Link ID = 8
+ Tank ID = NR_mohalla1, Tank Max Level (meter^3) = 990.779663
+ Tank ID = NR_mohalla1, Tank Input Link ID = 75
+ Tank ID = NR_mohalla1, Tank Output Link ID = 7
+ Tank ID = Rajiv_nagar_I, Tank Max Level (meter^3) = 1475.370239
+ Tank ID = Rajiv_nagar_I, Tank Input Link ID = 73
+ Tank ID = Rajiv_nagar_I, Tank Output Link ID = 1
+ Tank ID = Tippu_park, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Tippu_park, Tank Input Link ID = 55
+ Tank ID = Tippu_park, Tank Output Link ID = 2
+ Valve Link of Valve 80 is 49
+ Valve Id = 80 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 80 = 490.873840 	 Diameter is 500.000000
+ Valve Link of Valve 78 is 50
+ Valve Id = 78 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 78 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 76 is 51
+ Valve Id = 76 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 76 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 74 is 52
+ Valve Id = 74 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 74 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 72 is 53
+ Valve Id = 72 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 72 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 70 is 54
+ Valve Id = 70 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 70 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 68 is 55
+ Valve Id = 68 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 68 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 66 is 56
+ Valve Id = 66 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 66 = 44.178646 	 Diameter is 150.000000
+ Valve Link of Valve 65 is 57
+ Valve Id = 65 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 65 = 78.539818 	 Diameter is 200.000000
+ Valve Link of Valve 40 is 58
+ Valve Id = 40 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 40 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 35 is 59
+ Valve Id = 35 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 35 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 3 is 60
+ Valve Id = 3 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 3 = 649.180664 	 Diameter is 575.000000
+OUTER ITERATION COUNT is 1
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 421.282956 	 Percentage Difference = -0.015202 Gradient Norm = 16.596333 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 165.597316 	 Percentage Difference = -0.004088 Gradient Norm = 1.876054 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 120.443061 	 Percentage Difference = -0.002301 Gradient Norm = 0.590529 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 100.166637 	 Percentage Difference = -0.001665 Gradient Norm = 0.308862 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 87.258554 	 Percentage Difference = -0.001234 Gradient Norm = 0.191207 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 78.073961 	 Percentage Difference = -0.001005 Gradient Norm = 0.138567 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 71.221958 	 Percentage Difference = -0.000824 Gradient Norm = 0.102302 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 65.974112 	 Percentage Difference = -0.000692 Gradient Norm = 0.079421 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 61.870713 	 Percentage Difference = -0.000585 Gradient Norm = 0.062616 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 58.610924 	 Percentage Difference = -0.000485 Gradient Norm = 0.049757 alpha mult = 0.600000
+OUTER ITERATION COUNT is 2
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 56.038515 	 Percentage Difference = -0.000441 Gradient Norm = 0.040373 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 53.963060 	 Percentage Difference = -0.000368 Gradient Norm = 0.032476 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 52.280779 	 Percentage Difference = -0.000297 Gradient Norm = 0.026487 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 50.905900 	 Percentage Difference = -0.000260 Gradient Norm = 0.021519 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 49.781331 	 Percentage Difference = -0.000199 Gradient Norm = 0.017783 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 48.860644 	 Percentage Difference = -0.000175 Gradient Norm = 0.014691 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 48.095470 	 Percentage Difference = -0.000144 Gradient Norm = 0.012492 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 47.448295 	 Percentage Difference = -0.000123 Gradient Norm = 0.010450 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 46.904874 	 Percentage Difference = -0.000109 Gradient Norm = 0.008795 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 46.445831 	 Percentage Difference = -0.000090 Gradient Norm = 0.007517 alpha mult = 0.600000
+OUTER ITERATION COUNT is 3
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 46.059022 	 Percentage Difference = -0.000074 Gradient Norm = 0.006401 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 45.730404 	 Percentage Difference = -0.000062 Gradient Norm = 0.005522 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 45.451402 	 Percentage Difference = -0.000059 Gradient Norm = 0.004742 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 45.206371 	 Percentage Difference = -0.000052 Gradient Norm = 0.004177 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 44.992252 	 Percentage Difference = -0.000043 Gradient Norm = 0.003689 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 44.802981 	 Percentage Difference = -0.000040 Gradient Norm = 0.003270 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 44.631944 	 Percentage Difference = -0.000038 Gradient Norm = 0.002950 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 44.477775 	 Percentage Difference = -0.000031 Gradient Norm = 0.002644 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 44.337719 	 Percentage Difference = -0.000029 Gradient Norm = 0.002426 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 44.209412 	 Percentage Difference = -0.000027 Gradient Norm = 0.002234 alpha mult = 0.600000
+OUTER ITERATION COUNT is 4
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 44.090456 	 Percentage Difference = -0.000026 Gradient Norm = 0.002099 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 43.979633 	 Percentage Difference = -0.000024 Gradient Norm = 0.001972 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 43.875295 	 Percentage Difference = -0.000023 Gradient Norm = 0.001863 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 43.777059 	 Percentage Difference = -0.000022 Gradient Norm = 0.001747 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 43.684745 	 Percentage Difference = -0.000020 Gradient Norm = 0.001653 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 43.597393 	 Percentage Difference = -0.000019 Gradient Norm = 0.001565 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 43.515188 	 Percentage Difference = -0.000019 Gradient Norm = 0.001493 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 43.436589 	 Percentage Difference = -0.000018 Gradient Norm = 0.001417 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 43.361426 	 Percentage Difference = -0.000017 Gradient Norm = 0.001353 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 43.289753 	 Percentage Difference = -0.000017 Gradient Norm = 0.001286 alpha mult = 0.600000
+OUTER ITERATION COUNT is 5
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 43.221512 	 Percentage Difference = -0.000015 Gradient Norm = 0.001250 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 43.156137 	 Percentage Difference = -0.000015 Gradient Norm = 0.001201 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 43.093254 	 Percentage Difference = -0.000015 Gradient Norm = 0.001148 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 43.032541 	 Percentage Difference = -0.000015 Gradient Norm = 0.001093 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 42.974476 	 Percentage Difference = -0.000013 Gradient Norm = 0.001063 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 42.918478 	 Percentage Difference = -0.000013 Gradient Norm = 0.001012 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 42.865153 	 Percentage Difference = -0.000011 Gradient Norm = 0.000982 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 42.813778 	 Percentage Difference = -0.000011 Gradient Norm = 0.000943 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 42.764251 	 Percentage Difference = -0.000012 Gradient Norm = 0.000908 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 42.716669 	 Percentage Difference = -0.000010 Gradient Norm = 0.000874 alpha mult = 0.600000
+OUTER ITERATION COUNT is 6
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 42.671083 	 Percentage Difference = -0.000012 Gradient Norm = 0.000844 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 42.626917 	 Percentage Difference = -0.000009 Gradient Norm = 0.000820 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 42.584470 	 Percentage Difference = -0.000009 Gradient Norm = 0.000793 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 42.543411 	 Percentage Difference = -0.000010 Gradient Norm = 0.000764 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 42.503812 	 Percentage Difference = -0.000009 Gradient Norm = 0.000742 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 42.465201 	 Percentage Difference = -0.000009 Gradient Norm = 0.000709 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 42.428348 	 Percentage Difference = -0.000009 Gradient Norm = 0.000694 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 42.392788 	 Percentage Difference = -0.000008 Gradient Norm = 0.000670 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 42.358581 	 Percentage Difference = -0.000006 Gradient Norm = 0.000644 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 42.325393 	 Percentage Difference = -0.000007 Gradient Norm = 0.000629 alpha mult = 0.600000
+OUTER ITERATION COUNT is 7
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 42.293183 	 Percentage Difference = -0.000007 Gradient Norm = 0.000599 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 42.252005 	 Percentage Difference = -0.000010 Gradient Norm = 0.000803 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 42.209795 	 Percentage Difference = -0.000011 Gradient Norm = 0.000766 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 42.169273 	 Percentage Difference = -0.000009 Gradient Norm = 0.000737 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 42.130159 	 Percentage Difference = -0.000007 Gradient Norm = 0.000712 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 42.092853 	 Percentage Difference = -0.000008 Gradient Norm = 0.000669 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 42.056793 	 Percentage Difference = -0.000008 Gradient Norm = 0.000644 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 42.022096 	 Percentage Difference = -0.000008 Gradient Norm = 0.000630 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.988786 	 Percentage Difference = -0.000009 Gradient Norm = 0.000602 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.956442 	 Percentage Difference = -0.000008 Gradient Norm = 0.000587 alpha mult = 0.600000
+OUTER ITERATION COUNT is 8
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.925431 	 Percentage Difference = -0.000009 Gradient Norm = 0.000575 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.895552 	 Percentage Difference = -0.000007 Gradient Norm = 0.000555 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.866773 	 Percentage Difference = -0.000006 Gradient Norm = 0.000547 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.838345 	 Percentage Difference = -0.000007 Gradient Norm = 0.000516 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.811046 	 Percentage Difference = -0.000008 Gradient Norm = 0.000511 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.784802 	 Percentage Difference = -0.000006 Gradient Norm = 0.000492 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.759111 	 Percentage Difference = -0.000007 Gradient Norm = 0.000477 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.734401 	 Percentage Difference = -0.000006 Gradient Norm = 0.000456 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.710580 	 Percentage Difference = -0.000005 Gradient Norm = 0.000452 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.687418 	 Percentage Difference = -0.000006 Gradient Norm = 0.000436 alpha mult = 0.600000
+OUTER ITERATION COUNT is 9
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.664631 	 Percentage Difference = -0.000006 Gradient Norm = 0.000422 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.642607 	 Percentage Difference = -0.000004 Gradient Norm = 0.000412 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.621320 	 Percentage Difference = -0.000005 Gradient Norm = 0.000404 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.600736 	 Percentage Difference = -0.000006 Gradient Norm = 0.000395 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.580803 	 Percentage Difference = -0.000005 Gradient Norm = 0.000380 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.561383 	 Percentage Difference = -0.000004 Gradient Norm = 0.000369 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.542719 	 Percentage Difference = -0.000005 Gradient Norm = 0.000362 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.524425 	 Percentage Difference = -0.000003 Gradient Norm = 0.000349 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.506718 	 Percentage Difference = -0.000004 Gradient Norm = 0.000351 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.489462 	 Percentage Difference = -0.000005 Gradient Norm = 0.000334 alpha mult = 0.600000
+OUTER ITERATION COUNT is 10
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.472949 	 Percentage Difference = -0.000004 Gradient Norm = 0.000327 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.456428 	 Percentage Difference = -0.000005 Gradient Norm = 0.000317 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.440680 	 Percentage Difference = -0.000004 Gradient Norm = 0.000311 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.425329 	 Percentage Difference = -0.000004 Gradient Norm = 0.000301 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.410260 	 Percentage Difference = -0.000004 Gradient Norm = 0.000287 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.395665 	 Percentage Difference = -0.000002 Gradient Norm = 0.000285 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.381547 	 Percentage Difference = -0.000003 Gradient Norm = 0.000280 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.794879 	 Percentage Difference = -0.000224 Gradient Norm = 0.015202 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.516851 	 Percentage Difference = -0.000017 Gradient Norm = 0.001246 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.466672 	 Percentage Difference = -0.000010 Gradient Norm = 0.000715 alpha mult = 0.600000
+OUTER ITERATION COUNT is 11
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.432903 	 Percentage Difference = -0.000006 Gradient Norm = 0.000561 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.405667 	 Percentage Difference = -0.000006 Gradient Norm = 0.000464 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.383263 	 Percentage Difference = -0.000005 Gradient Norm = 0.000389 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.364082 	 Percentage Difference = -0.000005 Gradient Norm = 0.000347 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.347280 	 Percentage Difference = -0.000004 Gradient Norm = 0.000317 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.332109 	 Percentage Difference = -0.000003 Gradient Norm = 0.000286 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.318109 	 Percentage Difference = -0.000004 Gradient Norm = 0.000270 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.305152 	 Percentage Difference = -0.000002 Gradient Norm = 0.000250 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.292947 	 Percentage Difference = -0.000003 Gradient Norm = 0.000244 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.281236 	 Percentage Difference = -0.000003 Gradient Norm = 0.000228 alpha mult = 0.600000
+OUTER ITERATION COUNT is 12
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.269911 	 Percentage Difference = -0.000002 Gradient Norm = 0.000223 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.259017 	 Percentage Difference = -0.000004 Gradient Norm = 0.000215 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.248685 	 Percentage Difference = -0.000002 Gradient Norm = 0.000209 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.238631 	 Percentage Difference = -0.000002 Gradient Norm = 0.000205 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.228833 	 Percentage Difference = -0.000003 Gradient Norm = 0.000201 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.219352 	 Percentage Difference = -0.000002 Gradient Norm = 0.000195 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.210048 	 Percentage Difference = -0.000002 Gradient Norm = 0.000187 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.200990 	 Percentage Difference = -0.000002 Gradient Norm = 0.000184 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.192238 	 Percentage Difference = -0.000001 Gradient Norm = 0.000181 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.183652 	 Percentage Difference = -0.000002 Gradient Norm = 0.000177 alpha mult = 0.600000
+OUTER ITERATION COUNT is 13
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.175479 	 Percentage Difference = 0.000000 Gradient Norm = 0.000173 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.167229 	 Percentage Difference = -0.000001 Gradient Norm = 0.000168 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.159178 	 Percentage Difference = -0.000001 Gradient Norm = 0.000165 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.151405 	 Percentage Difference = -0.000001 Gradient Norm = 0.000163 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.143705 	 Percentage Difference = -0.000004 Gradient Norm = 0.000158 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.136360 	 Percentage Difference = -0.000002 Gradient Norm = 0.000154 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.129124 	 Percentage Difference = -0.000002 Gradient Norm = 0.000157 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.121953 	 Percentage Difference = -0.000003 Gradient Norm = 0.000149 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.115004 	 Percentage Difference = -0.000001 Gradient Norm = 0.000145 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.108134 	 Percentage Difference = -0.000002 Gradient Norm = 0.000143 alpha mult = 0.600000
+OUTER ITERATION COUNT is 14
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.101316 	 Percentage Difference = -0.000002 Gradient Norm = 0.000139 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.094854 	 Percentage Difference = -0.000001 Gradient Norm = 0.000140 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.088339 	 Percentage Difference = -0.000001 Gradient Norm = 0.000135 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.082074 	 Percentage Difference = -0.000003 Gradient Norm = 0.000134 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.075963 	 Percentage Difference = -0.000002 Gradient Norm = 0.000128 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.069994 	 Percentage Difference = -0.000001 Gradient Norm = 0.000127 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.064162 	 Percentage Difference = -0.000002 Gradient Norm = 0.000126 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.058485 	 Percentage Difference = -0.000001 Gradient Norm = 0.000122 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.052847 	 Percentage Difference = -0.000002 Gradient Norm = 0.000120 alpha mult = 0.600000
+ Iteration Count = 1000	Function Value = 41.047381 	 Percentage Difference = -0.000000 Gradient Norm = 0.000119 alpha mult = 0.600000
+OUTER ITERATION COUNT is 15
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.042016 	 Percentage Difference = -0.000002 Gradient Norm = 0.000115 alpha mult = 0.600000
+ Iteration Count = 200	Function Value = 41.036784 	 Percentage Difference = 0.000000 Gradient Norm = 0.000114 alpha mult = 0.600000
+ Iteration Count = 300	Function Value = 41.031665 	 Percentage Difference = -0.000002 Gradient Norm = 0.000114 alpha mult = 0.600000
+ Iteration Count = 400	Function Value = 41.026637 	 Percentage Difference = -0.000002 Gradient Norm = 0.000111 alpha mult = 0.600000
+ Iteration Count = 500	Function Value = 41.021652 	 Percentage Difference = -0.000002 Gradient Norm = 0.000112 alpha mult = 0.600000
+ Iteration Count = 600	Function Value = 41.016848 	 Percentage Difference = -0.000001 Gradient Norm = 0.000106 alpha mult = 0.600000
+ Iteration Count = 700	Function Value = 41.012095 	 Percentage Difference = -0.000001 Gradient Norm = 0.000106 alpha mult = 0.600000
+ Iteration Count = 800	Function Value = 41.007411 	 Percentage Difference = -0.000001 Gradient Norm = 0.000105 alpha mult = 0.600000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 16
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 17
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 18
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 19
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 20
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+OUTER ITERATION COUNT is 21
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 41.004338 	 Percentage Difference = 0.000000 Gradient Norm = 0.000102 alpha mult = 0.000000
+ Iterati

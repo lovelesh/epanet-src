@@ -1,0 +1,721 @@
+size of TankStruct = 1192, Size of Valve Struct = 560
+tankcount = 0
+ Tank 1: Tank ID = 34,
+tankcount = 1
+ Tank 2: Tank ID = Rajendra_nagar2,
+tankcount = 2
+ Tank 3: Tank ID = Rajendra_nagar1,
+tankcount = 3
+ Tank 4: Tank ID = Bademakan,
+tankcount = 4
+ Tank 5: Tank ID = Kesare,
+tankcount = 5
+ Tank 6: Tank ID = Rajiv_nagar_II,
+tankcount = 6
+ Tank 7: Tank ID = Veeranageeri,
+tankcount = 7
+ Tank 8: Tank ID = NR_mohalla2,
+tankcount = 8
+ Tank 9: Tank ID = NR_mohalla1,
+tankcount = 9
+ Tank 10: Tank ID = Rajiv_nagar_I,
+tankcount = 10
+ Tank 11: Tank ID = Tippu_park,
+ Tank ID = 34, Tank Max Level (meter^3) = 990.779907
+ Tank ID = 34, Tank Input Link ID = 84
+ Tank ID = 34, Tank Output Link ID = 9
+ Tank ID = Rajendra_nagar2, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajendra_nagar2, Tank Input Link ID = 71
+ Tank ID = Rajendra_nagar2, Tank Output Link ID = 20
+ Tank ID = Rajendra_nagar1, Tank Max Level (meter^3) = 1475.370483
+ Tank ID = Rajendra_nagar1, Tank Input Link ID = 69
+ Tank ID = Rajendra_nagar1, Tank Output Link ID = 18
+ Tank ID = Bademakan, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Bademakan, Tank Input Link ID = 67
+ Tank ID = Bademakan, Tank Output Link ID = 16
+ Tank ID = Kesare, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Kesare, Tank Input Link ID = 64
+ Tank ID = Kesare, Tank Output Link ID = 14
+ Tank ID = Rajiv_nagar_II, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajiv_nagar_II, Tank Input Link ID = 11
+ Tank ID = Rajiv_nagar_II, Tank Output Link ID = 12
+ Tank ID = Veeranageeri, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Veeranageeri, Tank Input Link ID = 79
+ Tank ID = Veeranageeri, Tank Output Link ID = 10
+ Tank ID = NR_mohalla2, Tank Max Level (meter^3) = 251.123215
+ Tank ID = NR_mohalla2, Tank Input Link ID = 77
+ Tank ID = NR_mohalla2, Tank Output Link ID = 8
+ Tank ID = NR_mohalla1, Tank Max Level (meter^3) = 990.779663
+ Tank ID = NR_mohalla1, Tank Input Link ID = 75
+ Tank ID = NR_mohalla1, Tank Output Link ID = 7
+ Tank ID = Rajiv_nagar_I, Tank Max Level (meter^3) = 1475.370239
+ Tank ID = Rajiv_nagar_I, Tank Input Link ID = 73
+ Tank ID = Rajiv_nagar_I, Tank Output Link ID = 1
+ Tank ID = Tippu_park, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Tippu_park, Tank Input Link ID = 55
+ Tank ID = Tippu_park, Tank Output Link ID = 2
+ Valve Link of Valve 80 is 49
+ Valve Id = 80 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 80 = 490.873840 	 Diameter is 500.000000
+ Valve Link of Valve 78 is 50
+ Valve Id = 78 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 78 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 76 is 51
+ Valve Id = 76 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 76 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 74 is 52
+ Valve Id = 74 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 74 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 72 is 53
+ Valve Id = 72 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 72 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 70 is 54
+ Valve Id = 70 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 70 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 68 is 55
+ Valve Id = 68 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 68 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 66 is 56
+ Valve Id = 66 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 66 = 44.178646 	 Diameter is 150.000000
+ Valve Link of Valve 65 is 57
+ Valve Id = 65 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 65 = 78.539818 	 Diameter is 200.000000
+ Valve Link of Valve 40 is 58
+ Valve Id = 40 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 40 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 35 is 59
+ Valve Id = 35 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 35 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 3 is 60
+ Valve Id = 3 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 3 = 649.180664 	 Diameter is 575.000000
+OUTER ITERATION COUNT in 1
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 46255.977402 	 Percentage Difference = -0.000001 Gradient Norm = 588957568.000000 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 46251.792797 	 Percentage Difference = -0.000001 Gradient Norm = 590689856.000000 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 46247.593784 	 Percentage Difference = -0.000000 Gradient Norm = 592419008.000000 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 46243.251376 	 Percentage Difference = -0.000001 Gradient Norm = 594236096.000000 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 46238.956250 	 Percentage Difference = -0.000001 Gradient Norm = 596016128.000000 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 46234.687932 	 Percentage Difference = -0.000001 Gradient Norm = 597791360.000000 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 46230.440404 	 Percentage Difference = -0.000001 Gradient Norm = 599563264.000000 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 46226.071055 	 Percentage Difference = -0.000001 Gradient Norm = 601401152.000000 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 46221.775944 	 Percentage Difference = -0.000001 Gradient Norm = 603197760.000000 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 46217.468329 	 Percentage Difference = -0.000001 Gradient Norm = 605004352.000000 alpha mult = 0.000000
+Iteration Count = 1001
+
+==============================================================================================
+
+
+
+
+ Valve ID = 80
+ Valve Value [0] = 0.000000 	 Gradient = 0.000000
+ Valve Value [1] = 0.000000 	 Gradient = 0.000000
+ Valve Value [2] = 0.000000 	 Gradient = 0.000000
+ Valve Value [3] = 0.000000 	 Gradient = 0.000000
+ Valve Value [4] = 0.000000 	 Gradient = 0.000000
+ Valve Value [5] = 0.000000 	 Gradient = 0.000000
+ Valve Value [6] = 0.000000 	 Gradient = 0.000000
+ Valve Value [7] = 0.000000 	 Gradient = 0.000000
+ Valve Value [8] = 0.000000 	 Gradient = 0.000000
+ Valve Value [9] = 0.000000 	 Gradient = 0.000000
+ Valve Value [10] = 0.000000 	 Gradient = 0.000000
+ Valve Value [11] = 0.000000 	 Gradient = 0.000000
+ Valve Value [12] = 0.000000 	 Gradient = 0.000000
+ Valve Value [13] = 0.000000 	 Gradient = 0.000000
+ Valve Value [14] = 0.000000 	 Gradient = 0.000000
+ Valve Value [15] = 0.000000 	 Gradient = 0.000000
+ Valve Value [16] = 0.000000 	 Gradient = 0.000000
+ Valve Value [17] = 0.000000 	 Gradient = 0.000000
+ Valve Value [18] = 0.000000 	 Gradient = 0.000000
+ Valve Value [19] = 0.000000 	 Gradient = 0.000000
+ Valve Value [20] = 0.000000 	 Gradient = 0.000000
+ Valve Value [21] = 0.000000 	 Gradient = 0.000000
+ Valve Value [22] = 0.000000 	 Gradient = 0.000000
+ Valve Value [23] = 0.000000 	 Gradient = 0.000000
+
+
+
+ Valve ID = 78
+ Valve Value [0] = 0.000711 	 Gradient = -1.054688
+ Valve Value [1] = 0.427363 	 Gradient = 0.039062
+ Valve Value [2] = 0.001747 	 Gradient = -8.750000
+ Valve Value [3] = 1.230478 	 Gradient = -16.953125
+ Valve Value [4] = 0.004099 	 Gradient = -0.429688
+ Valve Value [5] = 0.001829 	 Gradient = -8.554688
+ Valve Value [6] = 2.086522 	 Gradient = 0.000000
+ Valve Value [7] = 0.693080 	 Gradient = 0.000000
+ Valve Value [8] = 0.001780 	 Gradient = -7.226562
+ Valve Value [9] = 0.000429 	 Gradient = 0.000000
+ Valve Value [10] = 0.093658 	 Gradient = 0.000000
+ Valve Value [11] = 7.377804 	 Gradient = 0.000000
+ Valve Value [12] = 0.039688 	 Gradient = 0.000000
+ Valve Value [13] = 0.001443 	 Gradient = -6.992188
+ Valve Value [14] = 0.001466 	 Gradient = -6.640625
+ Valve Value [15] = 0.001416 	 Gradient = -6.406250
+ Valve Value [16] = 0.001373 	 Gradient = -6.054688
+ Valve Value [17] = 0.000136 	 Gradient = 0.000000
+ Valve Value [18] = 0.001052 	 Gradient = -5.234375
+ Valve Value [19] = 2.296223 	 Gradient = 0.000000
+ Valve Value [20] = 0.007476 	 Gradient = -0.078125
+ Valve Value [21] = 0.107419 	 Gradient = 0.000000
+ Valve Value [22] = 2.945327 	 Gradient = 0.000000
+ Valve Value [23] = 0.000114 	 Gradient = 0.000000
+
+
+
+ Valve ID = 76
+ Valve Value [0] = 0.000173 	 Gradient = -0.742188
+ Valve Value [1] = 0.539639 	 Gradient = 0.585938
+ Valve Value [2] = 0.001714 	 Gradient = -8.554688
+ Valve Value [3] = 1.044625 	 Gradient = -16.328125
+ Valve Value [4] = 0.000000 	 Gradient = 0.273438
+ Valve Value [5] = 0.001759 	 Gradient = -8.359375
+ Valve Value [6] = 5.654680 	 Gradient = 0.546875
+ Valve Value [7] = 1.150934 	 Gradient = 0.546875
+ Valve Value [8] = 0.001356 	 Gradient = -6.875000
+ Valve Value [9] = 15.647105 	 Gradient = 0.507812
+ Valve Value [10] = 0.055332 	 Gradient = 0.507812
+ Valve Value [11] = 5.241057 	 Gradient = 0.507812
+ Valve Value [12] = 0.009335 	 Gradient = 0.273438
+ Valve Value [13] = 0.001414 	 Gradient = -6.718750
+ Valve Value [14] = 0.001374 	 Gradient = -6.484375
+ Valve Value [15] = 0.001323 	 Gradient = -6.132812
+ Valve Value [16] = 0.001339 	 Gradient = -5.898438
+ Valve Value [17] = 0.000000 	 Gradient = 0.156250
+ Valve Value [18] = 0.001023 	 Gradient = -5.117188
+ Valve Value [19] = 0.000000 	 Gradient = 0.156250
+ Valve Value [20] = 0.000000 	 Gradient = 0.156250
+ Valve Value [21] = 0.165001 	 Gradient = 0.273438
+ Valve Value [22] = 0.000000 	 Gradient = 0.117188
+ Valve Value [23] = 5.125874 	 Gradient = 0.195312
+
+
+
+ Valve ID = 74
+ Valve Value [0] = 0.000196 	 Gradient = -0.859375
+ Valve Value [1] = 10.217882 	 Gradient = 0.351562
+ Valve Value [2] = 0.001737 	 Gradient = -8.671875
+ Valve Value [3] = 0.324541 	 Gradient = -16.562500
+ Valve Value [4] = 0.010603 	 Gradient = -1.367188
+ Valve Value [5] = 0.001778 	 Gradient = -8.398438
+ Valve Value [6] = 1.501339 	 Gradient = 0.312500
+ Valve Value [7] = 0.794108 	 Gradient = 0.351562
+ Valve Value [8] = 0.001527 	 Gradient = -7.031250
+ Valve Value [9] = 0.000000 	 Gradient = 0.156250
+ Valve Value [10] = 0.054820 	 Gradient = 0.312500
+ Valve Value [11] = 10.184454 	 Gradient = 0.273438
+ Valve Value [12] = 0.009493 	 Gradient = 0.156250
+ Valve Value [13] = 0.001419 	 Gradient = -6.875000
+ Valve Value [14] = 0.001410 	 Gradient = -6.562500
+ Valve Value [15] = 0.001360 	 Gradient = -6.289062
+ Valve Value [16] = 0.001392 	 Gradient = -5.898438
+ Valve Value [17] = 0.000000 	 Gradient = 0.117188
+ Valve Value [18] = 0.001048 	 Gradient = -5.156250
+ Valve Value [19] = 7.104655 	 Gradient = 0.195312
+ Valve Value [20] = 0.000000 	 Gradient = 0.078125
+ Valve Value [21] = 0.231870 	 Gradient = 0.156250
+ Valve Value [22] = 0.000000 	 Gradient = 0.078125
+ Valve Value [23] = 4.265800 	 Gradient = 0.156250
+
+
+
+ Valve ID = 72
+ Valve Value [0] = 2.005191 	 Gradient = -16.210938
+ Valve Value [1] = 4.109411 	 Gradient = -16.171875
+ Valve Value [2] = 2.106791 	 Gradient = -16.054688
+ Valve Value [3] = 1.757383 	 Gradient = -15.937500
+ Valve Value [4] = 1.861814 	 Gradient = -15.859375
+ Valve Value [5] = 1.640335 	 Gradient = -15.742188
+ Valve Value [6] = 12.852848 	 Gradient = -15.507812
+ Valve Value [7] = 2.935915 	 Gradient = -15.234375
+ Valve Value [8] = 0.351554 	 Gradient = -15.039062
+ Valve Value [9] = 2.010693 	 Gradient = -14.609375
+ Valve Value [10] = 0.286935 	 Gradient = -14.179688
+ Valve Value [11] = 41.348171 	 Gradient = -13.789062
+ Valve Value [12] = 0.773112 	 Gradient = -13.359375
+ Valve Value [13] = 0.589323 	 Gradient = -12.851562
+ Valve Value [14] = 1.840187 	 Gradient = -12.265625
+ Valve Value [15] = 1.032511 	 Gradient = -11.679688
+ Valve Value [16] = 4.791957 	 Gradient = -11.132812
+ Valve Value [17] = 2.714134 	 Gradient = -10.468750
+ Valve Value [18] = 1.375905 	 Gradient = -9.804688
+ Valve Value [19] = 2.094847 	 Gradient = -8.984375
+ Valve Value [20] = 0.550095 	 Gradient = -8.242188
+ Valve Value [21] = 511.128448 	 Gradient = -24596.289062
+ Valve Value [22] = 1.580905 	 Gradient = -7.148438
+ Valve Value [23] = 0.065365 	 Gradient = -6.250000
+
+
+
+ Valve ID = 70
+ Valve Value [0] = 0.135735 	 Gradient = -15.937500
+ Valve Value [1] = 0.521702 	 Gradient = -15.898438
+ Valve Value [2] = 24.265041 	 Gradient = -15.937500
+ Valve Value [3] = 4.104947 	 Gradient = -15.820312
+ Valve Value [4] = 0.906596 	 Gradient = -15.703125
+ Valve Value [5] = 1.796419 	 Gradient = -15.468750
+ Valve Value [6] = 1.995406 	 Gradient = -15.234375
+ Valve Value [7] = 1.905090 	 Gradient = -15.000000
+ Valve Value [8] = 1.981310 	 Gradient = -14.804688
+ Valve Value [9] = 2.282411 	 Gradient = -14.453125
+ Valve Value [10] = 2.827276 	 Gradient = -14.062500
+ Valve Value [11] = 0.001979 	 Gradient = -7.109375
+ Valve Value [12] = 1.598332 	 Gradient = -13.203125
+ Valve Value [13] = 3.010968 	 Gradient = -12.695312
+ Valve Value [14] = 0.326572 	 Gradient = -12.226562
+ Valve Value [15] = 0.990717 	 Gradient = -11.640625
+ Valve Value [16] = 1.063390 	 Gradient = -11.054688
+ Valve Value [17] = 1.840582 	 Gradient = -10.468750
+ Valve Value [18] = 1.224777 	 Gradient = -9.765625
+ Valve Value [19] = 2.043578 	 Gradient = -9.101562
+ Valve Value [20] = 1.423286 	 Gradient = -8.398438
+ Valve Value [21] = 0.458083 	 Gradient = -7.343750
+ Valve Value [22] = 0.070044 	 Gradient = -6.523438
+ Valve Value [23] = 0.451602 	 Gradient = -5.742188
+
+
+
+ Valve ID = 68
+ Valve Value [0] = 3.013081 	 Gradient = -15.390625
+ Valve Value [1] = 0.233125 	 Gradient = -15.273438
+ Valve Value [2] = 1.137517 	 Gradient = -15.234375
+ Valve Value [3] = 3.434090 	 Gradient = -15.117188
+ Valve Value [4] = 0.778530 	 Gradient = -15.000000
+ Valve Value [5] = 3.788506 	 Gradient = -14.804688
+ Valve Value [6] = 5.924225 	 Gradient = -14.609375
+ Valve Value [7] = 3.569946 	 Gradient = -14.375000
+ Valve Value [8] = 34.745018 	 Gradient = -14.101562
+ Valve Value [9] = 2.205036 	 Gradient = -13.828125
+ Valve Value [10] = 1.861593 	 Gradient = -13.476562
+ Valve Value [11] = 2.799139 	 Gradient = -13.007812
+ Valve Value [12] = 2.685519 	 Gradient = -12.578125
+ Valve Value [13] = 2.243447 	 Gradient = -12.187500
+ Valve Value [14] = 0.274204 	 Gradient = -11.640625
+ Valve Value [15] = 0.269640 	 Gradient = -11.093750
+ Valve Value [16] = 0.066132 	 Gradient = -10.546875
+ Valve Value [17] = 0.246143 	 Gradient = -9.960938
+ Valve Value [18] = 1.749417 	 Gradient = -9.257812
+ Valve Value [19] = 1.285527 	 Gradient = -8.632812
+ Valve Value [20] = 0.807171 	 Gradient = -7.890625
+ Valve Value [21] = 0.988980 	 Gradient = -7.187500
+ Valve Value [22] = 0.382743 	 Gradient = -6.445312
+ Valve Value [23] = 0.649210 	 Gradient = -5.625000
+
+
+
+ Valve ID = 66
+ Valve Value [0] = 2.642440 	 Gradient = -14.843750
+ Valve Value [1] = 4.116014 	 Gradient = -14.804688
+ Valve Value [2] = 1.446466 	 Gradient = -14.726562
+ Valve Value [3] = 2.890160 	 Gradient = -14.648438
+ Valve Value [4] = 0.351369 	 Gradient = -14.531250
+ Valve Value [5] = 2.298280 	 Gradient = -14.335938
+ Valve Value [6] = 2.560264 	 Gradient = -14.179688
+ Valve Value [7] = 1.487710 	 Gradient = -13.906250
+ Valve Value [8] = 1.511068 	 Gradient = -13.593750
+ Valve Value [9] = 1.775983 	 Gradient = -13.320312
+ Valve Value [10] = 3.131649 	 Gradient = -12.968750
+ Valve Value [11] = 0.001553 	 Gradient = -6.523438
+ Valve Value [12] = 0.236136 	 Gradient = -12.148438
+ Valve Value [13] = 0.001466 	 Gradient = -6.015625
+ Valve Value [14] = 0.001314 	 Gradient = -5.742188
+ Valve Value [15] = 2.038347 	 Gradient = -10.703125
+ Valve Value [16] = 70.194298 	 Gradient = -25.351562
+ Valve Value [17] = 2.629360 	 Gradient = -9.570312
+ Valve Value [18] = 0.760926 	 Gradient = -8.945312
+ Valve Value [19] = 0.749755 	 Gradient = -8.281250
+ Valve Value [20] = 1.543165 	 Gradient = -7.617188
+ Valve Value [21] = 1.808292 	 Gradient = -6.914062
+ Valve Value [22] = 0.765088 	 Gradient = -6.210938
+ Valve Value [23] = 0.616539 	 Gradient = -5.429688
+
+
+
+ Valve ID = 65
+ Valve Value [0] = 1.896878 	 Gradient = -15.390625
+ Valve Value [1] = 1.881728 	 Gradient = -15.351562
+ Valve Value [2] = 0.023874 	 Gradient = -11.289062
+ Valve Value [3] = 2.535335 	 Gradient = -15.273438
+ Valve Value [4] = 0.724089 	 Gradient = -15.078125
+ Valve Value [5] = 0.773679 	 Gradient = -14.921875
+ Valve Value [6] = 4.144574 	 Gradient = -14.726562
+ Valve Value [7] = 1.890716 	 Gradient = -14.453125
+ Valve Value [8] = 1.720444 	 Gradient = -14.218750
+ Valve Value [9] = 0.804510 	 Gradient = -13.867188
+ Valve Value [10] = 2.798780 	 Gradient = -13.554688
+ Valve Value [11] = 1.069459 	 Gradient = -13.085938
+ Valve Value [12] = 0.576894 	 Gradient = -12.656250
+ Valve Value [13] = 1.474510 	 Gradient = -12.187500
+ Valve Value [14] = 1.713447 	 Gradient = -11.718750
+ Valve Value [15] = 1.981682 	 Gradient = -11.171875
+ Valve Value [16] = 0.202720 	 Gradient = -8.476562
+ Valve Value [17] = 1.201156 	 Gradient = -9.960938
+ Valve Value [18] = 2.587528 	 Gradient = -9.335938
+ Valve Value [19] = 1.557609 	 Gradient = -8.671875
+ Valve Value [20] = 1.180296 	 Gradient = -7.929688
+ Valve Value [21] = 0.889480 	 Gradient = -7.226562
+ Valve Value [22] = 1.271574 	 Gradient = -6.445312
+ Valve Value [23] = 2.568251 	 Gradient = -5.664062
+
+
+
+ Valve ID = 40
+ Valve Value [0] = 0.000113 	 Gradient = -0.390625
+ Valve Value [1] = 9.811349 	 Gradient = 1.250000
+ Valve Value [2] = 0.001610 	 Gradient = -8.203125
+ Valve Value [3] = 0.524224 	 Gradient = -15.585938
+ Valve Value [4] = 0.000000 	 Gradient = 0.625000
+ Valve Value [5] = 0.001713 	 Gradient = -7.929688
+ Valve Value [6] = 1.425772 	 Gradient = 1.210938
+ Valve Value [7] = 1.226120 	 Gradient = 1.210938
+ Valve Value [8] = 0.001413 	 Gradient = -6.601562
+ Valve Value [9] = 0.000000 	 Gradient = 0.585938
+ Valve Value [10] = 0.000000 	 Gradient = 0.546875
+ Valve Value [11] = 8.604705 	 Gradient = 1.054688
+ Valve Value [12] = 0.000000 	 Gradient = 0.507812
+ Valve Value [13] = 0.001355 	 Gradient = -6.523438
+ Valve Value [14] = 0.001337 	 Gradient = -6.171875
+ Valve Value [15] = 0.001273 	 Gradient = -5.859375
+ Valve Value [16] = 0.001331 	 Gradient = -5.585938
+ Valve Value [17] = 3.039014 	 Gradient = 0.820312
+ Valve Value [18] = 0.000979 	 Gradient = -4.882812
+ Valve Value [19] = 0.000000 	 Gradient = 0.390625
+ Valve Value [20] = 0.000000 	 Gradient = 0.312500
+ Valve Value [21] = 0.055471 	 Gradient = 0.585938
+ Valve Value [22] = 0.000000 	 Gradient = 0.273438
+ Valve Value [23] = 7.667331 	 Gradient = 0.468750
+
+
+
+ Valve ID = 35
+ Valve Value [0] = 0.797028 	 Gradient = -15.000000
+ Valve Value [1] = 0.149845 	 Gradient = -15.039062
+ Valve Value [2] = 3.042270 	 Gradient = -14.960938
+ Valve Value [3] = 2.422716 	 Gradient = -14.921875
+ Valve Value [4] = 1.187969 	 Gradient = -14.765625
+ Valve Value [5] = 2.284966 	 Gradient = -14.609375
+ Valve Value [6] = 2.145696 	 Gradient = -14.335938
+ Valve Value [7] = 1.708579 	 Gradient = -14.101562
+ Valve Value [8] = 1.684775 	 Gradient = -13.906250
+ Valve Value [9] = 1.184616 	 Gradient = -13.593750
+ Valve Value [10] = 0.510018 	 Gradient = -13.242188
+ Valve Value [11] = 0.057351 	 Gradient = -12.812500
+ Valve Value [12] = 2.932919 	 Gradient = -12.382812
+ Valve Value [13] = 0.001494 	 Gradient = -6.132812
+ Valve Value [14] = 1.780021 	 Gradient = -11.445312
+ Valve Value [15] = 0.929314 	 Gradient = -10.937500
+ Valve Value [16] = 2.807518 	 Gradient = -10.234375
+ Valve Value [17] = 0.716771 	 Gradient = -9.765625
+ Valve Value [18] = 0.209707 	 Gradient = -9.101562
+ Valve Value [19] = 0.633164 	 Gradient = -8.437500
+ Valve Value [20] = 0.042101 	 Gradient = -7.148438
+ Valve Value [21] = 0.856284 	 Gradient = -7.070312
+ Valve Value [22] = 0.372702 	 Gradient = -6.289062
+ Valve Value [23] = 0.104406 	 Gradient = -5.546875
+
+
+
+ Valve ID = 3
+ Valve Value [0] = 0.007135 	 Gradient = -0.273438
+ Valve Value [1] = 1.487947 	 Gradient = -17.070312
+ Valve Value [2] = 0.277986 	 Gradient = 0.000000
+ Valve Value [3] = 6.549468 	 Gradient = 0.000000
+ Valve Value [4] = 0.013370 	 Gradient = -2.460938
+ Valve Value [5] = 0.715061 	 Gradient = 0.000000
+ Valve Value [6] = 1.077044 	 Gradient = -16.367188
+ Valve Value [7] = 1.329413 	 Gradient = -16.093750
+ Valve Value [8] = 0.050383 	 Gradient = -0.937500
+ Valve Value [9] = 2.169313 	 Gradient = -15.507812
+ Valve Value [10] = 0.047490 	 Gradient = -14.687500
+ Valve Value [11] = 0.080133 	 Gradient = -14.570312
+ Valve Value [12] = 0.016389 	 Gradient = -8.281250
+ Valve Value [13] = 4.391846 	 Gradient = 0.000000
+ Valve Value [14] = 0.072955 	 Gradient = 0.000000
+ Valve Value [15] = 1.215967 	 Gradient = -0.039062
+ Valve Value [16] = 0.113231 	 Gradient = 0.000000
+ Valve Value [17] = 0.297340 	 Gradient = -11.132812
+ Valve Value [18] = 0.317410 	 Gradient = 0.039062
+ Valve Value [19] = 0.737146 	 Gradient = -9.648438
+ Valve Value [20] = 0.000620 	 Gradient = -0.664062
+ Valve Value [21] = 0.038157 	 Gradient = -7.070312
+ Valve Value [22] = 0.236869 	 Gradient = -7.187500
+ Valve Value [23] = 6.228233 	 Gradient = -6.328125
+
+
+
+ Tank ID = 34
+ Tank Level [0] = 49.967957%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 10.491783
+ Tank Level [1] = 167.592819%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 12.499931
+ Tank Level [2] = 284.488007%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 32.028988
+ Tank Level [3] = 394.287323%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 20.268898
+ Tank Level [4] = 508.359680%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 5.823898
+ Tank Level [5] = 627.680664%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 12.589487
+ Tank Level [6] = 744.543335%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 30.700216
+ Tank Level [7] = 854.825439%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 14.827529
+ Tank Level [8] = 970.874878%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 42.000366
+ Tank Level [9] = 1077.051147%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 12.432723
+ Tank Level [10] = 1193.970825%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 11.463902
+ Tank Level [11] = 1311.242432%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 45.357944
+ Tank Level [12] = 1416.198730%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 8.819461
+ Tank Level [13] = 1534.431274%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 7.326965
+ Tank Level [14] = 1653.205933%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 5.941782
+ Tank Level [15] = 1772.484131%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 7.247659
+ Tank Level [16] = 1891.287598%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 53.533466
+ Tank Level [17] = 1993.273315%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 9.645646
+ Tank Level [18] = 2111.205566%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 7.912879
+ Tank Level [19] = 2229.767334%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 9.101786
+ Tank Level [20] = 2347.897217%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 5.546894
+ Tank Level [21] = 2467.318848%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 516.167847
+ Tank Level [22] = 2401.206543%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 4.680088
+ Tank Level [23] = 2520.943115%, 	 Tank Inflow = 334.214996, 	 Tank Outflow = 10.683766
+
+
+
+ Tank ID = Rajendra_nagar2
+ Tank Level [0] = 50.005089%, 	 Tank Inflow = 0.135756, 	 Tank Outflow = 6.804000
+ Tank Level [1] = 47.582180%, 	 Tank Inflow = 0.521723, 	 Tank Outflow = 6.804000
+ Tank Level [2] = 45.299511%, 	 Tank Inflow = 24.265062, 	 Tank Outflow = 6.804000
+ Tank Level [3] = 51.643997%, 	 Tank Inflow = 4.104968, 	 Tank Outflow = 6.804000
+ Tank Level [4] = 50.663300%, 	 Tank Inflow = 0.906617, 	 Tank Outflow = 13.608000
+ Tank Level [5] = 46.048248%, 	 Tank Inflow = 1.796440, 	 Tank Outflow = 34.020000
+ Tank Level [6] = 34.339813%, 	 Tank Inflow = 1.995427, 	 Tank Outflow = 68.040001
+ Tank Level [7] = 10.342503%, 	 Tank Inflow = 1.905111, 	 Tank Outflow = 85.050003
+ Tank Level [8] = -19.868212%, 	 Tank Inflow = 1.981331, 	 Tank Outflow = 85.050003
+ Tank Level [9] = -50.051228%, 	 Tank Inflow = 2.282432, 	 Tank Outflow = 68.040001
+ Tank Level [10] = -73.944252%, 	 Tank Inflow = 2.827298, 	 Tank Outflow = 34.020000
+ Tank Level [11] = -85.278130%, 	 Tank Inflow = 0.002001, 	 Tank Outflow = 34.020000
+ Tank Level [12] = -97.638573%, 	 Tank Inflow = 1.598353, 	 Tank Outflow = 27.216000
+ Tank Level [13] = -106.946754%, 	 Tank Inflow = 3.010989, 	 Tank Outflow = 27.216000
+ Tank Level [14] = -115.741653%, 	 Tank Inflow = 0.326593, 	 Tank Outflow = 34.020000
+ Tank Level [15] = -127.984161%, 	 Tank Inflow = 0.990738, 	 Tank Outflow = 20.412001
+ Tank Level [16] = -135.040878%, 	 Tank Inflow = 1.063411, 	 Tank Outflow = 27.216000
+ Tank Level [17] = -144.543427%, 	 Tank Inflow = 1.840603, 	 Tank Outflow = 34.020000
+ Tank Level [18] = -156.235809%, 	 Tank Inflow = 1.224798, 	 Tank Outflow = 51.029999
+ Tank Level [19] = -174.332550%, 	 Tank Inflow = 2.043599, 	 Tank Outflow = 51.029999
+ Tank Level [20] = -192.131760%, 	 Tank Inflow = 1.423307, 	 Tank Outflow = 34.020000
+ Tank Level [21] = -203.975784%, 	 Tank Inflow = 0.458104, 	 Tank Outflow = 27.216000
+ Tank Level [22] = -213.698273%, 	 Tank Inflow = 0.070066, 	 Tank Outflow = 20.412001
+ Tank Level [23] = -221.089523%, 	 Tank Inflow = 0.451624, 	 Tank Outflow = 13.608000
+
+
+
+ Tank ID = Rajendra_nagar1
+ Tank Level [0] = 50.001736%, 	 Tank Inflow = 3.013103, 	 Tank Outflow = 7.920000
+ Tank Level [1] = 48.804420%, 	 Tank Inflow = 0.233147, 	 Tank Outflow = 7.920000
+ Tank Level [2] = 46.928780%, 	 Tank Inflow = 1.137539, 	 Tank Outflow = 7.920000
+ Tank Level [3] = 45.273815%, 	 Tank Inflow = 3.434112, 	 Tank Outflow = 7.920000
+ Tank Level [4] = 44.179230%, 	 Tank Inflow = 0.778552, 	 Tank Outflow = 15.840000
+ Tank Level [5] = 40.504139%, 	 Tank Inflow = 3.788528, 	 Tank Outflow = 39.599998
+ Tank Level [6] = 31.765909%, 	 Tank Inflow = 5.924247, 	 Tank Outflow = 79.199997
+ Tank Level [7] = 13.886148%, 	 Tank Inflow = 3.569968, 	 Tank Outflow = 99.000000
+ Tank Level [8] = -9.399400%, 	 Tank Inflow = 34.745041, 	 Tank Outflow = 99.000000
+ Tank Level [9] = -25.078028%, 	 Tank Inflow = 2.205059, 	 Tank Outflow = 79.199997
+ Tank Level [10] = -43.865292%, 	 Tank Inflow = 1.861615, 	 Tank Outflow = 39.599998
+ Tank Level [11] = -53.073704%, 	 Tank Inflow = 2.799161, 	 Tank Outflow = 39.599998
+ Tank Level [12] = -62.053349%, 	 Tank Inflow = 2.685541, 	 Tank Outflow = 31.680000
+ Tank Level [13] = -69.128189%, 	 Tank Inflow = 2.243470, 	 Tank Outflow = 31.680000
+ Tank Level [14] = -76.310898%, 	 Tank Inflow = 0.274226, 	 Tank Outflow = 39.599998
+ Tank Level [15] = -85.906639%, 	 Tank Inflow = 0.269662, 	 Tank Outflow = 23.760000
+ Tank Level [16] = -91.638435%, 	 Tank Inflow = 0.066154, 	 Tank Outflow = 31.680000
+ Tank Level [17] = -99.352409%, 	 Tank Inflow = 0.246165, 	 Tank Outflow = 39.599998
+ Tank Level [18] = -108.955009%, 	 Tank Inflow = 1.749439, 	 Tank Outflow = 59.400002
+ Tank Level [19] = -123.022118%, 	 Tank Inflow = 1.285549, 	 Tank Outflow = 59.400002
+ Tank Level [20] = -137.202423%, 	 Tank Inflow = 0.807193, 	 Tank Outflow = 39.599998
+ Tank Level [21] = -146.668121%, 	 Tank Inflow = 0.989002, 	 Tank Outflow = 31.680000
+ Tank Level [22] = -154.156921%, 	 Tank Inflow = 0.382766, 	 Tank Outflow = 23.760000
+ Tank Level [23] = -159.861115%, 	 Tank Inflow = 0.649232, 	 Tank Outflow = 15.840000
+
+
+
+ Tank ID = Bademakan
+ Tank Level [0] = 50.004936%, 	 Tank Inflow = 2.642476, 	 Tank Outflow = 1.980000
+ Tank Level [1] = 50.481983%, 	 Tank Inflow = 4.116049, 	 Tank Outflow = 1.980129
+ Tank Level [2] = 52.020039%, 	 Tank Inflow = 1.446502, 	 Tank Outflow = 1.980129
+ Tank Level [3] = 51.635780%, 	 Tank Inflow = 2.890196, 	 Tank Outflow = 1.980129
+ Tank Level [4] = 52.291111%, 	 Tank Inflow = 0.351405, 	 Tank Outflow = 3.960000
+ Tank Level [5] = 49.692596%, 	 Tank Inflow = 2.298316, 	 Tank Outflow = 9.900128
+ Tank Level [6] = 44.218609%, 	 Tank Inflow = 2.560300, 	 Tank Outflow = 19.800127
+ Tank Level [7] = 31.804373%, 	 Tank Inflow = 1.487746, 	 Tank Outflow = 24.750128
+ Tank Level [8] = 15.053359%, 	 Tank Inflow = 1.511104, 	 Tank Outflow = 24.750000
+ Tank Level [9] = -1.680743%, 	 Tank Inflow = 1.776019, 	 Tank Outflow = 19.800127
+ Tank Level [10] = -14.659725%, 	 Tank Inflow = 3.131685, 	 Tank Outflow = 9.900000
+ Tank Level [11] = -19.533524%, 	 Tank Inflow = 0.001588, 	 Tank Outflow = 9.900128
+ Tank Level [12] = -26.661364%, 	 Tank Inflow = 0.236172, 	 Tank Outflow = 7.920001
+ Tank Level [13] = -32.194416%, 	 Tank Inflow = 0.001501, 	 Tank Outflow = 7.920129
+ Tank Level [14] = -37.896542%, 	 Tank Inflow = 0.001350, 	 Tank Outflow = 9.900000
+ Tank Level [15] = -45.024467%, 	 Tank Inflow = 2.038383, 	 Tank Outflow = 5.940129
+ Tank Level [16] = -47.834072%, 	 Tank Inflow = 44.596088, 	 Tank Outflow = 7.920000
+ Tank Level [17] = -21.423981%, 	 Tank Inflow = 2.629396, 	 Tank Outflow = 9.900128
+ Tank Level [18] = -26.659563%, 	 Tank Inflow = 0.760962, 	 Tank Outflow = 14.850129
+ Tank Level [19] = -36.805035%, 	 Tank Inflow = 0.749791, 	 Tank Outflow = 14.850129
+ Tank Level [20] = -46.958549%, 	 Tank Inflow = 1.543201, 	 Tank Outflow = 9.900000
+ Tank Level [21] = -52.976200%, 	 Tank Inflow = 1.808328, 	 Tank Outflow = 7.920129
+ Tank Level [22] = -57.377243%, 	 Tank Inflow = 0.765124, 	 Tank Outflow = 5.940129
+ Tank Level [23] = -61.103714%, 	 Tank Inflow = 0.616574, 	 Tank Outflow = 3.960129
+
+
+
+ Tank ID = Kesare
+ Tank Level [0] = 50.006535%, 	 Tank Inflow = 1.896915, 	 Tank Outflow = 2.880000
+ Tank Level [1] = 49.298622%, 	 Tank Inflow = 1.881764, 	 Tank Outflow = 2.880000
+ Tank Level [2] = 48.579807%, 	 Tank Inflow = 0.023910, 	 Tank Outflow = 2.880000
+ Tank Level [3] = 46.523167%, 	 Tank Inflow = 2.535371, 	 Tank Outflow = 2.880000
+ Tank Level [4] = 46.275002%, 	 Tank Inflow = 0.724126, 	 Tank Outflow = 5.760000
+ Tank Level [5] = 42.648716%, 	 Tank Inflow = 0.773716, 	 Tank Outflow = 14.400000
+ Tank Level [6] = 32.836559%, 	 Tank Inflow = 4.144610, 	 Tank Outflow = 28.799999
+ Tank Level [7] = 15.082457%, 	 Tank Inflow = 1.890753, 	 Tank Outflow = 36.000000
+ Tank Level [8] = -9.479280%, 	 Tank Inflow = 1.720480, 	 Tank Outflow = 36.000000
+ Tank Level [9] = -34.163624%, 	 Tank Inflow = 0.804546, 	 Tank Outflow = 28.799999
+ Tank Level [10] = -54.322876%, 	 Tank Inflow = 2.798816, 	 Tank Outflow = 14.400000
+ Tank Level [11] = -62.676777%, 	 Tank Inflow = 1.069495, 	 Tank Outflow = 14.400000
+ Tank Level [12] = -72.275940%, 	 Tank Inflow = 0.576931, 	 Tank Outflow = 11.520000
+ Tank Level [13] = -80.155937%, 	 Tank Inflow = 1.474547, 	 Tank Outflow = 11.520000
+ Tank Level [14] = -87.389565%, 	 Tank Inflow = 1.713483, 	 Tank Outflow = 14.400000
+ Tank Level [15] = -96.525002%, 	 Tank Inflow = 1.981719, 	 Tank Outflow = 8.640000
+ Tank Level [16] = -101.319572%, 	 Tank Inflow = 0.202749, 	 Tank Outflow = 11.520000
+ Tank Level [17] = -109.469017%, 	 Tank Inflow = 1.201193, 	 Tank Outflow = 14.400000
+ Tank Level [18] = -118.973343%, 	 Tank Inflow = 2.587565, 	 Tank Outflow = 21.600000
+ Tank Level [19] = -132.664017%, 	 Tank Inflow = 1.557645, 	 Tank Outflow = 21.600000
+ Tank Level [20] = -147.096313%, 	 Tank Inflow = 1.180332, 	 Tank Outflow = 14.400000
+ Tank Level [21] = -156.615677%, 	 Tank Inflow = 0.889516, 	 Tank Outflow = 11.520000
+ Tank Level [22] = -164.270569%, 	 Tank Inflow = 1.271611, 	 Tank Outflow = 8.640000
+ Tank Level [23] = -169.576462%, 	 Tank Inflow = 2.568287, 	 Tank Outflow = 5.760000
+
+
+
+ Tank ID = Rajiv_nagar_II
+ Tank Level [0] = 50.001568%, 	 Tank Inflow = 0.797049, 	 Tank Outflow = 3.924188
+ Tank Level [1] = 48.865322%, 	 Tank Inflow = 0.149866, 	 Tank Outflow = 3.924188
+ Tank Level [2] = 47.493923%, 	 Tank Inflow = 3.042291, 	 Tank Outflow = 3.923999
+ Tank Level [3] = 47.173553%, 	 Tank Inflow = 2.422737, 	 Tank Outflow = 3.923999
+ Tank Level [4] = 46.628071%, 	 Tank Inflow = 1.187991, 	 Tank Outflow = 7.847998
+ Tank Level [5] = 44.208157%, 	 Tank Inflow = 2.284987, 	 Tank Outflow = 19.619999
+ Tank Level [6] = 37.909481%, 	 Tank Inflow = 2.145717, 	 Tank Outflow = 39.240189
+ Tank Level [7] = 24.431194%, 	 Tank Inflow = 1.708600, 	 Tank Outflow = 49.050186
+ Tank Level [8] = 7.229618%, 	 Tank Inflow = 1.684796, 	 Tank Outflow = 49.050186
+ Tank Level [9] = -9.980607%, 	 Tank Inflow = 1.184637, 	 Tank Outflow = 39.240189
+ Tank Level [10] = -23.808098%, 	 Tank Inflow = 0.510039, 	 Tank Outflow = 19.619999
+ Tank Level [11] = -30.751705%, 	 Tank Inflow = 0.057372, 	 Tank Outflow = 19.620188
+ Tank Level [12] = -37.859859%, 	 Tank Inflow = 2.932940, 	 Tank Outflow = 15.696007
+ Tank Level [13] = -42.497326%, 	 Tank Inflow = 0.001517, 	 Tank Outflow = 15.695998
+ Tank Level [14] = -48.199917%, 	 Tank Inflow = 1.780042, 	 Tank Outflow = 19.620190
+ Tank Level [15] = -54.682137%, 	 Tank Inflow = 0.929335, 	 Tank Outflow = 11.771998
+ Tank Level [16] = -58.621819%, 	 Tank Inflow = 2.807539, 	 Tank Outflow = 15.696128
+ Tank Level [17] = -63.304893%, 	 Tank Inflow = 0.716792, 	 Tank Outflow = 19.620188
+ Tank Level [18] = -70.173447%, 	 Tank Inflow = 0.209728, 	 Tank Outflow = 29.429998
+ Tank Level [19] = -80.790634%, 	 Tank Inflow = 0.633185, 	 Tank Outflow = 29.430187
+ Tank Level [20] = -91.254036%, 	 Tank Inflow = 0.042122, 	 Tank Outflow = 19.620188
+ Tank Level [21] = -98.367729%, 	 Tank Inflow = 0.856305, 	 Tank Outflow = 15.696188
+ Tank Level [22] = -103.759804%, 	 Tank Inflow = 0.372723, 	 Tank Outflow = 11.772128
+ Tank Level [23] = -107.901772%, 	 Tank Inflow = 0.104427, 	 Tank Outflow = 7.848188
+
+
+
+ Tank ID = Veeranageeri
+ Tank Level [0] = 50.020767%, 	 Tank Inflow = 0.000725, 	 Tank Outflow = 5.625000
+ Tank Level [1] = 45.970779%, 	 Tank Inflow = -19.080973, 	 Tank Outflow = 5.625000
+ Tank Level [2] = 28.180252%, 	 Tank Inflow = 0.001761, 	 Tank Outflow = 5.625000
+ Tank Level [3] = 24.131012%, 	 Tank Inflow = 1.230492, 	 Tank Outflow = 5.625000
+ Tank Level [4] = 20.966570%, 	 Tank Inflow = 0.002707, 	 Tank Outflow = 11.250000
+ Tank Level [5] = 12.867504%, 	 Tank Inflow = 0.001845, 	 Tank Outflow = 28.125000
+ Tank Level [6] = -7.383705%, 	 Tank Inflow = -7.504769, 	 Tank Outflow = 56.250000
+ Tank Level [7] = -53.292889%, 	 Tank Inflow = -1.841980, 	 Tank Outflow = 70.311996
+ Tank Level [8] = -105.250259%, 	 Tank Inflow = 0.001794, 	 Tank Outflow = 70.311996
+ Tank Level [9] = -155.879959%, 	 Tank Inflow = -13.477710, 	 Tank Outflow = 56.250000
+ Tank Level [10] = -206.090195%, 	 Tank Inflow = -0.062554, 	 Tank Outflow = 28.125000
+ Tank Level [11] = -226.387787%, 	 Tank Inflow = -23.950125, 	 Tank Outflow = 28.125000
+ Tank Level [12] = -263.886566%, 	 Tank Inflow = -0.002354, 	 Tank Outflow = 22.500000
+ Tank Level [13] = -280.090271%, 	 Tank Inflow = 0.001456, 	 Tank Outflow = 22.500000
+ Tank Level [14] = -296.291290%, 	 Tank Inflow = 0.001480, 	 Tank Outflow = 28.125000
+ Tank Level [15] = -316.542725%, 	 Tank Inflow = 0.001433, 	 Tank Outflow = 16.875000
+ Tank Level [16] = -328.693237%, 	 Tank Inflow = 0.001389, 	 Tank Outflow = 22.500000
+ Tank Level [17] = -344.894287%, 	 Tank Inflow = -2.741591, 	 Tank Outflow = 28.125000
+ Tank Level [18] = -367.121002%, 	 Tank Inflow = 0.001064, 	 Tank Outflow = 42.188000
+ Tank Level [19] = -397.499390%, 	 Tank Inflow = -6.367498, 	 Tank Outflow = 42.188000
+ Tank Level [20] = -432.463715%, 	 Tank Inflow = 0.000483, 	 Tank Outflow = 28.125000
+ Tank Level [21] = -452.715912%, 	 Tank Inflow = -0.414145, 	 Tank Outflow = 22.500000
+ Tank Level [22] = -469.216156%, 	 Tank Inflow = 0.236874, 	 Tank Outflow = 16.875000
+ Tank Level [23] = -481.197113%, 	 Tank Inflow = -10.830632, 	 Tank Outflow = 11.250000
+
+
+
+ Tank ID = NR_mohalla2
+ Tank Level [0] = 50.026131%, 	 Tank Inflow = 0.000196, 	 Tank Outflow = 2.879999
+ Tank Level [1] = 45.897762%, 	 Tank Inflow = 0.539649, 	 Tank Outflow = 2.880128
+ Tank Level [2] = 42.542545%, 	 Tank Inflow = 0.001738, 	 Tank Outflow = 2.880129
+ Tank Level [3] = 38.416203%, 	 Tank Inflow = 1.044648, 	 Tank Outflow = 2.880129
+ Tank Level [4] = 35.784935%, 	 Tank Inflow = 0.000009, 	 Tank Outflow = 5.759998
+ Tank Level [5] = 27.527647%, 	 Tank Inflow = 0.001783, 	 Tank Outflow = 14.400128
+ Tank Level [6] = 6.886765%, 	 Tank Inflow = 5.654689, 	 Tank Outflow = 28.800127
+ Tank Level [7] = -26.293591%, 	 Tank Inflow = 1.150944, 	 Tank Outflow = 36.000130
+ Tank Level [8] = -76.251968%, 	 Tank Inflow = 0.001380, 	 Tank Outflow = 36.000000
+ Tank Level [9] = -127.858124%, 	 Tank Inflow = 15.647114, 	 Tank Outflow = 28.800127
+ Tank Level [10] = -146.713745%, 	 Tank Inflow = 0.055342, 	 Tank Outflow = 14.400003
+ Tank Level [11] = -167.277664%, 	 Tank Inflow = 5.241066, 	 Tank Outflow = 14.400128
+ Tank Level [12] = -180.407730%, 	 Tank Inflow = 0.009345, 	 Tank Outflow = 11.520006
+ Tank Level [13] = -196.908936%, 	 Tank Inflow = 0.001437, 	 Tank Outflow = 11.520129
+ Tank Level [14] = -213.421677%, 	 Tank Inflow = 0.001397, 	 Tank Outflow = 14.399999
+ Tank Level [15] = -234.062912%, 	 Tank Inflow = 0.001347, 	 Tank Outflow = 8.640129
+ Tank Level [16] = -246.447128%, 	 Tank Inflow = 0.001362, 	 Tank Outflow = 11.520000
+ Tank Level [17] = -262.959778%, 	 Tank Inflow = 0.000009, 	 Tank Outflow = 14.400128
+ Tank Level [18] = -283.603210%, 	 Tank Inflow = 0.001046, 	 Tank Outflow = 21.600128
+ Tank Level [19] = -314.566772%, 	 Tank Inflow = 0.000009, 	 Tank Outflow = 21.600128
+ Tank Level [20] = -345.531830%, 	 Tank Inflow = 0.000009, 	 Tank Outflow = 14.400001
+ Tank Level [21] = -366.175079%, 	 Tank Inflow = 0.165011, 	 Tank Outflow = 11.520129
+ Tank Level [22] = -382.453278%, 	 Tank Inflow = 0.000009, 	 Tank Outflow = 8.640131
+ Tank Level [23] = -394.839417%, 	 Tank Inflow = 5.125883, 	 Tank Outflow = 5.760128
+
+
+
+ Tank ID = NR_mohalla1
+ Tank Level [0] = 50.010323%, 	 Tank Inflow = 0.000218, 	 Tank Outflow = 11.394000
+ Tank Level [1] = 45.870388%, 	 Tank Inflow = 10.217886, 	 Tank Outflow = 11.394000
+ Tank Level [2] = 45.443047%, 	 Tank Inflow = 0.001753, 	 Tank Outflow = 11.394000
+ Tank Level [3] = 41.303673%, 	 Tank Inflow = 0.324559, 	 Tank Outflow = 11.394000
+ Tank Level [4] = 37.281593%, 	 Tank Inflow = 0.010607, 	 Tank Outflow = 22.788000
+ Tank Level [5] = 29.005419%, 	 Tank Inflow = 0.001794, 	 Tank Outflow = 56.970001
+ Tank Level [6] = 8.306008%, 	 Tank Inflow = 1.501343, 	 Tank Outflow = 113.940002
+ Tank Level [7] = -32.548603%, 	 Tank Inflow = 0.794112, 	 Tank Outflow = 142.425003
+ Tank Level [8] = -84.010223%, 	 Tank Inflow = 0.001545, 	 Tank Outflow = 142.425003
+ Tank Level [9] = -135.759811%, 	 Tank Inflow = 0.000017, 	 Tank Outflow = 113.940002
+ Tank Level [10] = -177.159927%, 	 Tank Inflow = 0.054824, 	 Tank Outflow = 56.970001
+ Tank Level [11] = -197.840073%, 	 Tank Inflow = 10.184458, 	 Tank Outflow = 56.970001
+ Tank Level [12] = -214.839615%, 	 Tank Inflow = 0.009497, 	 Tank Outflow = 45.576000
+ Tank Level [13] = -231.396194%, 	 Tank Inflow = 0.001436, 	 Tank Outflow = 45.576000
+ Tank Level [14] = -247.955719%, 	 Tank Inflow = 0.001428, 	 Tank Outflow = 56.970001
+ Tank Level [15] = -268.655273%, 	 Tank Inflow = 0.001382, 	 Tank Outflow = 34.181999
+ Tank Level [16] = -281.074799%, 	 Tank Inflow = 0.001409, 	 Tank Outflow = 45.576000
+ Tank Level [17] = -297.634338%, 	 Tank Inflow = 0.000011, 	 Tank Outflow = 56.970001
+ Tank Level [18] = -318.334442%, 	 Tank Inflow = 0.001064, 	 Tank Outflow = 85.455002
+ Tank Level [19] = -349.384125%, 	 Tank Inflow = 7.104659, 	 Tank Outflow = 85.455002
+ Tank Level [20] = -377.852753%, 	 Tank Inflow = 0.000002, 	 Tank Outflow = 56.970001
+ Tank Level [21] = -398.552826%, 	 Tank Inflow = 0.231874, 	 Tank Outflow = 45.576000
+ Tank Level [22] = -415.028595%, 	 Tank Inflow = 0.000005, 	 Tank Outflow = 34.181999
+ Tank Level [23] = -427.448669%, 	 Tank Inflow = 4.265804, 	 Tank Outflow = 22.788000
+
+
+
+ Tank ID = Rajiv_nagar_I
+ Tank Level [0] = 50.004253%, 	 Tank Inflow = 2.005200, 	 Tank Outflow = 15.966000
+ Tank Level [1] = 46.597733%, 	 Tank Inflow = 4.109420, 	 Tank Outflow = 15.966128
+ Tank Level [2] = 43.704617%, 	 Tank Inflow = 2.106801, 	 Tank Outflow = 15.966128
+ Tank Level [3] = 40.322853%, 	 Tank Inflow = 1.757393, 	 Tank Outflow = 15.966128
+ Tank Level [4] = 36.855831%, 	 Tank Inflow = 1.861824, 	 Tank Outflow = 31.931999
+ Tank Level [5] = 29.518513%, 	 Tank Inflow = 1.640344, 	 Tank Outflow = 79.830132
+ Tank Level [6] = 10.439691%, 	 Tank Inflow = 12.852858, 	 Tank Outflow = 159.660126
+ Tank Level [7] = -25.382244%, 	 Tank Inflow = 2.935925, 	 Tank Outflow = 199.575119
+ Tank Level [8] = -73.363495%, 	 Tank Inflow = 0.351564, 	 Tank Outflow = 199.574997
+ Tank Level [9] = -121.975319%, 	 Tank Inflow = 2.010703, 	 Tank Outflow = 159.660126
+ Tank Level [10] = -160.442810%, 	 Tank Inflow = 0.286945, 	 Tank Outflow = 79.830002
+ Tank Level [11] = -179.851852%, 	 Tank Inflow = 41.348183, 	 Tank Outflow = 79.830132
+ Tank Level [12] = -189.241669%, 	 Tank Inflow = 0.773121, 	 Tank Outflow = 63.863998
+ Tank Level [13] = -204.636261%, 	 Tank Inflow = 0.589333, 	 Tank Outflow = 63.864128
+ Tank Level [14] = -220.075729%, 	 Tank Inflow = 1.840196, 	 Tank Outflow = 79.830002
+ Tank Level [15] = -239.105759%, 	 Tank Inflow = 1.032520, 	 Tank Outflow = 47.898129
+ Tank Level [16] = -250.541290%, 	 Tank Inflow = 4.791967, 	 Tank Outflow = 63.863998
+ Tank Level [17] = -264.955261%, 	 Tank Inflow = 2.714143, 	 Tank Outflow = 79.830132
+ Tank Level [18] = -283.772064%, 	 Tank Inflow = 1.375914, 	 Tank Outflow = 119.745132
+ Tank Level 

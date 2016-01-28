@@ -16,4 +16,4 @@ LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH ./epanet_valve_optim_wisl09 ../../Input_File
 
 
 #valgrind checking
-#LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH valgrind --leak-check=full --show-leak-kinds=all ./epanet_valve_optim_wisl09 ../../Input_Files/Devanoor_10DMA_demand_zero.inp ../../Input_Files/temp_demand_all.csv 24|tee ../../Output_Files/7may_2.out
+#LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH valgrind --leak-check=full --show-leak-kinds=all ./epanet_valve_optim_wisl09 ../../Input_Files/Devanoor_10DMA_demand_zero_changed.inp ../../Input_Files/temp_demand_all.csv ../../Input_Files/joblist.txt 24|tee $filename

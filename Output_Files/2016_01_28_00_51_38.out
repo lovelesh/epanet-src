@@ -1,0 +1,128 @@
+size of TankStruct = 1192, Size of Valve Struct = 560
+tankcount = 0
+ Tank 1: Tank ID = 34,
+tankcount = 1
+ Tank 2: Tank ID = Rajendra_nagar2,
+tankcount = 2
+ Tank 3: Tank ID = Rajendra_nagar1,
+tankcount = 3
+ Tank 4: Tank ID = Bademakan,
+tankcount = 4
+ Tank 5: Tank ID = Kesare,
+tankcount = 5
+ Tank 6: Tank ID = Rajiv_nagar_II,
+tankcount = 6
+ Tank 7: Tank ID = Veeranageeri,
+tankcount = 7
+ Tank 8: Tank ID = NR_mohalla2,
+tankcount = 8
+ Tank 9: Tank ID = NR_mohalla1,
+tankcount = 9
+ Tank 10: Tank ID = Rajiv_nagar_I,
+tankcount = 10
+ Tank 11: Tank ID = Tippu_park,
+ Tank ID = 34, Tank Max Level (meter^3) = 990.779907
+ Tank ID = 34, Tank Input Link ID = 84
+ Tank ID = 34, Tank Output Link ID = 9
+ Tank ID = Rajendra_nagar2, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajendra_nagar2, Tank Input Link ID = 71
+ Tank ID = Rajendra_nagar2, Tank Output Link ID = 20
+ Tank ID = Rajendra_nagar1, Tank Max Level (meter^3) = 1475.370483
+ Tank ID = Rajendra_nagar1, Tank Input Link ID = 69
+ Tank ID = Rajendra_nagar1, Tank Output Link ID = 18
+ Tank ID = Bademakan, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Bademakan, Tank Input Link ID = 67
+ Tank ID = Bademakan, Tank Output Link ID = 16
+ Tank ID = Kesare, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Kesare, Tank Input Link ID = 64
+ Tank ID = Kesare, Tank Output Link ID = 14
+ Tank ID = Rajiv_nagar_II, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Rajiv_nagar_II, Tank Input Link ID = 11
+ Tank ID = Rajiv_nagar_II, Tank Output Link ID = 12
+ Tank ID = Veeranageeri, Tank Max Level (meter^3) = 499.937347
+ Tank ID = Veeranageeri, Tank Input Link ID = 79
+ Tank ID = Veeranageeri, Tank Output Link ID = 10
+ Tank ID = NR_mohalla2, Tank Max Level (meter^3) = 251.123215
+ Tank ID = NR_mohalla2, Tank Input Link ID = 77
+ Tank ID = NR_mohalla2, Tank Output Link ID = 8
+ Tank ID = NR_mohalla1, Tank Max Level (meter^3) = 990.779663
+ Tank ID = NR_mohalla1, Tank Input Link ID = 75
+ Tank ID = NR_mohalla1, Tank Output Link ID = 7
+ Tank ID = Rajiv_nagar_I, Tank Max Level (meter^3) = 1475.370239
+ Tank ID = Rajiv_nagar_I, Tank Input Link ID = 73
+ Tank ID = Rajiv_nagar_I, Tank Output Link ID = 1
+ Tank ID = Tippu_park, Tank Max Level (meter^3) = 990.779663
+ Tank ID = Tippu_park, Tank Input Link ID = 55
+ Tank ID = Tippu_park, Tank Output Link ID = 2
+ Valve Link of Valve 80 is 49
+ Valve Id = 80 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 80 = 490.873840 	 Diameter is 500.000000
+ Valve Link of Valve 78 is 50
+ Valve Id = 78 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 78 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 76 is 51
+ Valve Id = 76 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 76 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 74 is 52
+ Valve Id = 74 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 74 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 72 is 53
+ Valve Id = 72 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 72 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 70 is 54
+ Valve Id = 70 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 70 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 68 is 55
+ Valve Id = 68 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 68 = 240.528183 	 Diameter is 350.000000
+ Valve Link of Valve 66 is 56
+ Valve Id = 66 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 66 = 44.178646 	 Diameter is 150.000000
+ Valve Link of Valve 65 is 57
+ Valve Id = 65 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 65 = 78.539818 	 Diameter is 200.000000
+ Valve Link of Valve 40 is 58
+ Valve Id = 40 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 40 = 122.718460 	 Diameter is 250.000000
+ Valve Link of Valve 35 is 59
+ Valve Id = 35 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 35 = 176.714584 	 Diameter is 300.000000
+ Valve Link of Valve 3 is 60
+ Valve Id = 3 	  Initial Valve Value = 0.000000
+ Max Flow across Valve 3 = 649.180664 	 Diameter is 575.000000
+OUTER ITERATION COUNT is 1
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 30482.352534 	 Percentage Difference = -0.000000 Gradient Norm = 1803396352.000000 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 30481.920392 	 Percentage Difference = 0.000000 Gradient Norm = 1802345856.000000 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 30481.510573 	 Percentage Difference = 0.000000 Gradient Norm = 1801286400.000000 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 30480.996800 	 Percentage Difference = -0.000000 Gradient Norm = 1800290048.000000 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 30480.596840 	 Percentage Difference = -0.000000 Gradient Norm = 1799255936.000000 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 30480.195180 	 Percentage Difference = -0.000000 Gradient Norm = 1798213888.000000 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 30479.816650 	 Percentage Difference = -0.000000 Gradient Norm = 1797160448.000000 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 30479.419959 	 Percentage Difference = -0.000000 Gradient Norm = 1796114432.000000 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 30479.046470 	 Percentage Difference = -0.000000 Gradient Norm = 1795077120.000000 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 30478.656673 	 Percentage Difference = 0.000000 Gradient Norm = 1794033280.000000 alpha mult = 0.000000
+OUTER ITERATION COUNT is 2
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 30478.349774 	 Percentage Difference = 0.000000 Gradient Norm = 1792921088.000000 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 30477.877884 	 Percentage Difference = -0.000000 Gradient Norm = 1791881984.000000 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 30477.575133 	 Percentage Difference = 0.000000 Gradient Norm = 1790817536.000000 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 30477.098137 	 Percentage Difference = -0.000000 Gradient Norm = 1789774976.000000 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 30476.681178 	 Percentage Difference = 0.000000 Gradient Norm = 1788730880.000000 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 30476.270853 	 Percentage Difference = -0.000000 Gradient Norm = 1787680896.000000 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 30475.915216 	 Percentage Difference = -0.000000 Gradient Norm = 1786613248.000000 alpha mult = 0.000000
+ Iteration Count = 800	Function Value = 30475.559198 	 Percentage Difference = -0.000000 Gradient Norm = 1785569664.000000 alpha mult = 0.000000
+ Iteration Count = 900	Function Value = 30475.166621 	 Percentage Difference = -0.000000 Gradient Norm = 1784525056.000000 alpha mult = 0.000000
+ Iteration Count = 1000	Function Value = 30474.780177 	 Percentage Difference = -0.000000 Gradient Norm = 1783486208.000000 alpha mult = 0.000000
+OUTER ITERATION COUNT is 3
+ Simulation Parameters
+ rho = 0.600000. c = 0.001000, beta = 0.600000
+ Iteration Count = 100	Function Value = 30474.379131 	 Percentage Difference = 0.000000 Gradient Norm = 1782418688.000000 alpha mult = 0.000000
+ Iteration Count = 200	Function Value = 30474.079279 	 Percentage Difference = 0.000000 Gradient Norm = 1781339520.000000 alpha mult = 0.000000
+ Iteration Count = 300	Function Value = 30473.660998 	 Percentage Difference = -0.000001 Gradient Norm = 1780268032.000000 alpha mult = 0.000000
+ Iteration Count = 400	Function Value = 30473.304266 	 Percentage Difference = 0.000000 Gradient Norm = 1779204480.000000 alpha mult = 0.000000
+ Iteration Count = 500	Function Value = 30472.908843 	 Percentage Difference = -0.000000 Gradient Norm = 1778190848.000000 alpha mult = 0.000000
+ Iteration Count = 600	Function Value = 30472.542364 	 Percentage Difference = -0.000000 Gradient Norm = 1777154944.000000 alpha mult = 0.000000
+ Iteration Count = 700	Function Value = 30472.184844 	 Percentage Difference = 0.000000 Gradient Norm = 1776101760.000000 alpha mu

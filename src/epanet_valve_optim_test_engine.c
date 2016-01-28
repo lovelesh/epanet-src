@@ -76,7 +76,10 @@
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
 #define FILENAME_JOBS "joblist.txt"
-#define SIZE 200000						/* Size of Queue */
+#define SIZE 200000	/* Size of Queue */
+#define MAX_VELOCITY 2.5    /* Max velocity in m/s */
+#define NUM_LITERS_PER_M3 1000
+
 
 const int PRINT_INTERVAL_FUNCTIONVALUE = 100;
 const int PRINT_INTERVAL_VALVEVALUES = 1000;
@@ -114,6 +117,8 @@ struct ValveStruct {
 	int ValveLink;	//LinkIndex
 	int TimePeriod; //TimePeriod
 	float ValveValues[MAX_TIMEPERIOD];	//Valvevalues. Array of size timeperiod (T).
+	float MaxValue;
+	float Diameter;
 };
 
 // Function declarations
@@ -141,7 +146,7 @@ void Qpush(char *keyword, int hours, int minutes, char *id, float value);
 int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
-
+float Compute_MaxValue (float Diameter);
 // Global Variable Declarations
 
 struct TankStruct *temp_tankstruct; //temp structs for tank gradient functions
@@ -249,16 +254,22 @@ int main(int argc, char *argv[])
 	} else {
 
 		for(temp_count =0; temp_count < Nvalves; temp_count++) {
+			// Getting the link index
 			valvecontrol[temp_count].ValveLink = Valve[temp_count+1].Link;
+			// Getting the Valve ID
 			ENgetlinkid(Valve[temp_count+1].Link,valvecontrol[temp_count].ValveID);
+			if(DEBUG){
+				printf("\n Valve Link of Valve %s is %d", valvecontrol[temp_count].ValveID, valvecontrol[temp_count].ValveLink);
+			}
+			
 			valvecontrol[temp_count].TimePeriod = timeperiod;
 			printf("\n Valve Id = %s \t ",valvecontrol[temp_count].ValveID);
-			for(temp_count2=0; temp_count2<timeperiod; temp_count2++) {
-				valvecontrol[temp_count].ValveValues[temp_count2] = Link[valvecontrol[temp_count].ValveLink].Kc;
-				// printf("\n Valve Value[%d] = %f \t ",temp_count2, valvecontrol[temp_count].ValveValues[temp_count2]);
-			}
-
+			
+			// To get the Diameter of the valves for max flow calculation across a valve
+			ENgetlinkvalue(valvecontrol[temp_count].ValveLink,EN_DIAMETER, &(valvecontrol[temp_count].Diameter));
+			valvecontrol[temp_count].MaxValue = Compute_MaxValue(valvecontrol[temp_count].Diameter);
 			printf(" Initial Valve Value = %f",valvecontrol[temp_count].ValveValues[0]);
+			printf("\n Max Flow across Valve %s = %f \t Diameter is %f",valvecontrol[temp_count].ValveID, valvecontrol[temp_count].MaxValue, valvecontrol[temp_count].Diameter);
 		}
 	}
 	// Randomise random number seed.
@@ -495,10 +506,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	int temp_count;
 	int temp_count2;
 	int timeperiod;
-	float temp_float_var_max = 0.0,
-	      temp_float_var_min = 0.0,
-	      temp_tank_level_difference = 0.0,
-	      random_number=0.0;
+	float temp_float_var = 0.0;
 
 	timeperiod = tankcontrol_current[0].TimePeriod;
 	update_tank_level(tankcontrol_current);
@@ -508,40 +516,37 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		// A hack to ignore the main tank in optimisation
 		//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
 
-		// A new approach to take into account tank overflow and emptiness.
-		temp_tank_level_difference = 0.0;
-
 		//penalise only if the tank level at time T is less than the initial.
 
-		temp_float_var_max = tankcontrol_current[temp_count2].TankLevels[timeperiod]-tankcontrol_current[temp_count2].TankLevels[0]; // penalise non periodicity.
-		func_value += 24*pow(temp_float_var_max,2)/tankcontrol_current[temp_count2].MaxTankLevel;
+		temp_float_var = tankcontrol_current[temp_count2].TankLevels[timeperiod]-tankcontrol_current[temp_count2].TankLevels[0]; // penalise non periodicity.
+		func_value += 24*pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 	}
 
 	//Tank Levels at each time and Penalty Computation
 	for(temp_count = 0 ; temp_count <= timeperiod; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
 			//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
-			temp_float_var_max = (2*tankcontrol_current[temp_count2].TankLevels[temp_count]-(tankcontrol_current[temp_count2].MaxTankLevel+tankcontrol_current[temp_count2].MinTankLevel));
-			func_value+=pow(temp_float_var_max,2)/tankcontrol_current[temp_count2].MaxTankLevel;
+			temp_float_var = (2*tankcontrol_current[temp_count2].TankLevels[temp_count]-(tankcontrol_current[temp_count2].MaxTankLevel+tankcontrol_current[temp_count2].MinTankLevel));
+			func_value+=pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 		}
 	}
 
 	// If valve value is more than the max valve value, penalise objective value.
-	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
+	for(temp_count = 1 ; temp_count <Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
-			temp_float_var_max = (valvecontrol_current[temp_count].ValveValues[temp_count2]-MAX_VALVEVALUE);
-			if(temp_float_var_max > 0) {
-				func_value+=temp_float_var_max*temp_float_var_max;
+			temp_float_var = (valvecontrol_current[temp_count].ValveValues[temp_count2]-valvecontrol_current[temp_count].MaxValue);
+			if(temp_float_var > 0) {
+				func_value+=temp_float_var*temp_float_var;
 			}
-			func_value+=temp_float_var_max/MAX_VALVEVALUE;
+			func_value+=abs(temp_float_var)/valvecontrol_current[temp_count].MaxValue;
 		}
 	}
 	
 	// Penalise the valve changes so only important changes are allowed
-	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
+	for(temp_count = 1; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 1; temp_count2 < timeperiod; temp_count2++) {
-			temp_float_var_max = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
-			func_value+= 500*abs(temp_float_var_max/MAX_VALVEVALUE); 
+			temp_float_var = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
+			func_value+= 500*abs(temp_float_var/valvecontrol_current[temp_count].MaxValue); 
 			// Multiplier arbitarily choosen to match the other penalty function values
 		}
 	}
@@ -636,15 +641,24 @@ void compute_gradient(struct TankStruct *tankcontrol_current, struct ValveStruct
 			function_value_1 = objective_function(temp_tankstruct,temp_valvestruct);
 
 			temp_valvestruct[temp_count].ValveValues[temp_count2] = (valvecontrol_current[temp_count].ValveValues[temp_count2]-epsilon);
-			if(temp_valvestruct[temp_count].ValveValues[temp_count2] < 0) { // valve value cannot be negative
+			if(temp_valvestruct[temp_count].ValveValues[temp_count2] < 0) { 
+				// valve value cannot be negative
 				temp_valvestruct[temp_count].ValveValues[temp_count2] = 0;
 			}
+			/*
+			if(temp_valvestruct[temp_count].ValveValues[temp_count2] > temp_valvestruct[temp_count].MaxValue) { 
+				// valve value cannot be more than Max value
+				temp_valvestruct[temp_count].ValveValues[temp_count2] = temp_valvestruct[temp_count].MaxValue;
+			}
+			*/
 			compute_flows(temp_tankstruct,temp_valvestruct,temp_count2);
 			function_value_2 = objective_function(temp_tankstruct,temp_valvestruct);
 
-			valvecontrol_gradient[temp_count].ValveValues[temp_count2] = (function_value_1-function_value_2)/(2*epsilon); //gradient computation
+			valvecontrol_gradient[temp_count].ValveValues[temp_count2] = (function_value_1-function_value_2)/(2*epsilon); 
+			//gradient computation
 
-			temp_valvestruct[temp_count].ValveValues[temp_count2] = valvecontrol_current[temp_count].ValveValues[temp_count2]; //make the value back to original.
+			temp_valvestruct[temp_count].ValveValues[temp_count2] = valvecontrol_current[temp_count].ValveValues[temp_count2]; 
+			//make the value back to original.
 		}
 	}
 
@@ -718,6 +732,13 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 				} else {
 					temp_valvestruct[temp_count].ValveValues[temp_count2] = 0;
 				}
+				/*
+				if(temp_valve_value < valvecontrol_current[temp_count].MaxValue) {
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = temp_valve_value;
+				} else {
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = valvecontrol_current[temp_count].MaxValue;
+				}
+				*/
 			}
 			compute_flows(temp_tankstruct,temp_valvestruct,temp_count2);
 		}
@@ -740,11 +761,17 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 			temp_valve_value = valvecontrol_current[temp_count].ValveValues[temp_count2]-valvecontrol_gradient[temp_count].ValveValues[temp_count2]*(1+random_number*pow((main_iteration_count/100)+1,-0.6))*alpha_mult;
 
 			if(temp_valve_value > 0) {
-				temp_valvestruct[temp_count].ValveValues[temp_count2] = temp_valve_value;
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = temp_valve_value;
 			} else {
-				temp_valvestruct[temp_count].ValveValues[temp_count2] = 0;
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = 0;
 			}
-
+			/*
+			if(temp_valve_value < valvecontrol_current[temp_count].MaxValue) {
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = temp_valve_value;
+			} else {
+					temp_valvestruct[temp_count].ValveValues[temp_count2] = valvecontrol_current[temp_count].MaxValue;
+			}
+			*/
 		}
 		compute_flows(temp_tankstruct,temp_valvestruct,temp_count2);
 	}
@@ -905,7 +932,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 			printf("\n Valve Value [%d] = %f, \t Percentage Open = %f \% ",
 				   temp_count2,
 				   valvecontrol[temp_count].ValveValues[temp_count2],
-				   valvecontrol[temp_count].ValveValues[temp_count2]*100/MAX_VALVEVALUE);
+				   valvecontrol[temp_count].ValveValues[temp_count2]*100/valvecontrol[temp_count].MaxValue);
 		}
 	}
 	
@@ -1248,7 +1275,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 					break;
 				}
 			}
-			else if(abs(valvecontrol[temp_count].ValveValues[temp_count2] - avg[temp_count]) <= 20){
+			else if(abs(valvecontrol[temp_count].ValveValues[temp_count2] - avg[temp_count]) <= 25){
 				// Pushing only the first value as average Valve setting
 				if(push_avg_flag){
 					valve_val = avg[temp_count];
@@ -1324,11 +1351,16 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	// Valve Values for discrepancy
 	for(temp_count = 0 ; temp_count <Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < timeperiod; temp_count2++) {
-			if(valvecontrol[temp_count].ValveValues[temp_count2] > MAX_VALVEVALUE){
+			if(valvecontrol[temp_count].ValveValues[temp_count2] > valvecontrol[temp_count].MaxValue){
 				return 0;
 			}
 		}
 	}
 	
 	return 1;
+}
+
+float Compute_MaxValue(float d)
+{	
+	return(MAX_VELOCITY * PI*(d * d)/4.0 / NUM_LITERS_PER_M3);
 }
