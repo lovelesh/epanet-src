@@ -1159,6 +1159,8 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 					if(!strncmp(tankcontrol[temp_count2].TankID,p.id,15)){
 						for(temp_count = p.hours; temp_count < tankcontrol[temp_count2].TimePeriod; temp_count++){
 							tankcontrol[temp_count2].OutFlow[temp_count] = p.value;
+							// try with this approach as well
+							//compute_flows(tankcontrol, valvecontrol, temp_count);
 						}
 						break;
 					}
@@ -1173,6 +1175,8 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 					if(!strncmp(valvecontrol[temp_count2].ValveID,p.id,2)){
 						for(temp_count = p.hours; temp_count < valvecontrol[temp_count2].TimePeriod; temp_count++){
 							valvecontrol[temp_count2].ValveValues[temp_count] = p.value;
+							// try with this approach as well
+							//compute_flows(tankcontrol, valvecontrol, temp_count);
 						}
 						break;
 					}
@@ -1184,6 +1188,8 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 				for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++){
 					if(!strncmp(tankcontrol[temp_count2].TankID,p.id,15)){
 						tankcontrol[temp_count2].TankLevels[0] = p.value;
+						// try with this approach as well
+						//compute_flows(tankcontrol, valvecontrol, temp_count);
 						break;
 					}
 					
