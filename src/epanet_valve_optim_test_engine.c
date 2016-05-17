@@ -71,7 +71,7 @@
 #define MAX_TIMEPERIOD 72
 #define MAXTANKLEVEL 100
 #define myMAXITER 30
-#define myOUTER_MAXITER 1000
+#define myOUTER_MAXITER 1
 #define DEBUG 1
 #define LPS_TANKUNITS 3.6 	/* 1LPS * 3600seconds/1000 = volume in one hour in meter^3*/
 #define MAX_VALVEVALUE 350
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
 	f_demand_input = argv[2]; 			// second argument is Tank demand data file
 	f_job_input = argv[3];				// third argument is the joblist file
 	sscanf(argv[4],"%d", &timeperiod); 		//Time period to be used in optimisation.
-	if(argc>5) {
+	if(argc>4) {
 		open_valve_init_file_flag = 1;
 		f_valve_init = argv[5];
 	}
@@ -286,13 +286,13 @@ int main(int argc, char *argv[])
 		
 	
 	// Run the wrapper
-	while(run_flag){
+	//while(run_flag){
 		printf("\nOUTER ITERATION COUNT in %d",run_flag);
-		ENOptimiseValve(tankcontrol, valvecontrol); 
+		//ENOptimiseValve(tankcontrol, valvecontrol); 
 		
-		if(feasiblity_checker(tankcontrol, valvecontrol)){
-			Job_Scheduler(tankcontrol, valvecontrol);
-			simulation_time = Job_Handler(tankcontrol, valvecontrol);
+		//if(feasiblity_checker(tankcontrol, valvecontrol)){
+		//	Job_Scheduler(tankcontrol, valvecontrol);
+		//	simulation_time = Job_Handler(tankcontrol, valvecontrol);
 			compute_flows(tankcontrol, valvecontrol, simulation_time);
 			update_tank_level(tankcontrol);
 			if(DEBUG){
@@ -302,11 +302,11 @@ int main(int argc, char *argv[])
 			if(feasiblity_checker(tankcontrol, valvecontrol)){
 				printf("final output\n");
 				Display_Output(tankcontrol, valvecontrol);
-				break;
+				//break;
 			}
-		}
+		//}
 		run_flag++;
-	}
+//}
 
 	
 	// Call Optmisation module;
@@ -450,11 +450,11 @@ void Initialise_Valve_Values(char *f_valve_init, struct ValveStruct *valvecontro
 {
 	/*
 	 * Reads the initial valve setting for times 0 to timeperiod-1.
-	 * f_valve_init 	: file name of file containing valve  data. Each tank data should be in one line, and each field separated by a comma. First field should be the tank ID.
+	 * f_valve_init 	: file name of file containing valve  data. Each tank data should be in one line, and each field separated by a comma. First field should be the Valve ID.
 	 * valvecontrol	: Pointer to the ValveStruct array.
 	 * timeperiod		: Optimisation time period in hours.
 	*/
-	FILE* stream = fopen(f_valve_init, "r"); 	// Open demand file for reading
+	FILE* stream = fopen(f_valve_init, "r"); 	// Open valve setting file for reading
 	char line[1024];				// Read line by line and store in line
 	char * temp_field;				// temporary field to extract values
 	int valvecount = 0;				// Initial Tank Count = 0;
