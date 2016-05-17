@@ -226,10 +226,12 @@ int main(int argc, char *argv[])
 		tankcontrol[temp_count].OutputLink = 0;
 		tankcontrol[temp_count].InputLink = 0;
 
+		/*
 		for(temp_count2=0; temp_count2<timeperiod; temp_count2++) {
 			tankcontrol[temp_count].TankLevels[temp_count2] = (tankcontrol[temp_count].MaxTankLevel)/2; //initialise tanks to half capacity
 			// Just arbitiarily taken
 		}
+		*/
 
 		for (temp_count2=0; temp_count2<Nlinks; temp_count2++) {
 			ENgetlinknodes(temp_count2, &temp_node1, &temp_node2);
