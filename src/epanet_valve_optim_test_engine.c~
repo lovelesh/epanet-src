@@ -207,7 +207,7 @@ int main(int argc, char *argv[])
 	f_demand_input = argv[2]; 			// second argument is Tank demand data file
 	f_job_input = argv[3];				// third argument is the joblist file
 	sscanf(argv[4],"%d", &timeperiod); 		//Time period to be used in optimisation.
-	if(argc>5) {
+	if(argc>4) {
 		open_valve_init_file_flag = 1;
 		f_valve_init = argv[5];
 	}
