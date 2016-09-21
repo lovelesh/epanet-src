@@ -159,6 +159,21 @@ int elapsed_time = 0; // Starting clock is considered at 00:00 hrs
 int hourly_scheduler = 1;  // Determines the job to be scheduled in hours; if 1 = hourly jobs, if 2 = jobs scheduled for 2 hours
 
 // Main function starts here
+/*
+Type :-
+1. Search
+Serach NetworkFilePath Duration ExternalInputFilePath StartTime EndTime
+
+2. Target
+Target NetworkFilePath Duration ExternalInputFilePath StartTime EndTime CurrentTankLevelFilePath SolutionFilePath
+
+3. SIM
+SIM NetworkFilePath Duration ExternalInputFilePath StartTime EndTime SolutionFilePath
+
+4. Target with advance
+Target NetworkFilePath Duration ExternalInputFilePath StartTime EndTime CurrentTankLevelFilePath SolutionFilePath W12[-100 - 200] W3[-100 - 200] W4[-100 - 200]
+
+*/
 
 int main(int argc, char *argv[])
 {
@@ -169,6 +184,8 @@ int main(int argc, char *argv[])
 	     * f_epanet_Rpt = "temp.out",
 	       * f_valve_init,
 	       * f_blank = " ",
+		* f_current_level_input,
+		* f_solution_input,
 	         * temp_char;
 
 	int 	timeperiod = 0;
