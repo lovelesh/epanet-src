@@ -155,6 +155,8 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 float Compute_MaxValue (float Diameter);
 void ENReadCurrentFile(char *f_current_input);
 void ENReadSolutionFile(char *f_solution_level_input);
+
+
 // Global Variable Declarations
 
 struct TankStruct *temp_tankstruct; //temp structs for tank gradient functions
@@ -167,6 +169,13 @@ int hourly_scheduler = 1;  // Determines the job to be scheduled in hours; if 1 
 int targetMode = 1;
 struct TargetSolutionStruct solutionTankLevel[MAX_HOURS];
 struct TargetSolutionStruct currentLevel;
+unsigned int duration = 24;  // Duration of the simulation
+unsigned int w12 = 1;
+unsigned int w3;
+unsigned int w4 = 300;
+unsigned int w5 = 1;
+float w6 = -0.5;
+
 // Main function starts here
 /*
 Type :-
@@ -220,6 +229,9 @@ int main(int argc, char *argv[])
 		open_valve_init_file_flag = 1;
 		f_valve_init = argv[5];
 	}
+
+	
+	w3 = duration;
 
 	ENopen(f_epanet_input, f_epanet_Rpt,f_blank); 				// Open Epanet input file
 	ENsetreport("MESSAGES NO"); //suppresses warnings and erros
@@ -635,18 +647,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	timeperiod = tankcontrol_current[0].TimePeriod;
 	update_tank_level(tankcontrol_current);
 
-	//periodicity Computation and Penalty
-	for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
-		// A hack to ignore the main tank in optimisation
-		//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
-
-		//penalise only if the tank level at time T is less than the initial.
-
-		temp_float_var = tankcontrol_current[temp_count2].TankLevels[timeperiod]-tankcontrol_current[temp_count2].TankLevels[0]; // penalise non periodicity.
-		func_value += 24*pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
-	}
-
-	//Tank Levels at each time and Penalty Computation
+	//Tank Levels at each time and Penalty Computation (2M = A + B)
 	if(targetMode == 1) 
 		temp_count = currentLevel.timeVal;  
 	else 
@@ -656,24 +657,28 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 	{
 		for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
 			//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
-			temp_float_var = (2*tankcontrol_current[temp_count2].TankLevels[temp_count]-(tankcontrol_current[temp_count2].MaxTankLevel+tankcontrol_current[temp_count2].MinTankLevel));
-			func_value += pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
+			temp_float_var = (2 * tankcontrol_current[temp_count2].TankLevels[temp_count]-(tankcontrol_current[temp_count2].MaxTankLevel+tankcontrol_current[temp_count2].MinTankLevel));
+			func_value += w12 * pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 		}
 	}
 
-	// If valve value is more than the max valve value, penalise objective value.
-	for(temp_count = 1 ; temp_count <Nvalves; temp_count++) {
-		if(targetMode == 1) 
-			temp_count2 = currentLevel.timeVal;  
-		else 
-			temp_count2 = 0;
+	//periodicity Computation and Penalty
+	if (targetMode == 0) {
+		for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
+			// A hack to ignore the main tank in optimisation
+			//if(strcmp(tankcontrol_current[temp_count2].TankID,"34")==0) continue;
 
-		for(; temp_count2 < timeperiod; temp_count2++) {
-			temp_float_var = (valvecontrol_current[temp_count].ValveValues[temp_count2]-valvecontrol_current[temp_count].MaxValue);
-			if(temp_float_var > 0) {
-				func_value+=temp_float_var*temp_float_var;
-			}
-			func_value += abs(temp_float_var)/valvecontrol_current[temp_count].MaxValue;
+			//penalise only if the tank level at time T is less than the initial.
+
+			temp_float_var = tankcontrol_current[temp_count2].TankLevels[timeperiod]-tankcontrol_current[temp_count2].TankLevels[0]; // penalise non periodicity.
+			func_value += w3 * pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
+		}
+	}
+	else {
+		// Check the difference of the 24th hour tank level to the 0th hour tank level of the solution file
+		for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2 ++) {
+			temp_float_var = tankcontrol_current[temp_count2].TankLevels[23] - solutionTankLevel[0].tankId[temp_count2];
+			func_value += w3 * pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 		}
 	}
 
@@ -682,15 +687,32 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 		if(targetMode == 1) 
 			temp_count2 = currentLevel.timeVal;  
 		else 
-			temp_count2 = 1;
+			temp_count2 = 0;
 
-		for(; temp_count2 < timeperiod; temp_count2++) {
-			temp_float_var = valvecontrol_current[temp_count].ValveValues[temp_count2] - valvecontrol_current[temp_count].ValveValues[temp_count2-1];
+		for(; temp_count2 < timeperiod - 1 ; temp_count2++) {
+			temp_float_var = valvecontrol_current[temp_count].ValveValues[temp_count2 + 1] - valvecontrol_current[temp_count].ValveValues[temp_count2];
 			// Multiplier arbitarily choosen to match the other penalty function values
-			func_value += 300*abs(temp_float_var/valvecontrol_current[temp_count].MaxValue); 
+			func_value += w4 * abs(temp_float_var/valvecontrol_current[temp_count].MaxValue); 
 
 		}
 	}
+
+	// If valve value is more than the max valve value, penalise objective value.
+	for(temp_count = 1 ; temp_count <Nvalves; temp_count++) {
+			if(targetMode == 1) 
+				temp_count2 = currentLevel.timeVal;  
+		else 
+			temp_count2 = 0;
+
+		for(; temp_count2 < timeperiod; temp_count2++) {
+			temp_float_var = (valvecontrol_current[temp_count].ValveValues[temp_count2]-valvecontrol_current[temp_count].MaxValue);
+			if(temp_float_var > 0) {
+				func_value+=temp_float_var*temp_float_var;
+			}
+			func_value += w5 * abs(temp_float_var)/valvecontrol_current[temp_count].MaxValue;
+		}
+	}
+
 
 	// Penalise the negative flows across the valves
 	for(temp_count = 1; temp_count < Nvalves; temp_count++) {
@@ -702,9 +724,9 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 			ENgetlinkvalue(valvecontrol_current[temp_count].ValveLink,EN_FLOW, &(valvecontrol_current[temp_count].Flow[temp_count2]));			
 			if (valvecontrol_current[temp_count].Flow[temp_count2] < 0){
 				// temp_float_var = -actual_flow * weight * max_flow_of_valve
-				temp_float_var = -0.5 * valvecontrol_current[temp_count].Flow[temp_count2] * valvecontrol_current[temp_count].MaxValue;
+				temp_float_var = valvecontrol_current[temp_count].Flow[temp_count2] * valvecontrol_current[temp_count].MaxValue;
 				//printf("\n Negative Flow across Valve %s = %f",valvecontrol_current[temp_count].ValveID, valvecontrol_current[temp_count].Flow[temp_count2]);
-				func_value += temp_float_var;
+				func_value += w6 * temp_float_var;
 			}
 		}
 	}
@@ -893,7 +915,7 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 		if(targetMode == 1) 
 			temp_count2 = currentLevel.timeVal;  
 		else 
-			temp_count2 = 1;
+			temp_count2 = 0;
 		for(; temp_count2<timeperiod; temp_count2++) {
 			for(temp_count =0; temp_count <Nvalves; temp_count++) {
 				//random_direction(&random_number,1);

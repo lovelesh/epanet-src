@@ -5,6 +5,8 @@
 
 # Compiled Dynamic libraries
 *.so
+epanet_valve_optim_wisl09
+epanet2
 
 # Compiled Static libraries
 *.lai
@@ -29,3 +31,5 @@ Debug/
 *.mode2v3
 
 *.c~
+temp.out
+*.out
