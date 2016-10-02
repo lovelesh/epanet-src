@@ -202,8 +202,8 @@ int main(int argc, char *argv[])
 	     * f_epanet_Rpt = "temp.out",
 	       * f_valve_init,
 	       * f_blank = " ",
-		* f_solution_level_input = "/home/amit/AMIT/epanet/epanet-src/Input_Files/Solution.csv",
-		* f_current_input = "/home/amit/AMIT/epanet/epanet-src/Input_Files/current.csv",
+		* f_solution_level_input = "../../Input_Files/Solution.csv",
+		* f_current_input = "../../Input_Files/current.csv",
 	         * temp_char;
 
 	int 	timeperiod = 0;
