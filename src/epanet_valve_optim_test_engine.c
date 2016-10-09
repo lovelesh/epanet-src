@@ -171,7 +171,7 @@ struct TargetSolutionStruct solutionTankLevel[MAX_HOURS];
 struct TargetSolutionStruct currentLevel;
 unsigned int duration = 6;  // Duration of the simulation
 unsigned int w12 = 1;
-unsigned int w3 = 150;
+unsigned int w3 = 75;
 unsigned int w4 = 300;
 unsigned int w5 = 1;
 float w6 = -0.5;
@@ -357,6 +357,7 @@ int main(int argc, char *argv[])
 			if(feasiblity_checker(tankcontrol, valvecontrol)){
 				printf("final output\n");
 				Display_Output(tankcontrol, valvecontrol);
+                                printf("$$$$$$$$$$ logically concluded $$$$$$$$$$\n");
 				break;
 			}
 		}
