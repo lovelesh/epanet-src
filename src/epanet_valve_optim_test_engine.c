@@ -251,7 +251,7 @@ int main(int argc, char *argv[])
 		f_job_input = argv[4];				// 4th argument is the joblist file
 		sscanf(argv[5],"%d", &startTime); 		// 5th argument is StartTime [0-23 hours].
 		sscanf(argv[6],"%d", &duration); 		// 6th argument is duartion [1-24 hours].
-		timeperiod = startTime + duration + 1;		// need to check we need +1 or not
+		timeperiod = startTime + duration + 1;		
 		if(timeperiod > 25)
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
 	}
@@ -271,16 +271,31 @@ int main(int argc, char *argv[])
 		sscanf(argv[11],"%d", &w5);	 		// 11th argument is w5 [range - ].
 		sscanf(argv[12],"%f", &w6);	 		// 12th argument is w6 [range - ].
 
-		// Reading Solution File
-		ENReadSolutionFile(f_solution_level_input, tankcontrol);
-
-		// Reading Current File
-		ENReadCurrentFile(f_current_input, tankcontrol);
-
-		timeperiod = currentLevel.timeVal + duration + 1;	// need to check we need +1 or not ???
+		// Reading startTime Value from current level file
+		int timeVal;
+		char line[1024];				// Read line by line and store in line
+		FILE* stream = fopen(f_current_input, "r"); 	// Open current file for reading
+		char * tok;
+		char * tmp;
+		int solFileRow = 0;
+		if(stream == NULL)
+			exit(-1);
+		while ((fgets(line, 1024, stream)!=NULL)) {
+			if(solFileRow == 1) {
+				tmp = strdup(line);
+				tok = strtok(tmp, ",");
+				if(tok !=NULL) {
+					timeVal = strtod(tok,NULL);
+					fprintf(fptr, "Target Mode StartTime[%d]\n", timeVal);
+				}
+				break;
+			}
+			solFileRow = 1;
+		}
+		fclose(stream);
+		timeperiod = timeVal + duration + 1;	
 		if(timeperiod > 25)
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
-
 	}
 	else {
 		printf("Invalid Mode \n");
@@ -299,6 +314,7 @@ int main(int argc, char *argv[])
 
 	tankcontrol = (struct TankStruct *)calloc(Ntanks,sizeof(struct TankStruct)); 	//allocate memory for tank structs.
 	valvecontrol = (struct ValveStruct *) calloc(Nvalves,sizeof(struct ValveStruct)); //allocate memory for valve structs.
+
 
 	ENReadOutFlow(f_demand_input, tankcontrol, timeperiod);   //Read tank demands (outflow) from file. Need to see if it can be integrated with Epanet.
 
@@ -337,6 +353,12 @@ int main(int argc, char *argv[])
 	}
 
 	if(targetMode == TRUE) {
+		// Reading Solution File
+		ENReadSolutionFile(f_solution_level_input, tankcontrol);
+
+		// Reading Current File
+		ENReadCurrentFile(f_current_input, tankcontrol);
+
 		int loop = 0;
 		for(; loop <Ntanks; loop++) {
 			tankcontrol[loop].TankLevels[timeperiod] = solutionTankLevel[0].tankId[loop];
@@ -459,7 +481,6 @@ void ENReadSolutionFile(char *f_solution_level_input, struct TankStruct *tankcon
 		exit(-1);
 	char* tok;
 	char * tmp;
-
 	while ((fgets(line, 1024, stream)!=NULL) && (tankCount < Ntanks || valveCount < Nvalves)) {
 		if(solFileRow > 0 && solFileRow <= 24) {
 			tmp = strdup(line);
@@ -511,6 +532,7 @@ void ENReadCurrentFile(char *f_current_input, struct TankStruct *tankcontrol)
 			tok = strtok(tmp, ",");
 			if(tok !=NULL) {
 				currentLevel.timeVal = strtod(tok,NULL);
+				fprintf(fptr, "CurrentLevel StartTime[%d]\n", currentLevel.timeVal);
 			}
 
 			while((NULL != (tok = strtok(NULL, ",")))) {
