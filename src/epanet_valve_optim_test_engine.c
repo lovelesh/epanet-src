@@ -245,6 +245,7 @@ int main(int argc, char *argv[])
 	if(mode == 0) {
 
 		fprintf(fptr, "\n************************************* Search Mode is on *************************************\n");
+		fflush(fptr);
 		targetMode = FALSE;
 		f_epanet_input = argv[2]; 			// 2nd argument is EPANET input file
 		f_demand_input = argv[3]; 			// 3rd argument is Tank demand data file
@@ -252,12 +253,17 @@ int main(int argc, char *argv[])
 		sscanf(argv[5],"%d", &startTime); 		// 5th argument is StartTime [0-23 hours].
 		sscanf(argv[6],"%d", &duration); 		// 6th argument is duartion [1-24 hours].
 		timeperiod = startTime + duration + 1;		
-		if(timeperiod > 25)
+		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
+			duration = timeperiod - startTime -1;
+			printf("Search Mode :: StartTime[%d] duration[%d] timeperiod[%d]\n", startTime, duration, timeperiod);
+			fflush(fptr);
+		}
 	}
 	else if(mode == 1) {
 
 		fprintf(fptr, "\n************************************* Target Mode is on *************************************\n");
+		fflush(fptr);
 		targetMode = TRUE;
 		f_epanet_input = argv[2]; 			// 2nd argument is EPANET input file
 		f_demand_input = argv[3]; 			// 3rd argument is Tank demand data file
@@ -287,6 +293,7 @@ int main(int argc, char *argv[])
 				if(tok !=NULL) {
 					timeVal = strtod(tok,NULL);
 					fprintf(fptr, "Target Mode StartTime[%d]\n", timeVal);
+					fflush(fptr);
 				}
 				break;
 			}
@@ -294,12 +301,17 @@ int main(int argc, char *argv[])
 		}
 		fclose(stream);
 		timeperiod = timeVal + duration + 1;	
-		if(timeperiod > 25)
+		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
+			duration = timeperiod - timeVal -1;
+			printf("TargetMode :: StartTime[%d] duration[%d] timeperiod[%d]\n", timeVal, duration, timeperiod);
+			fflush(fptr);
+		}
 	}
 	else {
 		printf("Invalid Mode \n");
 		fprintf(fptr, "Invalid Mode \n");
+		fflush(fptr);
 		exit(1);
 	}
 
@@ -328,6 +340,7 @@ int main(int argc, char *argv[])
 		tank_struct_index[temp_count]=temp_count2;
 		tankcontrol[temp_count].MaxTankLevel = max_tank_level(temp_count2); //find max tank level
 		fprintf(fptr, "\n Tank ID = %s, Tank Max Level (meter^3) = %f",tankcontrol[temp_count].TankID,tankcontrol[temp_count].MaxTankLevel);
+		fflush(fptr);
 		tankcontrol[temp_count].TimePeriod = timeperiod;
 		tankcontrol[temp_count].MinTankLevel = 0;
 		tankcontrol[temp_count].NodeIndex = temp_nodeIndex;
@@ -340,18 +353,20 @@ int main(int argc, char *argv[])
 				tankcontrol[temp_count].OutputLink = temp_count2;	//find output link to tank
 				if(DEBUG) {
 					fprintf(fptr, "\n Tank ID = %s, Tank Output Link ID = %s", tankcontrol[temp_count].TankID, Link[temp_count2].ID );
+					fflush(fptr);
 				}
 			}
 			if(temp_node2 == tankcontrol[temp_count].NodeIndex) {
 				tankcontrol[temp_count].InputLink = temp_count2;     //find input link to tank
 				if(DEBUG) {
 					fprintf(fptr, "\n Tank ID = %s, Tank Input Link ID = %s", tankcontrol[temp_count].TankID, Link[temp_count2].ID );
+					fflush(fptr);
 				}
 			}
 		}
 
 	}
-
+	fflush(fptr);
 	if(targetMode == TRUE) {
 		// Reading Solution File
 		ENReadSolutionFile(f_solution_level_input, tankcontrol);
@@ -375,17 +390,21 @@ int main(int argc, char *argv[])
 		ENgetlinkid(Valve[temp_count+1].Link,valvecontrol[temp_count].ValveID);
 		if(DEBUG) {
 			fprintf(fptr, "\n Valve Link of Valve %s is %d", valvecontrol[temp_count].ValveID, valvecontrol[temp_count].ValveLink);
+			fflush(fptr);
 		}
 
 		valvecontrol[temp_count].TimePeriod = timeperiod;
 		fprintf(fptr, "\n Valve Id = %s \t ",valvecontrol[temp_count].ValveID);
+		fflush(fptr);
 
 		// To get the Diameter of the valves for max flow calculation across a valve
 		ENgetlinkvalue(valvecontrol[temp_count].ValveLink,EN_DIAMETER, &(valvecontrol[temp_count].Diameter));
 		valvecontrol[temp_count].MaxValue = Compute_MaxValue(valvecontrol[temp_count].Diameter);
 		fprintf(fptr, " Initial Valve Value = %f",valvecontrol[temp_count].ValveValues[0]);
 		fprintf(fptr, "\n Max Flow across Valve %s = %f \t Diameter is %f",valvecontrol[temp_count].ValveID, valvecontrol[temp_count].MaxValue, valvecontrol[temp_count].Diameter);
+		fflush(fptr);
 	}
+	fflush(fptr);
 
 	// Randomise random number seed.
 	srand(time(NULL));
@@ -394,6 +413,7 @@ int main(int argc, char *argv[])
 	while(run_flag) {
 		printf("\nOUTER ITERATION COUNT in %d",run_flag);
 		fprintf(fptr, "\nOUTER ITERATION COUNT in %d",run_flag);
+		fflush(fptr);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
 
 		if(feasiblity_checker(tankcontrol, valvecontrol)) {
@@ -415,6 +435,7 @@ int main(int argc, char *argv[])
 		fflush(stdout);
 		run_flag++;
 	}
+	fflush(fptr);
 
 	// free all pointer
 	for(temp_count=0; temp_count<Ntanks; temp_count++) {
@@ -424,7 +445,8 @@ int main(int argc, char *argv[])
 	free(valvecontrol);
 	free(temp_tankstruct);
 	free(temp_valvestruct);
-
+	fflush(fptr);
+	fclose(fptr);
 	ENclose();
 }
 
@@ -447,12 +469,14 @@ void ENReadOutFlow(char *f_demand_input, struct TankStruct *tankcontrol, int tim
 
 	while ((fgets(line, 1024, stream)!=NULL) && (tankcount < Ntanks)) {
 		fprintf(fptr, "\ntankcount = %d",tankcount);
+		fflush(fptr);
 		tmp = strdup(line);
 		tok = strtok(tmp, ",");
 		if(tok !=NULL) {
 			tankcontrol[tankcount].TankID = tok;
 		}
 		fprintf(fptr, "\n Tank %d: Tank ID = %s,",tankcount+1,tok);
+		fflush(fptr);
 
 		i=0;
 		while((NULL != (tok = strtok(NULL, ","))) && (i<timeperiod)) {
@@ -461,6 +485,7 @@ void ENReadOutFlow(char *f_demand_input, struct TankStruct *tankcontrol, int tim
 		}
 		tankcount++;
 	}
+	fflush(fptr);
 	fclose(stream);
 }
 
@@ -505,6 +530,7 @@ void ENReadSolutionFile(char *f_solution_level_input, struct TankStruct *tankcon
 		tankCount = 0;
 		valveCount = 0;
 	}
+	fflush(fptr);
 	fclose(stream);
 }
 
@@ -533,6 +559,7 @@ void ENReadCurrentFile(char *f_current_input, struct TankStruct *tankcontrol)
 			if(tok !=NULL) {
 				currentLevel.timeVal = strtod(tok,NULL);
 				fprintf(fptr, "CurrentLevel StartTime[%d]\n", currentLevel.timeVal);
+				fflush(fptr);
 			}
 
 			while((NULL != (tok = strtok(NULL, ",")))) {
@@ -549,6 +576,7 @@ void ENReadCurrentFile(char *f_current_input, struct TankStruct *tankcontrol)
 		}
 		solFileRow = 1;
 	}
+	fflush(fptr);
 	fclose(stream);
 }
 
@@ -611,6 +639,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		if((((iteration_count%PRINT_INTERVAL_FUNCTIONVALUE)==0))) {
 			printf("\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
 			fprintf(fptr, "\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
+			fflush(fptr);
 		}
 
 		if(DEBUG) {
@@ -618,11 +647,13 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
 				printf("\nIteration Count = %d\n",iteration_count);
 				fprintf(fptr, "\nIteration Count = %d\n",iteration_count);
+				fflush(fptr);
 				// Print final results (Tank and Valve Values)
 				display(tankcontrol_current, tankcontrol_gradient, valvecontrol_current, valvecontrol_gradient);
 			}
 		}
 	}
+	fflush(fptr);
 
 	// Copying the structures into orignal ones
 	memcpy(tankcontrol,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
@@ -663,6 +694,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 			func_value += w12 * pow(temp_float_var,2)/tankcontrol_current[temp_count2].MaxTankLevel;
 		}
 	}
+	fflush(fptr);
 
 	//periodicity Computation and Penalty
 	if (!targetMode) {
@@ -727,6 +759,7 @@ double objective_function(struct TankStruct *tankcontrol_current,struct ValveStr
 
 	// Total Penalty function
 	func_value = func_value/1000;
+	fflush(fptr);
 	return func_value;
 }
 
@@ -750,6 +783,7 @@ void update_tank_level(struct TankStruct *tankcontrol)
 			tankcontrol[temp_count2].TankLevels[temp_count+1] = tankcontrol[temp_count2].TankLevels[temp_count]+(tankcontrol[temp_count2].InFlow[temp_count]-tankcontrol[temp_count2].OutFlow[temp_count]-tankcontrol[temp_count2].OutFlow_Epanet[temp_count])*LPS_TANKUNITS; //TankLevel is water volume in meter^3.
 		}
 	}
+	fflush(fptr);
 }
 
 void compute_flows(struct TankStruct *tankstruct, struct ValveStruct *valvestruct, int simulation_time)
@@ -849,6 +883,7 @@ void compute_gradient(struct TankStruct *tankcontrol_current, struct ValveStruct
 		tankcontrol_gradient[temp_count].TankLevels[0] = (function_value_1-function_value_2)/(2*epsilon);
 		temp_tankstruct[temp_count].TankLevels[0] = tankcontrol_current[temp_count].TankLevels[0]; //not necessary in gradient compuation as function values are separable in the tanklevels. Nevertheless to allay any fears.
 	}
+	fflush(fptr);
 }
 
 void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *valvecontrol_current,struct TankStruct *tankcontrol_gradient,struct ValveStruct *valvecontrol_gradient, int main_iteration_count)
@@ -883,6 +918,7 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 	if(main_iteration_count==1) {
 		printf("\n Simulation Parameters\n rho = %f. c = %f, beta = %f",rho,c,beta);
 		fprintf(fptr, "\n Simulation Parameters\n rho = %f. c = %f, beta = %f",rho,c,beta);
+		fflush(fptr);
 	}
 	memcpy(temp_tankstruct,tankcontrol_current,Ntanks*sizeof(struct TankStruct));
 	memcpy(temp_valvestruct,valvecontrol_current,Nvalves*sizeof(struct ValveStruct));
@@ -921,6 +957,7 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 		alpha_mult*=rho;
 		iteration_count++;
 	}
+	fflush(fptr);
 
 	// Add noise
 	temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
@@ -948,6 +985,7 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 	if(((main_iteration_count%PRINT_INTERVAL_FUNCTIONVALUE)==0)) {
 		fprintf(fptr, " Gradient Norm = %f alpha mult = %f",norm_grad_var,alpha_mult);
 	}
+	fflush(fptr);
 	memcpy(tankcontrol_current, temp_tankstruct,Ntanks*sizeof(struct TankStruct));
 	memcpy(valvecontrol_current,temp_valvestruct,Nvalves*sizeof(struct ValveStruct));
 }
@@ -975,6 +1013,7 @@ float norm_gradient(struct TankStruct *tankcontrol_gradient,struct ValveStruct *
 	for(temp_count2=0; temp_count2<Ntanks; temp_count2++) {
 		temp_gradient_norm += tankcontrol_gradient[temp_count2].TankLevels[0]*tankcontrol_gradient[temp_count2].TankLevels[0];
 	}
+	fflush(fptr);
 	return temp_gradient_norm;
 }
 
@@ -1051,22 +1090,28 @@ void display(struct TankStruct *tankcontrol_current, struct TankStruct *tankcont
 	// Display all the Valve Settings and Tank Levels till elapsed time
 	// Elapsed time is the time till the valve or demand settings are made
 	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
 
 	//Printing final Valve values
 	for(temp_count = 0; temp_count< Nvalves; temp_count++){
 		fprintf(fptr, "\n\n\n\n Valve ID = %s",valvecontrol_current[temp_count].ValveID);
+		fflush(fptr);
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
 		for(; temp_count2 < timeperiod; temp_count2++){
 			fprintf(fptr, "\n Valve Value [%d] = %f \t Gradient = %f",
 					temp_count2,
 					valvecontrol_current[temp_count].ValveValues[temp_count2],
 					valvecontrol_gradient[temp_count].ValveValues[temp_count2]);
+
+			fflush(fptr);
 		}
 	}
+	fflush(fptr);
 
 	//Printing final tank levels
 	for(temp_count = 0; temp_count< Ntanks; temp_count++){
 		fprintf(fptr, "\n\n\n\n Tank ID = %s",tankcontrol_current[temp_count].TankID);
+		fflush(fptr);
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
 		for(; temp_count2 < timeperiod; temp_count2++){
 			fprintf(fptr, "\n Tank Level [%d] = %f\%, \t Tank Inflow = %f, \t Tank Outflow = %f",
@@ -1074,9 +1119,11 @@ void display(struct TankStruct *tankcontrol_current, struct TankStruct *tankcont
 					(tankcontrol_current[temp_count].TankLevels[temp_count2])*100/tankcontrol_current[temp_count].MaxTankLevel,
 					tankcontrol_current[temp_count].InFlow[temp_count2],
 					(tankcontrol_current[temp_count].OutFlow[temp_count2] + tankcontrol_current[temp_count].OutFlow_Epanet[temp_count2]));
+			fflush(fptr);
 		}
 	}
 	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
 }
 
 void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
@@ -1108,24 +1155,29 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 
 	printf("Output File Path -> %s", fileName);
 	fprintf(fptr, "Output File Path -> %s", fileName);
-
 	// Display all the Valve Settings and Tank Levels till elapsed time
 	// Elapsed time is the time till the valve or demand settings are made
 	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
 	if(outputPtr != NULL) {
 		fprintf(outputPtr, "Time,");
+		fflush(outputPtr);
 		for(temp_count = 0; temp_count< Ntanks; temp_count++) {
 			fprintf(outputPtr, "%s,", tankcontrol[temp_count].TankID);
+			fflush(outputPtr);
 		}
 		for(temp_count = 0; temp_count< Nvalves; temp_count++) {
 			fprintf(outputPtr, "%s,", valvecontrol[temp_count].ValveID);
+			fflush(outputPtr);
 			if(temp_count == Nvalves-1) {
 				fprintf(outputPtr, "\n");
 				fflush(outputPtr);
 			}
 		}
 	}
-
+	fflush(fptr);
+	fflush(outputPtr);
+	
 	if(outputPtr != NULL)
 	{
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
@@ -1133,9 +1185,11 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 			fprintf(outputPtr, "%d,", temp_count2);
 			for(temp_count = 0; temp_count< Ntanks; temp_count++) {
 				fprintf(outputPtr, "%f,", (tankcontrol[temp_count].TankLevels[temp_count2])*100/tankcontrol[temp_count].MaxTankLevel);
+				fflush(outputPtr);
 			}
 			for(temp_count = 0; temp_count< Nvalves; temp_count++) {
 				fprintf(outputPtr, "%f,", valvecontrol[temp_count].ValveValues[temp_count2]*100/valvecontrol[temp_count].MaxValue);
+				fflush(outputPtr);
 				if(temp_count == Nvalves-1) {
 					fprintf(outputPtr, "\n");
 					fflush(outputPtr);
@@ -1143,21 +1197,28 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 			}
 		}
 	}
+	fflush(fptr);
+	fflush(outputPtr);
+	
 	//Printing final Valve values
 	for(temp_count = 0; temp_count< Nvalves; temp_count++) {
 		fprintf(fptr, "\n\n\n\n Valve ID = %s",valvecontrol[temp_count].ValveID);
+		fflush(fptr);
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
 		for(; temp_count2 < timeperiod; temp_count2 += hourly_scheduler) {
 			fprintf(fptr, "\n Valve Value [%d] = %f, \t Percentage Open = %f \% ",
 				   temp_count2,
 				   valvecontrol[temp_count].ValveValues[temp_count2],
 				   valvecontrol[temp_count].ValveValues[temp_count2]*100/valvecontrol[temp_count].MaxValue);
+			fflush(fptr);
 		}
 	}
-	
+	fflush(fptr);
+
 	//Printing final tank levels
 	for(temp_count = 0; temp_count< Ntanks; temp_count++){
 		fprintf(fptr, "\n\n\n\n Tank ID = %s",tankcontrol[temp_count].TankID);
+		fflush(fptr);
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
 		for(; temp_count2 < timeperiod; temp_count2 += hourly_scheduler) {
 			fprintf(fptr, "\n Tank Level [%d] = %f\%, \t Tank Inflow = %f, \t Tank Outflow = %f",
@@ -1165,9 +1226,11 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 			       (tankcontrol[temp_count].TankLevels[temp_count2])*100/tankcontrol[temp_count].MaxTankLevel,
 			       tankcontrol[temp_count].InFlow[temp_count2],
 			       (tankcontrol[temp_count].OutFlow[temp_count2] + tankcontrol[temp_count].OutFlow_Epanet[temp_count2]));
+			fflush(fptr);
 		}
 	}
 	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
 }
 
 int Queueing_Engine(char *f_job_input)
@@ -1192,10 +1255,12 @@ int Queueing_Engine(char *f_job_input)
 
 	 fprintf(fptr, "\n==============================================================================================\n");
 	 fprintf(fptr, "\nChecking for jobs from the file\n");
+	 fflush(fptr);
 	 
 	 if (stream == NULL) {
 		fprintf(fptr, "Cannot open the file\n");
 		fprintf(fptr, "\n==============================================================================================\n");
+		fflush(fptr);
 		return 0;
 	 }
 	 
@@ -1205,26 +1270,31 @@ int Queueing_Engine(char *f_job_input)
 		
 		// Seperate the keyword
 		fprintf(fptr, "%s ",tok);
+		fflush(fptr);
 		strcpy(keyword,tok);
 		
 		// Separate the hours
 		tok = strtok(NULL ,"|");
 		fprintf(fptr, "%s ",tok);
+		fflush(fptr);
 		hours = atoi(tok);
 		
 		// Separate the minutes
 		tok = strtok(NULL ,"|");
 		fprintf(fptr, "%s ",tok);
+		fflush(fptr);
 		minutes = atoi(tok);
 		
 		// Separate the ID
 		tok = strtok(NULL ,"|");
 		fprintf(fptr, "%s ",tok);
+		fflush(fptr);
 		strcpy(id,tok);
 		
 		// Separate the value
 		tok = strtok(NULL ,"|");
 		fprintf(fptr, "%s \n",tok);
+		fflush(fptr);
 		value = atof(tok);
 		
 		// Pushing data into Queue
@@ -1233,6 +1303,7 @@ int Queueing_Engine(char *f_job_input)
 	fclose(stream);
 	//remove(f_job_input);
 	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
 	
 	if(DEBUG) {
 		Qdisplay();
@@ -1271,6 +1342,7 @@ void Qpush(char *keyword, int hours, int minutes, char *id, float value)
 		strcpy(PQ[i+1].id,id);
 		PQ[i+1].value=value;
 	}
+	fflush(fptr);
 }
  
 PriorityQ Qpop()
@@ -1291,6 +1363,7 @@ PriorityQ Qpop()
 		f=f+1;
 		return(p);
 	}
+	fflush(fptr);
 }
  
 int Qfull()
@@ -1324,10 +1397,12 @@ void Qdisplay()
 	 if(Qempty()) fprintf(fptr, " \n Empty Queue\n");
 	 else {
 		fprintf(fptr, "Front->");
+		fflush(fptr);
 		for(i=f;i<=r;i++)
 			fprintf(fptr, "[%s,%d,%d,%s,%f] ",PQ[i].keyword,PQ[i].hours,PQ[i].minutes,PQ[i].id,PQ[i].value);
 		fprintf(fptr, "<-Rear\n");
  	}
+	fflush(fptr);
 }
 
 int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
@@ -1362,6 +1437,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 		*/
 		if(!strncmp(p.keyword,"demand",6)) {
 				fprintf(fptr, "[%s,%d,%d,%s,%f] \n",p.keyword,p.hours,p.minutes,p.id,p.value);
+				fflush(fptr);
 				for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
 					if(!strncmp(tankcontrol[temp_count2].TankID,p.id,15)) {
 						for(temp_count = p.hours; temp_count < tankcontrol[temp_count2].TimePeriod; temp_count++) {
@@ -1375,6 +1451,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 		}
 		else if(!strncmp(p.keyword,"valve",5)) {
 			fprintf(fptr, "[%s,%d,%d,%s,%f] \n",p.keyword,p.hours,p.minutes,p.id,p.value);
+			fflush(fptr);
 			for(temp_count2 = 0; temp_count2 < Nvalves; temp_count2++) {
 				if(!strncmp(valvecontrol[temp_count2].ValveID,p.id,2)) {
 					for(temp_count = p.hours; temp_count < valvecontrol[temp_count2].TimePeriod; temp_count++) {
@@ -1388,6 +1465,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 		}
 		else if(!strncmp(p.keyword,"tank",4)) {
 			fprintf(fptr, "[%s,%d,%d,%s,%f] \n",p.keyword,p.hours,p.minutes,p.id,p.value);
+			fflush(fptr);
 			for(temp_count2 = 0; temp_count2 < Ntanks; temp_count2++) {
 				if(!strncmp(tankcontrol[temp_count2].TankID,p.id,15)) {
 					tankcontrol[temp_count2].TankLevels[0] = p.value;
@@ -1406,6 +1484,7 @@ int Job_Handler(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol
 		}
 		 */
 	}
+	fflush(fptr);
 
 	if(DEBUG) {
 		Qdisplay();
@@ -1460,6 +1539,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	}
 	 */
 	fprintf(fptr, "\n==================================================================\n");
+	fflush(fptr);
 	// Valve Averaging being done
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < valvecontrol[temp_count].TimePeriod; temp_count2 += hourly_scheduler) {
@@ -1468,8 +1548,10 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		avg[temp_count] = avg[temp_count]/valvecontrol[temp_count].TimePeriod;
 		if(DEBUG) {
 			fprintf(fptr, "average valve setting for %s is %f\n",valvecontrol[temp_count].ValveID,avg[temp_count]);
+			fflush(fptr);
 		}
 	}
+	fflush(fptr);
 
 	// Calculating std deviation
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
@@ -1479,10 +1561,13 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		std_dev[temp_count] = sqrt(std_dev[temp_count]/valvecontrol[temp_count].TimePeriod);
 		if(DEBUG) {
 			fprintf(fptr, "standard deviation of valve %s is %f\n",valvecontrol[temp_count].ValveID,std_dev[temp_count]);
+			fflush(fptr);
 		}
 	}
+	fflush(fptr);
 
 	fprintf(fptr, "Jobs to be scheduled\n");
+	fflush(fptr);
 	// Intelligent pushing of Jobs to the Queue
 	for(temp_count = 0; temp_count < Nvalves; temp_count++) {
 		for(temp_count2 = 0; temp_count2 < valvecontrol[temp_count].TimePeriod; temp_count2 += hourly_scheduler) {
@@ -1493,6 +1578,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+						fflush(fptr);
 					}
 					// Setting the appropriate flags
 					push_avg_flag = 0;
@@ -1507,6 +1593,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+						fflush(fptr);
 					}
 					// Setting the appropriate flags
 					push_avg_flag = 0;
@@ -1520,6 +1607,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+						fflush(fptr);
 					}
 					// Setting the appropriate flags
 					push_set_flag = 0;
@@ -1533,6 +1621,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		valve_val = 0.0;
 	}
 	fprintf(fptr, "\n==================================================================\n");
+	fflush(fptr);
 
 	if(DEBUG) {
 		// Check the queue
@@ -1564,6 +1653,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 	timeperiod = tankcontrol[0].TimePeriod;
 
 	fprintf(fptr, "Checking feasibility \n");
+	fflush(fptr);
 	//Tank Levels at each time for discrepancy
 	for(temp_count = 0 ; temp_count < Ntanks; temp_count++) {
 		temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
@@ -1572,6 +1662,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 					| tankcontrol[temp_count].TankLevels[temp_count2] > tankcontrol[temp_count].MaxTankLevel){
 				fprintf(fptr, "TankLevel[%d::%d::%f] :: MinTankLevel[%f] :: MaxTankLevel[%f]\n", temp_count2, temp_count, tankcontrol[temp_count].TankLevels[temp_count2], tankcontrol[temp_count].MinTankLevel, tankcontrol[temp_count].MaxTankLevel);
 				fprintf(fptr, "tank Checking feasibility \n");
+				fflush(fptr);
 				return 0;
 			}
 		}
@@ -1584,6 +1675,7 @@ int feasiblity_checker(struct TankStruct *tankcontrol, struct ValveStruct *valve
 			if(valvecontrol[temp_count].ValveValues[temp_count2] > valvecontrol[temp_count].MaxValue){
 				fprintf(fptr, "ValveValue[%d::%d::%f] :: MaxValveValue[%f]\n", temp_count2, temp_count, valvecontrol[temp_count].ValveValues[temp_count2], valvecontrol[temp_count].MaxValue);
 				fprintf(fptr, "valve Checking feasibility \n");
+				fflush(fptr);
 				return 0;
 			}
 		}
