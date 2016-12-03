@@ -13,6 +13,9 @@ epanet2
 *.la
 *.a
 
+# Log files
+Output_Files-*.log
+
 # Doxygen output
 doxygen_out/
 
