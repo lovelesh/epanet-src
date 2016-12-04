@@ -256,7 +256,7 @@ int main(int argc, char *argv[])
 		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
 			duration = timeperiod - startTime -1;
-			printf("Search Mode :: StartTime[%d] duration[%d] timeperiod[%d]\n", startTime, duration, timeperiod);
+			fprintf(fptr, "Search Mode :: StartTime[%d] duration[%d] timeperiod[%d]\n", startTime, duration, timeperiod);
 			fflush(fptr);
 		}
 	}
@@ -304,12 +304,13 @@ int main(int argc, char *argv[])
 		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
 			duration = timeperiod - timeVal -1;
-			printf("TargetMode :: StartTime[%d] duration[%d] timeperiod[%d]\n", timeVal, duration, timeperiod);
+			fprintf(fptr, "TargetMode :: StartTime[%d] duration[%d] timeperiod[%d]\n", timeVal, duration, timeperiod);
 			fflush(fptr);
 		}
 	}
 	else {
 		printf("Invalid Mode \n");
+		fflush(stdout);
 		fprintf(fptr, "Invalid Mode \n");
 		fflush(fptr);
 		exit(1);
@@ -412,6 +413,7 @@ int main(int argc, char *argv[])
 	// Run the wrapper
 	while(run_flag) {
 		printf("\nOUTER ITERATION COUNT in %d",run_flag);
+		fflush(stdout);
 		fprintf(fptr, "\nOUTER ITERATION COUNT in %d",run_flag);
 		fflush(fptr);
 		ENOptimiseValve(tankcontrol, valvecontrol); 
@@ -428,6 +430,7 @@ int main(int argc, char *argv[])
 			if(feasiblity_checker(tankcontrol, valvecontrol)) {
 				fprintf(fptr, "final output\n");
 				printf("final output\n");
+				fflush(stdout);
 				Display_Output(tankcontrol, valvecontrol);
 				break;
 			}
@@ -638,6 +641,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 		// Runs this section every 100 iteration
 		if((((iteration_count%PRINT_INTERVAL_FUNCTIONVALUE)==0))) {
 			printf("\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
+			fflush(stdout);
 			fprintf(fptr, "\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
 			fflush(fptr);
 		}
@@ -646,6 +650,7 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 			// Print intermediate valve and tank values
 			if(((iteration_count%PRINT_INTERVAL_VALVEVALUES) == 1)||(iteration_count == 1)) {
 				printf("\nIteration Count = %d\n",iteration_count);
+				fflush(stdout);
 				fprintf(fptr, "\nIteration Count = %d\n",iteration_count);
 				fflush(fptr);
 				// Print final results (Tank and Valve Values)
@@ -917,6 +922,7 @@ void update_control(struct TankStruct *tankcontrol_current, struct ValveStruct *
 
 	if(main_iteration_count==1) {
 		printf("\n Simulation Parameters\n rho = %f. c = %f, beta = %f",rho,c,beta);
+		fflush(stdout);
 		fprintf(fptr, "\n Simulation Parameters\n rho = %f. c = %f, beta = %f",rho,c,beta);
 		fflush(fptr);
 	}
@@ -1154,6 +1160,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	}
 
 	printf("Output File Path -> %s", fileName);
+	fflush(stdout);
 	fprintf(fptr, "Output File Path -> %s", fileName);
 	// Display all the Valve Settings and Tank Levels till elapsed time
 	// Elapsed time is the time till the valve or demand settings are made
@@ -1199,6 +1206,13 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	}
 	fflush(fptr);
 	fflush(outputPtr);
+	fclose(outputPtr);
+	char finalOutput[1024];
+	sprintf(finalOutput, "cp %s ../../result/output.csv ", fileName);
+	int res = system(finalOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
 	
 	//Printing final Valve values
 	for(temp_count = 0; temp_count< Nvalves; temp_count++) {

@@ -1,0 +1,15 @@
+.background-image {
+	
+	background-image: url("../img/bg.jpg");
+	background-repeat: no-repeat;
+    
+}
+
+.quotation-headings {
+	margin: 20px 0px 20px 64px;
+    font-weight: 700;
+}
+
+.quotation-textbox {
+      margin: 4px 0px 50px 20px;
+}

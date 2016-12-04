@@ -12,9 +12,10 @@ epanet2
 *.lai
 *.la
 *.a
-
+Output-20*.csv
+output.csv
 # Log files
-Output_Files-*.log
+*.log
 
 # Doxygen output
 doxygen_out/
