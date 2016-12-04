@@ -12,7 +12,8 @@ $(function(){
    $('#path5').prop("disabled", true);
    $('#advancedOptions').hide();
    $('#download-button').prop("disabled", true);
-   $('#export-button').prop("disabled", true);
+   //$('#export-button').prop("disabled", true);
+   $('#export-button').hide();
    
    $('#w1').prop("disabled", true);
    $('#w2').prop("disabled", true);
@@ -111,6 +112,7 @@ function loadDoc() {
       if(key == 'ExitCode' && value == 0) {
           $('#download-button').prop("disabled", false);
           $('#export-button').prop("disabled", false);
+          $('#export-button').show();
       }
     });
   })
@@ -198,7 +200,7 @@ $.ajax({
         type: "get",
         success: function(res) {
           var array = $.csv.toArrays(res);
-           $('#file-op-line').show();
+          $('#file-op-line').show();
           $("#file-output").append(generateTable(array));
         },
         error: function(res) {

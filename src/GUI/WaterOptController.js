@@ -59,6 +59,10 @@ app.get('/download', function(req, res) {
     res.download('../../result/output.csv');
 });
 
+app.get('/download-file', function(req, res) {
+    console.log("\n\nDownload request received..\n\n");
+    res.download('../../result/output.csv');
+});
   
   app.get('/', function(req, res) {
      fs.readFile('index.html', 'utf8', function(err, text){
