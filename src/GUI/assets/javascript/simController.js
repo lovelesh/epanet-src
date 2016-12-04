@@ -11,7 +11,8 @@ $(function(){
    $('#path4').prop("disabled", true);
    $('#path5').prop("disabled", true);
    $('#advancedOptions').hide();
-   //$('#advancedOptions').prop("disabled", true);
+   $('#download-button').prop("disabled", true);
+   $('#export-button').prop("disabled", true);
    
    $('#w1').prop("disabled", true);
    $('#w2').prop("disabled", true);
@@ -22,6 +23,7 @@ $(function(){
    
    $('#durationWarning').hide();
    $('#uploadSuccess').hide();
+   $('#file-op-line').hide();
    
    var form = document.forms.namedItem("uploadForm");
 
@@ -57,6 +59,7 @@ function showOpts() {
 // Function to start simulation
 function loadDoc() {
     
+  $("#test").empty();  
   $('#start-button').prop("disabled", true);
   $('#cancel-button').prop("disabled", false);
   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
@@ -102,9 +105,13 @@ function loadDoc() {
           table.empty();
         }
       if(key == 'Result') {
-            $('#start-button').prop("disabled", false);
-            $('#cancel-button').prop("disabled", true);
-        }  
+         $('#start-button').prop("disabled", false);
+         $('#cancel-button').prop("disabled", true);
+      }  
+      if(key == 'ExitCode' && value == 0) {
+          $('#download-button').prop("disabled", false);
+          $('#export-button').prop("disabled", false);
+      }
     });
   })
 }
@@ -179,4 +186,62 @@ $.ajax({
             $('#testArea').html('Failure response:' + res);
         }
     });
+}
+
+
+function viewFile() {
+
+$.ajax({
+        url: '/download',
+        async: 'true',
+        dataType: "text",
+        type: "get",
+        success: function(res) {
+          var array = $.csv.toArrays(res);
+           $('#file-op-line').show();
+          $("#file-output").append(generateTable(array));
+        },
+        error: function(res) {
+            $('#download-button').text('Failed');
+            $('#testArea').html('Failure response:' + res);
+        }
+    });
+}
+
+function generateTable(data) {
+    var html = '';
+
+    if(typeof(data[0]) === 'undefined') {
+    return null;
+    }
+
+    if(data[0].constructor === String) {
+    html += '<tr>\r\n';
+    for(var item in data) {
+        html += '<td>' + data[item] + '</td>\r\n';
+    }
+    html += '</tr>\r\n';
+    }
+
+    if(data[0].constructor === Array) {
+    for(var row in data) {
+        html += '<tr>\r\n';
+        for(var item in data[row]) {
+        html += '<td>' + data[row][item] + '</td>\r\n';
+        }
+        html += '</tr>\r\n';
+    }
+    }
+
+    if(data[0].constructor === Object) {
+    for(var row in data) {
+        html += '<tr>\r\n';
+        for(var item in data[row]) {
+        html += '<td>' + item + ':' + data[row][item] + '</td>\r\n';
+        }
+        html += '</tr>\r\n';
+    }
+    }
+    
+    return html;
 }

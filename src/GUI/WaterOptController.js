@@ -54,6 +54,11 @@ app.post('/sumit-upload',function(req,res){
 
   //============================================================
   
+app.get('/download', function(req, res) {
+    console.log("\n\nDownload request received..\n\n");
+    res.download('../../result/output.csv');
+});
+
   
   app.get('/', function(req, res) {
      fs.readFile('index.html', 'utf8', function(err, text){
@@ -86,8 +91,6 @@ io.on('connection', function(socket) {
         obj = JSON.parse(message);
         Type = obj.Type;
         duration = obj.Duration;
-        console.log("\nSUMIT:  " + "Type: " + Type + "\n\n");
-        console.log("RECEIVED : " + JSON.stringify(message, null, 2));
     
     
     if(Type == 0) {
@@ -117,8 +120,6 @@ io.on('connection', function(socket) {
    	console.log(file5); 
 	client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
     }
-
-  //  client_binary = spawn('/home/sumit/Desktop/sumit/WaterOpt/a.sh');
     
     console.log("startTime: " + startTime + "\nDuration: " + duration + "\nw12: " + w12 + "\nw3: " + w3 + "\nw4: " + w4 + "\nw5: " + w5 + "\nw6: " + w6 + "\n");
     
@@ -140,6 +141,7 @@ io.on('connection', function(socket) {
     client_binary.on('close', function (code) {
         msg = {};
         msg.Result = 'All Iterations completed, process closed with code ' + code;
+        msg.ExitCode = code;
         socket.emit('newdata', JSON.stringify(msg));
         console.log('Process closed.');
         client_binary = null;
