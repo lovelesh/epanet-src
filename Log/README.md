@@ -1,1 +1,1 @@
-#log file ofr staoring all the logs
+#log file for storing all the logs
