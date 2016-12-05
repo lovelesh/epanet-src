@@ -12,7 +12,6 @@ $(function(){
    $('#path5').prop("disabled", true);
    $('#advancedOptions').hide();
    $('#download-button').prop("disabled", true);
-   //$('#export-button').prop("disabled", true);
    $('#export-button').hide();
    
    $('#w1').prop("disabled", true);
@@ -112,7 +111,6 @@ function loadDoc() {
       if(key == 'ExitCode' && value == 0) {
           $('#download-button').prop("disabled", false);
           $('#export-button').prop("disabled", false);
-          $('#export-button').show();
       }
     });
   })
@@ -121,8 +119,6 @@ function loadDoc() {
 function changeType() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     if(Index == 0) {
-        //$('#start-button').prop("disabled", true);
-        //$('#cancel-button').prop("disabled", true);
         $('#advanced-button').prop("disabled", true);
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
@@ -144,8 +140,6 @@ function changeType() {
 
     }
     else if(Index == 1) {
-        //$('#start-button').prop("disabled", true);
-        //$('#cancel-button').prop("disabled", true);
         $('#advanced-button').prop("disabled", false);
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
@@ -192,57 +186,60 @@ $.ajax({
 
 
 function viewFile() {
-
-$.ajax({
-        url: '/download',
-        async: 'true',
-        dataType: "text",
-        type: "get",
-        success: function(res) {
-          var array = $.csv.toArrays(res);
-          $('#file-op-line').show();
-          $("#file-output").append(generateTable(array));
-        },
-        error: function(res) {
-            $('#download-button').text('Failed');
-            $('#testArea').html('Failure response:' + res);
-        }
-    });
+    
+    $("#file-output").empty();
+    
+    $('#download-button').prop("disabled", true);
+    $.ajax({
+            url: '/download',
+            async: 'true',
+            dataType: "text",
+            type: "get",
+            success: function(res) {
+            var array = $.csv.toArrays(res);
+            $('#file-op-line').show();
+            $("#file-output").append(generateTable(array));
+            },
+            error: function(res) {
+                $('#download-button').text('Failed');
+                $('#testArea').html('Failure response:' + res);
+            }
+        });
 }
 
 function generateTable(data) {
     var html = '';
 
     if(typeof(data[0]) === 'undefined') {
-    return null;
+        return null;
     }
 
     if(data[0].constructor === String) {
-    html += '<tr>\r\n';
-    for(var item in data) {
-        html += '<td>' + data[item] + '</td>\r\n';
-    }
-    html += '</tr>\r\n';
+        html += '<tr>\r\n';
+        for(var item in data) {
+            html += '<td>' + data[item] + '</td>\r\n';
+        }
+        html += '</tr>\r\n';
     }
 
     if(data[0].constructor === Array) {
-    for(var row in data) {
-        html += '<tr>\r\n';
-        for(var item in data[row]) {
-        html += '<td>' + data[row][item] + '</td>\r\n';
+        for(var row in data) {
+            html += '<tr>\r\n';
+            for(var item in data[row]) {
+            html += '<td>' + data[row][item] + '</td>\r\n';
+            }
+            html += '</tr>\r\n';
         }
-        html += '</tr>\r\n';
-    }
     }
 
     if(data[0].constructor === Object) {
-    for(var row in data) {
-        html += '<tr>\r\n';
-        for(var item in data[row]) {
-        html += '<td>' + item + ':' + data[row][item] + '</td>\r\n';
+        for(var row in data) {
+            html += '<tr>\r\n';
+            for(var item in data[row]) {
+            html += '<td>' + item + ':' + data[row][item] + '</td>\r\n';
+            }
+            html += '</tr>\r\n';
         }
-        html += '</tr>\r\n';
-    }
     }
     
     return html;
