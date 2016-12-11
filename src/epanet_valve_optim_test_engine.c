@@ -514,12 +514,12 @@ void ENReadOutFlow(char *f_demand_input, struct TankStruct *tankcontrol, int tim
 		fflush(fptr);
 
 		i=0;
-		if(mode != 2){
+//		if(mode != 2){
 			while((NULL != (tok = strtok(NULL, ","))) && (i<timeperiod)) {
 				tankcontrol[tankcount].OutFlow[i] = strtod(tok,NULL);
 				i++;
 			}
-		}
+//		}
 			tankcount++;
 	}
 	fflush(fptr);
@@ -552,7 +552,8 @@ void ENReadValveSolutionFile(char *f_valve_level_input, struct TankStruct *tankc
 
 			while((NULL != (tok = strtok(NULL, ",")))) {
 				if(valveCount < Nvalves) {
-					valveSolutionLevel[solFileRow-1].valveId[valveCount] = strtod(tok,NULL);;
+					valveSolutionLevel[solFileRow-1].valveId[valveCount] = strtod(tok,NULL);
+					printf("Valve Level[%f] and id[%d]\n", valveSolutionLevel[solFileRow-1].valveId[valveCount], solFileRow-1);
 					valveCount++;
 				}
 			}
@@ -874,38 +875,47 @@ void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct)
 	ENopenH();
 	float inflow, outflow, valveValue;
 	for(temp_count=0; temp_count<Nvalves; temp_count++) {
-		//ENsetlinkvalue(valvestruct[temp_count].ValveLink,EN_INITSETTING,valvestruct[temp_count].ValveValues[simulation_time]);
 		ENsetlinkvalue(valvestruct[temp_count].ValveLink,EN_INITSETTING, valveSolutionLevel[startTime].valveId[temp_count]);
 	}
+	
+	for(temp_count=0; temp_count<Ntanks; temp_count++) {
+		ENsetnodevalue(tankstruct[temp_count].TankID,EN_TANKLEVEL, solutionTankLevel[startTime].tankId[temp_count]);
+	}
+	
 	ENinitH(10);
-	do {
+	int count=0;
+	while (tstep > 0)
+	{
 		ENrunH(&t);
-		for(temp_count=0; temp_count<Ntanks; temp_count++) {
-			ENgetlinkvalue(tankstruct[temp_count].InputLink,EN_FLOW, &(inflow));
-			ENgetlinkvalue(tankstruct[temp_count].OutputLink,EN_FLOW, &(outflow));
-			printf("Tank No[%d] :: Inflow[%f] :: outflow[%f] :: netflow[%f]\n", temp_count, inflow, outflow, inflow-outflow);
-			long temp = tankstruct[temp_count].TankLevels[startTime]+(inflow-outflow)*LPS_TANKUNITS; //TankLevel is water volume in meter^3.
-			printf("printing long value [%ld]\n", temp);
-			//tankcontrol[temp_count2].TankLevels[temp_count+1] = tankcontrol[temp_count2].TankLevels[temp_count]+(tankcontrol[temp_count2].InFlow[temp_count]-tankcontrol[temp_count2].OutFlow[temp_count]-tankcontrol[temp_count2].OutFlow_Epanet[temp_count])*LPS_TANKUNITS; //TankLevel is water volume in meter^3.
-		}
-		for(temp_count=0; temp_count<Nvalves; temp_count++) {	
-			printf("valvelink[%d]\n", valvestruct[temp_count].ValveLink);
-			ENgetlinkvalue(valvestruct[temp_count].ValveLink,EN_FLOW, &(valveValue));
-			//ENgetlinkvalue(valvestruct[temp_count].ValveLink,EN_FLOW, &(valveValue));
-			printf("valveValue[%f]\n", valveValue);
-		}
 		ENnextH(&tstep);
-		printf("t[%ld] :: tsetp[%ld]\n", t, tstep);
-		if((t >0 && t < timeperiod) && (t%3600 == 0 ))
+		ENsettimeparam(EN_HYDSTEP, tstep);
+		//printf("t[%ld] :: tsetp[%ld] :: timeperiod[%ld]\n", t, tstep, timeperiod);
+		if((t >0 && t < timeperiod) && !(t%3600))
 		{
 			startTime++;
+			for(temp_count=0; temp_count<Ntanks; temp_count++) {
+				ENgetlinkvalue(tankstruct[temp_count].InputLink,EN_FLOW, &(inflow));
+				ENgetlinkvalue(tankstruct[temp_count].OutputLink,EN_FLOW, &(outflow));
+						printf("Tank No[%d] :: Inflow[%f] :: outflow[%f] :: netflow[%f]\n", temp_count, inflow, outflow, inflow-outflow);
+				long temp = solutionTankLevel[startTime].tankId[temp_count] + (inflow-outflow)*LPS_TANKUNITS; //TankLevel is water volume in meter^3.
+				//long temp = tankstruct[temp_count].TankLevels[startTime]+(inflow-outflow)*LPS_TANKUNITS; //TankLevel is water volume in meter^3.
+				printf("temp[%ld]\n", temp);
+			}
+			for(temp_count=0; temp_count<Nvalves; temp_count++) {	
+				printf("valvelink[%d] ", valvestruct[temp_count].ValveLink);
+				ENgetlinkvalue(valvestruct[temp_count].ValveLink,EN_FLOW, &(valveValue));
+				printf("valveValue[%f] \n", valveValue);
+			}
+			printf("\n");
+			//printf("startTime[%d]\n", startTime);
 			for(temp_count=0; temp_count<Nvalves; temp_count++) {
 				ENsetlinkvalue(valvestruct[temp_count].ValveLink,EN_INITSETTING, valveSolutionLevel[startTime].valveId[temp_count]);
-
+			//	printf("ENSetlinkvalue -> valeline[%d] :: valve level[%f] \n", valvestruct[temp_count].ValveLink, valveSolutionLevel[startTime].valveId[temp_count]);
 			}
 		}
-	} while (tstep > 0);
-
+		count++;
+	}
+	printf("count[%d]\n", count);
 
 	ENcloseH();
 }
