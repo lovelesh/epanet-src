@@ -51,13 +51,13 @@ app.post('/sumit-upload',function(req,res){
 
   //============================================================
   
-app.get('/download', function(req, res) {
-    res.download('../../result/output.csv');
+app.get('/download-tank', function(req, res) {
+    res.download('../../result/tank.csv');
 });
 
-app.get('/download-file', function(req, res) {
+app.get('/download-valve', function(req, res) {
     console.log("\nDownload request received..\n");
-    res.download('../../result/output.csv');
+    res.download('../../result/valve.csv');
 });
   
   app.get('/', function(req, res) {
@@ -108,21 +108,22 @@ io.on('connection', function(socket) {
         w4 = obj.w4;
         w5 = obj.w5;
         w6 = obj.w6;
-      var file1 = './uploads/' + filenames.files[0].originalname;
-      var file2 = './uploads/' + filenames.files[1].originalname;
-      var file3 = './uploads/' + filenames.files[2].originalname;
-      var file4 = './uploads/' + filenames.files[3].originalname;
-      var file5 = './uploads/' + filenames.files[4].originalname;
-   	console.log(file1); 
-   	console.log(file2); 
-   	console.log(file3); 
-   	console.log(file4); 
-   	console.log(file5); 
+        var file1 = './uploads/' + filenames.files[0].originalname;
+        var file2 = './uploads/' + filenames.files[1].originalname;
+        var file3 = './uploads/' + filenames.files[2].originalname;
+        var file4 = './uploads/' + filenames.files[3].originalname;
+        var file5 = './uploads/' + filenames.files[4].originalname;
 	client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
     }
     
-    //console.log("startTime: " + startTime + "\nDuration: " + duration + "\nw12: " + w12 + "\nw3: " + w3 + "\nw4: " + w4 + "\nw5: " + w5 + "\nw6: " + w6 + "\n");
-    
+    else if(Type == 2) {
+        var file1 = './uploads/' + filenames.files[0].originalname;
+        var file2 = './uploads/' + filenames.files[1].originalname;
+        var file3 = './uploads/' + filenames.files[2].originalname;
+        var file4 = './uploads/' + filenames.files[3].originalname;
+        var file5 = './uploads/' + filenames.files[4].originalname;
+        client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['2', file1, file2, file3, file4, file5]);
+    }
     
     var msg = {};
     var chunk = '';

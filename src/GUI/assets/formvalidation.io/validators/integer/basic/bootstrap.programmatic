@@ -1,0 +1,30 @@
+<form id="integerForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Type an integer number</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" name="number" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#integerForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            number: {
+                validators: {
+                    integer: {
+                        message: 'The value is not an integer'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

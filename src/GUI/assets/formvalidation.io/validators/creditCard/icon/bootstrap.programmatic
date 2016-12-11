@@ -1,0 +1,68 @@
+<form id="creditCardForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Credit card number</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="cc" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#creditCardForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            },
+            fields: {
+                cc: {
+                    validators: {
+                        creditCard: {
+                            message: 'The credit card number is not valid'
+                        }
+                    }
+                }
+            }
+        })
+        .on('success.validator.fv', function(e, data) {
+            if (data.field === 'cc' && data.validator === 'creditCard') {
+                var $icon = data.element.data('fv.icon');
+                // data.result.type can be one of
+                // AMERICAN_EXPRESS, DINERS_CLUB, DINERS_CLUB_US, DISCOVER, JCB, LASER,
+                // MAESTRO, MASTERCARD, SOLO, UNIONPAY, VISA
+
+                switch (data.result.type) {
+                    case 'AMERICAN_EXPRESS':
+                        $icon.removeClass().addClass('form-control-feedback fa fa-cc-amex');
+                        break;
+
+                    case 'DISCOVER':
+                        $icon.removeClass().addClass('form-control-feedback fa fa-cc-discover');
+                        break;
+
+                    case 'MASTERCARD':
+                    case 'DINERS_CLUB_US':
+                        $icon.removeClass().addClass('form-control-feedback fa fa-cc-mastercard');
+                        break;
+
+                    case 'VISA':
+                        $icon.removeClass().addClass('form-control-feedback fa fa-cc-visa');
+                        break;
+
+                    default:
+                        $icon.removeClass().addClass('form-control-feedback fa fa-credit-card');
+                        break;
+                }
+            }
+        })
+        .on('err.field.fv', function(e, data) {
+            if (data.field === 'cc') {
+                var $icon = data.element.data('fv.icon');
+                $icon.removeClass().addClass('form-control-feedback fa fa-times');
+            }
+        });
+});
+</script>

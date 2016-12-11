@@ -1,0 +1,21 @@
+<form id="creditCardForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Credit card number</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" name="cc"
+                data-fv-creditcard="true"
+                data-fv-creditcard-message="The credit card number is not valid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#creditCardForm').formValidation();
+});
+</script>

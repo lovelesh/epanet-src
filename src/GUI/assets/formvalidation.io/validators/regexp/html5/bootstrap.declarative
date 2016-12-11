@@ -1,0 +1,21 @@
+<form id="meetingForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Meeting time</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="time" placeholder="HH:mm"
+                pattern="^(09|1[0-7]{1}):[0-5]{1}[0-9]{1}$"
+                data-fv-regexp-message="The meeting time must be between 09:00 and 17:59" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#meetingForm').formValidation();
+});
+</script>

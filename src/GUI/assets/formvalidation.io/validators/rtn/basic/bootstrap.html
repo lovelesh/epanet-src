@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: rtn validator &rarr; Basic example
+permalink: /validators/rtn/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateRtn(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="rtn"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'rtn');
+
+    return $form.data('formValidation').isValidField('rtn');
+}
+</script>

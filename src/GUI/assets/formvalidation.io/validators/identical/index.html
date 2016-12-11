@@ -1,0 +1,132 @@
+---
+layout: default
+title: identical validator
+permalink: /validators/identical/
+prev:
+    url: /validators/id/
+    title: id validator
+next:
+    url: /validators/imei/
+    title: imei validator
+related:
+    - different
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>identical validator</h1>
+        <p>Check if the value is the same as one of particular field</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>field</code><sup>*</sup></td>
+                                    <td><code>data-fv-identical-field</code></td>
+                                    <td>String</td>
+                                    <td>The name of field that will be used to compare with current one</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-identical-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-identical="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>From v0.6.0, you don't need to set identical validator for all fields which you want them to be identical to each other. For example, instead of using identical validator for both fields as following</p>
+
+{% highlight javascript %}
+$('#differentForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        password: {
+            validators: {
+                identical: {
+                    field: 'confirmPassword',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+        },
+        confirmPassword: {
+            validators: {
+                identical: {
+                    field: 'password',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+                    <p>just set it to one of fields:</p>
+
+{% highlight javascript %}
+$('#differentForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        confirmPassword: {
+            validators: {
+                identical: {
+                    field: 'password',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <p>The plugin then will update the message, icon, status of fields properly when you change value any fields.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The following form requires the password and confirmation one to be the same using <code>identical</code> validator.</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

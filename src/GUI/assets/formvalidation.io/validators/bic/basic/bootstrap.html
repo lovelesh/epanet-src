@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: bic validator &rarr; Basic example
+permalink: /validators/bic/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateBic(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="bic"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'bic');
+
+    return $form.data('formValidation').isValidField('bic');
+}
+</script>

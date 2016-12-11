@@ -1,0 +1,30 @@
+<form id="ipForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">IP address</label>
+        <div class="col-xs-7">
+            <input type="text" class="form-control" name="ip" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#ipForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            ip: {
+                validators: {
+                    ip: {
+                        message: 'Please enter a valid IP address'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

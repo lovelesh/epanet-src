@@ -1,0 +1,30 @@
+<form id="cusipForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">CUSIP</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="cusip" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#cusipForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            cusip: {
+                validators: {
+                    cusip: {
+                        message: 'The value is not valid CUSIP'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

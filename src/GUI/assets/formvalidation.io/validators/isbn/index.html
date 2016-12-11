@@ -1,0 +1,115 @@
+---
+layout: default
+title: Validate an ISBN (International Standard Book Number)
+permalink: /validators/isbn/
+prev:
+    url: /validators/ip/
+    title: ip validator
+next:
+    url: /validators/isin/
+    title: isin validator
+examples: 9971502100, 99921-58-10-7, 960 425 059 0, 99921-58-10-6, 9780306406157, 978-0-306-40615-7, 978 0 306 40615 7, 978-0-306-40615-6
+related:
+    - ean
+    - issn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>isbn validator</h1>
+        <p>Validate an ISBN (International Standard Book Number). Support both ISBN 10 and ISBN 13</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-isbn-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-isbn="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ISBN</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% assign examples = page.examples | split: ', ' %}
+                                {% for isbn in examples %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ isbn }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateIsbn($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

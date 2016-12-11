@@ -1,0 +1,112 @@
+---
+layout: default
+title: Validate an US VIN (Vehicle Identification Number)
+permalink: /validators/vin/
+prev:
+    url: /validators/vat/
+    title: vat validator
+next:
+    url: /validators/zipCode/
+    title: zipCode validator
+examples: 1FAHP26W49G252740, 2FTRX07W53C371582, WP0CA29863U153381, JTMKF4DV5B5309254
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>vin validator</h1>
+        <p>Validate an US VIN (Vehicle Identification Number)</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-vin-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-vin="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="doc-alert doc-alert-info">
+                        <a href="http://randomvin.com/">randomvin.com</a> helps you generate a random vin for testing
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>VIN</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% assign examples = page.examples | split: ', ' %}
+                                {% for vin in examples %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ vin }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateVin($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

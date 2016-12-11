@@ -1,0 +1,171 @@
+<section>
+    <h3 id="event-form">Form events</h3>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>init.form.fv</code></td>
+                    <td>Triggered after the form is initialized by the plugin</td>
+                </tr>
+                <tr>
+                    <td><code>prevalidate.form.fv</code></td>
+                    <td>Triggered before validating the form</td>
+                </tr>
+                <tr>
+                    <td><code>err.form.fv</code></td>
+                    <td>Triggered when the form is invalid</td>
+                </tr>
+                <tr>
+                    <td><code>success.form.fv</code></td>
+                    <td>Triggered when the form is valid</td>
+                </tr>
+                <tr>
+                    <td><code>added.field.fv</code></td>
+                    <td>Triggered after adding dynamic field</td>
+                </tr>
+                <tr>
+                    <td><code>removed.field.fv</code></td>
+                    <td>Triggered after removing given field</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Listening to event</td>
+                    <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        // on('init.form.fv') must be declared
+        // before calling .formValidation(options)
+        .on('init.form.fv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // data.fv      --> The FormValidation instance
+            // data.options --> The form options
+
+            // Do something ...
+        })
+
+        .formValidation(options)
+
+        .on('prevalidate.form.fv', function(e) {
+            // $(e.target) --> The form instance
+            // $(e.target).data('formValidation')
+            //             --> The FormValidation instance
+
+            // Do something ...
+        })
+
+        .on('err.form.fv', function(e) {
+            // The e parameter is same as one
+            // in the prevalidate.form.fv event above
+
+            // Do something ...
+        })
+
+        .on('success.form.fv', function(e) {
+            // The e parameter is same as one
+            // in the prevalidate.form.fv event above
+
+            // Do something ...
+        })
+
+        .on('added.field.fv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // $(e.target).data('formValidation')
+            //              --> The FormValidation instance
+
+            // data.field   --> The field name
+            // data.element --> The new field element
+            // data.options --> The new field options
+
+            // Do something ...
+        })
+
+        .on('removed.field.fv', function(e, data) {
+            // The e and data parameters are same as one
+            // in the added.field.fv event above
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Using option</td>
+                    <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .formValidation({
+            onPreValidate: function(e) {
+                // Do something ...
+            },
+            onError: function(e) {
+                // Do something ...
+            },
+            onSuccess: function(e) {
+                // Do something ...
+            }
+        });
+});
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Using HTML 5 attributes</td>
+                    <td>
+{% highlight html %}
+<form data-fv-onprevalidate="onPreValidateForm"
+      data-fv-onerror="onFormError"
+      data-fv-onsuccess="onFormSuccess"></form>
+{% endhighlight %}
+
+{% highlight javascript %}
+function onPreValidateForm(e) {
+    // Do something ...
+};
+
+function onFormError(e) {
+    // Do something ...
+};
+
+function onFormSuccess(e) {
+    // Do something ...
+};
+
+$(document).ready(function() {
+    $(form).formValidation(options);
+});
+{% endhighlight %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Examples</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/ajax-submit">Using Ajax to submit the form</a></li>
+        <li><a href="/examples/showing-message-custom-area/#using-events">Showing messages in custom area</a></li>
+        <li><a href="/examples/showing-messages-modal/">Showing messages in a modal</a></li>
+    </ul>
+</section>

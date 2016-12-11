@@ -2,6 +2,12 @@
 
 
 $(function(){
+   
+    //Register the form dynamic validation
+   //$('#uploadForm').formValidation();
+        
+   //Init
+   $('#totalDuration').css('background-color', 'transparent');
    $('#start-button').prop("disabled", true);
    $('#cancel-button').prop("disabled", true);
    $('#advanced-button').prop("disabled", true);
@@ -10,9 +16,11 @@ $(function(){
    $('#path3').prop("disabled", true);
    $('#path4').prop("disabled", true);
    $('#path5').prop("disabled", true);
+   $('#valveSolPath').prop("disabled", true);
    $('#advancedOptions').hide();
-   $('#download-button').prop("disabled", true);
-   $('#export-button').hide();
+   $('#tank-view-button').prop("disabled", true);
+   $('#valve-view-button').prop("disabled", true);
+   $('#uploadButton').prop("disabled", true);
    
    $('#w1').prop("disabled", true);
    $('#w2').prop("disabled", true);
@@ -22,8 +30,15 @@ $(function(){
    $('#w6').prop("disabled", true);
    
    $('#durationWarning').hide();
+   $('#totalDurationRow').hide();
    $('#uploadSuccess').hide();
    $('#file-op-line').hide();
+   $('#durationRow').hide();
+   $('#startTimeRow').hide();
+   
+   $('#startTime').on("input", setTotalDur);
+   $('#duration').on("input", setTotalDur);
+   
    
    var form = document.forms.namedItem("uploadForm");
 
@@ -51,6 +66,21 @@ $(function(){
 
 });
 
+function setTotalDur() {
+   var start = parseInt($('#startTime').val(),10),
+       dur = parseInt($('#duration').val(),10);
+   var sum = start+dur;
+   if(isNaN(sum))
+       sum = 0;
+   if(sum <=24) {
+       $('#totalDuration').css('color', 'black');
+       $('#totalDuration').val(sum + " hours");
+   }
+   else {
+      $('#totalDuration').css('color', 'red');
+      $('#totalDuration').val(sum + " hours (Warning: Greater than 24)");
+   }
+}
 
 function showOpts() {
     $('#advancedOptions').show();
@@ -60,8 +90,12 @@ function showOpts() {
 function loadDoc() {
     
   $("#test").empty();  
+  $("#tank-file-output").empty();
+  $("#valve-file-output").empty();
   $('#start-button').prop("disabled", true);
   $('#cancel-button').prop("disabled", false);
+  $('#uploadButton').prop("disabled", true);
+  $('#file-op-line').hide();
   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
   var message = {};
   if (Index == 0) {
@@ -83,6 +117,11 @@ function loadDoc() {
         w4: $('#w4').val(),
         w5: $('#w5').val(),
         w6: $('#w6').val()
+    };
+  }
+  else if(Index == 2) {
+      message = {
+        Type: '2'
     };
   }
   
@@ -109,8 +148,10 @@ function loadDoc() {
          $('#cancel-button').prop("disabled", true);
       }  
       if(key == 'ExitCode' && value == 0) {
-          $('#download-button').prop("disabled", false);
+          $('#tank-view-button').prop("disabled", false);
+          $('#valve-view-button').prop("disabled", false);
           $('#export-button').prop("disabled", false);
+          $('#uploadButton').prop("disabled", false);
       }
     });
   })
@@ -119,45 +160,72 @@ function loadDoc() {
 function changeType() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     if(Index == 0) {
+        $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", true);
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
         $('#path3').prop("disabled", false);
         $('#path4').prop("disabled", true);
         $('#path5').prop("disabled", true);
+        $('#valveSolPath').prop("disabled", true);
         $('#advancedOptions').prop("disabled", true);
         $('#advancedOptions').hide();
+        $('#startTimeRow').show();
         $('#startTime').prop("disabled", false);
-        $('#durationWarning').show();
-
-        $('#w1').prop("disabled", true);
-        $('#w2').prop("disabled", true);
+        $('#durationWarning').hide();
+        $('#totalDurationRow').show();
+        $('#startTime').show();
+        $('#durationRow').show();
+        
+        $('#w12').prop("disabled", true);
         $('#w3').prop("disabled", true);
         $('#w4').prop("disabled", true);
         $('#w5').prop("disabled", true);
         $('#w6').prop("disabled", true);
         $('#startTime').val('0');
-
+        $('#duration').prop("disabled", false);
     }
     else if(Index == 1) {
+        $('#startTimeRow').hide();
+        $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", false);
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
         $('#path3').prop("disabled", false);
         $('#path4').prop("disabled", false);
         $('#path5').prop("disabled", false);
+        $('#valveSolPath').prop("disabled", true);
         $('#startTime').prop("disabled", true);
-        $('#durationWarning').hide();
+        $('#durationWarning').show();
+        $('#totalDurationRow').hide();
         
-        $('#w1').prop("disabled", false);
-        $('#w2').prop("disabled", false);
+        $('#w12').prop("disabled", false);
         $('#w3').prop("disabled", false);
         $('#w4').prop("disabled", false);
         $('#w5').prop("disabled", false);
         $('#w6').prop("disabled", false);
-        $('#startTime').val('');
+        $('#durationRow').show();
+        $('#startTimeRow').hide();
+        $('#duration').prop("disabled", false);
     }
-    
+    else if(Index == 2) {
+        $('#uploadButton').prop("disabled", false);
+        $('#advanced-button').prop("disabled", true);
+        $('#valveSolPath').prop("disabled",false);
+        $('#path1').prop("disabled", false);
+        $('#path2').prop("disabled", false);
+        $('#path3').prop("disabled", false);
+        $('#path4').prop("disabled", false);
+        $('#path5').prop("disabled", true);
+        $('#startTime').prop("disabled", true);
+        $('#durationWarning').hide();
+        $('#totalDurationRow').hide();
+        $('#startTime').prop("disabled", true);
+        $('#duration').prop("disabled", true);
+        
+        $('#durationRow').hide();
+        $('#startTimeRow').hide();
+    }
 }
 
 // Function to halt an in-progress simulation
@@ -169,6 +237,7 @@ $.ajax({
         async: 'true',
         type: "post",
         success: function(res) {
+          $('#uploadButton').prop("disabled", false);
           $('#cancel-button').prop("disabled", true);
           $('#start-button').prop("disabled", false);
           var json = JSON.parse(res);
@@ -185,26 +254,50 @@ $.ajax({
 }
 
 
-function viewFile() {
+function viewTankFile() {
     
-    $("#file-output").empty();
+    $("#tank-file-output").empty();
     
-    $('#download-button').prop("disabled", true);
+    $('#tank-view-button').prop("disabled", true);
     $.ajax({
-            url: '/download',
+            url: '/download-tank',
             async: 'true',
             dataType: "text",
             type: "get",
             success: function(res) {
             var array = $.csv.toArrays(res);
             $('#file-op-line').show();
-            $("#file-output").append(generateTable(array));
+            $('#tank-op-line').show();
+            $("#tank-file-output").append(generateTable(array));
             },
             error: function(res) {
                 $('#download-button').text('Failed');
                 $('#testArea').html('Failure response:' + res);
             }
         });
+}
+
+function viewValveFile() {
+    
+    $("#valve-file-output").empty();
+    
+    $('#valve-view-button').prop("disabled", true);
+    $.ajax({
+            url: '/download-valve',
+            async: 'true',
+            dataType: "text",
+            type: "get",
+            success: function(res) {
+            var array = $.csv.toArrays(res);
+            $('#file-op-line').show();
+            $('#valve-op-line').show();
+            $("#valve-file-output").append(generateTable(array));
+            },
+            error: function(res) {
+                $('#download-button').text('Failed');
+                $('#testArea').html('Failure response:' + res);
+            }
+    });
 }
 
 function generateTable(data) {

@@ -1,0 +1,100 @@
+<form id="zipCodeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Country</label>
+        <div class="col-xs-5">
+            <select class="form-control" name="countrySelectBox">
+                <option value="United States">United States</option>
+                <option value="Austria">Austria</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Canada">Canada</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="French">French</option>
+                <option value="Germany">Germany</option>
+                <option value="India">India</option>
+                <option value="Italy">Italy</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Romania">Romania</option>
+                <option value="Russia">Russia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Spain">Spain</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="United Kingdom">United Kingdom</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Postal code</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="postalCode" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#zipCodeForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                postalCode: {
+                    validators: {
+                        zipCode: {
+                            country: function(value, validator, $field) {
+                                // Map the country names to the code
+                                var map = {
+                                    'United States': 'US',
+                                    'Austria': 'AT',
+                                    'Bulgaria': 'BG',
+                                    'Brazil': 'BR',
+                                    'Canada': 'CA',
+                                    'Czech Republic': 'CZ',
+                                    'Denmark': 'DK',
+                                    'French': 'FR',
+                                    'Germany': 'DE',
+                                    'India': 'IN',
+                                    'Italy': 'IT',
+                                    'Morocco': 'MA',
+                                    'Netherlands': 'NL',
+                                    'Poland': 'PL',
+                                    'Portugal': 'PT',
+                                    'Romania': 'RO',
+                                    'Russia': 'RU',
+                                    'Singapore': 'SG',
+                                    'Slovakia': 'SK',
+                                    'Spain': 'ES',
+                                    'Sweden': 'SE',
+                                    'Switzerland': 'CH',
+                                    'United Kingdom': 'GB'
+                                };
+
+                                // Get the selected country
+                                var country = $('#zipCodeForm').find('[name="countrySelectBox"]').val();
+
+                                return (country == '') ? '' : (map[country] || '');
+                            },
+                            message: 'The value is not valid %s postal code'
+                        }
+                    }
+                }
+            }
+        })
+        // Revalidate postal code when changing the country
+        .on('change', '[name="countrySelectBox"]', function(e) {
+            $('#zipCodeForm').formValidation('revalidateField', 'postalCode');
+        });
+});
+</script>

@@ -1,0 +1,125 @@
+<section>
+    <h3 id="form-icon">icon</h3>
+    <p>Indicate valid/invalid/validating icons based on the field validity.</p>
+
+{% highlight javascript %}
+icon: {
+    valid: null,
+    invalid: null,
+    validating: null
+}
+{% endhighlight %}
+
+    <p>By default, these icons are not set. You also can <a href="#field-icon">enabled or disable</a> feedback icon for particular field.</p>
+
+    <div class="doc-alert doc-alert-info">
+        The <a href="/examples/showing-required-icon/">Showing required icon</a> example and <a href="/addons/mandatoryIcon/">mandatoryIcon</a>
+        add-on are useful when you want to display the mandatory icon for required fields
+    </div>
+
+    <ul class="doc-list">
+        <li>When using Bootstrap framework, ensure that you are using <a href="http://getbootstrap.com/css/#forms-control-validation">Bootstrap v3.1.0 or later</a></li>
+        <li>When using Semantic framework, wrap the field inside</li>
+    </ul>
+
+{% highlight html %}
+<div class="ui input icon"></div>
+{% endhighlight %}
+
+    <p>You can use icons provided by</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Icon sets</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://getbootstrap.com/components/#glyphicons">Glyphicons</a></td>
+                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'glyphicon glyphicon-ok',
+    invalid: 'glyphicon glyphicon-remove',
+    validating: 'glyphicon glyphicon-refresh'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="http://fontawesome.io/icons">FontAwesome</a></td>
+                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'fa fa-check',
+    invalid: 'fa fa-times',
+    validating: 'fa fa-refresh'
+}
+{% endhighlight %}
+                        <p>There is a FontAwesome issue (<a href="https://github.com/FortAwesome/Font-Awesome/issues/4313">#41313</a>) that causes the icon to be aligned not properly when using with Bootstrap.
+                        While waiting for this issue to be fixed, you can resolve it by placing the FontAwesome CSS before Bootstrap CSS:</p>
+
+{% highlight html %}
+<!-- Load FontAwesome CSS before Bootstrap -->
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="http://semantic-ui.com/elements/icon.html">Semantic icons</a></td>
+                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'checkmark icon',
+    invalid: 'remove icon',
+    validating: 'refresh icon'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="http://getuikit.com/docs/icon.html">UIKit</a></td>
+                    <td>
+                        <p>UIKit uses the <a href="http://fontawesome.io/icons">FontAwesome</a> icons, but replaces the <code>fa fa-xxx</code> class with <code>uk-icon-xxx</code> one.</p>
+{% highlight javascript %}
+icon: {
+    valid: 'uk-icon-check',
+    invalid: 'uk-icon-times',
+    validating: 'uk-icon-refresh'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="doc-alert doc-alert-info">
+        This <a href="/examples/using-google-material-icons/">example</a> shows how to use the icons provided
+        by <a href="https://design.google.com/icons/">Google material design icons</a>
+    </div>
+
+    <h5>Using with Bootswatch</h5>
+    <p>Some <a href="http://bootswatch.com">BootsWatch</a> themes override some CSS styles causing feedback icon invisible to your eyes. For instance, the <a href="http://bootswatch.com/flatly/">Flatly theme</a> set the feedback icon color to <code>#FFF</code>.</p>
+    <p>To fix this, you can simply add some CSS to your <code>head</code>, right before the BootsWatch theme CSS, to reset the feedback icons color:</p>
+{% highlight html %}
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css">
+<style type="text/css">
+.has-error .form-control-feedback {
+    color: #E74C3C;
+}
+.has-success .form-control-feedback {
+    color: #18BCA0;
+}
+</style>
+{% endhighlight %}
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/adjusting-feedback-icon-position/">Adjusting feedback icon position</a></li>
+    </ul>
+</section>

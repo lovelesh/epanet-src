@@ -1,0 +1,30 @@
+<form id="meidForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">MEID</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="meid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#meidForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            meid: {
+                validators: {
+                    meid: {
+                        message: 'The value is not valid MEID'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

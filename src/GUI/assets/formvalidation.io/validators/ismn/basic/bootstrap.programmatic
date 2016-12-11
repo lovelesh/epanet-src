@@ -1,0 +1,30 @@
+<form id="ismnForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">ISMN</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="ismn" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#ismnForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            ismn: {
+                validators: {
+                    ismn: {
+                        message: 'The value is not valid ISMN'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

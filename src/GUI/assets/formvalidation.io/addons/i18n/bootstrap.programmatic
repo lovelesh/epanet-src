@@ -1,0 +1,176 @@
+<!-- Include FormValidation files first -->
+
+<!-- Then include mandatoryIcon add-on -->
+<script src="/vendor/formvalidation/js/addons/i18n.min.js"></script>
+
+<!-- Method 1: Include the language packages -->
+<script src="/vendor/formvalidation/js/language/vi_VN.js"></script>
+<script src="/vendor/formvalidation/js/language/fr_FR.js"></script>
+
+<div class="row" style="margin-bottom: 15px;">
+    <div class="col-xs-9 col-xs-offset-3">
+        <!-- A simple locale switcher -->
+        <div class="btn-group">
+            <!-- The data-locale attribute will be used later -->
+            <button type="button" class="btn btn-default active setLocaleButton" data-locale="en_US">English</button>
+            <button type="button" class="btn btn-default setLocaleButton" data-locale="fr_FR">Français</button>
+            <button type="button" class="btn btn-default setLocaleButton" data-locale="vi_VN">Tiếng Việt</button>
+        </div>
+    </div>
+</div>
+
+<form id="profileForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Username</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Email address</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="email" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Gender</label>
+        <div class="col-xs-5">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="male" /> Male
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="female" /> Female
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="other" /> Other
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Date of birth</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-9 col-xs-offset-3">
+            <button type="submit" class="btn btn-default">Sign up</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#profileForm').formValidation({
+        framework: 'bootstrap',
+        addOns: {
+            i18n: {}
+        },
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            // Since the messages of notEmpty, stringLength, regexp are not set here,
+            // they will be taken from language package
+            username: {
+                validators: {
+                    notEmpty: {
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        // Method 2: Use a literal object to define messages
+                        message: {
+                            en_US: 'The username must be between %s and %s characters long',
+                            vi_VN: 'Tên đăng nhập phải có ít nhất %s và nhiều nhất %s ký tự'
+                        }
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/
+                    },
+                    different: {
+                        field: 'password',
+                        // Method 2: Use a literal object to define messages
+                        message: {
+                            en_US: 'The username and password cannot be the same',
+                            vi_VN: 'Mật khẩu và tên đăng nhập phải khác nhau'
+                        }
+                    }
+                }
+            },
+            // Messages are taken from language package
+            email: {
+                validators: {
+                    notEmpty: {
+                    },
+                    emailAddress: {
+                    }
+                }
+            },
+            // Messages of notEmpty and stringLength validators
+            // are taken from language package
+            password: {
+                validators: {
+                    notEmpty: {
+                    },
+                    stringLength: {
+                        min: 8
+                    },
+                    different: {
+                        field: 'username',
+                        // Method 3: Use a callback to determine message in particular language
+                        message: function(validator, $field, validatorName) {
+                            return {
+                                en_US: 'The password can\'t be same as username',
+                                vi_VN: 'Mật khẩu phải khác tên đăng nhập'
+                            };
+                        }
+                    }
+                }
+            },
+            birthday: {
+                validators: {
+                    notEmpty: {
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD'
+                    }
+                }
+            },
+            gender: {
+                validators: {
+                    notEmpty: {
+                    }
+                }
+            }
+        }
+    });
+
+    $('.setLocaleButton').on('click', function() {
+        $('.setLocaleButton').removeClass('active');
+        $(this).addClass('active');
+
+        // Change the locale
+        $('#profileForm').formValidation('setLocale', $(this).attr('data-locale'));
+    });
+});
+</script>

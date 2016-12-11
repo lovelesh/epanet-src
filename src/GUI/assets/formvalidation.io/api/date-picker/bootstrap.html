@@ -1,0 +1,29 @@
+---
+layout: demo/bootstrap
+title: revalidateField() example
+permalink: /api/date-picker/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+$(document).ready(function() {
+    $('#datetimePicker')
+        // Adjust the height of iframe when showing/hiding the picker
+        .on('dp.change dp.show', function(e) {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                $iframe.height($body.get(0).scrollHeight);
+            }
+        })
+        .on('dp.hide', function(e) {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                $iframe.height($body.height());
+            }
+        });
+});
+</script>

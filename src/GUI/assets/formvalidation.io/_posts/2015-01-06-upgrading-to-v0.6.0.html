@@ -1,0 +1,323 @@
+---
+layout: post
+title: Upgrading to v0.6.0
+date: 2015-01-06 10:00:00 +0700
+author: nghuuphuoc
+---
+
+<p>From v0.6.0, the plugin name is changed to <strong>FormValidation</strong>. To upgrade from v0.5.3 to v0.6.0, perform the following steps:</p>
+
+<h3>Required Step: Changing CSS, Javascript paths</h3>
+
+<p>This step is <strong>required</strong>.</p>
+
+<strong>v0.5.3:</strong>
+
+{% highlight html %}
+<!-- Path to Bootstrap CSS v3.0.0 or higher -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+
+<!-- Path to BootstrapValidator CSS -->
+<link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator(.min).css">
+
+<!-- jQuery v1.9.1 or higher -->
+<script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+
+<!-- Path to Bootstrap JS -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Path to BootstrapValidator JS -->
+<script type="text/javascript" src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator(.min).js"></script>
+{% endhighlight %}
+
+<strong>v0.6.0:</strong>
+
+{% highlight html %}
+<!-- Path to Bootstrap CSS v3.0.0 or higher -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+
+<!-- FormValidation CSS file -->
+<link rel="stylesheet" href="/vendor/formvalidation/dist/css/formValidation(.min).css">
+
+<!-- jQuery v1.9.1 or higher -->
+<script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+
+<!-- Path to Bootstrap JS -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- FormValidation plugin and the class supports validating Bootstrap form -->
+<script src="/vendor/formvalidation/dist/js/formValidation(.min).js"></script>
+<script src="/vendor/formvalidation/dist/js/framework/bootstrap(.min).js"></script>
+{% endhighlight %}
+
+<div class="doc-alert doc-alert-warning">
+    <p>Don't confuse bootstrap(.min).js file provided by the Bootstrap framework with
+        bootstrap(.min).js provided by FormValidation which is placed inside the formvalidation/dist/js/framework directory.</p>
+    <p>They are two different files and both of them need to be included as mentioned above.</p>
+</div>
+
+<h3>Required Step: Changing your own validator</h3>
+
+<p>You can ignore this step in case you don't have any your own validators. Otherwise, change its declaration as following:</p>
+
+<strong>v0.5.3:</strong>
+
+{% highlight javascript %}
+(function($) {
+    $.fn.bootstrapValidator.validators.yourValidatorName = {
+        validate: function(validator, $field, options) {
+            ...
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+
+<strong>v0.6.0:</strong>
+
+{% highlight javascript %}
+(function($) {
+    FormValidation.Validator.yourValidatorName = {
+        validate: function(validator, $field, options) {
+            // ...
+            // The validation code is the same
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+
+<h3>Optional Step: Calling plugin</h3>
+
+<p>After completing the steps above, you can call the plugin by both programmatic and declarative usages as before.</p>
+<p><strong>Using v0.5.3 options as your current one are supported in all v0.6.x releases</strong>. It means that you will have a lot of time to upgrade your code while current one still work.</p>
+<p>Anyway, it is recommended to change the plugin calling, options which are listed as following:</p>
+
+<h4>Attribute</h4>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>v0.5.3</th>
+                <th>v0.6.0</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Using <code>data-bv-xxx</code> attribute</td>
+                <td>Using <code>data-fv-xxx</code> attribute</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h4><a href="/settings/#form-settings">Form settings</a></h4>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>v0.5.3</th>
+                <th>v0.6.0</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>container</td>
+                <td><a href="/settings/#form-err-container">err.container</a></td>
+            </tr>
+            <tr>
+                <td>feedbackIcons</td>
+                <td><a href="/settings/#form-icon">icon</a></td>
+            </tr>
+            <tr>
+                <td>group</td>
+                <td><a href="/settings/#form-row-selector">row.selector</a></td>
+            </tr>
+            <tr>
+                <td>submitButtons</td>
+                <td><a href="/settings/#form-button-selector">button.selector</a></td>
+            </tr>
+
+            <tr class="active">
+                <td colspan="2">Example</td>
+            </tr>
+            <tr>
+                <td>
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    container: 'tooltip',
+    feedbackIcons: {
+        valid: '...',
+        invalid: '...',
+        validating: '...'
+    },
+    group: 'td',
+    submitButtons: '#submitButton'
+});
+{% endhighlight %}
+                </td>
+                <td>
+{% highlight javascript %}
+$(form).formValidation({
+    framework: 'bootstrap',
+    err: {
+        container: 'tooltip'
+    }
+    icon: {
+        valid: '...',
+        invalid: '...',
+        validating: '...'
+    },
+    row: {
+        selector: 'td'
+    },
+    button: {
+        selector: '#submitButton'
+    }
+});
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h4><a href="/settings/#field-settings">Field settings</a></h4>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>v0.5.3</th>
+                <th>v0.6.0</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>container</td>
+                <td><a href="/settings/#field-err">err</a></td>
+            </tr>
+            <tr>
+                <td>feedbackIcons</td>
+                <td><a href="/settings/#field-icon">icon</a></td>
+            </tr>
+            <tr>
+                <td>group</td>
+                <td><a href="/settings/#field-row">row</a></td>
+            </tr>
+
+            <tr class="active">
+                <td colspan="2">Example</td>
+            </tr>
+            <tr>
+                <td>
+{% highlight javascript %}
+$(form).bootstrapValidator({
+    fields: {
+        fieldName: {
+            container: 'tooltip',
+            feedbackIcons: false,
+            group: '.col-sm-3',
+            validators: {
+                ...
+            }
+        }
+    }
+});
+{% endhighlight %}
+                </td>
+                <td>
+{% highlight javascript %}
+$(form).formValidation({
+    framework: 'bootstrap',
+    fields: {
+        fieldName: {
+            err: 'tooltip',
+            icon: false,
+            row: '.col-sm-3',
+            validators: {
+                ...
+            }
+        }
+    }
+});
+{% endhighlight %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h4><a href="/settings/#events">Events</a></h4>
+<p>There are two changes about the event names:</p>
+<ul class="doc-list">
+    <li>The namespace <code>.bv</code> is changed to <code>.fv</code></li>
+    <li>The namespace <code>error.</code> is changed to <code>err.</code> to avoid <code>window.onerror</code> being invoked by jQuery</li>
+</ul>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>v0.5.3</th>
+                <th>v0.6.0</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td colspan="2"><strong>Form events</strong></td>
+            </tr>
+            <tr>
+                <td><code>init.form.bv</code></td>
+                <td><code>init.form.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>error.form.bv</code></td>
+                <td><code>err.form.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>success.form.bv</code></td>
+                <td><code>success.form.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>added.field.bv</code></td>
+                <td><code>added.field.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>removed.field.bv</code></td>
+                <td><code>removed.field.fv</code></td>
+            </tr>
+
+            <tr class="active">
+                <td colspan="2"><strong>Field events</strong></td>
+            </tr>
+            <tr>
+                <td><code>init.field.bv</code></td>
+                <td><code>init.field.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>error.field.bv</code></td>
+                <td><code>err.field.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>success.field.bv</code></td>
+                <td><code>success.field.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>status.field.bv</code></td>
+                <td><code>status.field.fv</code></td>
+            </tr>
+
+            <tr class="active">
+                <td colspan="2"><strong>Validator events</strong></td>
+            </tr>
+            <tr>
+                <td><code>error.validator.bv</code></td>
+                <td><code>err.validator.fv</code></td>
+            </tr>
+            <tr>
+                <td><code>success.validator.bv</code></td>
+                <td><code>success.validator.fv</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>The last thing, the hexColor validator, deprecated in v0.5.3, is replaced with <a href="/validators/color/">color</a> validator.</p>

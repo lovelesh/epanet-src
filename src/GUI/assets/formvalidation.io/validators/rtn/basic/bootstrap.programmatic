@@ -1,0 +1,30 @@
+<form id="rtnForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">RTN</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="rtn" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#rtnForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            rtn: {
+                validators: {
+                    rtn: {
+                        message: 'The value is not valid RTN'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

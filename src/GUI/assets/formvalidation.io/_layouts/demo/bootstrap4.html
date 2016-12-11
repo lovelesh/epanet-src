@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include demo/head.html %}
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    {% bundle %}
+    - /vendor/formvalidation/css/formValidation.min.css
+    - /asset/css/demo.css
+    {% endbundle %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.2/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+    {% bundle %}
+    - /vendor/formvalidation/js/formValidation.min.js
+    - /vendor/formvalidation/js/framework/bootstrap4.min.js
+    - /asset/js/demo.js
+    {% endbundle %}
+</head>
+<body class="demo-bootstrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" id="demoContainer" style="height: {% if page.height %}{{ page.height }}{% else %}auto{% endif %}">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+</html>

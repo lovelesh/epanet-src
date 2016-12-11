@@ -1,0 +1,31 @@
+<form id="profileForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-5 control-label">Your age (18+ required)</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="age" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#profileForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            age: {
+                validators: {
+                    greaterThan: {
+                        value: 18,
+                        message: 'The value must be greater than or equal to 18'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

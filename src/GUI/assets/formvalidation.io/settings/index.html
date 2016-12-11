@@ -1,0 +1,48 @@
+---
+layout: default
+title: Settings
+permalink: /settings/
+prev:
+    url: /getting-started/
+    title: Getting started
+next:
+    url: /api/
+    title: API
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Settings</h1>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% include_relative _structure.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include_relative _form.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include_relative _field.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include_relative _validator.html %}
+
+                <div class="doc-hr"></div>
+
+                {% include_relative _events.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

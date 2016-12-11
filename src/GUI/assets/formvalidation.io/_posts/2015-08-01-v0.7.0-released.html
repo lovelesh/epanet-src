@@ -1,0 +1,150 @@
+---
+layout: post
+title: FormValidation v0.7.0 Released
+date: 2015-08-01 20:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+
+<p>Allow to use multiple instance of validators via new alias option.</p>
+<p>You can registry a new validator which is actually a built-in validator as following:</p>
+
+{% highlight javascript %}
+$(form).formValidation({
+    framework: '...',
+    fields: {
+        username: {
+            validators: {
+                required: {
+                    alias: 'notEmpty',
+                    message: 'The username is required'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+<p>or use multiple instance of same validators (for example, <a href="/validators/callback/">callback</a>, as following piece of code):</p>
+
+{% highlight javascript %}
+$(form).formValidation({
+    framework: '...',
+    fields: {
+        password: {
+            validators: {
+                checkUppercase: {
+                    alias: 'callback',
+                    message: 'The password must have at least one uppercase character',
+                    callback: function(value, validator, $field) {
+                        ...
+                    }
+                },
+                checkLowercase: {
+                    alias: 'callback',
+                    message: 'The password must have at least one lowercase character',
+                    callback: function(value, validator, $field) {
+                        ...
+                    }
+                },
+                checkDigits: {
+                    alias: 'callback',
+                    message: 'The password must have at least one digit',
+                    callback: function(value, validator, $field) {
+                        ...
+                    }
+                },
+                checkSpecial: {
+                    alias: 'callback',
+                    message: 'The password must have at least one special character',
+                    callback: function(value, validator, $field) {
+                        ...
+                    }
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+<h3>Changes</h3>
+<ul class="doc-list">
+    <li>#235: Change the file name and definition of some <a href="/getting-started/#language-packages">language packages:</a></li>
+</ul>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Old</th>
+                <th>New</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>be_FR</td>
+                <td>fr_BE</td>
+            </tr>
+            <tr>
+                <td>be_NL</td>
+                <td>nl_BE</td>
+            </tr>
+            <tr>
+                <td>gr_EL</td>
+                <td>el_GR</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li>#151: <a href="/validators/integer/">integer</a> validator accepts leading zeros</li>
+    <li>#163: <a href="/validators/between/">between</a>, <a href="/validators/greaterThan/">greaterThan</a>, <a href="/validators/lessThan/">lessThan</a> validators
+        now show the message where <code>%s</code> are replaced with the <code>min</code>, <code>max</code>, <code>value</code> options when the input isn't a number</li>
+    <li>#165: <a href="/validators/integer/">integer</a> and <a href="/validators/numeric/">numeric</a> validators support more locales by providing new thousands and decimal separator options</li>
+    <li>#233: When using tooltip for multiple fields, it always shows on the last field</li>
+    <li>#234: Adjust the default messages when using the <a href="/validators/stringLength/">stringLength</a> validator</li>
+    <li>The Spanish <a href="/validators/id/">id</a>, <a href="/validators/vat/">vat</a> validators add <code>type</code> to the return value.
+        The type can be <code>DNI</code>, <code>NIE</code> or <code>CIF</code>.</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li>#102, #166: Fix an issue on IE 10/11 that causes an input element with placeholder attribute to be validated automatically when it's focused</li>
+    <li>#177: Fix the bug that the <a href="/api/#is-valid-container">isValidContainer()</a> method doesn't ignore field which validators are totally disabled</li>
+    <li>#217: The field's <a href="/settings/#field-enabled">enabled</a> option doesn't work in declarative mode</li>
+    <li>#231: Fix the bug causing the <a href="/settings/#form-message">message</a> option for form isn't used. The plugin uses default message provided by each validator instead</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>#6, #13, #106: Add <a href="/examples/showing-custom-message-returned-from-server/">Showing custom message returned from server</a> example</li>
+    <li>#20: Add <a href="/examples/validating-percentage-values/">Validating percentage values</a> example</li>
+    <li>#76: Update the <a href="/examples/bootstrap-multiselect/">Bootstrap Multiselect</a> example that supports the <code>enableFiltering</code> option</li>
+    <li>#99: Add <a href="/validators/date/#disabling-date-example">Disabling date</a> example</li>
+    <li>#144, #153: Update the <a href="/examples/modal/">Bootstrap modal</a> example that the <a href="/api#reset-form">resetForm()</a> method doesn't work</li>
+    <li>#154: Update the <a href="/examples/cant-submit-form-after-validation/">Can't submit form after validation</a> example</li>
+    <li>#159: Update the <a href="/examples/form-submit-twice/#ensure-that-successformfv-is-triggered-once">Form is submitted twice</a> example</li>
+    <li>#181: Add a country box to the <a href="/validators/vat/#example">VAT validator</a> example</li>
+    <li>#190: Add <a href="/settings/#form-row-add-validating-class">Adding custom class to field container while it is being validated</a> section</li>
+    <li>#196: Update the <a href="/examples/summernote/">summernote example</a> to work with the latest version of summernote</li>
+    <li>#213: Add <a href="/examples/adding-dynamic-field/#using-other-plugin-for-added-fields">Using other plugin for added fields</a> section</li>
+    <li>#218: Add <a href="/examples/ajax-submit/#using-jquery-form-plugin">Using jQuery Form plugin</a> section</li>
+    <li>#219: Add <a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a> example</li>
+    <li>#237: Add <a href="/validators/regexp/#useful-patterns">useful patterns</a> including SSN which can be used with the regexp validator</li>
+    <li>#240: When using <a href="/settings/#field-selector">selector</a> option, don't use some <a href="/examples/html5/">HTML 5 attributes</a> causing validators to be enabled automatically</li>
+    <li>Add <a href="/examples/contact-form/">Contact form</a> example</li>
+    <li>Add <a href="/addons/recaptcha2/">Showing Google reCaptcha message in a custom area</a> section</li>
+    <li>Add <a href="/examples/validating-custom-stripe-form/">Validating custom Stripe form</a> example</li>
+    <li>Add <a href="/examples/jot-form/">Validating form generated by JotForm</a> example</li>
+    <li>Add <a href="/examples/terms-conditions-agreement-validation/">Terms and conditions agreement validation</a> example</li>
+    <li>Update the <a href="/settings/#form-framework">framework</a> and <a href="/settings/#form-live">live</a> option usages</li>
+    <li>Update the <a href="/addons/recaptcha2/">recaptcha2</a> usage: User don't need to insert the reCaptcha API script to page</li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.7.0">FormValidation v0.7.0</a>
+</div>

@@ -1,0 +1,60 @@
+<form id="articleForm" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Title</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="title" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Summary</label>
+        <div class="col-xs-5">
+            <textarea rows="5" class="form-control" name="summary"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Description</label>
+        <div class="col-xs-9">
+            <textarea rows="10" class="form-control" name="description"></textarea>
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#articleForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            title: {
+                trigger: 'keyup',
+                validators: {
+                    notEmpty: {
+                        message: 'The title is required'
+                    }
+                }
+            },
+            summary: {
+                trigger: 'blur',
+                validators: {
+                    notEmpty: {
+                        message: 'The summary is required'
+                    }
+                }
+            },
+            description: {
+                validators: {
+                    notEmpty: {
+                        message: 'The description is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

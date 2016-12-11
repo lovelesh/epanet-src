@@ -1,0 +1,22 @@
+---
+layout: demo/bootstrap
+title: color validator &rarr; Color picker example
+permalink: /validators/color/color-picker/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+$(document).ready(function() {
+    $('#colorPicker')
+        .on('showPicker changeColor', function(e) {
+            var $body  = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe when showing the picker
+                $iframe.height($body.get(0).scrollHeight);
+            }
+        });
+});
+</script>

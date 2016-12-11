@@ -1,0 +1,22 @@
+<form id="colorForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Color</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="color"
+                data-fv-color="true"
+                data-fv-color-type="hex,hsl,hsla,keyword,rgb,rgba"
+                data-fv-color-message="The value is not valid color" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#colorForm').formValidation();
+});
+</script>

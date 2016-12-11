@@ -1,0 +1,13 @@
+<section>
+    <h2 id="validate">validate</h2>
+
+    <p><code>validate(): FormValidation</code> &mdash; Validate form manually. It is useful when you want to validate form by clicking a button or a link instead of a submit buttons.</p>
+
+{% highlight javascript %}
+$(form).formValidation(options).formValidation('validate');
+
+// or
+$(form).formValidation(options);
+$(form).data('formValidation').validate();
+{% endhighlight %}
+</section>

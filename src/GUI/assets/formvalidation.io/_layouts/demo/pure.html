@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include demo/head.html %}
+
+    <link href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" rel="stylesheet">
+    <!--[if lte IE 8]><link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css" rel="stylesheet"><![endif]-->
+    <!--[if gt IE 8]><!--><link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" rel="stylesheet"><!--<![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    {% bundle %}
+    - /vendor/formvalidation/css/formValidation.min.css
+    - /asset/css/demo.css
+    {% endbundle %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {% bundle %}
+    - /vendor/formvalidation/js/formValidation.min.js
+    - /vendor/formvalidation/js/framework/pure.min.js
+    - /asset/js/demo.js
+    {% endbundle %}
+</head>
+<body class="demo-pure">
+    <div class="pure-g">
+        <div class="pure-u-24-24" id="demoContainer">
+            {{ content }}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: issn validator &rarr; Basic example
+permalink: /validators/issn/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIssn(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="issn"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'issn');
+
+    return $form.data('formValidation').isValidField('issn');
+}
+</script>

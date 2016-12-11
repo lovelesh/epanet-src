@@ -1,0 +1,79 @@
+<form id="integerForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Country</label>
+        <div class="col-xs-3">
+            <select class="form-control" name="country">
+                <option value="">Choose a country</option>
+                <option value="en_US">United States</option>
+                <option value="fr_FR">France</option>
+                <option value="it_IT">Italy</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Type an integer number</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="number" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#integerForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                number: {
+                    validators: {
+                        integer: {
+                            message: 'The value is not an integer',
+                            // The default separators
+                            thousandsSeparator: '',
+                            decimalSeparator: '.'
+                        }
+                    }
+                }
+            }
+        })
+        .on('change', '[name="country"]', function() {
+            var thousandsSeparator = '',
+                decimalSeparator   = '.';
+            switch ($(this).val()) {
+                case 'en_US':
+                    thousandsSeparator = ',';
+                    decimalSeparator   = '.';
+                    break;
+
+                case 'fr_FR':
+                    thousandsSeparator = ' ';
+                    decimalSeparator   = ',';
+                    break;
+
+                case 'it_IT':
+                    thousandsSeparator = '.';
+                    decimalSeparator   = ',';
+                    break;
+
+                case '':
+                default:
+                    thousandsSeparator = '';
+                    decimalSeparator   = '.';
+                    break;
+            }
+
+            $('#integerForm')
+                // Update the options
+                .formValidation('updateOption', 'number', 'integer', 'thousandsSeparator', thousandsSeparator)
+                .formValidation('updateOption', 'number', 'integer', 'decimalSeparator', decimalSeparator)
+                // and revalidate the number
+                .formValidation('revalidateField', 'number');
+        })
+});
+</script>

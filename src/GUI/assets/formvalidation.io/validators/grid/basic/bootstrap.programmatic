@@ -1,0 +1,30 @@
+<form id="gridForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">GRId</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="grid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#gridForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            grid: {
+                validators: {
+                    grid: {
+                        message: 'The value is not valid GRId'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

@@ -1,0 +1,114 @@
+---
+layout: default
+title: Validate an ISMN (International Standard Music Number)
+permalink: /validators/ismn/
+prev:
+    url: /validators/isin/
+    title: isin validator
+next:
+    url: /validators/issn/
+    title: issn validator
+examples: M230671187, 979-0-0601-1561-5, 979 0 3452 4680 5, 9790060115615, 9790060115614
+related:
+    - grid
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>ismn validator</h1>
+        <p>Validate an ISMN (International Standard Music Number)</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-ismn-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-ismn="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ISMN</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% assign examples = page.examples | split: ', ' %}
+                                {% for ismn in examples %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ ismn }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateIsmn($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

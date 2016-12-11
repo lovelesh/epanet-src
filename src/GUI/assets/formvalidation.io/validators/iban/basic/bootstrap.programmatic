@@ -1,0 +1,30 @@
+<form id="ibanForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">IBAN</label>
+        <div class="col-xs-7">
+            <input type="text" class="form-control" name="iban" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#ibanForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            iban: {
+                validators: {
+                    iban: {
+                        message: 'The value is not valid IBAN'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

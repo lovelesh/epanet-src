@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: ein validator &rarr; Basic example
+permalink: /validators/ein/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateEin(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="ein"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'ein');
+
+    return $form.data('formValidation').isValidField('ein');
+}
+</script>

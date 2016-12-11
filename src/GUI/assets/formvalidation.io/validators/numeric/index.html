@@ -1,0 +1,289 @@
+---
+layout: default
+title: Validate a numeric number
+permalink: /validators/numeric/
+prev:
+    url: /validators/notEmpty/
+    title: notEmpty validator
+next:
+    url: /validators/phone/
+    title: phone validator
+related:
+    - digits
+    - integer
+countries:
+    - country:
+      code:
+      thousandsSeparator: ""
+      thousandsSeparatorDesc: An empty string
+      decimalSeparator: "."
+      decimalSeparatorDesc: A dot (<code>.</code>)
+      valid:
+        - "95"
+        - "095"
+        - "0095"
+        - "295"
+        - "7295"
+        - "67295"
+        - "967295.00"
+        - "4294967295.001"
+      invalid:
+        - "7,295"
+        - "67,295"
+        - "967,295"
+        - "4967,295"
+        - "4,294,967,295,00"
+    - country: United States
+      code: en_US
+      thousandsSeparator: ","
+      thousandsSeparatorDesc: A comma (<code>,</code>)
+      decimalSeparator: "."
+      decimalSeparatorDesc: A dot (<code>.</code>)
+      valid:
+        - "95"
+        - "295"
+        - "7,295"
+        - "67,295.001"
+        - "967,295"
+        - "967,295.00"
+        - "4,294,967,295"
+        - "4,294,967,295.00"
+        - "4,294,967,295.001"
+      invalid:
+        - "7295"
+        - "67295.01"
+        - "4967,295"
+        - "4294,967,295.00"
+        - "4,294,967,295,00"
+        - "42,94,967,295.00"
+        - "42,94,967295.00"
+        - "4294,967,295.00"
+    - country: France
+      code: fr_FR
+      thousandsSeparator: " "
+      thousandsSeparatorDesc: A blank space
+      decimalSeparator: ","
+      decimalSeparatorDesc: A comma (<code>,</code>)
+      valid:
+        - "95"
+        - "295"
+        - "67 295"
+        - "967 295"
+        - "967 295,00"
+        - "4 294 967 295"
+        - "4 294 967 295,00"
+        - "4 294 967 295,001"
+      invalid:
+        - "7295"
+        - "67295,01"
+        - "4967 295"
+        - "4294 967 295,00"
+        - "4 294 967 295.00"
+        - "42 94 967 295,00"
+        - "42 94 967295,00"
+        - "4294 967 295,00"
+    - country: Italy
+      code: it_IT
+      thousandsSeparator: "."
+      thousandsSeparatorDesc: A dot (<code>.</code>)
+      decimalSeparator: ","
+      decimalSeparatorDesc: A comma (<code>,</code>)
+      valid:
+        - "95"
+        - "295"
+        - "7.295"
+        - "67.295"
+        - "967.295"
+        - "967.295,00"
+        - "4.294.967.295"
+        - "4.294.967.295,00"
+        - "4.294.967.295,0001"
+      invalid:
+        - "7295"
+        - "67295,01"
+        - "4967.295"
+        - "967.295.00"
+        - "4294.967.295,00"
+        - "4.294.967.295.00"
+        - "42.94.967.295,00"
+        - "42.94.967295,00"
+        - "4294.967.295,00"
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>numeric validator</h1>
+        <p>Check if the value is a number</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-numeric-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>thousandsSeparator</code> <span class="label label-info">v0.7.0+</span></td>
+                                    <td><code>data-fv-numeric-thousandsseparator</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        The thousands separator. The popular values are
+                                        <ul class="doc-list">
+                                            <li>An empty string <span class="label label-default">default</span></li>
+                                            <li>A bank space</li>
+                                            <li>A comma (<code>,</code>)</li>
+                                            <li>A dot (<code>.</code>)</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>decimalSeparator</code> <span class="label label-info">v0.7.0+</span></td>
+                                    <td><code>data-fv-numeric-decimalseparator</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        The decimal separator. The popular values are
+                                        <ul class="doc-list">
+                                            <li>A dot (<code>.</code>) <span class="label label-default">default</span></li>
+                                            <li>A comma (<code>,</code>)</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-numeric="true".<br/>
+                        You don't need to do that when<br/>
+                        i) using HTML 5 type="number" attribute,<br/>
+                        ii) and the step attribute must be specified which its value is not an integer
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>The <code>thousandsSeparator</code> and <code>decimalSeparator</code> options are useful if your country use particular separators for thousands and decimal parts.
+                        See the next <a href="#supporting-locales">supporting locales</a> section for more details.</p>
+
+                    <p>If you want the value to support more special formats, you should use the <a href="/settings/#validator-transformer">transformer</a> option.
+                        The <a href="/examples/modifying-value-before-validating/">modifying the value before validating</a> example is good starting point.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Supporting locales</h2>
+
+                    <p>The thousands and decimal separators might take different value in certain countries. The following table introduces
+                        some popular values that are defined by various countries.</p>
+                    <p>You can click the sample number to test:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Thousands separator</th>
+                                    <th>Decimal separator</th>
+                                    <th>Valid examples</th>
+                                    <th>Invalid examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.countries %}
+                                <tr>
+                                    <td>{{ item.country }}</td>
+                                    <td>{{ item.thousandsSeparatorDesc }}</td>
+                                    <td>{{ item.decimalSeparatorDesc }}</td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in item.valid %}
+                                            <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}" data-thousandsseparator="{{ item.thousandsSeparator }}" data-decimalseparator="{{ item.decimalSeparator }}">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in item.invalid %}
+                                            <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}" data-thousandsseparator="{{ item.thousandsSeparator }}" data-decimalseparator="{{ item.decimalSeparator }}">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The example also uses the <a href="/api/#update-option">updateOption()</a> method to set values for <code>thousandsSeparator</code> and <code>decimalSeparator</code> options.</p>
+
+{% highlight javascript %}
+$('#numericForm')
+    // Update the options
+    .formValidation('updateOption', 'number', 'numeric', 'thousandsSeparator', thousandsSeparator)
+    .formValidation('updateOption', 'number', 'numeric', 'decimalSeparator', decimalSeparator);
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        Since the thousands and decimal separators are various, the field should use type="text" attribute.
+                        Using type="number" for field will restrict the input to use default separators for a number
+                        (an empty string for thousands, and a dot for decimal parts)
+                    </div>
+
+                    {% include demo/tabs.html id="locale" frameworks="bootstrap" dir="locale" codes="programmatic" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var thousandsSeparator = $(this).attr('data-thousandsseparator'),
+            decimalSeparator   = $(this).attr('data-decimalseparator'),
+            country            = $(this).attr('data-country'),
+            number             = $(this).text(),
+            formWindow         = $('#locale-frame').get(0).contentWindow,
+            isValid            = formWindow.revalidateNumber(thousandsSeparator, decimalSeparator, country, number);
+
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

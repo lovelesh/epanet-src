@@ -1,0 +1,30 @@
+---
+layout: demo/bootstrap
+title: Disabling dates
+permalink: //validators/date/disabling-dates/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+$(document).ready(function() {
+    $('#datePicker')
+        .on('show changeDate', function(e) {
+            var $body  = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe when showing the picker
+                $iframe.height($body.get(0).scrollHeight);
+            }
+        })
+        .on('hide', function(e) {
+            var $body  = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe when hiding the picker
+                $iframe.height($body.height());
+            }
+        });
+});
+</script>

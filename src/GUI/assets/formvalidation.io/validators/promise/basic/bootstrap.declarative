@@ -1,0 +1,95 @@
+<style type="text/css">
+.preview {
+    display: none;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #d5d5d5;
+    margin-top: 10px;
+}
+.preview img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+
+<form id="profileForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Avatar</label>
+        <div class="col-xs-6">
+            <input type="file" name="avatar"
+                data-fv-promise="true"
+                data-fv-promise-promise="validateImageSize" />
+
+            <div id="avatarPreview" class="preview"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-9 col-xs-offset-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+<script>
+function validateImageSize(value, validator, $field) {
+    var dfd   = new $.Deferred(),
+        files = $field.get(0).files;
+
+    if (!files.length || typeof FileReader === 'undefined') {
+        dfd.resolve({ valid: true });
+        return dfd.promise();
+    }
+
+    var img = new Image();
+    img.onload = function() {
+        var w = this.width,
+            h = this.height;
+
+        dfd.resolve({
+            valid: (w <= 300 && h <= 300),
+            message: 'The avatar width and height must be less than 300 px',
+            source: img.src,    // We will use it later to show the preview
+            width: w,
+            height: h
+        });
+    };
+    img.onerror = function() {
+        dfd.reject({
+            message: 'Please choose an image'
+        });
+    };
+
+    var reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onloadend = function(e) {
+        img.src = e.target.result;
+    };
+
+    return dfd.promise();
+}
+
+$(document).ready(function() {
+    $('#profileForm')
+        .formValidation()
+        .on('err.validator.fv', function(e, data) {
+            if (data.field === 'avatar' && data.validator === 'promise') {
+                // Hide the preview
+                $('#avatarPreview').html('').hide();
+            }
+        })
+        .on('success.validator.fv', function(e, data) {
+            if (data.field === 'avatar' && data.validator === 'promise' && data.result.source) {
+                $('#avatarPreview')
+                    .html('')
+                    .append($('<img/>').attr('src', data.result.source))
+                    .show();
+            }
+        });
+});
+</script>

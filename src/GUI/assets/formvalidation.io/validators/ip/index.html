@@ -1,0 +1,198 @@
+---
+layout: default
+title: Validate an IP address
+permalink: /validators/ip/
+prev:
+    url: /validators/integer/
+    title: integer validator
+next:
+    url: /validators/isbn/
+    title: isbn validator
+examples:
+    valid:
+        - 0.0.0.0
+        - 192.168.1.1
+        - 255.255.255.255
+        - "0000:0000:0000:0000:0000:0000:0000:0000"
+        - "fe00::1"
+        - "fe80::217:f2ff:fe07:ed62"
+        - "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff"
+        - "2001:0db8:0000:85a3:0000:0000:ac1f:8001"
+    invalid:
+        - 10.168.0001.100
+        - 0.0.0.256
+        - 256.255.255.255
+        - 256.0.0.0
+        - 192.168. 224.0
+        - 192.168.224.0 1
+        - "02001:0000:1234:0000:0000:C1C0:ABCD:0876"
+        - "2001:0000:1234:0000:00001:C1C0:ABCD:0876"
+        - "2001:0000:1234: 0000:0000:C1C0:ABCD:0876"
+        - "2001:0000:1234:0000:0000:C1C0:ABCD:0876 0"
+        - "3ffe:0b00:0000:0001:0000:0000:000a"
+        - "FF02:0000:0000:0000:0000:0000:0000:0000:0001"
+        - "::1111:2222:3333:4444:5555:6666::"
+        - "3ffe:b00::1::a"
+cidr_examples:
+    valid:
+        - 192.168.1.1/12
+        - 192.168.1.1/32
+        - "0000:0000:0000:0000:0000:0000:0000:0000/01"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/19"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/99"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/100"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/119"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/128"
+        - "::1/128"
+        - "2001:db8::/48"
+    invalid:
+        - 192.168.1.1/
+        - 192.168.1.1/12.34
+        - 192.168.1.1/01
+        - 192.168.1.1/33
+        - "0000:0000:0000:0000:0000:0000:0000:0000/"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/012"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/129"
+        - "0000:0000:0000:0000:0000:0000:0000:0000/130"
+related:
+    - mac
+    - uri
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>ip validator</h1>
+        <p>Validate an IP address. Support both IPv4 and IPv6</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>ipv4</code></td>
+                                    <td><code>data-fv-ip-ipv4</code></td>
+                                    <td>Boolean</td>
+                                    <td>Enable IPv4 validator, default to <code>true</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>ipv6</code></td>
+                                    <td><code>data-fv-ip-ipv6</code></td>
+                                    <td>Boolean</td>
+                                    <td>Enable IPv6 validator, default to <code>true</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-ip-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-ip="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>IP address</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.examples %}
+                                <tr class="active"><td colspan="2">{{ item[0] | capitalize }}</td></tr>
+                                {% for ipAddress in item[1] %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ ipAddress }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>It also supports <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>IP address</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.cidr_examples %}
+                                <tr class="active"><td colspan="2">{{ item[0] | capitalize }}</td></tr>
+                                {% for ipAddress in item[1] %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ ipAddress }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateIpAddress($(this).text());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

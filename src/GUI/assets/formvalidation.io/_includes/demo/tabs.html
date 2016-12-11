@@ -1,0 +1,60 @@
+{% assign frameworks = include.frameworks | split: ',' %}
+{% assign codes      = include.codes | split: ',' %}
+
+{% if include.dir != '' and include.dir != nil %}
+{% assign dir = include.dir | append: '/' %}
+{% else %}
+{% assign dir = '' %}
+{% endif %}
+
+{% if include.url != '' and include.url != nil %}
+{% assign url = include.url %}
+{% else %}
+{% assign url = page.permalink | append: dir %}
+{% endif %}
+<div class="doc-demo">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><span class="doc-framework">Framework</span> <i class="caret"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                {% for f in frameworks %}
+                {% if f == 'bootstrap' %}
+                {% assign frameworkName = 'Bootstrap 3' %}
+                {% elsif f == 'bootstrap4' %}
+                {% assign frameworkName = 'Bootstrap 4 (alpha 3)' %}
+                {% elsif f == 'foundation' %}
+                {% assign frameworkName = 'Foundation 6' %}
+                {% elsif f == 'foundation5' %}
+                {% assign frameworkName = 'Foundation 5' %}
+                {% else %}
+                {% assign frameworkName = f | capitalize %}
+                {% endif %}
+                <li><a href="{{ url | append: f | append: '.html' }}" data-demo-target="#{{ include.id }}-frame" data-demo-framework="{{ f }}">{{ frameworkName }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="active"><a href="#{{ include.id }}-form-tab" data-toggle="tab">Try it</a></li>
+        {% for code in codes %}
+        <li><a href="#{{ include.id }}-{{ code }}-tab" data-toggle="tab">{{ code | capitalize }} code</a></li>
+        {% endfor %}
+        <li class="doc-demo-direct"><a href="{{ url | append: frameworks[0] | append: '.html' }}" data-toggle="tooltip" data-container="body" title="Open the demo in new tab" target="_blank"><i class="fa fa-external-link"></i></a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="{{ include.id }}-form-tab">
+            <iframe class="doc-demo-frame" id="{{ include.id }}-frame"></iframe>
+        </div>
+
+        {% for code in codes %}
+        <div class="tab-pane" id="{{ include.id }}-{{ code }}-tab">
+            {% for f in frameworks %}
+            <div data-demo-code="{{ f }}">
+{% highlight html %}
+{% include_relative {{ dir | append: f | append: '.' | append: code  }} %}
+{% endhighlight %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

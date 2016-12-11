@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: sedol validator &rarr; Basic example
+permalink: /validators/sedol/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateSedol(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="sedol"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'sedol');
+
+    return $form.data('formValidation').isValidField('sedol');
+}
+</script>

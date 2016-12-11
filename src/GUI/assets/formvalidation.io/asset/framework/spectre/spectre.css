@@ -1,0 +1,34 @@
+.fv-form-spectre .fv-control-feedback {
+    width: 32px;    /* Height of Spectre input */
+    height: 32px;
+    line-height: 32px;
+}
+
+.fv-form-spectre .fv-help-block {
+    margin-top: 5px;
+}
+
+.fv-form-spectre .fv-control-feedback {
+    top: 21px;      /* Same as height of label */
+}
+
+/* Horizontal form */
+.fv-form-spectre.form-horizontal .fv-control-feedback {
+    top: 0;
+}
+
+.fv-form-spectre:not(.form-horizontal) label.sr-only~.fv-control-feedback {
+    top: -4px;      /* labelHeight/2 - iconHeight/2 */
+}
+
+.fv-form-spectre .has-danger label,
+.fv-form-spectre .has-danger .fv-help-block,
+.fv-form-spectre .has-danger .fv-control-feedback {
+    color: #e85600; /* Same as .has-danger */
+}
+
+.fv-form-spectre .has-success label,
+.fv-form-spectre .has-success .fv-help-block,
+.fv-form-spectre .has-success .fv-control-feedback {
+    color: #32b643; /* Same as .has-success */
+}

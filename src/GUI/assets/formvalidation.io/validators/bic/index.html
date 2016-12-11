@@ -1,0 +1,140 @@
+---
+layout: default
+title: Validate a BIC (Business Identifier Codes)
+permalink: /validators/bic/
+prev:
+    url: /validators/between/
+    title: between validator
+next:
+    url: /validators/callback/
+    title: callback validator
+examples:
+    valid:
+        - ASPKAT2LXXX
+        - ASPKAT2L
+        - DSBACNBXSHA
+        - UNCRIT2B912
+        - DABADKKK
+        - RZOOAT2L303
+    invalid:
+        - ASPKAT2LXX
+        - ASPKAT2LX
+        - ASPKAT2LXXX1
+        - DABADKK
+        - RZ00AT2L303
+        # Invalid fist 6 characters
+        - 1SBACNBXSHA
+        - D2BACNBXSHA
+        - DS3ACNBXSHA
+        - DSB4CNBXSHA
+        - DSBA5NBXSHA
+        - DSBAC6BXSHA
+        - 1S3AC6BXSHA
+related:
+    - creditCard
+    - cvv
+    - iban
+    - rtn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>bic validator</h1>
+        <p>Validate a <a href="http://en.wikipedia.org/wiki/ISO_9362">BIC</a> (Business Identifier Codes)</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-bic-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-bic="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>BIC</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.examples %}
+                                <tr class="active"><td colspan="2">{{ item[0] | capitalize }}</td></tr>
+                                {% for bic in item[1] %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ bic }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateBic($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

@@ -1,0 +1,97 @@
+---
+layout: default
+title: Validate a CVV number
+permalink: /validators/cvv/
+prev:
+    url: /validators/cusip/
+    title: cusip validator
+next:
+    url: /validators/date/
+    title: date validator
+related:
+    - bic
+    - creditCard
+    - iban
+    - rtn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>cvv validator</h1>
+        <p>Validate a CVV number</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>creditCardField</code></td>
+                                    <td><code>data-fv-cvv-ccfield</code></td>
+                                    <td>String</td>
+                                    <td>The credit card number field. It is <code>null</code> by default</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-cvv-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-cvv="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>If the <code>creditCardField</code> option is set, the validator will check if the CVV number is suitable with the credit card number of not.</p>
+                    <p>In the details, the American Express card only accepts 4 digits CVV number, while other cards only accept 3 digits CVV number.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>The following form also validates the CVV number based on the credit card number.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        You can use <a href="http://www.getcreditcardnumbers.com">www.getcreditcardnumbers.com</a> to generate fake credit card numbers.
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

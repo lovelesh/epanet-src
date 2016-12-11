@@ -1,0 +1,21 @@
+<form id="sedolForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">SEDOL</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="sedol"
+                data-fv-sedol="true"
+                data-fv-sedol-message="The value is not valid SEDOL" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#sedolForm').formValidation();
+});
+</script>

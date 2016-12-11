@@ -1,0 +1,43 @@
+<form id="profileForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Website</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="website" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#profileForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            website: {
+                validators: {
+                    uri: {
+                        message: 'The website address is not valid',
+                        transformer: function($field, validatorName, validator) {
+                            // Get the field value
+                            var value = $field.val();
+
+                            // Check if it doesn't start with http:// or https://
+                            if (value && value.substr(0, 7) !== 'http://' && value.substr(0, 8) !== 'https://') {
+                                // then prefix with http://
+                                value = 'http://' + value;
+                            }
+
+                            // Return new value
+                            return value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

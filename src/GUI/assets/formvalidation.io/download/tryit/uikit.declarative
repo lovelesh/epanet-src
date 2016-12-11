@@ -1,0 +1,130 @@
+<form id="basicUikitForm" class="uk-form uk-form-horizontal"
+    data-fv-framework="uikit"
+    data-fv-icon-valid="uk-icon-check"
+    data-fv-icon-invalid="uk-icon-times"
+    data-fv-icon-validating="uk-icon-refresh">
+
+    <div class="uk-form-row">
+        <label class="uk-form-label">Full name</label>
+        <div class="uk-form-controls">
+            <div class="uk-grid">
+                <div class="uk-width-1-2">
+                    <input class="uk-width-1-1" name="firstName" type="text" placeholder="First name"
+                        data-fv-row=".uk-width-1-2"
+                        data-fv-notempty="true"
+                        data-fv-notempty-message="The first name is required" />
+                </div>
+
+                <div class="uk-width-1-2">
+                    <input class="uk-width-1-1" name="lastName" type="text" placeholder="Last name"
+                        data-fv-row=".uk-width-1-2"
+                        data-fv-notempty="true"
+                        data-fv-notempty-message="The last name is required" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label">Username</label>
+        <div class="uk-form-controls">
+            <input name="username" type="text" placeholder="Username"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The username is required"
+
+                data-fv-stringlength="true"
+                data-fv-stringlength-min="6"
+                data-fv-stringlength-max="30"
+                data-fv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+                data-fv-regexp="true"
+                data-fv-regexp-regexp="^[a-zA-Z0-9_\.]+$"
+                data-fv-regexp-message="The username can only consist of alphabetical, number, dot and underscore" />
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label">Email address</label>
+        <div class="uk-form-controls">
+            <input name="email" type="text" placeholder="Email address"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The email address is required"
+
+                data-fv-emailaddress="true"
+                data-fv-emailaddress-message="The input is not a valid email address" />
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label">Password</label>
+        <div class="uk-form-controls">
+            <input name="password" type="password" placeholder="Password"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The password is required"
+
+                data-fv-different="true"
+                data-fv-different-field="username"
+                data-fv-different-message="The password cannot be the same as username" />
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label">Gender</label>
+        <div class="uk-form-controls">
+            <label>
+                <input name="gender" type="radio" value="male"
+                    data-fv-notempty="true"
+                    data-fv-notempty-message="The gender is required" /> Male
+            </label> <br/>
+            <label><input name="gender" type="radio" value="female" /> Female</label> <br/>
+            <label><input name="gender" type="radio" value="other" /> Other</label>
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label" id="captchaOperation"></label>
+        <div class="uk-form-controls">
+            <input type="text" name="captcha"
+                data-fv-callback="true"
+                data-fv-callback-callback="checkCaptcha"
+                data-fv-callback-message="Wrong answer" />
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label"></label>
+        <div class="uk-form-controls">
+            <label>
+                <input name="agree" type="checkbox"
+                    data-fv-notempty="true"
+                    data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+            </label>
+        </div>
+    </div>
+
+    <div class="uk-form-row">
+        <label class="uk-form-label"></label>
+        <div class="uk-form-controls">
+            <button type="submit" class="uk-button uk-button-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+<script>
+// Check the captcha
+function checkCaptcha(value, validator, $field) {
+    var items = $('#captchaOperation').html().split(' '),
+        sum   = parseInt(items[0]) + parseInt(items[2]);
+    return value == sum;
+}
+
+$(document).ready(function() {
+    // Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+    $('#basicUikitForm').formValidation();
+});
+</script>
