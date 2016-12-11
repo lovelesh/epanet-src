@@ -1,0 +1,11 @@
+<section>
+    <h3 id="field-trigger">trigger</h3>
+
+    <p><code>trigger: String</code> &mdash; The field events (separated by a space) which are fired when the live validating mode is enabled.</p>
+    <p>For example, <code>trigger="focus blur"</code> means that the field will be validated when user focus on or leave the focus off the field.</p>
+
+    <h5>Example</h5>
+    <p>In the following form, the <strong>Title</strong> field will be validated while user type any character (<code>trigger="keyup"</code>). The <strong>Summary</strong> field will be validated when user lose the focus (<code>trigger="blur"</code>).</p>
+
+    {% include demo/tabs.html id="field-trigger" frameworks="bootstrap" dir="field/trigger" codes="programmatic" %}
+</section>

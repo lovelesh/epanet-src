@@ -1,0 +1,152 @@
+<section>
+    <h3 id="form-err">err</h3>
+
+{% highlight javascript %}
+err: {
+    // The CSS class of each message element
+    clazz: '',
+
+    // The error messages container
+    container: null
+}
+{% endhighlight %}
+
+    <h4 id="form-err-clazz">clazz</h4>
+    <p><code>clazz: String</code> &mdash; The CSS class of message element. The default value is taken from specific framework if available:</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>err.clazz default value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://getbootstrap.com/css/#forms-help-text">Bootstrap 3</a></td>
+                    <td><code>help-block</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://v4-alpha.getbootstrap.com/components/forms/#validation">Bootstrap 4</a></td>
+                    <td><code>text-help</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/forms.html">Foundation 5</a></td>
+                    <td><code>error</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://foundation.zurb.com/sites/docs/abide.html">Foundation 6</a></td>
+                    <td><code>form-error</code></td>
+                </tr>
+                <tr>
+                    <td>Pure</td>
+                    <td><code>fv-help-block</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://semantic-ui.com/elements/label.html#pointing">Semantic</a></td>
+                    <td><code>ui red pointing label</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://getuikit.com/docs/text.html#text-styles">UIKit</a></td>
+                    <td><code>uk-text-danger</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h4 id="form-err-container">container</h4>
+    <p><code>container: String|Function</code> &mdash; Indicate where the error messages are shown. It is <code>null</code> by default.</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSS selector</td>
+                    <td>All error messages are placed in element defined by this CSS selector</td>
+                </tr>
+                <tr>
+                    <td>A callback</td>
+                    <td>
+                        <p>A callback returns the element that the messages are placed in:</p>
+{% highlight javascript %}
+function($field, validator) {
+    // $field is the field element
+    // validator is the plugin instance
+};
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>tooltip</code></td>
+                    <td>Error messages of each field are placed inside a tooltip</td>
+                </tr>
+                <tr>
+                    <td><code>popover</code></td>
+                    <td>Error messages of each field are placed inside a popup</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>The tooltip or popover is provided by specific framework:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>Tooltip</th>
+                    <th>Popover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bootstrap</td>
+                    <td><a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap's tooltip</a></td>
+                    <td><a href="http://getbootstrap.com/javascript/#popovers">Bootstrap's popover</a></td>
+                </tr>
+                <tr>
+                    <td>Foundation</td>
+                    <td colspan="2"><a href="http://foundation.zurb.com/docs/components/tooltips.html">Foundation's tooltip</a></td>
+                </tr>
+                <tr>
+                    <td>Pure</td>
+                    <td colspan="2">n/a</td>
+                </tr>
+                <tr>
+                    <td>Semantic</td>
+                    <td colspan="2"><a href="http://semantic-ui.com/modules/popup.html">Semantic's popup</a></td>
+                </tr>
+                <tr>
+                    <td>UIKit</td>
+                    <td colspan="2"><a href="http://getuikit.com/docs/tooltip.html">UIKit's tooltip</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="doc-alert doc-alert-info">
+        If you want to use a custom tooltip library, please take a look at the <a href="/examples/using-hint-library-show-message/">Using hint library</a> or <a href="/examples/using-balloon-css-library-show-message/">Using Balloon CSS library</a> examples.
+    </div>
+
+    <p>This option can be <a href="#field-err">overridden</a> by particular field.</p>
+
+    <h5>Examples</h5>
+    <p>The following form uses <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap tooltip</a> to show the error message.</p>
+
+    {% include demo/tabs.html id="form-tooltip" frameworks="bootstrap" dir="form/tooltip" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/examples/changing-tooltip-position">Changing tooltip's position</a></li>
+        <li><a href="/examples/showing-message-custom-area/#using-container-option">Showing messages in custom area</a></li>
+        <li><a href="/examples/showing-messages-modal/">Showing messages in a modal</a></li>
+        <li><a href="/examples/using-balloon-css-library-show-message/">Using Balloon CSS library to show message</a></li>
+        <li><a href="/examples/using-hint-library-show-message/">Using hint library to show message</a></li>
+        <li><a href="/examples/using-tooltip-to-show-message/">Using tooltip to show message</a></li>
+    </ul>
+</section>

@@ -1,0 +1,171 @@
+---
+layout: default
+title: Validate an email address
+permalink: /validators/emailAddress/
+prev:
+    url: /validators/ein/
+    title: ein validator
+next:
+    url: /validators/file/
+    title: file validator
+# http://en.wikipedia.org/wiki/Email_address#Examples
+examples:
+    valid:
+        - niceandsimple@example.com
+        - very.common@example.com
+        - a.little.lengthy.but.fine@dept.example.com
+        - disposable.style.email.with+symbol@example.com
+        - other.email-with-dash@example.com
+        - '"much.more unusual"@example.com'
+        - '"very.unusual.@.unusual.com"@example.com'
+        - '"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com'
+        - admin@mailserver1
+        - "!#$%&'*+-/=?^_`{}|~@example.org"
+        - '" "@example.org'
+        - üñîçøðé@example.com
+    invalid:
+        - üñîçøðé@üñîçøðé.com
+        - Abc.example.com
+        - A@b@c@example.com
+        - a"b(c)d,e:f;g<h>i[j\k]l@example.com
+        - just"not"right@example.com
+        - this is"not\allowed@example.com
+        - this\ still\"not\\allowed@example.com
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>emailAddress validator</h1>
+        <p>Validate an email address</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-emailaddress-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>multiple</code></td>
+                                    <td><code>data-fv-emailaddress-multiple</code></td>
+                                    <td>String</td>
+                                    <td>Allow multiple email addresses, separated by a comma or semicolon. The default value is <code>false</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>separator</code></td>
+                                    <td><code>data-fv-emailaddress-separator</code></td>
+                                    <td>String</td>
+                                    <td>Regex for character or characters expected as separator between addresses. By default, it is /[,;]/, i.e. comma or semicolon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-emailaddress="true".<br/>
+                        You don't need to do that when using HTML 5 type="email" attribute.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        This validator passes an empty field since the field might be optional. If the field is required, then use the <a href="/validators/notEmpty">notEmpty</a> validator.
+                    </div>
+
+                    <p>You also can use the <a href="/validators/remote/">remote</a> validator to connect and validate the email address on the server. The <a href="/examples/using-mailgun-api-validate-email-address/">Using Mailgun API to validate email address</a> example demonstrates how to do this.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Email address</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.examples %}
+                                <tr class="active"><td colspan="2">{{ item[0] | capitalize }}</td></tr>
+                                {% for emailAddress in item[1] %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ emailAddress }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The emailAddress validator will be enabled automatically when using HTML 5 <code>type="email"</code> attribute.</p>
+                    {% include demo/tabs.html id="html5" frameworks="bootstrap" dir="html5" codes="declarative" %}
+
+                    <h3>Is a@b valid email address?</h3>
+
+                    <p>Yes! It's valid email address. If you want to treat these kind of email addresses as invalid one, you can use the <a href="/validators/regexp">regexp</a> validator to define expression of email address.</p>
+                    <p>The following example uses this approach and borrow the idea from <a href="/examples/showing-one-message/">Showing one message</a> example to archive this.</p>
+
+                    {% include demo/tabs.html id="regexp" frameworks="bootstrap" dir="regexp" codes="programmatic" %}
+
+                    <h5>Example</h5>
+                    <ul class="doc-list">
+                        <li><a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a></li>
+                        <li><a href="/examples/contact-form/">Contact form</a></li>
+                    </ul>
+                </section>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateEmailAddress($(this).text());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

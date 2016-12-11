@@ -1,0 +1,30 @@
+<form id="emailForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Email address</label>
+        <div class="col-xs-7">
+            <input type="text" class="form-control" name="email" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#emailForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: 'The value is not a valid email address'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

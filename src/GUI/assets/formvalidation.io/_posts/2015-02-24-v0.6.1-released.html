@@ -1,0 +1,96 @@
+---
+layout: post
+title: FormValidation v0.6.1 Released
+date: 2015-02-24 22:45:00 +0700
+author: nghuuphuoc
+---
+
+<h3>Highlight <i class="fa fa-star"></i></h3>
+<ul class="doc-list">
+    <li>#467: Add <code>dataType</code>, <code>crossDomain</code>, <code>validKey</code> options for <a href="/validators/remote/">remote</a> validator.</li>
+</ul>
+
+<p>It's possible to use remote validator to connect to external validator API, such as MailGun (#1315).</p>
+
+<ul class="doc-list">
+    <li>#1357: In addition to Bootstrap, Foundation, Pure, Semantic, UIKit, v0.6.1 provides the ability of supporting custom framework</li>
+</ul>
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li>#940: Add <code>declarative</code> option to support big form</li>
+    <li>#1328, #1330: Add Netherlands <a href="/validators/phone/">phone</a> validator, thanks to <a href="https://github.com/HendrikSwBase">@HendrikSwBase</a></li>
+    <li>#1347: Add Bulgarian <a href="/validators/zipCode/">zip code</a> validator, thanks to <a href="https://github.com/Izopi4a">@Izopi4a</a></li>
+    <li>#1350: Add Bulgarian <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/Izopi4a">@Izopi4a</a></li>
+    <li>#1355: Add Polish <a href="/validators/zipCode/">zip code</a> and <a href="/validators/id/">id</a> validators, thanks to <a href="https://github.com/tjagusz">@tjagusz</a></li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li>#1327: <a href="/validators/remote/">remote</a> validator fails if Ajax request fails</li>
+    <li>#1427: Update Netherlands <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/DiederikLascaris">@DiederikLascaris</a></li>
+    <li>Add plugin instance to the 3rd parameter of <a href="/settings/#validator-transformer">transformer</a> callback</li>
+    <li>Add Grunt task that runs the jasmine test suites</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<p>This version fixed the <code>isValid()</code> method which should return <code>null</code> when there is not validated or being validated field.
+    It also solves the issues where the submit button is disabled even when the form is valid.</p>
+
+<ul class="doc-list">
+    <li>#962, #1318: remote validator and <code>isValid()</code> combined do not work</li>
+    <li>#1160: Submit button is disabled</li>
+    <li>#1171: Submit button being disabled</li>
+    <li>#1220: Can only submit form after changing a value</li>
+    <li>#1221, #1344: Remote validation trigger <code>err.form.fv</code></li>
+    <li>#1394: Submit incorrectly enabled even though form has errors</li>
+</ul>
+
+<p>Other issues are fixed in this version:</p>
+
+<ul class="doc-list">
+    <li>#1107, #1279, #1280, #1419: Show the <code>validating</code> icon when the field is being validated</li>
+    <li>#1282: Reset checkbox when calling <a href="/api/#reset-form">resetForm()</a> method</li>
+    <li>#1320: Fix Slovakia <a href="/validators/phone/">phone number</a> validator</li>
+    <li>#1343, #1369: Fix the issue where custom validator doesn't provide default message</li>
+    <li>#1379: Don't continue if there is no validators attached to fields</li>
+    <li>#1387: <a href="/settings/#validator-transformer">transformer</a> option doesn't work with <a href="/validators/notEmpty/">notEmpty</a> validator</li>
+    <li>#1389: Fix <code>isValidContainer()</code> and <code>validateContainer()</code> methods to support fields with the same name</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>#673: Update <a href="/validators/emailAddress/">emailAddress</a> validator document</li>
+    <li>#688: Add a <a href="/settings/#form-icon">notice</a> when using FontAwesome icon</li>
+    <li>#973, #1021, #1346: 3 ways to <a href="/validators/remote/#improving-the-performance">improve performance</a> when using remote validator</li>
+    <li>#1098, #1118, #1325: Add <a href="/examples/fuel-ux-wizard/">Playing with Fuel UX Wizard</a> example</li>
+    <li>#1109, #1326: Add <a href="/examples/typeahead/">Playing with Typehead</a> example</li>
+    <li>#1112: Support thousand separator</li>
+    <li>#1124, #1329: Fix <a href="/examples/ckeditor/">CKEditor example</a> on Firefox</li>
+    <li>#1205: Add <a href="/examples/bootstrap-material-design/">Playing with Bootstrap Material Design</a> example</li>
+    <li>#1308: Update <a href="/validators/creditCard/#showing-card-icon">Showing card icon</a> example</li>
+    <li>#1313: Add <a href="/examples/adding-warning-validation-state/">Adding warning validation state</a> example</li>
+    <li>#1315: Add <a href="/examples/using-mailgun-api-validate-email-address/">Using Mailgun API to validate email address</a> example</li>
+    <li>#1333: Update <a href="/examples/enabling-submit-button/">Enabling the submit button</a> example</li>
+    <li>#1378: Add <a href="/examples/validating-multiple-inputs-one/">Validating multiple inputs as one</a> example</li>
+    <li>#1388: Add <a href="/examples/field-value-changed-programmatically/">Field value is changed programmatically</a> example</li>
+    <li>#1390: Fix the <a href="/api/#is-valid">isValid()</a> method document</li>
+    <li>#1397: Add <a href="/examples/updating-validator-options/">Updating validator options</a> example</li>
+    <li>#1423: Update the <a href="/settings/#form-icon">UIKit icon usage</a></li>
+    <li>Fix the issue in <a href="/settings/#settings-structure">Settings Structure</a> section, thanks to <a href="https://github.com/DiederikLascaris">@DiederikLascaris</a></li>
+    <li>#29: Add <a href="/examples/jquery-ui-datepicker/">Playing with jQuery UI Datepicker</a> example</li>
+    <li>#33: Add <a href="/examples/flat-ui/">Playing with Flat UI</a> example</li>
+    <li>#37: Add <a href="/validators/callback/#showing-all-messages">Showing all messages when using callback validator</a> example</li>
+</ul>
+
+<h3>Language packages</h3>
+<ul class="doc-list">
+    <li>#1381: Update Slovak language package, thanks to <a href="https://github.com/PatrikGallik">@PatrikGallik</a></li>
+    <li>#1400: Update Belgian Dutch language package, thanks to <a href="https://github.com/jdt">@jdt</a></li>
+    <li>#1432: Fix some typos in the Hungarian translation, thanks to <a href="https://github.com/blackfyre">@blackfyre</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.6.1">FormValidation v0.6.1</a>
+</div>

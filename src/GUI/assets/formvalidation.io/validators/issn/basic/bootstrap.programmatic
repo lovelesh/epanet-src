@@ -1,0 +1,30 @@
+<form id="issnForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">ISSN</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="issn" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#issnForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            issn: {
+                validators: {
+                    issn: {
+                        message: 'The value is not valid ISSN'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

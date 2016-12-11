@@ -1,0 +1,31 @@
+<form id="profileForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Your Facebook URL</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="facebookUrl" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#profileForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            facebookUrl: {
+                validators: {
+                    regexp: {
+                        regexp: /^http(s*):\/\/(www.)*facebook\.com\/[a-zA-Z0-9.]+$/i,
+                        message: 'The URL is not valid'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

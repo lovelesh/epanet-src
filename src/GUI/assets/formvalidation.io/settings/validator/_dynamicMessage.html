@@ -1,0 +1,361 @@
+<section>
+    <h3 id="dynamic-message">Dynamic message</h3>
+    <p>Looking back to the <a href="#dynamic-option-element">zipcode example</a> above, you will realize that the message is static:</p>
+
+{% highlight html %}
+<!-- The element for choosing a country -->
+<select class="form-control" name="countrySelectBox">
+    <option value="US">United States</option>
+    <option value="CA">Canada</option>
+    <option value="DK">Denmark</option>
+    <option value="IT">Italy</option>
+    <option value="NL">Netherlands</option>
+    <option value="SE">Sweden</option>
+    <option value="GB">United Kingdom</option>
+</select>
+{% endhighlight %}
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#dynamicMessageForm').formValidation({
+        fields: {
+            code: {
+                validators: {
+                    zipCode: {
+                        country: 'countrySelectBox',
+                        message: 'The value is not valid zipcode'
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+
+    <p>As you see, the message is always <code>The value is not valid zipcode</code> and does not change nomatter what the country is.</p>
+    <p>Fortunately, it is easy to convert this message to a dynamic one. Just use <code>%s</code> characters in the message and they will be replaced with the country you choose:</p>
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#dynamicMessageForm').formValidation({
+        fields: {
+            code: {
+                validators: {
+                    zipCode: {
+                        country: 'countrySelectBox',
+                        // %s will be replaced with "US zipcode", "Italian postal code", and so on
+                        // when you choose the country as US, IT, etc.
+                        message: 'The value is not valid %s zipcode'
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+
+    {% include demo/tabs.html id="validator-dm" frameworks="bootstrap" dir="validator/dynamic-message" codes="programmatic" %}
+
+    <p>Below is the list of validators supporting dynamic message:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Validator</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="/validators/between/">between</a> validator</td>
+                    <td>
+{% highlight javascript %}
+between: {
+    min: ...,
+    max: ...,
+    message: 'Please enter a value between %s and %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/choice/">choice</a> validator</td>
+                    <td>
+{% highlight javascript %}
+choice: {
+    min: ...,
+    max: ...,
+    message: 'Please choose %s - %s options'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/greaterThan/">greaterThan</a> validator</td>
+                    <td>
+{% highlight javascript %}
+greaterThan: {
+    value: ...,
+    message: 'Please enter a value greater than or equal to %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/iban/">iban</a> validator</td>
+                    <td>
+{% highlight javascript %}
+iban: {
+    country: ...,
+    message: 'Please enter a valid IBAN number in %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/id/">id</a> validator</td>
+                    <td>
+{% highlight javascript %}
+id: {
+    country: ...,
+    message: 'Please enter a valid %s identification number'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/lessThan/">lessThan</a> validator</td>
+                    <td>
+{% highlight javascript %}
+lessThan: {
+    value: ...,
+    message: 'Please enter a value less than or equal to %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/phone/">phone</a> validator</td>
+                    <td>
+{% highlight javascript %}
+phone: {
+    country: ...,
+    message: 'Please enter a valid phone number in %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/stringLength/">stringLength</a> validator</td>
+                    <td>
+{% highlight javascript %}
+stringLength: {
+    min: ...,
+    max: ...,
+    message: 'Please enter value between %s and %s characters long'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/vat/">vat</a> validator</td>
+                    <td>
+{% highlight javascript %}
+vat: {
+    country: ...,
+    message: 'Please enter a valid %s VAT number'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/zipCode/">zipCode</a> validator</td>
+                    <td>
+{% highlight javascript %}
+zipCode: {
+    country: ...,
+    message: 'Please enter a valid %s'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/callback/">callback</a> validator</td>
+                    <td>
+{% highlight javascript %}
+callback: {
+    callback: function(value, validator, $field) {
+        // ... Do your logic checking
+        if (...) {
+            return {
+                valid: true,    // or false
+                message: 'The error message'
+            }
+        }
+
+        return {
+            valid: false,       // or true
+            message: 'Other error message'
+        }
+    }
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/promise/">promise</a> validator</td>
+                    <td>
+{% highlight javascript %}
+promise: {
+    promise: function(value, validator, $field) {
+        var dfd = new $.Deferred();
+
+        // ... Do your logic checking
+
+        // Resolve when particular task is done
+        dfd.resolve({
+            valid: true, // or false
+            message: 'The error message'
+        });
+
+        // You can reject if there's error
+        dfd.reject({
+            message: 'Other message'
+        });
+
+        return dfd.promise();
+    }
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/remote/">remote</a> validator</td>
+                    <td>
+                        <p>The backend returns a JSON string that consists of <code>valid</code> and <code>message</code> keys:</p>
+{% highlight javascript %}
+{ valid: true, message: 'The error message' }
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/developing/">Your own</a> validator</td>
+                    <td>
+{% highlight javascript %}
+(function($) {
+    FormValidation.Validator.yourValidatorName = {
+        validate: function(validator, $field, options) {
+            // ... Do your logic checking
+            if (...) {
+                return {
+                    valid: true,    // or false
+                    message: 'The error message'
+                }
+            }
+
+            return {
+                valid: false,       // or true
+                message: 'Other error message'
+            }
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h4>Turning off dynamic message</h4>
+
+    <p>To turn off dynamic message:</p>
+    <ul class="doc-list">
+        <li>Don't use <code>%s</code> characters in the message</li>
+        <li>Don't include the <code>message</code> in the result returned by <a href="/validators/callback/">callback</a>, <a href="/validators/promise/">promise</a>, <a href="/validators/remote/">remote</a> validator, or <a href="/developing/">your own validator</a>.</li>
+    </ul>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Validator</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="/validators/between/">between</a> validator</td>
+                    <td>
+{% highlight javascript %}
+between: {
+    min: 20,
+    max: 100,
+    message: 'Please enter a value between 20 and 100'
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/callback/">callback</a> validator</td>
+                    <td>
+{% highlight javascript %}
+callback: {
+    callback: function(value, validator, $field) {
+        // ... Do your logic checking
+        return true;        // or false
+    }
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/promise/">promise</a> validator</td>
+                    <td>
+{% highlight javascript %}
+promise: {
+    promise: function(value, validator, $field) {
+        var dfd = new $.Deferred();
+
+        // ... Do your logic checking
+
+        // Resolve when particular task is done
+        dfd.resolve({
+            valid: true,  // or false
+        });
+
+        // You can reject if there's error
+        dfd.reject();
+
+        return dfd.promise();
+    }
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/validators/remote/">remote</a> validator</td>
+                    <td>
+                        <p>The backend returns a JSON string that consists of <code>valid</code> key:</p>
+{% highlight javascript %}
+{ valid: true }
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/developing/">Your own validator</a></td>
+                    <td>
+{% highlight javascript %}
+(function($) {
+    FormValidation.Validator.yourValidatorName = {
+        validate: function(validator, $field, options) {
+            // ... Do your logic checking
+            return true;        // or false
+        }
+    };
+}(window.jQuery));
+{% endhighlight %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

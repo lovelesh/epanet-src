@@ -1,0 +1,34 @@
+---
+layout: demo/bootstrap
+title: promise validator &rarr; Validate width and height of image
+permalink: /validators/promise/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+$(document).ready(function() {
+    $('#profileForm')
+        .on('success.validator.fv', function(e, data) {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                setTimeout(function () {
+                    // Adjust the height of iframe
+                    $iframe.height($body.get(0).scrollHeight);
+                }, 200);
+            }
+        })
+        .on('err.validator.fv', function(e, data) {
+            var $body   = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                setTimeout(function () {
+                    // Adjust the height of iframe
+                    $iframe.height($body.height());
+                }, 200);
+            }
+        });
+});
+</script>

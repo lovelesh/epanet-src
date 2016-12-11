@@ -1,0 +1,129 @@
+---
+layout: default
+title: choice validator
+permalink: /validators/choice/
+prev:
+    url: /validators/callback/
+    title: callback validator
+next:
+    url: /validators/color/
+    title: color validator
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>choice validator</h1>
+        <p>Check if the number of checked boxes are less or more than a given number</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p>The validator also supports the <code>select</code> element if the <code>multiple="multiple"</code> attribute is set.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>max</code></td>
+                                    <td><code>data-fv-choice-max</code></td>
+                                    <td>Number</td>
+                                    <td>The maximum number of check boxes required to be checked.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-choice-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>min</code></td>
+                                    <td><code>data-fv-choice-min</code></td>
+                                    <td>Number</td>
+                                    <td>The minimum number of check boxes required to be checked.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>At least one of <code>min</code> and <code>max</code> option is required.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-choice="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Naming convention</h2>
+
+                    <p>In order to get the correct submit data in the server side, you should pay attention on setting the <code>name</code> attribute of checkbox/select elements.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Server side</th>
+                                    <th>name attribute</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PHP</td>
+                                    <td><code>name[]</code></td>
+                                    <td>
+{% highlight html %}
+<input type="checkbox" name="languages[]" />
+<select name="editors[]" multiple="multiple"></select>
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://projects.spring.io/spring-framework/">Spring framework</a></td>
+                                    <td><code>name</code></td>
+                                    <td>
+{% highlight html %}
+<input type="checkbox" name="languages" />
+<select name="editors" multiple="multiple"></select>
+{% endhighlight %}
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The following form asks a developer to choose 2-4 programming languages which he/she is good at:</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

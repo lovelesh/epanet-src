@@ -1,0 +1,34 @@
+<form id="regexpForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Avatar URL</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="avatar" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#regexpForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            avatar: {
+                validators: {
+                    regexp: {
+                        regexp: /\.(gif|jpg|jpeg|tiff|png)$/i,
+                        message: 'The avatar URL must end with .jpg, .jpeg or .png'
+                    },
+                    uri: {
+                        message: 'The avatar URL is not valid'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

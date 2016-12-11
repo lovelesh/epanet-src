@@ -1,0 +1,13 @@
+<div class="doc-pagination">
+    {% if page.prev %}
+        <a href="{{ page.prev.url }}" class="doc-pagination-older">&larr; {{ page.prev.title}}</a>
+    {% else %}
+        <span class="doc-pagination-older"></span>
+    {% endif %}
+
+    {% if page.next %}
+        <a href="{{ page.next.url }}" class="doc-pagination-newer">{{ page.next.title }} &rarr;</a>
+    {% else %}
+        <span class="doc-pagination-newer"></span>
+    {% endif %}
+</div>

@@ -1,0 +1,25 @@
+<div class="doc-notification" id="notification">
+    <i class="fa fa-bell-o"></i> <a href="{{ site.data.notifications[0].url }}">{{ site.data.notifications[0].title }}</a>
+</div>
+<script>
+$(document).ready(function() {
+    var notifications = [],
+        $message      = $('#notification').find('a').data('index', 0);
+    {% for item in site.data.notifications %}notifications.push({ title: '{{ item.title }}', url: '{{ item.url }}'});
+    {% endfor %}
+    setInterval(function() {
+        $message.data('index', $message.data('index') + 1);
+        if ($message.data('index') >= notifications.length) {
+            $message.data('index', 0);
+        }
+        $message
+            .fadeOut('slow')
+            .promise()
+            .then(function() {
+                $message.attr('href', notifications[$message.data('index')].url)
+                        .html(notifications[$message.data('index')].title)
+                        .fadeIn('slow');
+            });
+    }, 5000);
+});
+</script>

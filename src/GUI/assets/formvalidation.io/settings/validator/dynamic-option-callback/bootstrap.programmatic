@@ -1,0 +1,52 @@
+<form id="zipCodeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Country:</label>
+        <div class="col-xs-5">
+            <select class="form-control" name="countrySelectBox">
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="DK">Denmark</option>
+                <option value="IT">Italy</option>
+                <option value="NL">Netherlands</option>
+                <option value="SE">Sweden</option>
+                <option value="GB">United Kingdom</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Zipcode</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="code" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#zipCodeForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                code: {
+                    validators: {
+                        zipCode: {
+                            country: function(value, validator, $field) {
+                                return validator.getFieldElements('countrySelectBox').val();
+                            },
+                            message: 'The value is not valid zipcode'
+                        }
+                    }
+                }
+            }
+        })
+        .on('change', '[name="countrySelectBox"]', function() {
+            $('#getCountryCode').formValidation('revalidateField', 'code');
+        });
+});
+</script>

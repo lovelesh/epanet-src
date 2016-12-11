@@ -1,0 +1,31 @@
+<form id="regexpForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Full name</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="fullName" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#regexpForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            fullName: {
+                validators: {
+                    regexp: {
+                        regexp: /^[a-z\s]+$/i,
+                        message: 'The full name can consist of alphabetical characters and spaces only'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

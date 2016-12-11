@@ -1,0 +1,443 @@
+---
+layout: default
+title: Validate a zip code
+permalink: /validators/zipCode/
+prev:
+    url: /validators/vin/
+    title: vin validator
+next:
+    url: /examples/
+    title: Examples
+countries:
+    - country: United States
+      code: US
+      valid:
+        - "12345"
+      invalid:
+        - "123"
+    - country: Austria
+      code: AT
+      valid:
+        - "6020"
+        - "1010"
+        - "4853"
+      invalid:
+        - "0020"
+        - "12345"
+        - "102"
+        - "12AB"
+        - "AT 6020 XY"
+    - country: Bulgaria
+      code: BG
+    - country: Brazil
+      code: BR
+    - country: Canada
+      code: CA
+    - country: Czech Republic
+      code: CZ
+      valid:
+        - "12345"
+        - "123 45"
+      invalid:
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+    - country: Denmark
+      code: DK
+      valid:
+        - "DK-1234"
+      invalid:
+        - "DK 123"
+    - country: French
+      code: FR
+      valid:
+        - "12340"
+        - "01230"
+        - "75116"
+      invalid:
+        - "123 45"
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+        - "1234A"
+    - country: Germany
+      code: DE
+      valid:
+        - "52238"
+        - "01001"
+        - "09107"
+      invalid:
+        - "01000"
+        - "99999"
+        - "102"
+        - "ABCDE"
+        - "DE 52240 XY"
+    - country: India
+      code: IN
+      valid:
+        - "226024"
+        - "201014"
+        - "226 021"
+      invalid:
+        - "226-024"
+        - "11023"
+        - "A226023"
+    - country: Italy
+      code: IT
+      valid:
+        - "I-12345"
+        - "IT-12345"
+      invalid:
+        - "1234"
+    - country: Ireland
+      code: IE
+      valid:
+        - "A65 F4E2"
+        - "D6W FNT4"
+        - "T37 F8HK"
+      invalid:
+        - "a65 f4e2"
+        - "D6W FNTO"
+        - "T37F8HK"
+    - country: Morocco
+      code: MA
+    - country: Netherlands
+      code: NL
+      valid:
+        - "1234 ab"
+      invalid:
+        - "0123"
+    - country: Poland
+      code: PL
+      valid:
+        - "02-920"
+        - "00-002"
+        - "77-400"
+      invalid:
+        - "03456"
+        - "000-02"
+        - "AB-002"
+        - "12 345"
+    - country: Portugal
+      code: PT
+      valid:
+        - "2435-459"
+        - "1000-000"
+        - "1234-456"
+      invalid:
+        - "0123-456"
+        - "1234456"
+        - "1234-ABC"
+        - "1234 456"
+    - country: Romania
+      code: RO
+    - country: Russia
+      code: RU
+    - country: Singapore
+      code: SG
+    - country: Slovakia
+      code: SK
+      valid:
+        - "12345"
+        - "123 45"
+      invalid:
+        - "12 345"
+        - "123456"
+        - "1 2345"
+        - "1234 5"
+        - "12 3 45"
+    - country: Spain
+      code: ES
+      valid:
+        - "01234"
+        - "28080"
+        - "29004"
+        - "41023"
+      invalid:
+        - "0123"
+        - "99999"
+        - "102"
+        - "ABCD"
+        - "00000"
+    - country: Sweden
+      code: SE
+      valid:
+        - "S-12345"
+      invalid:
+        - "S-567 8"
+    - country: Switzerland
+      code: CH
+      valid:
+        - "8280"
+        - "8090"
+        - "8238"
+        - "9490"
+      invalid:
+        - "0123"
+        - "99999"
+        - "102"
+        - "ABCD"
+        - "CH-5224 XY"
+    - country: United Kingdom
+      code: GB
+      valid:
+        - "EC1A 1BB"
+        - "W1A 1HQ"
+        - "M1 1AA"
+        - "B33 8TH"
+        - "CR2 6XH"
+        - "DN55 1PT"
+        - "AI-2640"
+        - "ASCN 1ZZ"
+        - "GIR 0AA"
+related:
+    - phone
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>zipCode validator</h1>
+        <p>Validate a zip code</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>country</code><sup>*</sup></td>
+                                    <td><code>data-fv-zipcode-country</code></td>
+                                    <td>String</td>
+                                    <td>An ISO-3166 country code.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-zipcode-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-zipcode="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>Currently, the validator supports the following countries:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Country</th>
+                                    <th>Code</th>
+                                    <th>Valid examples</th>
+                                    <th>Invalid examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in page.countries %}
+                                <tr>
+                                    <td>{{ forloop.index }}</td>
+                                    <td>{{ item.country }}</td>
+                                    <td>{{ item.code }}</td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in item.valid %}
+                                            <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in item.invalid %}
+                                            <li><a href="javascript: void(0);" class="sample" data-country="{{ item.code }}">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>US zipcode</h3>
+                    <p>This validator supports 4 digits US zipcode. If you want a valid US zipcode to be 5 digits exactly, use the <a href="/validators/regexp/">regexp</a> validator:</p>
+{% highlight javascript %}
+$(document).ready(function() {
+    $('#postcodeForm').formValidation({
+        fields: {
+            postcode: {
+                validators: {
+                    regexp: {
+                        regexp: /^\d{5}$/,
+                        message: 'The US zipcode must contain 5 digits'
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>Using dynamic country option with different value</h3>
+                    <p>In the example above, the <code>country</code> option is set to the name of a country select box
+                        (<code>countrySelectBox</code>). It requires that value of country select box must be the country code as following:</p>
+
+{% highlight html %}
+<select class="form-control" name="countrySelectBox">
+    <option value="US">United States</option>
+    <option value="AT">Austria</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BR">Brazil</option>
+    <option value="CA">Canada</option>
+    <option value="CZ">Czech Republic</option>
+    ...
+</select>
+{% endhighlight %}
+
+                    <p>In the case that the <code>value</code> attribute of <code>option</code> can't exactly be the country code,
+                        instead, be a country name for example:</p>
+
+{% highlight html %}
+<select class="form-control" name="countrySelectBox">
+    <option value="United States">United States</option>
+    <option value="Austria">Austria</option>
+    <option value="Bulgaria">Bulgaria</option>
+    <option value="Brazil">Brazil</option>
+    <option value="Canada">Canada</option>
+    <option value="Czech Republic">Czech Republic</option>
+    ...
+</select>
+{% endhighlight %}
+
+                    <p>Then we need to set the <code>country</code> option as a callback function returning a country code based
+                    on the selected name:</p>
+
+{% highlight javascript %}
+$('#zipCodeForm').formValidation({
+    framework: 'bootstrap',
+    icon: {
+        ...
+    },
+    fields: {
+        postalCode: {
+            validators: {
+                zipCode: {
+                    country: function(value, validator, $field) {
+                        // Map the country names to the code
+                        var map = {
+                            'United States': 'US',
+                            'Austria': 'AT',
+                            'Bulgaria': 'BG',
+                            'Brazil': 'BR',
+                            'Canada': 'CA',
+                            'Czech Republic': 'CZ',
+                            'Denmark': 'DK',
+                            'French': 'FR',
+                            'Germany': 'DE',
+                            'India': 'IN',
+                            'Italy': 'IT',
+                            'Morocco': 'MA',
+                            'Netherlands': 'NL',
+                            'Poland': 'PL',
+                            'Portugal': 'PT',
+                            'Romania': 'RO',
+                            'Russia': 'RU',
+                            'Singapore': 'SG',
+                            'Slovakia': 'SK',
+                            'Spain': 'ES',
+                            'Sweden': 'SE',
+                            'Switzerland': 'CH',
+                            'United Kingdom': 'GB'
+                        };
+
+                        // Get the selected country
+                        var country = $('#zipCodeForm').find('[name="countrySelectBox"]').val();
+
+                        // Return the country code based on selected name
+                        return (country == '') ? '' : (map[country] || '');
+                    },
+                    message: 'The value is not valid %s postal code'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        This case happens when you can't control the value of country select box which might be generated by a back-end side or third party.
+                    </div>
+
+                    <p>You can take a look at the <em>Programmatic code</em> tab to see the full code:</p>
+
+                    {% include demo/tabs.html id="dynamic-country" frameworks="bootstrap" dir="dynamic-country" codes="programmatic" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var country    = $(this).attr('data-country'),
+            zipCode    = $(this).text(),
+            formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateZipCode(zipCode, country);
+
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

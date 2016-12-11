@@ -1,0 +1,21 @@
+<form id="colorHtml5Form" class="form-horizontal"
+      data-fv-framework="bootstrap"
+      data-fv-icon-valid="glyphicon glyphicon-ok"
+      data-fv-icon-invalid="glyphicon glyphicon-remove"
+      data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Color</label>
+        <div class="col-xs-5">
+            <input class="form-control" name="color"
+                   type="color"
+                   data-fv-color-message="The color code is not valid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#colorHtml5Form').formValidation();
+});
+</script>

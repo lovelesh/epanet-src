@@ -1,0 +1,136 @@
+<form id="basicFoundation5Form" class="fv-form-horizontal"
+    data-fv-framework="foundation5"
+    data-fv-icon-valid="fa fa-check"
+    data-fv-icon-invalid="fa fa-times"
+    data-fv-icon-validating="fa fa-refresh">
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline">Full name</label>
+        </div>
+        <div class="small-9 columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <input type="text" name="firstName" placeholder="First name"
+                        data-fv-row=".small-6"
+                        data-fv-notempty="true"
+                        data-fv-notempty-message="The first name is required"/>
+                </div>
+
+                <div class="small-6 columns">
+                    <input type="text" name="lastName" placeholder="Last name"
+                        data-fv-row=".small-6"
+                        data-fv-notempty="true"
+                        data-fv-notempty-message="The last name is required" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline">Username</label>
+        </div>
+        <div class="small-6 small-pull-3 columns">
+            <input type="text" name="username"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The username is required"
+
+                data-fv-stringlength="true"
+                data-fv-stringlength-min="6"
+                data-fv-stringlength-max="30"
+                data-fv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+                data-fv-regexp="true"
+                data-fv-regexp-regexp="^[a-zA-Z0-9_\.]+$"
+                data-fv-regexp-message="The username can only consist of alphabetical, number, dot and underscore" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline">Email address</label>
+        </div>
+        <div class="small-6 small-pull-3 columns">
+            <input type="text" name="email"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The email address is required"
+
+                data-fv-emailaddress="true"
+                data-fv-emailaddress-message="The input is not a valid email address" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline">Password</label>
+        </div>
+        <div class="small-6 small-pull-3 columns">
+            <input type="password" name="password"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The password is required"
+
+                data-fv-different="true"
+                data-fv-different-field="username"
+                data-fv-different-message="The password cannot be the same as username" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right">Gender</label>
+        </div>
+        <div class="small-9 columns">
+            <input type="radio" name="gender" value="male"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The gender is required" /><label>Male</label>
+            <input type="radio" name="gender" value="female" /><label>Female</label>
+            <input type="radio" name="gender" value="other" /><label>Other</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="right inline" id="captchaOperation"></label>
+        </div>
+        <div class="small-3 small-pull-6 columns">
+            <input type="text" name="captcha"
+                data-fv-callback="true"
+                data-fv-callback-callback="checkCaptcha"
+                data-fv-callback-message="Wrong answer" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-9 small-push-3 columns">
+            <input type="checkbox" name="agree" value="agree"
+                data-fv-notempty="true"
+                data-fv-notempty-message="You must agree with the terms and conditions" /> <label>Agree with the terms and conditions</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-9 small-push-3 columns">
+            <button type="submit" class="button small" name="signup" value="Sign up">Submit</button>
+        </div>
+    </div>
+</form>
+
+<script>
+// Check the captcha
+function checkCaptcha(value, validator, $field) {
+    var items = $('#captchaOperation').html().split(' '),
+        sum   = parseInt(items[0]) + parseInt(items[2]);
+    return value == sum;
+}
+
+$(document).ready(function() {
+    // Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+    $('#basicFoundation5Form').formValidation();
+});
+</script>

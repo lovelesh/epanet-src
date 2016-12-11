@@ -1,0 +1,172 @@
+<section>
+    <h2>Form settings</h2>
+
+    <p>Below is the list of settings for form sorted in alphabetical order:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Equivalent HTML attribute</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>autoFocus</code></td>
+                    <td><code>data-fv-autofocus</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>button</code></td>
+                    <td>
+                        <ul class="doc-list">
+                            <li><code>data-fv-button-selector</code></li>
+                            <li><code>data-fv-button-disabled</code></li>
+                        </ul>
+                    </td>
+                    <td>
+{% highlight javascript %}
+button: {
+    selector: '[type="submit"]',
+    disabled: ''
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>err</code></td>
+                    <td>
+                        <ul class="doc-list">
+                            <li><code>data-fv-err-clazz</code></li>
+                            <li><code>data-fv-err-container</code></li>
+                        </ul>
+                    </td>
+                    <td>
+{% highlight javascript %}
+err: {
+    clazz: '',
+    container: null
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>excluded</code></td>
+                    <td><code>data-fv-excluded</code></td>
+                    <td><code>[':disabled', ':hidden', ':not(:visible)']</code></td>
+                </tr>
+                <tr>
+                    <td><code>framework</code></td>
+                    <td><code>data-fv-framework</code></td>
+                    <td><code>bootstrap</code></td>
+                </tr>
+                <tr>
+                    <td><code>icon</code></td>
+                    <td>
+                        <ul class="doc-list">
+                            <li><code>data-fv-icon-valid</code></li>
+                            <li><code>data-fv-icon-invalid</code></li>
+                            <li><code>data-fv-icon-validating</code></li>
+                        </ul>
+                    </td>
+                    <td>
+{% highlight javascript %}
+{
+    valid: null,
+    invalid: null,
+    validating: null
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>live</code></td>
+                    <td><code>data-fv-live</code></td>
+                    <td><code>'enabled'</code></td>
+                </tr>
+                <tr>
+                    <td><code>message</code></td>
+                    <td><code>data-fv-message</code></td>
+                    <td><code>'This value is not valid'</code></td>
+                </tr>
+                <tr>
+                    <td><code>row</code></td>
+                    <td>
+                        <ul class="doc-list">
+                            <li><code>data-row-selector</code></li>
+                            <li><code>data-row-valid</code></li>
+                            <li><code>data-row-invalid</code></li>
+                        </ul>
+                    </td>
+                    <td>
+{% highlight javascript %}
+row: {
+    selector: null,
+    valid: '',
+    invalid: ''
+}
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>threshold</code></td>
+                    <td><code>data-fv-threshold</code></td>
+                    <td><code>null</code></td>
+                </tr>
+                <tr>
+                    <td><code>trigger</code></td>
+                    <td><code>data-fv-trigger</code></td>
+                    <td><code>null</code></td>
+                </tr>
+                <tr>
+                    <td><code>verbose</code></td>
+                    <td><code>data-fv-verbose</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>fields</code></td>
+                    <td>n/a</td>
+                    <td><code>null</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_autoFocus.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_button.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_err.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_excluded.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_framework.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_icon.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_live.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_message.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_row.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_threshold.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_trigger.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative form/_verbose.html %}
+</section>

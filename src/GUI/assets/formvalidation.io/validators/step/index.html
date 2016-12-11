@@ -1,0 +1,77 @@
+---
+layout: default
+title: Check if the value is valid step one
+permalink: /validators/step/
+prev:
+    url: /validators/siret/
+    title: siret validator
+next:
+    url: /validators/stringCase/
+    title: stringCase validator
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>step validator</h1>
+        <p>Check if the value is valid step one</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>baseValue</code></td>
+                                    <td><code>data-fv-step-base</code></td>
+                                    <td>Float</td>
+                                    <td>The base value, default to 0</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-step-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>step</code></td>
+                                    <td><code>data-fv-step-step</code></td>
+                                    <td>Float</td>
+                                    <td>The step, default to 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-step="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+                </section>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<form id="uriHtml5Form" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Your website</label>
+        <div class="col-xs-6">
+            <input class="form-control" name="website"
+                type="url"
+                data-fv-uri-message="The website address is not valid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#uriHtml5Form').formValidation();
+});
+</script>

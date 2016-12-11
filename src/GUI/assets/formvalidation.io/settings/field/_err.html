@@ -1,0 +1,56 @@
+<section>
+    <h3 id="field-err">err</h3>
+
+    <p><code>err: String|Function</code> &mdash; Indicate where the error messages are shown.</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSS selector</td>
+                    <td>Error messages are placed in element defined by this CSS selector</td>
+                </tr>
+                <tr>
+                    <td>A callback</td>
+                    <td>
+                        <p>A callback returns the element that the messages are placed in:</p>
+{% highlight javascript %}
+function($field, validator) {
+    // $field is the field element
+    // validator is the plugin instance
+};
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>tooltip</code></td>
+                    <td>Error messages are placed inside a tooltip.</td>
+                </tr>
+                <tr>
+                    <td><code>popover</code></td>
+                    <td>Error messages are placed inside a popover.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Example</h5>
+    <p>The following form illustrates an usage of the <code>err</code> option. The error messages are shown in the element defined by a CSS selector.</p>
+
+    {% include demo/tabs.html id="field-err" frameworks="bootstrap" dir="field/err" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a></li>
+        <li><a href="/examples/changing-tooltip-position">Changing tooltip's position</a></li>
+        <li><a href="/addons/recaptcha2/">Placing Google reCaptcha message in custom area</a></li>
+        <li><a href="/examples/showing-message-custom-area/#using-container-option">Showing messages in custom area</a></li>
+        <li><a href="/examples/using-tooltip-to-show-message/">Using tooltip to show message</a></li>
+        <li><a href="/examples/validating-checkbox-list-placed-multiple-columns/">Validating checkbox list placed in multiple columns</a></li>
+        <li><a href="/examples/validating-percentage-values/#showing-only-one-message">Validating percentage values</a></li>
+    </ul>
+</section>

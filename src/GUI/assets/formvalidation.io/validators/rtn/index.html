@@ -1,0 +1,117 @@
+---
+layout: default
+title: Validate a RTN (Routing transit number)
+permalink: /validators/rtn/
+prev:
+    url: /validators/remote/
+    title: remote validator
+next:
+    url: /validators/sedol/
+    title: sedol validator
+examples: 011103093, 067014822, 211274450, 211370545, 054001725, 011400071, 031201360, 026013673, 021302567, 053902197, 036001808, 011600033
+related:
+    - bic
+    - creditCard
+    - cvv
+    - iban
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>rtn validator</h1>
+        <p>Validate a RTN (Routing transit number)</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-rtn-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-rtn="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>RTN</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% assign examples = page.examples | split: ', ' %}
+                                {% for sample in examples %}
+                                <tr>
+                                    <td><a href="javascript: void(0);" class="sample">{{ sample }}</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateRtn($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

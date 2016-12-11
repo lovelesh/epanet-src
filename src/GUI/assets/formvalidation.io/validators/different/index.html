@@ -1,0 +1,136 @@
+---
+layout: default
+title: different validator
+permalink: /validators/different/
+prev:
+    url: /validators/date/
+    title: date validator
+next:
+    url: /validators/digits/
+    title: digits validator
+related:
+    - identical
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>different validator</h1>
+        <p>Return true if the input value is different with given field's value</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>field</code><sup>*</sup></td>
+                                    <td><code>data-fv-different-field</code></td>
+                                    <td>String</td>
+                                    <td>The name of field that will be used to compare with current one.<br/>You also can indicate many fields which names are separated by a comma.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-different-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-different="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        Take a look at the <a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a> example if you want to compare more than two fields at the same time
+                    </div>
+
+                    <p>From v0.6.0, you don't need to set different validator for all fields which you want them to be different to each other. For example, instead of using different validator for all fields as following</p>
+
+{% highlight javascript %}
+$('#differentForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        username: {
+            validators: {
+                different: {
+                    field: 'password',
+                    message: 'The username and password cannot be the same as each other'
+                }
+            }
+        },
+        password: {
+            validators: {
+                different: {
+                    field: 'username',
+                    message: 'The username and password cannot be the same as each other'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+                    <p>just set it to one of fields:</p>
+
+{% highlight javascript %}
+$('#differentForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        password: {
+            validators: {
+                different: {
+                    field: 'username',
+                    message: 'The username and password cannot be the same as each other'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <p>The plugin then will update the message, icon, status of fields properly when you change value any fields.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+                    <p>The registration form below doesn't allow the username and password to be the same:</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

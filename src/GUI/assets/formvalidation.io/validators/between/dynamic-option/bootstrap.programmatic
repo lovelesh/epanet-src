@@ -1,0 +1,53 @@
+<form id="dynamicOptionForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Number of floors</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="numFloors" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Your floor</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="floor" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#dynamicOptionForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                numFloors: {
+                    validators: {
+                        between: {
+                            min: 2,
+                            max: 100,
+                            message: 'The number of floors must be between 2 and 100'
+                        }
+                    }
+                },
+                floor: {
+                    validators: {
+                        between: {
+                            min: 1,
+                            max: 'numFloors',
+                            message: 'The number of floors must be between %s and %s'
+                        }
+                    }
+                }
+            }
+        })
+        // Revalidate the floor field when changing the number of floors
+        .on('keyup', '[name="numFloors"]', function(e) {
+            $('#dynamicOptionForm').formValidation('revalidateField', 'floor');
+        });
+});
+</script>

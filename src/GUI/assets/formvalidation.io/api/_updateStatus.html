@@ -1,0 +1,45 @@
+<section>
+    <h2 id="update-status">updateStatus</h2>
+
+    <p><code>updateStatus(field<sup>*</sup>, status<sup>*</sup>, validator): FormValidation</code> &mdash; Update validator result for given field</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>field</code></td>
+                    <td>String|jQuery</td>
+                    <td>The field name or field element</td>
+                </tr>
+                <tr>
+                    <td><code>status</code></td>
+                    <td>String</td>
+                    <td>Can be <code>NOT_VALIDATED</code>, <code>VALIDATING</code>, <code>INVALID</code> or <code>VALID</code></td>
+                </tr>
+                <tr>
+                    <td><code>validator</code></td>
+                    <td>String</td>
+                    <td>The validator name. If <code>null</code>, the method updates validity result for all validators</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a></li>
+        <li><a href="/examples/validating-start-end-datetimes/#comparing-times">Comparing times</a></li>
+        <li><a href="/validators/date/#disabling-date-example">Disabling date</a></li>
+        <li><a href="/examples/showing-custom-message-returned-from-server/">Showing custom message returned from server</a></li>
+        <li><a href="/examples/validating-credit-card-expiration-date/#using-two-separated-fields">Validating credit card expiration date</a></li>
+        <li><a href="/examples/validating-international-phone-numbers/#bonus-asking-number-to-match-given-type">Validating international phone numbers</a></li>
+        <li><a href="/examples/validating-percentage-values/">Validating percentage values</a></li>
+    </ul>
+</section>

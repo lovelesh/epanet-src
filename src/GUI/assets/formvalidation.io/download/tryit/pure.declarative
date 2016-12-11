@@ -1,0 +1,107 @@
+<form id="basicPureForm" class="pure-form pure-form-aligned"
+    data-fv-framework="pure"
+    data-fv-icon-valid="fa fa-check"
+    data-fv-icon-invalid="fa fa-times"
+    data-fv-icon-validating="fa fa-refresh">
+
+    <div class="pure-control-group">
+        <label>Full name</label>
+        <input name="firstName" type="text" placeholder="First name"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The first name is required" />
+    </div>
+
+    <div class="pure-control-group">
+        <label></label>
+        <input name="lastName" type="text" placeholder="Last name"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The last name is required" />
+    </div>
+
+    <div class="pure-control-group">
+        <label>Username</label>
+        <input name="username" type="text" placeholder="Username"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The username is required"
+
+            data-fv-stringlength="true"
+            data-fv-stringlength-min="6"
+            data-fv-stringlength-max="30"
+            data-fv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+            data-fv-regexp="true"
+            data-fv-regexp-regexp="^[a-zA-Z0-9_\.]+$"
+            data-fv-regexp-message="The username can only consist of alphabetical, number, dot and underscore" />
+    </div>
+
+    <div class="pure-control-group">
+        <label>Email address</label>
+        <input name="email" type="text" placeholder="Email address"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The email address is required"
+
+            data-fv-emailaddress="true"
+            data-fv-emailaddress-message="The input is not a valid email address" />
+    </div>
+
+    <div class="pure-control-group">
+        <label>Password</label>
+        <input name="password" type="password" placeholder="Password"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The password is required"
+
+            data-fv-different="true"
+            data-fv-different-field="username"
+            data-fv-different-message="The password cannot be the same as username" />
+    </div>
+
+    <div class="pure-control-group">
+        <label>Gender</label>
+        <input name="gender" type="radio" value="male"
+            data-fv-notempty="true"
+            data-fv-notempty-message="The gender is required" /> Male<br/>
+        <label></label>
+        <input name="gender" type="radio" value="female" /> Female<br/>
+        <label></label>
+        <input name="gender" type="radio" value="other" /> Other<br/>
+    </div>
+
+    <div class="pure-control-group">
+        <label id="captchaOperation"></label>
+        <input type="text" name="captcha"
+            data-fv-callback="true"
+            data-fv-callback-callback="checkCaptcha"
+            data-fv-callback-message="Wrong answer" />
+    </div>
+
+    <div class="pure-control-group">
+        <label></label>
+        <input name="agree" type="checkbox"
+            data-fv-notempty="true"
+            data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+    </div>
+
+    <div class="pure-control-group">
+        <label></label>
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </div>
+</form>
+
+<script>
+// Check the captcha
+function checkCaptcha(value, validator, $field) {
+    var items = $('#captchaOperation').html().split(' '),
+        sum   = parseInt(items[0]) + parseInt(items[2]);
+    return value == sum;
+}
+
+$(document).ready(function() {
+    // Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+    $('#basicPureForm').formValidation();
+});
+</script>

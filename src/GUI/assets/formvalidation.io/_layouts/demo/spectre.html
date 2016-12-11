@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include demo/head.html %}
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.1.25/spectre.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    {% bundle %}
+    - /vendor/formvalidation/css/formValidation.min.css
+    - /asset/framework/spectre/spectre.css
+    - /asset/css/demo.css
+    {% endbundle %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    {% bundle %}
+    - /vendor/formvalidation/js/formValidation.min.js
+    - /asset/framework/spectre/spectre.js
+    - /asset/js/demo.js
+    {% endbundle %}
+</head>
+<body class="demo-spectre">
+    <div class="container">
+        <div id="demoContainer">
+            {{ content }}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<form id="profileForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Birthday</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD"
+                data-fv-date="true"
+                data-fv-date-format="YYYY/MM/DD"
+                data-fv-date-message="The value is not a valid date" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#profileForm').formValidation();
+});
+</script>

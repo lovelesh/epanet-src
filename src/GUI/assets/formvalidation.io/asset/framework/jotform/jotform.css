@@ -1,0 +1,30 @@
+.fv-form-jotform .form-label-left {
+    width: 200px !important;
+}
+
+.fv-form-jotform .fv-help-block {
+    padding-top: 5px;
+}
+
+/* You can customize the color of success and error classes */
+.fv-form-jotform .fv-has-error .form-label,
+.fv-form-jotform .fv-has-error .fv-help-block,
+.fv-form-jotform .fv-has-error .fv-control-feedback {
+    color: red;
+}
+
+.fv-form-jotform .fv-has-success .form-label,
+.fv-form-jotform .fv-has-success .fv-control-feedback {
+    color: green;
+}
+
+/* Icon position */
+.fv-form-jotform .fv-control-feedback {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    top: 12px;
+}
+.fv-form-jotform .form-sub-label-container .fv-control-feedback {
+    top: 0;
+}

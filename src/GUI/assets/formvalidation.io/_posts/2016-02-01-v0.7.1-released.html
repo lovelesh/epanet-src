@@ -1,0 +1,61 @@
+---
+layout: post
+title: FormValidation v0.7.1 Released
+date: 2016-02-01 00:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New features</h3>
+
+<ul class="doc-list">
+    <li>#266: Add new <code>priority</code> option that allows to set the validator execution order</li>
+    <li>#275: Add <code>rst.field.fv</code> and <code>rst.form.fv</code> events that are triggered after calling <a href="/api/#reset-field">resetField()</a> and <a href="/api/#reset-form">resetForm()</a> methods, respectively</li>
+    <li>#291: The <a href="/validators/regexp/">regexp</a> validator provides new <code>flags</code> option to use in declarative mode</li>
+    <li>#313: The <a href="/validators/remote/">remote</a> validator supports synchronous via new <code>async</code> option</li>
+    <li>#393: The <a href="/validators/id/">id</a> validator now supports Turkish identification number</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li>#245: The <a href="/validators/mac/">mac</a> validator now supports all formats of IEEE 802 standards</li>
+    <li>#256: Support <a href="http://getuikit.com/docs/form-password.html">UIKit form-password</a> component</li>
+    <li>#308: The fields of <code>fields</code> option provided by the <a href="/validators/different/">different</a> validator can be separated by a comma with or without a space</li>
+    <li>#312: The <a href="/validators/phone/">phone</a> validator adds support for (123) 456-7890 US phone numbers</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li>#311: Fix an issue caused by the <a href="/validators/date/">date</a> validator when the <code>min</code>, <code>max</code> options follows the same format as <code>format</code></li>
+    <li>#324: The <a href="/validators/numeric/">numeric</a> validator accepts numbers without a preceding zero</li>
+    <li>#395: The <a href="/validators/ein/">ein</a> validator now supports identification numbers that start with "47-"</li>
+    <li>#410: Fix the typo in German language package</li>
+    <li>#465: The <a href="/api/#update-message">updateMessage()</a> method doesn't work properly if the <a href="/settings/#form-err">selector</a> contains multiple class names</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>#261: Add <a href="/examples/showing-messages-modal/">Showing messages in a modal</a> example</li>
+    <li>#270: Update the <a href="/examples/geocomplete/">geocomplete</a> example</li>
+    <li>#279: <a href="/examples/fuel-ux-wizard/#not-validating-current-step-when-going-to-previous-one">Not validating current step when going to previous one</a></li>
+    <li>#320: Add <a href="/examples/bootstrap-datepicker/#embedding-a-date-picker">Embedding a Bootstrap Datepicker</a> example</li>
+    <li>#335: Don't validate when clicking the previous button of <a href="/examples/jquery-steps/#not-validating-current-step-when-going-to-previous-one">jQuery Steps</a></li>
+    <li>#346: Suggest the valid email address when <a href="/examples/using-mailgun-api-validate-email-address/">using Mailgun API to validate email address</a></li>
+    <li>#348: Add <a href="/examples/bootstrap-touchspin/">Playing with Bootstrap Touchspin</a> example</li>
+    <li>#351: Add <a href="/examples/validating-checkbox-list-placed-multiple-columns/">Validating checkbox list placed in multiple columns</a> example</li>
+    <li>#384: Add <code>jpg</code> extension to the file validator example</li>
+    <li>#425: Add <a href="/examples/toggling-validators-master-page/">Toggling validators in a master page</a> example</li>
+    <li>#435: Fix the <a href="/validators/date/#date-range-example">date range</a> example</li>
+    <li>#438: Add <a href="/examples/awesome-bootstrap-checkbox/">Playing with Awesome Bootstrap Checkbox</a> example</li>
+    <li>#439: Add <a href="/examples/validating-credit-card-expiration-date/#supporting-two-digits-year">Supporting two digits expiration year</a> example</li>
+    <li>#441: Add <a href="/validators/creditCard/#accept-test-credit-card-numbers">Accept test credit card numbers</a> example</li>
+    <li>#454: Add <a href="/examples/bootstrap-tab/#activating-tab-containing-invalid-field">Activating tab containing invalid field</a> example</li>
+    <li>#463: Add <a href="/examples/using-google-material-icons/">Using Google material icons</a> example</li>
+    <li>Add <a href="/examples/supporting-multiple-date-formats/">Supporting multiple date formats</a> example</li>
+    <li>Add <a href="/examples/validating-international-phone-numbers/">Validating international phone numbers</a> example</li>
+    <li>Fix the <code>icons</code> typo in the <a href="/settings/#settings-structure">Settings structure</a> section</li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.7.1">FormValidation v0.7.1</a>
+</div>

@@ -1,0 +1,266 @@
+---
+layout: default
+title: i18n add-on
+permalink: /addons/i18n/
+image: /addons/i18n/cover.png
+file: "i18n-v0.1.1.zip"
+download: "https://github.com/formvalidation/addon-i18n/releases/download/v0.1.1/i18n-v0.1.1.zip"
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>i18n add-on</h1>
+        <p>Support defining messages in multiple languages</p>
+        <p>&larr; <a href="/addons/">Add-ons</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <p>As you already knew, you can use the <a href="/settings/#validator-message">message</a> option to indicate error message for each validator:</p>
+
+{% highlight javascript %}
+$(form).formValidation({
+    fields: {
+        userName: {
+            validators: {
+                notEmpty: {
+                    message: '...'
+                },
+                stringLength: {
+                    message: '...'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+                    <p>This i18n add-on allows to define messages in different languages. Below is a step by step instruction showing how to use the i18n add-on.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Including the add-on</h2>
+                    <ul class="doc-list">
+                        <li>Download the <a href="{{ page.download }}" class="addonDownloadButton" data-placement="bottom" data-container="body">i18n</a> add-on</li>
+                        <li>Include <code>i18n.min.js</code> (located in the <code>dist</code> directory) to your page. Ensure that it's placed after <code>formValidation(.min).js</code></li>
+                    </ul>
+{% highlight html %}
+<!-- FormValidation plugin -->
+<script src="/vendor/formvalidation/dist/js/formValidation.min.js"></script>
+
+<!-- Add-ons. You should place it inside /vendor/formvalidation/dist/js/addons directory -->
+<script src="/vendor/formvalidation/dist/js/addons/i18n.min.js"></script>
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Calling the add-on</h2>
+                    <p>It's possible to call the add-on in both programmatic and declarative ways:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#programmatic-tab" data-toggle="tab">Programmatic code</a></li>
+                            <li><a href="#declarative-tab" data-toggle="tab">Declarative code</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="programmatic-tab">
+{% highlight javascript %}
+$(form).formValidation({
+    framework: '...',
+    icon: {
+        ...
+    },
+    addOns: {
+        i18n: {}
+    },
+    fields: {
+        ...
+    }
+});
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="declarative-tab">
+                                <div class="doc-alert doc-alert-info">
+                                    <p>If you want to use multiple add-ons, just simply separate them by a comma in data-fv-addons attribute:</p>
+                                    <p>data-fv-addons="i18n, mandatoryIcon, recaptcha2"</p>
+                                </div>
+
+{% highlight html %}
+<form id="signUpForm" method="post" class="form-horizontal"
+    data-fv-addons="i18n">
+    ...
+</form>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>You even don't need to set any option for the i18n add-on.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Defining messages</h2>
+
+                    <p>The languages are distinguished by locales. A locale is combination of <code>countrycode_LANGUAGECODE</code>. Here <strong>countrycode</strong>
+                    and <strong>LANGUAGECODE</strong> are the ISO 3166 country and language codes in lowercase and uppercase respectively.</p>
+                    <p>en_US (default), fr_FR, de_DE, vi_VN are some examples.</p>
+
+                    <p>The i18n add-on provides three ways to define messages in different languages.</p>
+
+                    <h3>Using language packages</h3>
+                    <p>There are many supported <a href="/getting-started/#language-packages">language packages</a> which provide the translation of default validator message in given language.</p>
+                    <p>All of them are placed inside the <code>js/language</code> directory.</p>
+                    <p>In order to <a href="/examples/using-language-package/">use</a> them, you only need to include the language file:</p>
+
+{% highlight html %}
+<script type="text/javascript" src="/vendor/formvalidation/dist/js/formValidation.js"></script>
+<script type="text/javascript" src="/vendor/formvalidation/dist/js/framework/bootstrap.js"></script>
+
+<!--
+You can include many language packages as you want. Their order don't matter
+as you ensure that they are loaded after formValidation(.min).js
+-->
+<script type="text/javascript" src="/vendor/formvalidation/dist/js/language/de_DE.js"></script>
+<script type="text/javascript" src="/vendor/formvalidation/dist/js/language/fr_FR.js"></script>
+<script type="text/javascript" src="/vendor/formvalidation/dist/js/language/vi_VN.js"></script>
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        It's not necessary to include the English package (en_US.js). It's default locale and the English messages are already included in the formValidation(.min).js file
+                    </div>
+
+                    <h3>Using literal object</h3>
+                    <p>By default, <code>message</code> must be a string. With the i18 add-on, you can use a Javascript literal object which maps the locale with associating message:</p>
+
+{% highlight javascript %}
+$(form).formValidation({
+    fields: {
+        fieldName: {
+            validators: {
+                validatorName: {
+                    message: {
+                        en_US: 'The message in English',
+                        fr_FR: 'The message in French'
+                    }
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <h3>Using a callback function</h3>
+                    <p>You also can use a callback function that returns the literal object as above:</p>
+
+{% highlight javascript %}
+$(form).formValidation({
+    fields: {
+        fieldName: {
+            validators: {
+                validatorName: {
+                    message: function(validator, $field, validatorName) {
+                        // validator is the plugin instance
+                        // $field is the field element
+                        // validatorName is the name of current validator
+                        return {
+                            en_US: 'The message in English',
+                            fr_FR: 'The message in French'
+                        };
+                    }
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Switching languages</h2>
+
+                    <p>The previous section introduces various ways to define the message in different locales.</p>
+                    <p>To switch messages between them (via a switcher control, for example), you need to call the <code>setLocale()</code> method:</p>
+
+{% highlight javascript %}
+// Switch messages to French
+$(form).formValidation('setLocale', 'fr_FR');
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>The following example uses all of three ways above to define the messages in different languages.
+                        It's up to you to choose any way in a multilingual website.</p>
+
+                    {% include demo/tabs.html id="demo" frameworks="bootstrap" codes="programmatic" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Change log</h2>
+
+                    <ul class="doc-list">
+                        <li>
+                            <p>v0.1.1:</p>
+                            <ul class="doc-list">
+                                <li>Fix the issue when using with validators supporting dynamic message such as the <a href="/validators/stringLength/">stringLength</a></li>
+                            </ul>
+                        </li>
+                        <li>v0.1.0: First release</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                <div class="doc-addon">
+                    <div class="doc-addon-image"><img class="img-responsive" src="/addons/i18n/cover.png" alt="FormValidation i18n add-on" /></div>
+
+                    <div class="doc-addon-meta">
+                        <a href="{{ page.download }}" class="btn btn-success addonDownloadButton" data-placement="bottom" data-container="body"><i class="fa fa-download"></i> {{ page.file }}</a>
+                    </div>
+                </div>
+
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    var ADDON_NAME = 'i18n';
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'https://api.github.com/repos/formvalidation/addon-i18n/releases',
+        success: function(response) {
+            var total = 0;
+            if (response.data) {
+                for (var i in response.data) {
+                    for (var j in response.data[i].assets) {
+                        if (response.data[i].assets[j].name.substr(0, ADDON_NAME.length) === ADDON_NAME) {
+                            total += (response.data[i].assets[j].download_count || 0);
+                        }
+                    }
+                }
+            }
+            $('.addonDownloadButton').attr('data-title', total + (total <= 1 ? ' download' : ' downloads')).tooltip();
+        }
+    })
+});
+</script>

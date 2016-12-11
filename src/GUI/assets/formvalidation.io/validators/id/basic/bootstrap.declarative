@@ -1,0 +1,63 @@
+<form id="idForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Country</label>
+        <div class="col-xs-6">
+            <select class="form-control" name="countrySelectBox">
+                <option value="BA">Bosnia and Herzegovina</option>
+                <option value="BR">Brazil</option>
+                <option value="BG">Bulgari</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="HR">Croatia</option>
+                <option value="CZ">Czech</option>
+                <option value="DK">Denmark</option>
+                <option value="EE">Estonia</option>
+                <option value="FI">Finland</option>
+                <option value="IS">Iceland</option>
+                <option value="IE">Ireland</option>
+                <option value="LV">Latvia</option>
+                <option value="LT">Lithuania</option>
+                <option value="MK">Macedonia</option>
+                <option value="ME">Montenegro</option>
+                <option value="NL">Netherlands</option>
+                <option value="PL">Poland</option>
+                <option value="RO">Romania</option>
+                <option value="SM">San Marino</option>
+                <option value="RS">Serbia</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="ZA">South Africa</option>
+                <option value="ES">Spain</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="TH">Thailand</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">ID number</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="idNumber"
+                data-fv-id="true"
+                data-fv-id-country="countrySelectBox"
+                data-fv-id-message="The value is not valid %s ID" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#idForm')
+        .formValidation()
+        // Revalidate ID number when changing the country
+        .on('change', '[name="countrySelectBox"]', function(e) {
+            $('#idForm').formValidation('revalidateField', 'idNumber');
+        });
+});
+</script>

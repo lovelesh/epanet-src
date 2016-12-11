@@ -1,0 +1,60 @@
+---
+layout: post
+title: FormValidation v0.8.0 is released, supports Bootstrap 4 alpha and Foundation 6
+date: 2016-06-27 00:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>Highlight <i class="fa fa-star"></i></h3>
+<p>This version of <a href="/download/">FormValidation</a> works with the latest versions of supported frameworks, including:</p>
+<ul class="doc-list">
+    <li>#512: Foundation v6</li>
+    <li>#616: <a href="http://v4-alpha.getbootstrap.com/">Bootstrap v4 (alpha 2)</a> by setting <code>framework: 'bootstrap4'</code></li>
+    <li>PureCSS v0.6.0</li>
+    <li>Semantic UI v2.1.8</li>
+    <li>UIKit v2.26.3</li>
+</ul>
+
+<h3>Changes</h3>
+<p>If you want to try <a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4 alpha 2</a> or still want to use <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/">Foundation 5</a>, you need to follow the <a href="/news/upgrading-to-v0-8-0/">upgrading to v0.8.0</a> guide</p>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li>#536, #613: The <a href="/validators/creditCard/">creditCard</a> validator now supports more card types (Dankort, Elo, Forbrugsforeningen, Maestro International, Visa Electron)</li>
+    <li>#546: The <a href="/validators/ip/">ip</a> validator now supports <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a></li>
+    <li>#556: Return more information of the <a href="/validators/file/">file</a> validator result, so user can display associated message if the selected file doesn't match given extension, type or size</li>
+    <li>#607: Pass <code>validator</code> along to the <a href="/settings/#event-field">status.field.fv</a> event</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li>#315, #600: Using <code>formnovalidate</code> attribute causes IE to send two postbacks to server, thanks to <a href="https://github.com/dtkujawski">@dtkujawski</a></li>
+    <li>#364, #593, #611: Form cannot submit with <a href="/settings/#form-live">live</a> mode disabled (<code>live: 'disabled'</code>) and form has some radios/checkboxes</li>
+    <li>#488: Fix an exception when calling <a href="/api/#destroy">destroy()</a> if a field is replaced manually</li>
+    <li>#501: The <a href="/validators/cvv/">cvv</a> validator doesn't work properly if we transform the credit card value</li>
+    <li>#599: The <a href="/validators/phone/">phone</a> validator should accept valid US phones such as 999 999 9999</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>Fix missing comma on the <a href="/validators/remote/">remote</a> validator page, thanks to <a href="https://github.com/letalumil">@letalumil</a></li>
+    <li>The <a href="/developing/">custom validator</a> object should be encapsulated by the <code>validators</code> object, thanks to <a href="https://github.com/lumberjackchester">@lumberjackchester</a></li>
+    <li>#137: How to use <a href="/validators/zipCode/#using-dynamic-country-option-with-different-value">dynamic country option with different value</a> for <a href="/validators/zipCode/">zipCode</a> validator</li>
+    <li>#433, #464: Add <a href="/examples/building-password-strength-meter/">Building a password strength meter with Dropbox's zxcvbn libary</a> example</li>
+    <li>#470: Fix the <a href="/settings/#form-settings">err option</a> typo</li>
+    <li>#474: Add <a href="/examples/ckeditor/#multiple-editors">Validating multiple CKEditor instances</a> example</li>
+    <li>#521: Add <a href="/examples/using-hidden-field-technique/">Using hidden field technique</a> example</li>
+    <li>#540: Add <a href="/validators/regexp/#validating-social-account-url">Validating social account URL</a> example</li>
+    <li>#548: Fix the broken link in the <a href="/examples/bootstrap-tagsinput/">Playing with Bootstrap Tags Input</a> example</li>
+    <li>#549: Update the <a href="/examples/summernote/">summernote</a> example to work with summernote v0.8.1</li>
+    <li>#564: Add <a href="/examples/using-hint-library-show-message/">Using hint library to show message</a> example</li>
+    <li>#565: Add <a href="/examples/using-balloon-css-library-show-message/">Using Balloon CSS library to show message</a> example</li>
+    <li>#571: Add <a href="/examples/bootstrap-datepicker/#auto-closing-the-date-picker">Auto closing the date picker</a> example</li>
+    <li>#608: Add <a href="/examples/preventing-user-have-same-value-placeholder/">Preventing user to have same value as the placeholder</a> example</li>
+    <li>#615: Update <a href="/examples/raty/">Raty</a> example to support its latest version</li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.8.0">FormValidation v0.8.0</a>
+</div>

@@ -1,0 +1,25 @@
+---
+layout: compress
+---
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include head.html %}
+</head>
+<body>
+    {% include nav.html %}
+
+    <div id="main" class="doc-content-wrapper">
+        {% include notification.html %}
+
+        {{ content }}
+
+        {% include footer.html %}
+    </div>
+
+{% bundle %}
+- /vendor/tocjs/js/toc.min.js
+- /asset/js/app.js
+{% endbundle %}
+</body>
+</html>

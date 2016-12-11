@@ -1,0 +1,39 @@
+<section>
+    <h3 id="validator-transformer">transformer</h3>
+
+    <p><code>transformer: Function</code> &mdash; Modify the field value before validating.</p>
+
+{% highlight javascript %}
+transformer: function($field, validatorName, validator) {
+    // $field is the jQuery object presenting the field element
+    // validatorName is the name of current validator
+    // validator is the instance of plugin
+
+    // You can get the field value
+    var value = $field.val();
+
+    // Modify it
+    // ...
+
+    // ... and return
+    return value;
+}
+{% endhighlight %}
+
+    <div class="doc-alert doc-alert-info">
+        FormValidation only uses the value returned by the transformer option for validating.
+        It does NOT send the modified value to the server when submitting the form
+    </div>
+
+    <h5>Example</h5>
+    <p>The following form accepts a website address without <strong>http://</strong> or <strong>https://</strong> prefix.</p>
+    <p>By default, these kind of URLs don't pass the <a href="/validators/uri/">uri</a> validators. Applying the <code>transformer</code> option for the uri validator, we can make it pass.</p>
+
+    {% include demo/tabs.html id="validator-transformer-uri" frameworks="bootstrap" dir="validator/transformer-uri" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/validators/creditCard/#accept-test-credit-card-numbers">Accept test credit card numbers</a></li>
+        <li><a href="/examples/modifying-value-before-validating/">Modifying the value before validating</a></li>
+        <li><a href="/examples/validating-credit-card-expiration-date/#supporting-two-digits-year">Validating credit card expiration date</a></li>
+    </ul>
+</section>

@@ -1,0 +1,57 @@
+<link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<style type="text/css">
+#datetimeForm .has-feedback .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
+</style>
+
+<script src="//oss.maxcdn.com/momentjs/2.8.2/moment.min.js"></script>
+<script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<form id="datetimeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">DateTime Picker</label>
+        <div class="col-xs-5">
+            <div class="input-group date" id="datetimePicker">
+                <input type="text" class="form-control" name="datetimePicker" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#datetimePicker').datetimepicker();
+
+    $('#datetimeForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            datetimePicker: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date is required and cannot be empty'
+                    },
+                    date: {
+                        format: 'MM/DD/YYYY h:m A'
+                    }
+                }
+            }
+        }
+    });
+
+    $('#datetimePicker')
+        .on('dp.change dp.show', function (e) {
+            // Revalidate the date when user change it
+            $('#datetimeForm').formValidation('revalidateField', 'datetimePicker');
+        });
+});
+</script>

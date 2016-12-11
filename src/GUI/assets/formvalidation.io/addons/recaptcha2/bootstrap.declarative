@@ -1,0 +1,92 @@
+<!-- FormValidation plugin and the class supports validating Bootstrap form -->
+<script src="/vendor/formvalidation/dist/js/formValidation.min.js"></script>
+<script src="/vendor/formvalidation/dist/js/framework/bootstrap.min.js"></script>
+
+<!-- reCaptcha2 add-on -->
+<script src="/vendor/formvalidation/dist/js/addons/reCaptcha2.min.js"></script>
+
+<form id="signUpForm" method="post" class="form-horizontal"
+    data-fv-addons="reCaptcha2"
+    data-fv-addons-recaptcha2-element="captchaContainer"
+    data-fv-addons-recaptcha2-theme="light"
+    data-fv-addons-recaptcha2-timeout="120"
+    data-fv-addons-recaptcha2-sitekey="6LdgOwETAAAAALA9auuNVKFeXizXcYFrKOVC_vs-"
+    data-fv-addons-recaptcha2-message="The captcha is not valid"
+
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Username</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="username"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The username is required"
+
+                data-fv-stringlength="true"
+                data-fv-stringlength-min="6"
+                data-fv-stringlength-max="30"
+                data-fv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+                data-fv-regexp="true"
+                data-fv-regexp-regexp="^[a-zA-Z0-9_\.]+$"
+                data-fv-regexp-message="The username can only consist of alphabetical, number, dot and underscore" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Email address</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="email"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The email address is required"
+
+                data-fv-emailaddress="true"
+                data-fv-emailaddress-message="The input is not a valid email address" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-6">
+            <input type="password" class="form-control" name="password"
+                data-fv-notempty="true"
+                data-fv-notempty-message="The password is required"
+
+                data-fv-different="true"
+                data-fv-different-field="username"
+                data-fv-different-message="The password cannot be the same as username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Captcha</label>
+        <div class="col-xs-8">
+            <!-- The captcha container -->
+            <div id="captchaContainer"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#signUpForm').formValidation();
+
+    $('#resetButton').on('click', function() {
+        // Reset the recaptcha
+        FormValidation.AddOn.reCaptcha2.reset('captchaContainer');
+
+        // Reset form
+        $('#signUpForm').formValidation('resetForm', true);
+    });
+});
+</script>

@@ -1,0 +1,30 @@
+<form id="bicForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">BIC</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="bic" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#bicForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            bic: {
+                validators: {
+                    bic: {
+                        message: 'The value is not valid BIC'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

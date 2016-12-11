@@ -1,0 +1,32 @@
+<form id="stringLengthForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Full name</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="fullName"
+                data-fv-stringlength="true"
+                data-fv-stringlength-max="50"
+                data-fv-stringlength-message="The full name must be less than 50 characters" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Bio</label>
+        <div class="col-xs-6">
+            <textarea rows="5" class="form-control" name="bio"
+                data-fv-stringlength="true"
+                data-fv-stringlength-max="200"
+                data-fv-stringlength-message="The bio must be less than 200 characters"></textarea>
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#stringLengthForm').formValidation();
+});
+</script>

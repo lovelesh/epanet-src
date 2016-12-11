@@ -1,0 +1,21 @@
+<form id="einForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">EIN</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="ein"
+                data-fv-ein="true"
+                data-fv-ein-message="The value is not valid EIN" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#einForm').formValidation();
+});
+</script>

@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: grid validator &rarr; Basic example
+permalink: /validators/grid/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateGrid(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="grid"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'grid');
+
+    return $form.data('formValidation').isValidField('grid');
+}
+</script>

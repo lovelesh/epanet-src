@@ -1,0 +1,130 @@
+<section>
+    <h3 id="event-validator">Validator events</h3>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>err.validator.fv</code></td>
+                    <td>Triggered when field doesn't pass given validator</td>
+                </tr>
+                <tr>
+                    <td><code>success.validator.fv</code></td>
+                    <td>Triggered when field passes given validator</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Listening to event</td>
+                    <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .formValidation(options)
+
+        .on('err.validator.fv', function(e, data) {
+            // $(e.target)    --> The form instance
+            // data.field     --> The field name
+            // data.element   --> The field element
+            // data.validator --> The validator name
+
+            // Do something ...
+        })
+
+        .on('success.validator.fv', function(e, data) {
+            // The e parameter is the same as one
+            // in the err.validator.fv event above
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Using option</td>
+                    <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .formValidation({
+            fields: {
+                email: {
+                    validators: {
+                        emailAddress: {
+                            onError: function(e, data) {
+                                // Do something ...
+                            },
+                            onSuccess: function(e, data) {
+                                // Do something ...
+                            },
+                            // ... other validator options ...
+                        }
+                    }
+                }
+            }
+        });
+});
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Using HTML 5 attributes</td>
+                    <td>
+{% highlight html %}
+<form>
+    ...
+    <input type="text" name="email" class="form-control"
+        data-fv-emailaddress="true"
+        data-fv-emailaddress-onerror="onEmailAddressError"
+        data-fv-emailaddress-onsuccess="onEmailAddressSuccess" />
+    ...
+</form>
+{% endhighlight %}
+
+{% highlight javascript %}
+function onEmailAddressError(e, data) {
+    // Do something ...
+};
+
+function onEmailAddressSuccess(e, data) {
+    // Do something ...
+};
+
+$(document).ready(function() {
+    $(form).formValidation(options);
+});
+{% endhighlight %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Examples</h5>
+        <ul class="doc-list">
+            <li><a href="/examples/adding-warning-validation-state/">Adding warning validation state</a></li>
+            <li><a href="/examples/showing-one-message/">Showing only one message each time</a></li>
+            <li><a href="/examples/using-data-returned-validator/">Using data returned by validator</a></li>
+            <li><a href="/examples/using-mailgun-api-validate-email-address/">Using Mailgun API to validate email address</a></li>
+            <li><a href="/examples/validating-international-phone-numbers/#bonus-asking-number-to-match-given-type">Validating international phone numbers</a></li>
+        </ul>
+    </section>
+</section>

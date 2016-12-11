@@ -1,0 +1,32 @@
+- title: "FormValidation v0.8.1 is released, supports Bootstrap 4 alpha 3"
+  url: "/news/v0-8-1-released-supports-bootstrap-4-alpha-3/"
+
+- title: "FormValidation v0.8.0 is released, supports Bootstrap 4 alpha and Foundation 6"
+  url: "/news/v0-8-0-released-supports-bootstrap-4-alpha-foundation-6/"
+
+- title: "Supporting Spectre framework"
+  url: "/examples/supporting-spectre-framework/"
+
+- title: "Preventing user to have same value as the placeholder"
+  url: "/examples/preventing-user-have-same-value-placeholder/"
+
+- title: "Using hint library to show message"
+  url: "/examples/using-hint-library-show-message/"
+
+- title: "Using hidden field technique"
+  url: "/examples/using-hidden-field-technique/"
+
+- title: "Using Balloon CSS library to show message"
+  url: "/examples/using-balloon-css-library-show-message/"
+
+- title: "Building a password strength meter with Dropbox zxcvbn libary"
+  url: "/examples/building-password-strength-meter/"
+
+- title: "Validating checkbox list placed in multiple columns"
+  url: "/examples/validating-checkbox-list-placed-multiple-columns/"
+
+- title: "Using Google material icons"
+  url: "/examples/using-google-material-icons/"
+
+- title: "Validating an embed Bootstrap Datepicker"
+  url: "/examples/bootstrap-datepicker/#embedding-a-date-picker"

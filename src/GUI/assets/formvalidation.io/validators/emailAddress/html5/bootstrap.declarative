@@ -1,0 +1,21 @@
+<form id="emailAddressHtml5Form" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Email address</label>
+        <div class="col-xs-7">
+            <input class="form-control" name="email"
+                type="email"
+                data-fv-emailaddress-message="The value is not a valid email address" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#emailAddressHtml5Form').formValidation();
+});
+</script>

@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>{{ page.title }}</h1>
+
+        <div class="doc-post-meta">
+            <img src="https://github.com/{{ page.author }}.png" />
+            <p>{{ page.date | date_to_string }}</p>
+        </div>
+
+        <p>&larr; <a href="/news/">News</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="doc-post-content">
+                    {{ content }}
+                </div>
+
+                <div class="doc-pagination">
+                    {% if page.previous.url %}
+                        <a href="{{ page.previous.url }}" class="doc-pagination-older">&larr; PREVIOUS</a>
+                    {% else %}
+                        <span class="doc-pagination-older">&larr; PREVIOUS</span>
+                    {% endif %}
+
+                    {% if page.next.url %}
+                        <a href="{{ page.next.url }}" class="doc-pagination-newer">NEXT &rarr;</a>
+                    {% else %}
+                        <span class="doc-pagination-newer">NEXT &rarr;</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

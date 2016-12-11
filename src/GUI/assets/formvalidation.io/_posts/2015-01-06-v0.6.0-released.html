@@ -1,0 +1,150 @@
+---
+layout: post
+title: FormValidation v0.6.0 Released
+date: 2015-01-06 08:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>New name</h3>
+<p>From v0.6.0, the plugin has new name: <strong>FormValidation</strong>. It supports validating form created by many frameworks including</p>
+<ul class="doc-list">
+    <li><a href="http://getbootstrap.com">Bootstrap</a></li>
+    <li><a href="http://foundation.zurb.com/">Foundation</a></li>
+    <li><a href="http://purecss.io/">Pure</a></li>
+    <li><a href="http://semantic-ui.com/">Semantic UI</a></li>
+    <li><a href="http://getuikit.com/">UIKit</a></li>
+</ul>
+
+<div class="doc-alert doc-alert-info">
+    <a href="/news/upgrading-to-v0.6.0/">Upgrading guide</a> shows the step by step instructions to upgrade from v0.5.3 to v0.6.0
+</div>
+
+<h3>Highlight <i class="fa fa-star"></i></h3>
+<ul class="doc-list">
+    <li>#744: Add <a href="/settings/#validator-transformer">transformer</a> option, allowing to hook the value of field before validating</li>
+    <li>#1131: Support add-on</li>
+    <li>#1204: Support Zurb Foundation framework</li>
+    <li>#1210: Support UI Kit framework</li>
+    <li>#1211: Support Semantic UI framework</li>
+    <li>#1212: Support Pure framework</li>
+</ul>
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li>#708, #899: Add <code>setLocale()</code> and <code>getLocale()</code> methods to support multiple languages</li>
+    <li>#718: Add <a href="/api/#validate-container">validateContainer()</a> method</li>
+    <li>#1140: Add UAE <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/s-a-y">@s-a-y</a></li>
+    <li>#1153: Add <a href="/validators/ein/">EIN</a> validator, thanks to <a href="https://github.com/joshuachestang">@joshuachestang</a></li>
+    <li>#1165: Add <a href="/validators/bic/">BIC (ISO 9362)</a> validator, thanks to <a href="https://github.com/thomaslhotta">@thomaslhotta</a></li>
+    <li>#1185: Add <code>composer.json</code> file, thanks to <a href="https://github.com/rbnvrw">@rbnvrw</a></li>
+    <li>#1189, #1194: Add <a href="/settings/#form-err">err</a>, <a href="/settings/#form-icon">icon</a>, <a href="/settings/#form-row">row</a> options</li>
+    <li>#1207: Add Spanish <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/ethernet-zero">@ethernet-zero</a></li>
+    <li>#1208: Support Spanish <a href="/validators/id/">CIF</a> validator, thanks to <a href="https://github.com/ethernet-zero">@ethernet-zero</a></li>
+    <li>#1227, #1229: Add India <a href="/validators/phone/">phone number</a> validator, thanks to <a href="https://github.com/waveking">@waveking</a></li>
+    <li>#1230, #1231: Add India <a href="/validators/zipCode/">postal code</a> validator, thanks to <a href="https://github.com/waveking">@waveking</a></li>
+</ul>
+
+<h3>Changes</h3>
+<ul class="doc-list">
+    <li>#1167: Remove hexColor validator. Use <a href="/validators/color/">color</a> validator instead</li>
+    <li>#1272: Change event <code>error.x.x</code> to <code>err.x.x</code> to avoid <code>window.onerror</code> being invoked by jQuery</li>
+    <li>Remove tab behavior from base class</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li>#883: Look for the field inside form first when using selector, thanks to <a href="https://github.com/drebrez">@drebrez</a></li>
+    <li>#908, #1156: Add <code>allowEmptyProtocol</code> option to set optional protocol in <a href="/validators/uri/#options">uri</a> validator, thanks to <a href="https://github.com/krecik">@krecik</a></li>
+    <li>#914, #1035, #1163: Improve <a href="/validators/identical/">identical</a> validator, thanks to <a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li>#1037: <a href="/validators/creditCard/#showing-card-icon">Show the credit card icon</a> based on its type</li>
+    <li>#1083, #1092: Showing tooltip/popover when moving over or clicking the feedback icon (Bootstrap 3.3.0), thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1137: Use <code>jQuery</code> instead of <code>window.jQuery</code></li>
+    <li>#1154: Allow to reuse data which is returned by the validator</li>
+    <li>#1177: Don't need to set the <a href="/validators/different/">different</a> validator for both fields</li>
+    <li>#1186, #1188: Improve the <a href="/validators/id/">CPF</a> validator, thanks to <a href="https://github.com/igorescobar">@igorescobar</a></li>
+    <li>#1197: Add sample data for <a href="/validators/id/">CPF</a> validator, thanks to <a href="https://github.com/dgmike">@dgmike</a></li>
+    <li>#1207: Improve Spanish <a href="/validators/phone/">phone</a> validator, thanks to <a href="https://github.com/ethernet-zero">@ethernet-zero</a></li>
+    <li>#1218: Improve Slovenian <a href="/validators/vat/">vat number</a> validator, thanks to <a href="https://github.com/Glavic">@Glavic</a></li>
+    <li>#1224: Improve tooltip style when working with Semantic UI form, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1226: Fix destroying Semantic UI popup, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1239: Fix typo in UIKit class, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1252: Validators return true for not supported countries</li>
+    <li>#1255, #1258: Support to use a <code>Date</code> object as value for <a href="/validators/date/#options">min and max</a> options, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1261: Improve <a href="/validators/cvv/">cvv</a> validator</li>
+    <li>#1268: <a href="/validators/uri/">uri</a> validator gets slower if more than 25 characters</li>
+    <li>The <a href="/api/#is-valid-container">isValidContainer()</a> method should return <code>null</code> if the container consists of at least one field which is not validated yet or being validated</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li>#1101: The <a href="/validators/cusip/">cusip</a> validator doesn't work</li>
+    <li>#1102: Fix the <a href="/validators/date/">date</a> validator issue where accepts <code>2014-11-1 23:</code> as valid <code>YYYY-MM-DD h:m</code> date</li>
+    <li>#1105: The <a href="/validators/color/">color</a> validator doesn't provide <code>html5Attributes</code> mapping</li>
+    <li>#1125, #1136: Update Brazil <a href="/validators/id/">ID</a> validator to support working with Mask plugin, thanks to <a href="https://github.com/jonasesteves">@jonasesteves</a></li>
+    <li>#1243: Fix the icon without label class</li>
+    <li>#1267: <a href="/validators/identical/">identical</a> validator allows to compare with any input</li>
+    <li>#1274: Fix <a href="/api/#validate-container">validateContainer()</a> to use map value instead of key, thanks to <a href="https://github.com/jasonblalock">@jasonblalock</a></li>
+    <li>#1279, #1280: Show the <code>validating</code> icon when the field is being validated, thanks to <a href="https://github.com/tmaly1980">@tmaly1980</a></li>
+    <li>#1292: Fix bug of US <a href="/validators/phone/">phone number</a> validator</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>#800: Add <a href="/validators/uri/#using-with-regexp-validator">Using uri and regexp validators</a> example</li>
+    <li>#825: Add <a href="/examples/bootstrap-datepicker/">Bootstrap Datepicker</a> example</li>
+    <li>#919, #1114: Add <a href="/examples/validating-google-recaptcha/">Google reCAPTCHA</a> example</li>
+    <li>#941: Add <a href="/examples/clearing-field-when-clicking-icon/">Clearing field when clicking the icon</a> example</li>
+    <li>#948, #978, #1032, #1146, #1162: Add the <a href="/validators/emailAddress/#is-ab-valid-email-address">Is a@b valid email address</a> section</li>
+    <li>#1034: Add <a href="/examples/enabling-submit-button/">Only enable the submit button if all fields are valid</a> example</li>
+    <li>#1078, #1104: Update the <a href="/examples/enabling-submit-button/">Enabling the submit button all the time</a> example</li>
+    <li>#1106: Add example to the <a href="/validators/phone/">phone</a> validator</li>
+    <li>#1122: Add third parameter to <code>callback</code> method of <a href="/validators/callback/">callback</a> validator, thanks to <a href="https://github.com/Arkni">@Arkni</a></li>
+    <li>#1128: Add link to the <a href="/examples/">Examples</a> from the <a href="/#2">homepage</a></li>
+    <li>#1139: Add sample <a href="/validators/phone/">United Arab Emirates phone numbers</a>, thanks to <a href="https://github.com/@s-a-y">@s-a-y</a></li>
+    <li>#1143, #1176: Add <a href="/examples/form-submit-twice/">Form is submitted twice</a> example</li>
+    <li>#1172: Add <a href="/examples/requiring-at-least-one-field/">Requiring at least one field</a> example</li>
+    <li>#1174: Add <a href="/examples/pickadate/">Pickadate</a> example</li>
+    <li>#1187: Add sample <a href="/validators/id/">Brazil ID (CPF) numbers</a>, thanks to <a href="https://github.com/igorescobar">@igorescobar</a></li>
+    <li>#1233: Add sample <a href="/validators/zipCode/">India postal code numbers</a>, thanks to <a href="https://github.com/waveking">@waveking</a></li>
+</ul>
+
+<h3>Language packages</h3>
+<ul class="doc-list">
+    <li>#1150: Add Catalan language package, thanks to <a href="https://github.com/ArnauAregall">@ArnauAregall</a></li>
+    <li>#1216, #1248: Add Slovak language package, thanks to <a href="https://github.com/budik21">@budik21</a></li>
+    <li>#1217, #1247: Update Czech language package, thanks to <a href="https://github.com/budik21">@budik21</a></li>
+    <li>#1225: Add Finnish language package, thanks to <a href="https://github.com/traone">@traone</a></li>
+    <li>#1246: Add Hindi language package, thanks to <a href="https://github.com/gladiatorAsh">@gladiatorAsh</a></li>
+    <li>#1321: Add Basque language package, thanks to <a href="https://github.com/xabikip">@xabikip</a></li>
+</ul>
+
+<h3>Contributors</h3>
+<p>Thanks to contributors:</p>
+<ul class="doc-list">
+    <li><a href="https://github.com/Arkni">@Arkni</a></li>
+    <li><a href="https://github.com/ArnauAregall">@ArnauAregall</a></li>
+    <li><a href="https://github.com/budik21">@budik21</a></li>
+    <li><a href="https://github.com/dgmike">@dgmike</a></li>
+    <li><a href="https://github.com/drebrez">@drebrez</a></li>
+    <li><a href="https://github.com/ethernet-zero">@ethernet-zero</a></li>
+    <li><a href="https://github.com/gladiatorAsh">@gladiatorAsh</a></li>
+    <li><a href="https://github.com/Glavic">@Glavic</a></li>
+    <li><a href="https://github.com/igorescobar">@igorescobar</a></li>
+    <li><a href="https://github.com/jasonblalock">@jasonblalock</a></li>
+    <li><a href="https://github.com/jazzzz">@jazzzz</a></li>
+    <li><a href="https://github.com/jonasesteves">@jonasesteves</a></li>
+    <li><a href="https://github.com/joshuachestang">@joshuachestang</a></li>
+    <li><a href="https://github.com/krecik">@krecik</a></li>
+    <li><a href="https://github.com/rbnvrw">@rbnvrw</a></li>
+    <li><a href="https://github.com/s-a-y">@s-a-y</a></li>
+    <li><a href="https://github.com/thomaslhotta">@thomaslhotta</a></li>
+    <li><a href="https://github.com/tmaly1980">@tmaly1980</a></li>
+    <li><a href="https://github.com/traone">@traone</a></li>
+    <li><a href="https://github.com/xabikip">@xabikip</a></li>
+    <li><a href="https://github.com/waveking">@waveking</a></li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.6.0">FormValidation v0.6.0</a>
+</div>

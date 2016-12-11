@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include demo/head.html %}
+
+    {% bundle %}
+    - /vendor/jotform/css/form.css
+    - /vendor/jotform/css/nova.css
+    - /vendor/formvalidation/css/formValidation.min.css
+    - /asset/framework/jotform/jotform.css
+    - /asset/css/demo.css
+    {% endbundle %}
+
+    {% bundle %}
+    - /vendor/formvalidation/js/formValidation.min.js
+    - /asset/framework/jotform/jotform.js
+    - /asset/js/demo.js
+    {% endbundle %}
+</head>
+<body class="demo-jotform">
+    <div id="demoContainer">
+        {{ content }}
+    </div>
+</body>
+</html>

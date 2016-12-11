@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: isin validator &rarr; Basic example
+permalink: /validators/isin/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIsin(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="isin"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'isin');
+
+    return $form.data('formValidation').isValidField('isin');
+}
+</script>

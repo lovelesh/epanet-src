@@ -1,0 +1,21 @@
+<form id="ipForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">IP address</label>
+        <div class="col-xs-7">
+            <input type="text" class="form-control" name="ip"
+                data-fv-ip="true"
+                data-fv-ip-message="Please enter a valid IP address" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#ipForm').formValidation();
+});
+</script>

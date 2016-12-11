@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: isbn validator &rarr; Basic example
+permalink: /validators/isbn/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIsbn(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="isbn"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'isbn');
+
+    return $form.data('formValidation').isValidField('isbn');
+}
+</script>

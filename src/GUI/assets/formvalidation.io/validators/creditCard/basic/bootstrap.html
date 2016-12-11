@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: creditCard validator &rarr; Basic example
+permalink: /validators/creditCard/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateCreditCard(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="cc"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'cc');
+
+    return $form.data('formValidation').isValidField('cc');
+}
+</script>

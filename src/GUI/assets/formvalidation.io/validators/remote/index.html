@@ -1,0 +1,570 @@
+---
+layout: default
+title: Perform remote checking via Ajax request
+permalink: /validators/remote/
+prev:
+    url: /validators/regexp/
+    title: regexp validator
+next:
+    url: /validators/rtn/
+    title: rtn validator
+related:
+    - callback
+    - promise
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>remote validator</h1>
+        <p>Perform remote checking via Ajax request</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>crossDomain</code></td>
+                                    <td><code>data-fv-remote-crossdomain</code></td>
+                                    <td>Boolean</td>
+                                    <td>It's same as the <code>crossDomain</code> option of jQuery's <a href="http://api.jquery.com/jquery.ajax/">ajax</a>.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>data</code></td>
+                                    <td><code>data-fv-remote-data</code></td>
+                                    <td>Object|Function</td>
+                                    <td>
+                                        <p>The data sent to remote URL.</p>
+                                        <p>You don't need to use this option if there is only field, defined as field name, sent to the remote URL.</p>
+                                        <p>If you want to use <a href="#sending-dynamic-data-example">dynamic data</a>, then use a callback as following:</p>
+{% highlight javascript %}
+data: function(validator, $field, value) {
+    // validator is FormValidation instance
+    // $field is the field element
+    // value is the field value
+
+    // Return an object
+    return {
+        key: value,
+        otherKey: otherValue
+    };
+}
+{% endhighlight %}
+
+                                        <p>When using <code>data-fv-remote-data</code> attribute, its value must be an encoded JSON string.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>dataType</code></td>
+                                    <td><code>data-fv-remote-datatype</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        <p>The type of data which is returned by remote server. It's same as the <code>dataType</code> option of jQuery's <a href="http://api.jquery.com/jquery.ajax/">ajax</a>.</p>
+                                        <p>The available values are <code>json</code> <span class="label label-default">default</span>, <code>jsonp</code></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>delay</code></td>
+                                    <td><code>data-fv-remote-delay</code></td>
+                                    <td>Number</td>
+                                    <td>The Ajax request created by the remote validator is only fired once in the delay duration time.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-remote-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td><code>data-fv-remote-name</code></td>
+                                    <td>String</td>
+                                    <td>The name of field which need to validate</td>
+                                </tr>
+                                <tr>
+                                    <td><code>type</code></td>
+                                    <td><code>data-fv-remote-type</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        <p>The method used to send data to back-end. It can be <code>GET</code> <span class="label label-default">default</span> or <code>POST</code></p>
+                                        <div class="doc-alert doc-alert-info">From v0.5.2, the type option is GET, by default.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>url</code><sup>*</sup></td>
+                                    <td><code>data-fv-remote-url</code></td>
+                                    <td>String|Function</td>
+                                    <td>The remote URL.<br/>
+                                        If you want to use a dynamic URL, then use a callback as following:
+{% highlight javascript %}
+url: function(validator, $field, value) {
+    // validator is FormValidation instance
+    // $field is the field element
+    // value is the field value
+
+    return 'the URL';
+}
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>validKey</code></td>
+                                    <td><code>data-fv-remote-validkey</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        <p>The valid key. It's <code>valid</code> by default.</p>
+                                        <p>This option is useful when connecting to external remote server or APIs provided by 3rd parties.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-remote="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>The <code>crossDomain</code>, <code>dataType</code>, <code>validKey</code> options are mostly used when you need to connect to external API endpoint. This <a href="/examples/using-mailgun-api-validate-email-address/">example</a> shows how to connect and use the <a href="http://www.mailgun.com/">Mailgun</a> API to validate an email address.</p>
+
+                    <p>The remote URL has to return an encoded JSON of array containing the <code>valid</code> key (the key name can be changed by the <code>validKey</code> option):</p>
+{% highlight javascript %}
+{ "valid": true }
+{% endhighlight %}
+                    <p>or</p>
+{% highlight javascript %}
+{ "valid": false }
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        The validator is <a href="/examples/ignoring-validation/">ignored</a> if the remote URL responses { "valid": null }
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        Look at this <a href="/examples/using-data-returned-validator/">example</a> if you want to attach more data to the returned value and reuse them later
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Improving the performance</h2>
+
+                    <p>By default, the plugin will send an Ajax request to your back-end whenever you enter a character in field.
+                        If the back-end takes time to process the request, it might slow down the website. In order to improve the performance, you can use following tips:</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        It's also recommended to use the tips introduced in the
+                        <a href="/examples/getting-notified-field-being-validated/">Getting notified while field is being validated</a> example
+                        to improve the user experience of the application
+                    </div>
+
+                    <h3>Using delay option</h3>
+                    <p>By setting the <code>delay</code> option, the Ajax request is only fired once in the specific duration time.</p>
+
+{% highlight javascript %}
+$('#registrationForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        username: {
+            validators: {
+                remote: {
+                    url: '/path/to/backend/',
+                    type: 'POST',
+                    delay: 2000     // Send Ajax request every 2 seconds
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <h3>Using threshold option</h3>
+                    <p>The <a href="/settings/#field-threshold">threshold</a> option indicates value that asks validators not to perform validations unless the length of field value is greater than this number.</p>
+                    <p>In the snippet code below, the remote validator will not send Ajax request until the username field has at least 5 characters:</p>
+
+{% highlight javascript %}
+$('#registrationForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        username: {
+            threshold: 5,
+            validators: {
+                remote: {
+                    url: '/path/to/backend/',
+                    type: 'POST'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+                    <h3>Using verbose option</h3>
+                    <p>Client first, server last. If the field uses multiple validators, the validators processed in the client should be done first.
+                        The remote validator is only processed once the field passes all other validators.</p>
+                    <p>Using the <a href="/settings/#field-verbose">verbose</a> option is solution for this approach.
+                        Setting <code>verbose: false</code> will stop validations when there is one failure validator.</p>
+                    <p>In the following code, the remote validator is only processed if the field satisfies all <a href="/validators/notEmpty/">notEmpty</a>, <a href="/validators/stringLength/">stringLength</a>, <a href="/validators/regexp/">regexp</a> validators.</p>
+
+
+{% highlight javascript %}
+$('#registrationForm').formValidation({
+    framework: 'bootstrap',
+    fields: {
+        username: {
+            verbose: false,
+            validators: {
+                notEmpty: {
+                    message: 'The username is required'
+                },
+                stringLength: {
+                    min: 6,
+                    max: 30,
+                    message: 'The username must be more than 6 and less than 30 characters long'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                    message: 'The username can only consist of alphabetical, number, dot and underscore'
+                },
+                // Place the remote validator in the last
+                remote: {
+                    url: '/path/to/backend/',
+                    type: 'POST'
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+                    <p>The following example shows how to use a remote back-end to check if a given username is already taken or not.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#example-programmatic-tab" data-toggle="tab">Programmatic code</a></li>
+                            <li><a href="#example-php-tab" data-toggle="tab">Back-end</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="example-programmatic-tab">
+{% highlight html %}
+<form id="registrationForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Username</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#registrationForm').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    // The validator will create an Ajax request
+                    // sending { username: 'its value' } to the back-end
+                    remote: {
+                        message: 'The username is not available',
+                        url: '/path/to/backend/',
+                        type: 'POST'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="example-php-tab">
+{% highlight php %}
+<?php
+// The back-end then will determine if the username is available or not,
+// and finally returns a JSON { "valid": true } or { "valid": false }
+// The code bellow demonstrates a simple back-end written in PHP
+
+// Get the username from request
+$username = $_POST['username'];
+
+// Check its existence (for example, execute a query from the database) ...
+$isAvailable = true; // or false
+
+// Finally, return a JSON
+echo json_encode(array(
+    'valid' => $isAvailable,
+));
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Sending static data example</h3>
+                    <p>For example, there is same back-end for validating both username and email address. The back-end uses additional parameter named <code>type</code> to determine which field is going to be validated.</p>
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#staticdata-programmatic-tab" data-toggle="tab">Programmatic code</a></li>
+                            <li><a href="#staticdata-php-tab" data-toggle="tab">Back-end</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="staticdata-programmatic-tab">
+{% highlight html %}
+<form id="registrationForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Username</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="email" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#registrationForm').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    // Send { username: 'its value', type: 'username' } to the back-end
+                    remote: {
+                        message: 'The username is not available',
+                        url: '/path/to/backend/',
+                        data: {
+                            type: 'username'
+                        },
+                        type: 'POST'
+                    }
+                }
+            },
+            email: {
+                message: 'The email address is not valid',
+                validators: {
+                    // Send { email: 'its value', type: 'email' } to the back-end
+                    remote: {
+                        message: 'The email is not available',
+                        url: '/path/to/backend/',
+                        data: {
+                            type: 'email'
+                        },
+                        type: 'POST'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="staticdata-php-tab">
+{% highlight php %}
+<?php
+// The code bellow demonstrates a simple back-end written in PHP
+// Determine which field you want to check its existence
+$isAvailable = true;
+
+switch ($_POST['type']) {
+    case 'email':
+        $email = $_POST['email'];
+        // Check the email existence ...
+        $isAvailable = true; // or false
+        break;
+
+    case 'username':
+    default:
+        $username = $_POST['username'];
+        // Check the username existence ...
+        $isAvailable = true; // or false
+        break;
+}
+
+// Finally, return a JSON
+echo json_encode(array(
+    'valid' => $isAvailable,
+));
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Sending dynamic data example</h3>
+                    <p>For instance, the registration form need to validate both the username and emails.</p>
+
+{% highlight html %}
+<form id="registrationForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Username</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Password</label>
+        <div class="col-lg-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#registrationForm').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    remote: {
+                        url: '/path/to/backend/',
+                        // Send { username: 'its value', email: 'its value' } to the back-end
+                        data: function(validator, $field, value) {
+                            return {
+                                email: validator.getFieldElements('email').val()
+                            };
+                        },
+                        message: 'The username is not available',
+                        type: 'POST'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    remote: {
+                        url: '/path/to/backend/',
+                        // Send { email: 'its value', username: 'its value' } to the back-end
+                        data: function(validator, $field, value) {
+                            return {
+                                username: validator.getFieldElements('username').val()
+                            };
+                        },
+                        message: 'The email is not available',
+                        type: 'POST'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endhighlight %}
+
+                    <h3>Overriding name example</h3>
+
+                    <p>By default, it will be set as the name of field. You can override the name option by using the <code>data-fv-remote-name</code> attribute.Here are two cases which you might need to use this attribute.</p>
+
+                    <h4>Using different names for same field</h4>
+                    <p>For example, the <i>Sign up</i> and <i>Profile</i> forms use the same back-end URL to validate the email address which is declared with different name.</p>
+                    <p>In this case, use the same <code>data-fv-remote-name</code> attribute and the back-end will get the same data key.</p>
+
+{% highlight html %}
+<!-- In the signup form, the email address field is named as "login" -->
+<form id="signupForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="login" data-fv-remote-name="email" />
+        </div>
+    </div>
+</form>
+{% endhighlight %}
+
+{% highlight html %}
+<!-- In the edit profile form, the email address field is named as "email" -->
+<form id="profileForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control" name="email" data-fv-remote-name="email" />
+        </div>
+    </div>
+</form>
+{% endhighlight %}
+
+                    <h4>Using same backend for different fields</h4>
+                    <p>Assume that the profile form asks you to update multiple email address (primary, secondary, for example).
+                    These emails will be validated by the same backend.</p>
+                    <p>In this case, just use the same <code>data-fv-remote-name</code> attribute for these email address fields.</p>
+{% highlight html %}
+<form id="profileForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-3 control-label">Primary email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control"
+                name="primary_email" data-fv-remote-name="email" />
+        </div>
+
+        <label class="col-lg-3 control-label">Secondary email</label>
+        <div class="col-lg-5">
+            <input type="text" class="form-control"
+                name="secondary_email" data-fv-remote-name="email" />
+        </div>
+    </div>
+</form>
+{% endhighlight %}
+
+                    <h3>More examples</h3>
+                    <ul class="doc-list">
+                        <li><a href="/examples/adding-warning-validation-state/">Adding warning validation state</a></li>
+                        <li><a href="/examples/validating-google-recaptcha/">Validating Google reCAPTCHA</a></li>
+                    </ul>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

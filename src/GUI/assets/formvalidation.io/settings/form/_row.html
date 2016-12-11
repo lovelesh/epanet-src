@@ -1,0 +1,166 @@
+<section>
+    <h3 id="form-row">row</h3>
+
+{% highlight javascript %}
+row: {
+    selector: null,
+    valid: '',
+    invalid: ''
+}
+{% endhighlight %}
+
+    <h4 id="form-row-selector">selector</h4>
+    <p><code>selector: String</code> &mdash; CSS selector indicates the parent element of field. Each framework usually wraps both field and its label inside elements with the same CSS class</p>
+    <p>The default value of this option is defined by specific framework:</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>row.selector default value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://getbootstrap.com/css/#forms">Bootstrap</a></td>
+                    <td><code>.form-group</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://foundation.zurb.com/docs/components/forms.html">Foundation</a></td>
+                    <td><code>.row</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://purecss.io/forms/#aligned-form">Pure</a></td>
+                    <td><code>.pure-control-group</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://semantic-ui.com/collections/form.html">Semantic</a></td>
+                    <td><code>fields</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://getuikit.com/docs/form.html">UIKit</a></td>
+                    <td><code>.uk-form-row</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>This option might be used in the following cases:</p>
+    <ul class="doc-list">
+        <li>The form uses a custom CSS class for each group</li>
+        <li>Each group consist of more than one field</li>
+    </ul>
+
+    <p>You also can specify the <a href="#field-row">row</a> for particular field.</p>
+
+    <h5>Example</h5>
+
+    <p>In the following form, each field is placed inside a cell of table. The error messages are placed inside a <a href="#form-err-container">tooltip</a>.</p>
+
+    {% include demo/tabs.html id="form-cell" frameworks="bootstrap" dir="form/table" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/examples/complex-form/">Complex form</a></li>
+    </ul>
+
+    <h4 id="form-row-valid">valid</h4>
+    <p><code>valid: String</code> &mdash; The CSS class for success row that contains valid field</p>
+
+    <h4 id="form-row-invalid">invalid</h4>
+    <p><code>invalid: String</code> &mdash; The CSS class for error row that contains invalid field</p>
+
+    <p>The default values of <code>valid</code> and <code>invalid</code> options are defined as following:</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>row.valid default value</th>
+                    <th>row.invalid default value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://getbootstrap.com/css/#forms-control-validation">Bootstrap</a></td>
+                    <td><code>has-success</code></td>
+                    <td><code>has-error</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://foundation.zurb.com/docs/components/forms.html#error-states">Foundation</a></td>
+                    <td><code>fv-has-success</code></td>
+                    <td><code>error</code></td>
+                </tr>
+                <tr>
+                    <td>Pure</td>
+                    <td><code>fv-has-success</code></td>
+                    <td><code>fv-has-error</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://semantic-ui.com/collections/form.html#error">Semantic</a></td>
+                    <td><code>fv-has-success</code></td>
+                    <td><code>error</code></td>
+                </tr>
+                <tr>
+                    <td>UIKit</td>
+                    <td><code>fv-has-success</code></td>
+                    <td><code>fv-has-error</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h4 id="form-row-add-validating-class">Adding custom class to field container while it is being validated</h4>
+
+    <p>There's no built-in option like <code>row.validating</code> but it's possible to add a custom class to the field container
+        while validating it.</p>
+    <p>To archive it, you can trigger the <a href="/settings/#event-field">status.field.fv</a> event. The following
+        code snippet demonstrates how to do it while the field is being validated by the <a href="/validators/remote/">remote</a> validator:</p>
+
+{% highlight javascript %}
+$(form)
+    .formValidation({
+        framework: 'bootstrap',
+        fields: {
+            // You might need to change username to your field name
+            username: {
+                validators: {
+                    remote: {
+                        type: 'POST',
+                        url: '/path/to/your/api/',
+                        message: 'The username is not available'
+                    }
+                }
+            }
+        }
+    })
+    .on('status.field.fv', function(e, data) {
+        // data.field is the field name
+        // data.status is the current status of validator
+        // data.element is the field element
+
+        if (data.field === 'username') {
+            // Assume that the form uses the Bootstrap framework
+            // and has a standard structure
+            // Each pair of field and label are placed inside a .form-group element
+
+            // Determine the field container
+            var $container = data.element.closest('.form-group');
+
+            (data.status === 'VALIDATING')
+                ? $container.addClass('custom-class')
+                : $container.removeClass('custom-class');
+        }
+    });
+{% endhighlight %}
+
+    <div class="doc-alert doc-alert-info">
+        If you want get more attention from user while the field is being validated, take a look at this <a href="/examples/getting-notified-field-being-validated/">example</a>
+    </div>
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/changing-success-error-colors/">Changing success and error colors</a></li>
+    </ul>
+</section>

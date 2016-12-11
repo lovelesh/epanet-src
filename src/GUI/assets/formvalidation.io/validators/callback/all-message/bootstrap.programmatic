@@ -1,0 +1,137 @@
+<form id="passwordForm" class="form-horizontal">
+    <div class="form-group" style="margin-bottom: 0;">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="pwd" />
+        </div>
+    </div>
+
+    <div class="form-group has-feedback has-error">
+        <div class="col-xs-9 col-xs-offset-3">
+            <!-- The message container -->
+            <div id="messageContainer"></div>
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    // The rules that a secure password need to follow
+    var PASSWORD_RULES = [
+        {
+            name: 'length',
+            message: 'It must be more than 8 characters long',
+            check: function(value) {
+                return value.length >= 8;
+            }
+        },
+        {
+            name: 'upperCase',
+            message: 'It must contain at least one upper case character',
+            check: function(value) {
+                return value !== value.toLowerCase();
+            }
+        },
+        {
+            name: 'lowerCase',
+            message: 'It must contain at least one lower case character',
+            check: function(value) {
+                return value !== value.toUpperCase();
+            }
+        },
+        {
+            name: 'digit',
+            message: 'It must contain at least one digit',
+            check: function(value) {
+                return value.search(/[0-9]/) >= 0;
+            }
+        }
+    ];
+
+    // Populate the message to given container
+    // The container will contain the message for each rule as following
+    //  <div id="messageContainer">
+    //      <small data-rule="rule name">... message ...</small>
+    //  </div>
+    for (var i = 0; i < PASSWORD_RULES.length; i++) {
+        $('<small/>')
+            .addClass('help-block')
+            .attr('data-rule', PASSWORD_RULES[i].name)
+            .html(PASSWORD_RULES[i].message)
+            .appendTo('#messageContainer');
+    }
+
+    $('#passwordForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                pwd: {
+                    validators: {
+                        notEmpty: {
+                            message: 'It is required and cannot be empty'
+                        },
+                        callback: {
+                            callback: function(value, validator, $field) {
+                                if (value === '') {
+                                    return true;
+                                }
+
+                                var passedRules = [];
+
+                                // Loop over the rules
+                                for (var i = 0; i < PASSWORD_RULES.length; i++) {
+                                    if (PASSWORD_RULES[i].check(value)) {
+                                        passedRules.push(PASSWORD_RULES[i].name);
+                                    }
+                                }
+
+                                if (passedRules.length < PASSWORD_RULES.length) {
+                                    return {
+                                        valid: false,
+                                        passedRules: passedRules
+                                    }
+                                }
+
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.field.fv', function(e, data) {
+            // Check if the password field doesn't pass the callback validator
+            if (data.field === 'pwd' && data.validator === 'callback') {
+                // Get the validator result
+                // result consists of valid, passedRules properties
+                var result = data.result;
+
+                // Hide the default message
+                data.element
+                    .closest('.form-group')
+                        .find('small[data-fv-for="pwd"][data-fv-validator="callback"]')
+                        .hide();
+
+                var $messages = $('#messageContainer').find('small[data-rule]');
+                for (var i = 0; i < PASSWORD_RULES.length; i++) {
+                    var $message = $messages.filter('[data-rule="' + PASSWORD_RULES[i].name + '"]');
+
+                    $.inArray(PASSWORD_RULES[i].name, result.passedRules) === -1
+                        ? $message.fadeIn()     // Show the message if the field doesn't pass the rule
+                        : $message.fadeOut();   // Otherwise, hide it
+                }
+            }
+        })
+        .on('success.field.fv', function(e, data) {
+            if (data.field === 'pwd') {
+                // Hide all messages if the field is valid
+                $('#messageContainer').find('small[data-rule]').hide();
+            }
+        });
+});
+</script>

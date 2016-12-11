@@ -1,0 +1,52 @@
+<section>
+    <h2 id="revalidate-field">revalidateField</h2>
+
+    <p><code>revalidateField(field<sup>*</sup>): FormValidation</code> &mdash; Revalidate given field.</p>
+    <p>It's used when you need to revalidate the field which its value is updated by other plugin.</p>
+    <p>By default, the plugin doesn't re-validate a field once it is already validated and marked as a valid one.
+        When using with other plugins, the field value is changed and therefore need to be re-validated.</p>
+
+    <p>Behind the scenes, the method is equivalent to:</p>
+
+{% highlight javascript %}
+$(form).data('formValidation')
+    .updateStatus(field, 'NOT_VALIDATED')
+    .validateField(field);
+
+// Or
+$(form).formValidation('updateStatus', field, 'NOT_VALIDATED')
+       .formValidation('validateField', field);
+{% endhighlight %}
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>field</code></td>
+                    <td>String|jQuery</td>
+                    <td>The field name or field element</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Example</h5>
+    <p>The following example describes how to re-validate a field which uses with <a href="http://eonasdan.github.io/bootstrap-datetimepicker/">Boostrap Datetime Picker</a>:</p>
+
+    {% include demo/tabs.html id="date-picker" frameworks="bootstrap" dir="date-picker" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/examples/field-value-changed-programmatically/">Field value is changed programmatically</a></li>
+        <li><a href="/examples#compatibility">Play with other plugins</a></li>
+        <li><a href="/examples/terms-conditions-agreement-validation/#showing-terms-and-conditions-in-a-modal">Terms and conditions agreement validation</a></li>
+        <li><a href="/examples/validating-fields-depend-each-other/">Validating fields that depend on each other</a></li>
+        <li><a href="/examples/validating-multiple-inputs-one/">Validating multiple inputs as one</a></li>
+    </ul>
+</section>

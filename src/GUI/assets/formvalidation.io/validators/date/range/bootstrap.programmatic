@@ -1,0 +1,34 @@
+<form id="rangeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Enter a date</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" name="date" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#rangeForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            date: {
+                validators: {
+                    date: {
+                        message: 'The date is not valid',
+                        format: 'YYYY/MM/DD',
+                        // min and max options can be strings or Date objects
+                        min: '2000/01/01',
+                        max: '2020/12/30'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

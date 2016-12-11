@@ -1,0 +1,47 @@
+<section>
+    <h2 id="remove-field">removeField</h2>
+
+    <p><code>removeField(field<sup>*</sup>): FormValidation</code> &mdash; Remove given field</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>field</code></td>
+                    <td>String|jQuery</td>
+                    <td>The field name or field element</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>By triggering the <a href="/settings/#event-form">removed.field.fv</a> event, you can perform additional task after removing given field:</p>
+
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form)
+        .formValidation(options)
+        .on('removed.field.fv', function(e, data) {
+            // $(e.target)  --> The form instance
+            // $(e.target).data('formValidation')
+            //              --> The FormValidation instance
+
+            // data.field   --> The field name
+            // data.element --> The new field element
+
+            // Do something ...
+        });
+});
+{% endhighlight %}
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/adding-dynamic-field/">Adding dynamic field</a></li>
+    </ul>
+</section>

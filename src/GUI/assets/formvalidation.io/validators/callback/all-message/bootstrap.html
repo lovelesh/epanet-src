@@ -1,0 +1,22 @@
+---
+layout: demo/bootstrap
+title: callback validator &rarr; Show all messages
+permalink: /validators/callback/all-message/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+$(document).ready(function() {
+    $('#passwordForm')
+        .on('err.field.fv', function(e, data) {
+            var $body  = $('body'),
+                $iframe = $body.data('iframe.fv');
+            if ($iframe) {
+                // Adjust the height of iframe
+                $iframe.height($body.get(0).clientHeight);
+            }
+        });
+});
+</script>

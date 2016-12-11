@@ -1,0 +1,55 @@
+---
+layout: default
+title: Validators
+permalink: /validators/
+prev:
+    url: /api/
+    title: API
+next:
+    url: /addons/
+    title: Add-ons
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>Validators</h1>
+        <p>The richest validators in the class</p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p>FormValidation comes with various built-in validators listed in the alphabetical order as following:</p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for validator in site.data.validators %}
+                            <tr>
+                                <td>{{ forloop.index }}</td>
+                                <td><a href="/validators/{{ validator.name }}/">{{ validator.name }}</a></td>
+                                <td>{{ validator.description }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

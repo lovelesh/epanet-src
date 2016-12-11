@@ -1,0 +1,56 @@
+<form id="captchaForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label" id="captchaOperation"></label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="captcha" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-5 col-xs-offset-3">
+            <button type="submit" class="btn btn-default">Validate</button>
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function generateCaptcha() {
+        $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+    }
+
+    generateCaptcha();
+
+    $('#captchaForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                captcha: {
+                    validators: {
+                        callback: {
+                            message: 'Wrong answer',
+                            callback: function (value, validator, $field) {
+                                // Determine the numbers which are generated in captchaOperation
+                                var items = $('#captchaOperation').html().split(' '),
+                                    sum   = parseInt(items[0]) + parseInt(items[2]);
+                                return value == sum;
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.form.fv', function(e) {
+            generateCaptcha();
+        });
+});
+</script>

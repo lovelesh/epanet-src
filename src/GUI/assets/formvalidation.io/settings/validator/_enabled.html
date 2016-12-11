@@ -1,0 +1,76 @@
+<section>
+    <h3 id="validator-enabled">enabled</h3>
+
+    <p><code>enabled: Boolean</code> &mdash; Indicate the validator is enabled or disabled. It is <code>true</code>, by default.</p>
+    <p>Look at the field's <a href="#field-enabled">enabled</a> option if you want to enable/disable all validators.</p>
+    <p>The table below shows three equivalent ways to enable or disable given validator:</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML 5 attribute</td>
+                    <td>
+{% highlight html %}
+<!-- Enable validator -->
+<input class="form-control" name="fullName" data-fv-notempty />
+
+<!-- or -->
+<input class="form-control" name="fullName" data-fv-notempty="true" />
+
+<!-- Disable validator -->
+<input class="form-control" name="fullName" data-fv-notempty="false" />
+{% endhighlight %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Plugin option</td>
+                    <td>
+{% highlight javascript %}
+$(document).ready(function() {
+    $(form).formValidation({
+        fields: {
+            fullName: {
+                validators: {
+                    notEmpty: {
+                        enabled: true   // or false
+                    }
+                }
+            }
+        }
+    });
+});
+{% endhighlight %}
+                    </td>
+                <tr>
+                    <td><a href="/api#enable-field-validators">enableFieldValidators()</a></td>
+                    <td>
+{% highlight javascript %}
+// Enable validator
+$(form)
+    .formValidation('enableFieldValidators', fullName, true, 'notEmpty');
+
+// Disable validator
+$(form)
+    .formValidation('enableFieldValidators', fullName, false, 'notEmpty');
+{% endhighlight %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Examples</h5>
+    {% include demo/tabs.html id="validator-enabled" frameworks="bootstrap" dir="validator/enabled" codes="programmatic" %}
+
+    <ul class="doc-list">
+        <li><a href="/examples/enable-validator/">Enabling validator</a></li>
+        <li><a href="/examples/switching-validators-same-field/">Switching validators on the same field</a></li>
+    </ul>
+</section>
