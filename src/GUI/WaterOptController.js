@@ -39,13 +39,10 @@ app.post('/sumit-upload',function(req,res){
             uploadStatus = 1;
             return res.end("Error uploading files.");
         }
-        if(uploadStatus) {
-            res.status(500);
-        }
-        else {
-            res.status(200);
-        }
     });
+    if(uploadStatus) {
+        res.status(500);   
+    }
     console.log("SUCCESSFULLY UPLOADED");
     res.status(200);
     res.send('SUCCESS');
@@ -55,12 +52,11 @@ app.post('/sumit-upload',function(req,res){
   //============================================================
   
 app.get('/download', function(req, res) {
-    console.log("\n\nDownload request received..\n\n");
     res.download('../../result/output.csv');
 });
 
 app.get('/download-file', function(req, res) {
-    console.log("\n\nDownload request received..\n\n");
+    console.log("\nDownload request received..\n");
     res.download('../../result/output.csv');
 });
   
@@ -74,12 +70,12 @@ app.get('/download-file', function(req, res) {
   app.post('/cancelSimulation', function(req, res) {
     var msg = {};
     if(client_binary){
-      msg.Data = 'Sending signal SIGHUP to the running client.';
+      msg.Data = 'Sending signal SIGHUP to running simulation.';
       client_binary.kill('SIGHUP');
       client_binary = null;
     }
     else{
-        msg.Data = 'Client1 already stopped/not running'; 
+        msg.Data = 'Simulation already stopped/not running'; 
     }
     res.send(JSON.stringify(msg));
   });  
@@ -125,35 +121,42 @@ io.on('connection', function(socket) {
 	client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
     }
     
-    console.log("startTime: " + startTime + "\nDuration: " + duration + "\nw12: " + w12 + "\nw3: " + w3 + "\nw4: " + w4 + "\nw5: " + w5 + "\nw6: " + w6 + "\n");
+    //console.log("startTime: " + startTime + "\nDuration: " + duration + "\nw12: " + w12 + "\nw3: " + w3 + "\nw4: " + w4 + "\nw5: " + w5 + "\nw6: " + w6 + "\n");
+    
     
     var msg = {};
     var chunk = '';
-    
     
     /* Registering event listeners on first client binary execution */    
     
     /* Do some action whenever there is some data on standard
        output due to first binary execution */
-    client_binary.stdout.on('data', function(data){
-        msg.Data = chunk + data;
-        socket.emit('newdata', JSON.stringify(msg));
-    });
-    
-    // Send a response to browser/client when first binary execution is completed
-     
-    client_binary.on('close', function (code) {
-        msg = {};
-        msg.Result = 'All Iterations completed, process closed with code ' + code;
-        msg.ExitCode = code;
-        socket.emit('newdata', JSON.stringify(msg));
-        console.log('Process closed.');
-        client_binary = null;
-    });
+    if(client_binary) {
+        client_binary.stdout.on('data', function(data){
+            msg.Data = chunk + data;
+            socket.emit('newdata', JSON.stringify(msg));
+        });
+        
+        // Send a response to browser/client when first binary execution is completed
+        
+        client_binary.on('close', function (code) {
+            msg = {};
+            msg.Result = 'All Iterations completed, process closed with code ' + code;
+            msg.ExitCode = code;
+            socket.emit('newdata', JSON.stringify(msg));
+            console.log('Process closed.');
+            client_binary = null;
+        });
 
-    
-    client_binary.stderr.on('data', function (data) {
-        console.log('Failed to start child process 1.');
-    })
+        
+        client_binary.stderr.on('data', function (data) {
+            console.log('Failed to start child process 1.');
+        });
+    }
+    else {
+        msg = {};
+        msg.log = 'Error: Simulation cannot be started!';
+        socket.emit('newdata', JSON.stringify(msg));
+    }
   });
 })
