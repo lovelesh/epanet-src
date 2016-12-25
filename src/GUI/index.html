@@ -17,17 +17,13 @@
    </head>
    <body>
       <section id="form1-0" style="background-color: rgb(255, 255, 255);">
-	 <div class="container" style="padding-top:40px; padding-bottom:80px; margin-left:20px; max-width:100%;" >
+	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;" >
 
-	    <div class="row">
+	    <div class="row" style="padding:20px;">
 	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
-		  <form id="uploadForm" enctype="multipart/form-data" name="uploadForm"
-                        data-fv-framework="bootstrap4"
-                        data-fv-icon-valid="fa fa-check"
-                        data-fv-icon-invalid="fa fa-times"
-                        data-fv-icon-validating="icon-refresh">
+		  <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
 		     <h2 style="color:dimgray"><i class="fa fa-tint" style="color:dimgray" aria-hidden="true"></i>  WaterOpt</h2>
-		     <hr class="colorgraph"><br>
+		     <hr class="fancy-line"><br>
 
 		     <div class="row">
 			<div class="col-md-3">
@@ -37,7 +33,9 @@
 			</div>
 			<div class="col-md-9">
 			   <div class="form-group">
-			      <select class="form-control btn" id="Type" name="Type" onchange="changeType()" style="border-radius:0rem !important; background-color: lavender">
+			      <select class="form-control btn" 
+				 id="Type" name="Type" onchange="changeType()" 
+				 style="border-radius:0rem !important; background-color: lavender">
 				 <option selected value="none">Select Type..</option>
 				 <option value="1">TARGET</option>
 				 <option value="0">SEARCH</option>
@@ -228,61 +226,106 @@
                         </div>
 		     </div>
 
-		     <hr class="colorgraph">
+		     <hr class="fancy-line">
 
 		     <div class="mbr-buttons" align="center">
-			<button class="mbr-buttons__btn btn btn-primary" id="advanced-button" style="border-radius:0rem !important" onclick="showOpts()" type="button">Advanced</button>
-			<button type="submit" class="mbr-buttons__btn btn btn-success" style="border-radius:0rem !important" id="uploadButton" name="uploadButton"><i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
-			<button type="button" class="mbr-buttons__btn btn btn-danger" id="cancel-button" name="cancel-button" style="border-radius:0rem !important" onclick="cancelSimulation()">Cancel</button>  
-			<button type="button" class="mbr-buttons__btn btn btn-success" id="start-button" name="start-button" style="border-radius:0rem !important" onclick="loadDoc()">
+			<button class="mbr-buttons__btn btn btn-primary" 
+			   id="advanced-button" style="border-radius:0rem !important" 
+			   onclick="showOpts()" type="button">Advanced</button>
+			
+			<button type="submit" class="mbr-buttons__btn btn btn-success" 
+			   style="border-radius:0rem !important" id="uploadButton" 
+			   name="uploadButton">
+			   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
+			
+			<button type="button" class="mbr-buttons__btn btn btn-danger" 
+			   id="cancel-button" name="cancel-button" 
+			   style="border-radius:0rem !important" 
+			   onclick="cancelSimulation()">Cancel</button>  
+			
+			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			   id="start-button" name="start-button" 
+			   style="border-radius:0rem !important" onclick="loadDoc()">
 			    Start Simulation
                         </button>
 		     </div>
 		     
 		     <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
-			<button type="button" class="mbr-buttons__btn btn btn-success" style="border-radius:0rem !important" id="tank-view-button" name="tank-download-button" onclick="viewTankFile()">View tank.csv <i class="fa fa-eye" aria-hidden="true"></i></button>
-			<button type="button" class="mbr-buttons__btn btn btn-success" style="border-radius:0rem !important" id="valve-view-button" name="valve-download-button" onclick="viewValveFile()">View valve.csv <i class="fa fa-eye" aria-hidden="true"></i></button>
+			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			   style="border-radius:0rem !important" 
+			   id="tank-view-button" 
+			   name="tank-download-button" 
+			   onclick="viewTankFile()">View csv files
+			   <i class="fa fa-eye" aria-hidden="true"></i>
+			</button>
+
+			<!--<button type="button" class="mbr-buttons__btn btn btn-success" style="border-radius:0rem !important" id="valve-view-button" name="valve-download-button" onclick="viewValveFile()">View valve.csv <i class="fa fa-eye" aria-hidden="true"></i></button>-->
 		     </div>		     
 		  </form>
 	       </div>
 	    
 	       <div class="col-md-7" style="padding-left:50px;padding-top:20px;">
 	       <h2 style="color:dimgray;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output Dashboard</h2>
-		     <hr class="colorgraph"><br>
+		     <hr class="fancy-line"><br>
 	          <div class="table-responsive">
 	          <table class="table table-striped table-bordered" id="test"></table>
 	       </div>
             </div>
 	 </div>
       </section>
+      <hr>
 
-      <section id="form1-1">
-         <div class="container" style="padding-bottom: 50px; max-width:90%; margin-bottom:30px;"  id="file-op-line">
-            <div class="row" style="padding:30px;">
-               <div id="tank-op-line" style="padding:20px; box-shadow: 0 0 15px black;">
-                    <h2 style="color:dimgray" id="file-op-heading"><i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Tank File</h2>
-                    <hr class="colorgraph"><br>
-                    <div class="table-responsive">
-                      <table class="table table-striped table-bordered" id="tank-file-output" style="padding-bottom:15px"></table>
-                    </div>
-                    <div align="center">
-                        <a href="download-tank" style="border-radius:0rem !important" id="export-button-tank" class="btn btn-success" role="button" align="center"><i class="fa fa-download" aria-hidden="true"></i> Export tank.csv</a>
-                    </div>
-               </div>
-            </div>
-            <div class="row" style="padding:30px;">
-               <div id="valve-op-line" style="padding:20px; box-shadow: 0 0 15px black;">
-                    <h2 style="color:dimgray" id="file-op-heading"><i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Valve File</h2>
-                    <hr class="colorgraph"><br>
-                    <div class="table-responsive">
-                      <table class="table table-striped table-bordered" id="valve-file-output" style="padding-bottom:15px"></table>
-                    </div>
-                    <div align="center">
-                        <a href="download-valve" style="border-radius:0rem !important" id="export-button-valve" class="btn btn-success" role="button" align="center"><i class="fa fa-download" aria-hidden="true"></i> Export valve.csv</a>
-                    </div>
-               </div>
-            </div>
-            </div>
+      <section id="form1-1" style="background-color: rgb(245,245,245);">
+	 <div class="container" id="file-op-line" style="padding-top:40px; padding-bottom:50px; margin-left:20px; max-width:100%;" >
+	    <div class="row" style="padding:20px;">
+	       <div class="col-md-6 col-md-offset-0" 
+		  id="tank-op-line" 
+		  style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
+		  <h2 style="color:dimgray" id="file-op-heading">
+		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Tank File
+		  </h2>
+
+		  <hr class="fancy-line"><br>
+		  <div class="table-responsive">
+		     <table class="table table-striped table-bordered" id="tank-file-output" style="padding-bottom:15px"></table>
+		  </div>
+		  <div align="center">
+		     <a href="download-tank" 
+			style="border-radius:0rem !important" 
+			id="export-button-tank" class="btn btn-success" 
+			role="button" align="center">
+			<i class="fa fa-download" aria-hidden="true"></i> Download tank.csv
+		     </a>
+		  </div>
+	       </div>
+	       <div id="valve-op-line" 
+		  class="col-md-6 col-md-offset-1" 
+		  style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
+
+		  <h2 style="color:dimgray" id="file-op-heading">
+		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Valve File
+		  </h2>
+
+		  <hr class="fancy-line"><br>
+
+		  <div class="table-responsive">
+		     <table class="table table-striped table-bordered" id="valve-file-output" style="padding-bottom:15px"></table>
+		  </div>
+
+		  <div align="center">
+		     <a href="download-valve" 
+	                style="border-radius:0rem !important" 
+                        id="export-button-valve" 
+                        class="btn btn-success" role="button" 
+		        align="center"><i class="fa fa-download" aria-hidden="true"></i> Download valve.csv
+		     </a>
+		  </div>
+	       </div>
+	    </div>
+	    <div class="row" style="padding:20px;">
+
+	    </div>
+         </div>
       </section>
       
       <script src="bootstrap-filestyle-1.2.1/src/bootstrap-filestyle.min.js"></script>

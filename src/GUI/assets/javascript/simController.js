@@ -252,6 +252,7 @@ function viewTankFile() {
             dataType: "text",
             type: "get",
             success: function(res) {
+	    viewValveFile();
             var array = $.csv.toArrays(res);
             $('#file-op-line').show();
             $('#tank-op-line').show();
