@@ -21,7 +21,7 @@ output.csv
 doxygen_out/
 
 #node modules
-node_modules
+node_modules/*
 
 # Mac Stuff
 .DS_Store
