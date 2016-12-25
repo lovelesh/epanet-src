@@ -14,6 +14,13 @@ epanet2
 *.a
 Output-20*.csv
 output.csv
+
+Tank-Simulation-Output*.csv
+Valve-Output*.csv
+Tank-Output*.csv
+Valve-Simulation-Output*.csv
+tank.csv
+valve.csv
 # Log files
 *.log
 
