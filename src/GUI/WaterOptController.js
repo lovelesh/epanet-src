@@ -18,7 +18,7 @@ var obj,Type,startTime,duration,w12,w3,w4,w5,w6;
   app.set('port', process.env.PORT || 7000);
   
   
-  //=======================================================
+//=======================================================
 
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
@@ -32,6 +32,7 @@ var storage =   multer.diskStorage({
 var upload = multer({ storage : storage}).any();
 
 app.post('/sumit-upload',function(req,res){
+      spawn('rm' ,['-f', './uploads/*']);
     var uploadStatus = 0;
     upload(req,res,function(err) {
         filenames = req;
@@ -49,7 +50,7 @@ app.post('/sumit-upload',function(req,res){
 });
 
 
-  //============================================================
+//============================================================
   
 app.get('/download-tank', function(req, res) {
     res.download('../../result/tank.csv');
@@ -98,8 +99,7 @@ io.on('connection', function(socket) {
       var file1 = './uploads/' + filenames.files[0].originalname;
       var file2 = './uploads/' + filenames.files[1].originalname;
       var file3 = './uploads/' + filenames.files[2].originalname;
-      //client_binary = spawn('/home/amit/AMIT/epanet/waterProject/epanet-src/build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['0', './uploads/Devanoor_10DMA_demand_zero_changed.inp', './uploads/temp_demand_all.csv', './uploads/Input_Files/joblist.txt', startTime, duration]);
-      client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['0', file1, file2, file3, startTime, duration]);
+      client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6]);
     }
     
     else if(Type == 1) {

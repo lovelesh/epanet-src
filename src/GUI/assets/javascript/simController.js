@@ -2,11 +2,9 @@
 
 
 $(function(){
-   
-    //Register the form dynamic validation
+
+   //Register the form dynamic validation
    //$('#uploadForm').formValidation();
-        
-   //Init
    $('#totalDuration').css('background-color', 'transparent');
    $('#start-button').prop("disabled", true);
    $('#cancel-button').prop("disabled", true);
@@ -21,27 +19,18 @@ $(function(){
    $('#tank-view-button').prop("disabled", true);
    $('#valve-view-button').prop("disabled", true);
    $('#uploadButton').prop("disabled", true);
-   
-   $('#w1').prop("disabled", true);
-   $('#w2').prop("disabled", true);
-   $('#w3').prop("disabled", true);
-   $('#w4').prop("disabled", true);
-   $('#w5').prop("disabled", true);
-   $('#w6').prop("disabled", true);
-   
+
    $('#durationWarning').hide();
    $('#totalDurationRow').hide();
    $('#uploadSuccess').hide();
    $('#file-op-line').hide();
    $('#durationRow').hide();
    $('#startTimeRow').hide();
-   
+
    $('#startTime').on("input", setTotalDur);
    $('#duration').on("input", setTotalDur);
-   
-   
-   var form = document.forms.namedItem("uploadForm");
 
+   var form = document.forms.namedItem("uploadForm");
 
    form.addEventListener('submit', function(ev) {
 
@@ -105,7 +94,12 @@ function loadDoc() {
     message = {
         Type: document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value,
         StartTime: $('#startTime').val(),
-        Duration: $('#duration').val()
+        Duration: $('#duration').val(),
+        w12: $('#w12').val(),
+        w3: $('#w3').val(),
+        w4: $('#w4').val(),
+        w5: $('#w5').val(),
+        w6: $('#w6').val()
     };
   }
   else if(Index == 1) {
@@ -161,14 +155,14 @@ function changeType() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     if(Index == 0) {
         $('#uploadButton').prop("disabled", false);
-        $('#advanced-button').prop("disabled", true);
+        $('#advanced-button').prop("disabled", false);
+        $('#path2row').show();
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
         $('#path3').prop("disabled", false);
         $('#path4').prop("disabled", true);
         $('#path5').prop("disabled", true);
         $('#valveSolPath').prop("disabled", true);
-        $('#advancedOptions').prop("disabled", true);
         $('#advancedOptions').hide();
         $('#startTimeRow').show();
         $('#startTime').prop("disabled", false);
@@ -176,19 +170,16 @@ function changeType() {
         $('#totalDurationRow').show();
         $('#startTime').show();
         $('#durationRow').show();
-        
-        $('#w12').prop("disabled", true);
-        $('#w3').prop("disabled", true);
-        $('#w4').prop("disabled", true);
-        $('#w5').prop("disabled", true);
-        $('#w6').prop("disabled", true);
+
         $('#startTime').val('0');
         $('#duration').prop("disabled", false);
     }
     else if(Index == 1) {
         $('#startTimeRow').hide();
+        $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", false);
+        $('#path2row').show();
         $('#path1').prop("disabled", false);
         $('#path2').prop("disabled", false);
         $('#path3').prop("disabled", false);
@@ -199,27 +190,23 @@ function changeType() {
         $('#durationWarning').show();
         $('#totalDurationRow').hide();
         
-        $('#w12').prop("disabled", false);
-        $('#w3').prop("disabled", false);
-        $('#w4').prop("disabled", false);
-        $('#w5').prop("disabled", false);
-        $('#w6').prop("disabled", false);
         $('#durationRow').show();
         $('#startTimeRow').hide();
         $('#duration').prop("disabled", false);
     }
     else if(Index == 2) {
+        $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", true);
         $('#valveSolPath').prop("disabled",false);
         $('#path1').prop("disabled", false);
-        $('#path2').prop("disabled", false);
         $('#path3').prop("disabled", false);
         $('#path4').prop("disabled", false);
         $('#path5').prop("disabled", true);
         $('#startTime').prop("disabled", true);
         $('#durationWarning').hide();
         $('#totalDurationRow').hide();
+        $('#path2row').hide();
         $('#startTime').prop("disabled", true);
         $('#duration').prop("disabled", true);
         
