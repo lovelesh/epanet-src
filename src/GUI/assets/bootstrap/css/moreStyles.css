@@ -94,3 +94,27 @@ body, hr.fancy-line:after {
     cursor: inherit;
     display: block;
 }
+
+.panel-heading {
+    border-bottom: none !important;
+}
+.panel-body {
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: visible;
+}
+.gifLoading {
+    background-image: url(img/loading-container.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60px 35px;
+    background-origin: content-box;
+    z-index: 999999;
+}
+.highcharts-menu {
+        padding: 0px !important;
+}
+.highcharts-menu hr {
+    margin-top: 0px !important;
+    margin-bottom: 4px;
+}

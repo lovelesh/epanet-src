@@ -268,8 +268,6 @@ function viewTankFile() {
 function viewValveFile() {
     
     $("#valve-file-output").empty();
-    
-    $('#valve-view-button').prop("disabled", true);
     $.ajax({
             url: '/download-valve',
             async: 'true',
@@ -280,6 +278,7 @@ function viewValveFile() {
             $('#file-op-line').show();
             $('#valve-op-line').show();
             $("#valve-file-output").append(generateTable(array));
+            plotGraphFromCsv();
             },
             error: function(res) {
                 $('#download-button').text('Failed');
