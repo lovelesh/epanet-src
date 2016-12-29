@@ -115,7 +115,7 @@
 			</div>
 		     </div>		     
 		     
-		     <div class="row">
+		     <div class="row" id="path5row">
 			<div class="col-md-3">
 			   <div class="form-group">
 			      <label>Current level File</label>
@@ -228,27 +228,29 @@
 
 		     <hr class="fancy-line">
 
-		     <div class="mbr-buttons" align="center">
+		     <div class="mbr-buttons row" align="center">
 			<button class="mbr-buttons__btn btn btn-primary" 
-			   id="advanced-button" style="border-radius:0rem !important" 
+			   id="advanced-button" style="border-radius:0rem !important; width:100px !important; padding-left: 14px !important" 
 			   onclick="showOpts()" type="button">Advanced</button>
-			
-			<button type="submit" class="mbr-buttons__btn btn btn-success" 
+
+			<button type="submit" class="mbr-buttons__btn btn btn-success"
 			   style="border-radius:0rem !important" id="uploadButton" 
 			   name="uploadButton">
 			   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
-			
-			<button type="button" class="mbr-buttons__btn btn btn-danger" 
+
+		     <!--<div class="mbr-buttons" align="center" id="start-stop-btns" style="padding-top:20px">-->
+                	<button type="button" class="mbr-buttons__btn btn btn-danger" 
 			   id="cancel-button" name="cancel-button" 
-			   style="border-radius:0rem !important" 
-			   onclick="cancelSimulation()">Cancel</button>  
+			   style="border-radius:0rem !important; width:80px !important; padding-left: 14px !important" 
+			   onclick="cancelSimulation()">Cancel</button>
 			
 			<button type="button" class="mbr-buttons__btn btn btn-success" 
 			   id="start-button" name="start-button" 
 			   style="border-radius:0rem !important" onclick="loadDoc()">
 			    Start Simulation
-                        </button>
+                        </button>     
 		     </div>
+		     <!--</div>-->
 		     
 		     <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
 			<button type="button" class="mbr-buttons__btn btn btn-success" 
@@ -318,7 +320,7 @@
 
 	    <!--Second Row for graphs-->
 	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px;">
+	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px;box-shadow: 0 0 10px black;">
 		  <section class="panel">
 		     <header id="container1_header" class="text-404 panel-heading gifLoading">
 			<center>TANK</center>
@@ -327,7 +329,7 @@
 		     </div>
 		  </section>
 	       </div>
-	       <div class="col-md-6 col-md-offset-1" style="width:40%;padding:20px;">
+	       <div class="col-md-6 col-md-offset-1" style="width:40%;padding:20px;box-shadow: 0 0 10px black;">
 		  <section class="panel">
 		     <header id="container2_header" class="text-404 panel-heading gifLoading">
 			<center>VALVE</center>
@@ -347,7 +349,9 @@
       <script src="/socket.io/socket.io.js"></script>
       <script src="javascript/jquery-csv.js"></script>
       <script src="javascript/simController.js"></script>
-      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <!--<script src="Highcharts-5.0.6/code/highcharts.js"></script>
+      <script src="Highcharts-5.0.6/code/js/modules/exporting.js"></script>-->
+      <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
       <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
       <script src="javascript/graphPlotter.js"></script>
 

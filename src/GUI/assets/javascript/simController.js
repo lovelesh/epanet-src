@@ -152,139 +152,160 @@ function loadDoc() {
 }
 
 function changeType() {
-    var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
-    if(Index == 0) {
-        $('#uploadButton').prop("disabled", false);
-        $('#advanced-button').prop("disabled", false);
-        $('#path2row').show();
-        $('#path1').prop("disabled", false);
-        $('#path2').prop("disabled", false);
-        $('#path3').prop("disabled", false);
-        $('#path4').prop("disabled", true);
-        $('#path5').prop("disabled", true);
-        $('#valveSolPath').prop("disabled", true);
-        $('#advancedOptions').hide();
-        $('#startTimeRow').show();
-        $('#startTime').prop("disabled", false);
-        $('#durationWarning').hide();
-        $('#totalDurationRow').show();
-        $('#startTime').show();
-        $('#durationRow').show();
+   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
+   if(Index == 0) {
+      $('#uploadButton').prop("disabled", false);
+      $('#advanced-button').prop("disabled", false);
+      $('#path2row').show();
+      $('#path5row').hide();
+      $('#path1').prop("disabled", false);
+      $('#path2').prop("disabled", false);
+      $('#path3').prop("disabled", false);
+      $('#path4').prop("disabled", true);
+      $('#path5').prop("disabled", true);
+      $('#valveSolPath').prop("disabled", true);
+      $('#advancedOptions').hide();
+      $('#startTimeRow').show();
+      $('#startTime').prop("disabled", false);
+      $('#durationWarning').hide();
+      $('#totalDurationRow').show();
+      $('#startTime').show();
+      $('#durationRow').show();
 
-        $('#startTime').val('0');
-        $('#duration').prop("disabled", false);
-    }
-    else if(Index == 1) {
-        $('#startTimeRow').hide();
-        $('#advancedOptions').hide();
-        $('#uploadButton').prop("disabled", false);
-        $('#advanced-button').prop("disabled", false);
-        $('#path2row').show();
-        $('#path1').prop("disabled", false);
-        $('#path2').prop("disabled", false);
-        $('#path3').prop("disabled", false);
-        $('#path4').prop("disabled", false);
-        $('#path5').prop("disabled", false);
-        $('#valveSolPath').prop("disabled", true);
-        $('#startTime').prop("disabled", true);
-        $('#durationWarning').show();
-        $('#totalDurationRow').hide();
-        
-        $('#durationRow').show();
-        $('#startTimeRow').hide();
-        $('#duration').prop("disabled", false);
-    }
-    else if(Index == 2) {
-        $('#advancedOptions').hide();
-        $('#uploadButton').prop("disabled", false);
-        $('#advanced-button').prop("disabled", true);
-        $('#valveSolPath').prop("disabled",false);
-        $('#path1').prop("disabled", false);
-        $('#path3').prop("disabled", false);
-        $('#path4').prop("disabled", false);
-        $('#path5').prop("disabled", true);
-        $('#startTime').prop("disabled", true);
-        $('#durationWarning').hide();
-        $('#totalDurationRow').hide();
-        $('#path2row').hide();
-        $('#startTime').prop("disabled", true);
-        $('#duration').prop("disabled", true);
-        
-        $('#durationRow').hide();
-        $('#startTimeRow').hide();
-    }
+      $('#startTime').val('0');
+      $('#duration').prop("disabled", false);
+   }
+   else if(Index == 1) {
+      $('#startTimeRow').hide();
+      $('#advancedOptions').hide();
+      $('#uploadButton').prop("disabled", false);
+      $('#advanced-button').prop("disabled", false);
+      $('#path2row').show();
+      $('#path1').prop("disabled", false);
+      $('#path2').prop("disabled", false);
+      $('#path3').prop("disabled", false);
+      $('#path4').prop("disabled", false);
+      $('#path5').prop("disabled", false);
+      $('#valveSolPath').prop("disabled", true);
+      $('#startTime').prop("disabled", true);
+      $('#durationWarning').show();
+      $('#path5row').show();
+      $('#totalDurationRow').hide();
+
+      $('#durationRow').show();
+      $('#startTimeRow').hide();
+      $('#duration').prop("disabled", false);
+   }
+   else if(Index == 2) {
+      $('#advancedOptions').hide();
+      $('#uploadButton').prop("disabled", false);
+      $('#advanced-button').prop("disabled", true);
+      $('#valveSolPath').prop("disabled",false);
+      $('#path2').prop("disabled", true);
+      $('#path1').prop("disabled", false);
+      $('#path3').prop("disabled", false);
+      $('#path4').prop("disabled", false);
+      $('#path5').prop("disabled", true);
+      $('#startTime').prop("disabled", true);
+      $('#durationWarning').hide();
+      $('#totalDurationRow').hide();
+      $('#path2row').hide();
+      $('#path5row').hide();
+      $('#startTime').prop("disabled", true);
+      $('#duration').prop("disabled", true);
+
+      $('#durationRow').hide();
+      $('#startTimeRow').hide();
+   }
 }
 
 // Function to halt an in-progress simulation
 
 function cancelSimulation(){
 
-$.ajax({
-        url: '/cancelSimulation',
-        async: 'true',
-        type: "post",
-        success: function(res) {
-          $('#uploadButton').prop("disabled", false);
-          $('#cancel-button').prop("disabled", true);
-          $('#start-button').prop("disabled", false);
-          var json = JSON.parse(res);
-          $.each(json, function(key, value){
-            var table = $("#test");
-            table.append("<tr><td></td><td>" + value + "</td></tr>"); 
-          });
-        },
-        error: function(res) {
-            $('#start-button').text('Failed');
-            $('#testArea').html('Failure response:' + res);
-        }
-    });
+   $.ajax({
+      url: '/cancelSimulation',
+      async: 'true',
+      type: "post",
+      success: function(res) {
+	 $('#uploadButton').prop("disabled", false);
+	 $('#cancel-button').prop("disabled", true);
+	 $('#start-button').prop("disabled", false);
+	 var json = JSON.parse(res);
+	 $.each(json, function(key, value){
+	    var table = $("#test");
+	    table.append("<tr><td></td><td>" + value + "</td></tr>"); 
+	 });
+      },
+      error: function(res) {
+	 $('#start-button').text('Failed');
+	 $('#testArea').html('Failure response:' + res);
+      }
+   });
 }
 
 
 function viewTankFile() {
-    
-    $("#tank-file-output").empty();
-    
-    $('#tank-view-button').prop("disabled", true);
-    $.ajax({
-            url: '/download-tank',
-            async: 'true',
-            dataType: "text",
-            type: "get",
-            success: function(res) {
-	    viewValveFile();
-            var array = $.csv.toArrays(res);
-            $('#file-op-line').show();
-            $('#tank-op-line').show();
-            $("#tank-file-output").append(generateTable(array));
-            },
-            error: function(res) {
-                $('#download-button').text('Failed');
-                $('#testArea').html('Failure response:' + res);
-            }
-        });
+
+   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
+   var downloadUrl;
+   if(Index == '2'){
+      downloadUrl= '/download-sim-tank';
+   }
+   else{
+      downloadUrl= '/download-tank';
+   }
+   $("#tank-file-output").empty();
+
+   $('#tank-view-button').prop("disabled", true);
+   $.ajax({
+      url: downloadUrl,
+      async: 'true',
+      dataType: 'text',
+      type: "get",
+      success: function(res) {
+	 viewValveFile();
+	 var array = $.csv.toArrays(res);
+	 $('#file-op-line').show();
+	 $('#tank-op-line').show();
+	 $("#tank-file-output").append(generateTable(array));
+      },
+      error: function(res) {
+	 $('#download-button').text('Failed');
+	 $('#testArea').html('Failure response:' + res);
+      }
+   });
 }
 
 function viewValveFile() {
-    
-    $("#valve-file-output").empty();
-    $.ajax({
-            url: '/download-valve',
-            async: 'true',
-            dataType: "text",
-            type: "get",
-            success: function(res) {
-            var array = $.csv.toArrays(res);
-            $('#file-op-line').show();
-            $('#valve-op-line').show();
-            $("#valve-file-output").append(generateTable(array));
-            plotGraphFromCsv();
-            },
-            error: function(res) {
-                $('#download-button').text('Failed');
-                $('#testArea').html('Failure response:' + res);
-            }
-    });
+
+   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
+   var downloadUrl;
+   if(Index == '2'){
+      downloadUrl= '/download-sim-valve';
+   }
+   else{
+      downloadUrl= '/download-valve';
+   }
+
+   $("#valve-file-output").empty();
+   $.ajax({
+      url: downloadUrl,
+      async: 'true',
+      dataType: "text",
+      type: "get",
+      success: function(res) {
+	 var array = $.csv.toArrays(res);
+	 $('#file-op-line').show();
+	 $('#valve-op-line').show();
+	 $("#valve-file-output").append(generateTable(array));
+	 plotGraphFromCsv();
+      },
+      error: function(res) {
+	 $('#download-button').text('Failed');
+	 $('#testArea').html('Failure response:' + res);
+      }
+   });
 }
 
 function generateTable(data) {

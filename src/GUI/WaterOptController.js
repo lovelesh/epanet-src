@@ -49,13 +49,21 @@ app.post('/sumit-upload',function(req,res){
 //============================================================
   
 app.get('/download-tank', function(req, res) {
-    res.download('../../result/tank.csv');
+   res.download('../../result/tank.csv');
 });
 
 app.get('/download-valve', function(req, res) {
-    console.log("\nDownload request received..\n");
-    res.download('../../result/valve.csv');
+   res.download('../../result/valve.csv');
 });
+
+app.get('/download-sim-tank', function(req, res) {
+   res.download('../../result/sim_tank.csv');
+});
+
+app.get('/download-sim-valve', function(req, res) {
+   res.download('../../result/sim_valve.csv');
+});
+
   
 app.get('/', function(req, res) {
    /*var fsd = require('fs-extra')
@@ -121,8 +129,8 @@ io.on('connection', function(socket) {
 	 var file2 = './uploads/' + filenames.files[1].originalname;
 	 var file3 = './uploads/' + filenames.files[2].originalname;
 	 var file4 = './uploads/' + filenames.files[3].originalname;
-	 var file5 = './uploads/' + filenames.files[4].originalname;
-	 client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['2', file1, file2, file3, file4, file5]);
+	 //var file5 = './uploads/' + filenames.files[4].originalname;
+	 client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['2', file1, file2, file3, file4]);
       }
 
       var msg = {};
