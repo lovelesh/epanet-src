@@ -1,0 +1,22 @@
+<form id="regexpForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Full name</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="fullName"
+                data-fv-regexp="true"
+                data-fv-regexp-regexp="^[a-z\s]+$"
+                data-fv-regexp-message="The full name can consist of alphabetical characters and spaces only" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#regexpForm').formValidation();
+});
+</script>

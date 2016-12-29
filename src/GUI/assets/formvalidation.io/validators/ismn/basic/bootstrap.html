@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: ismn validator &rarr; Basic example
+permalink: /validators/ismn/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIsmn(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="ismn"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'ismn');
+
+    return $form.data('formValidation').isValidField('ismn');
+}
+</script>

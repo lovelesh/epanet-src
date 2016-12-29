@@ -5,14 +5,30 @@
 
 # Compiled Dynamic libraries
 *.so
+epanet_valve_optim_wisl09
+epanet2
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
+Output-20*.csv
+output.csv
+
+Tank-Simulation-Output*.csv
+Valve-Output*.csv
+Tank-Output*.csv
+Valve-Simulation-Output*.csv
+tank.csv
+valve.csv
+# Log files
+*.log
 
 # Doxygen output
 doxygen_out/
+
+#node modules
+node_modules/*
 
 # Mac Stuff
 .DS_Store
@@ -27,3 +43,8 @@ Debug/
 
 *.mode1v3
 *.mode2v3
+
+*.c~
+temp.out
+*.out
+en*

@@ -1,0 +1,275 @@
+---
+layout: default
+title: Validate a credit card number
+permalink: /validators/creditCard/
+prev:
+    url: /validators/color/
+    title: color validator
+next:
+    url: /validators/cusip/
+    title: cusip validator
+related:
+    - bic
+    - cvv
+    - iban
+    - rtn
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>creditCard validator</h1>
+        <p>Validate a credit card number</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-creditcard-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-creditcard="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        Looking at this <a href="/examples/validating-credit-card-expiration-date/">example</a> if you want to validate credit card expiration date
+                    </div>
+
+                    <p>Behind the scene, in addition to using the <a href="http://en.wikipedia.org/wiki/Luhn">Luhn algorithm</a>, the validator also validate the IIN ranges and length of credit card number.</p>
+                    <p>It supports validating the following cards:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Example</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>American Express</td>
+                                    <td><a href="javascript: void(0);" class="sample">340653705597107</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Dankort</td>
+                                    <td><a href="javascript: void(0);" class="sample">5019717010103742</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Diners Club</td>
+                                    <td><a href="javascript: void(0);" class="sample">30130708434187</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Diners Club (US)</td>
+                                    <td><a href="javascript: void(0);" class="sample">5517479515603901</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Discover</td>
+                                    <td><a href="javascript: void(0);" class="sample">6011734674929094</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Elo</td>
+                                    <td><a href="javascript: void(0);" class="sample">6362970000457013</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Forbrugsforeningen</td>
+                                    <td><a href="javascript: void(0);" class="sample"></a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>JCB</td>
+                                    <td><a href="javascript: void(0);" class="sample">3566002020360505</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Laser</td>
+                                    <td><a href="javascript: void(0);" class="sample">6304 9000 1774 0292 441</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Maestro</td>
+                                    <td><a href="javascript: void(0);" class="sample">6762835098779303</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Mastercard</td>
+                                    <td><a href="javascript: void(0);" class="sample">5303765013600904</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Solo</td>
+                                    <td><a href="javascript: void(0);" class="sample">6334580500000000</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Unionpay</td>
+                                    <td><a href="javascript: void(0);" class="sample"></a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Visa</td>
+                                    <td><a href="javascript: void(0);" class="sample">4929248980295542</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Visa Electron</td>
+                                    <td><a href="javascript: void(0);" class="sample">4917300800000000</a></td>
+                                    <td><i class="fa"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        13 digits Visa credit cards are no longer used and it will be treated as an invalid card number.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        If you use <a href="https://stripe.com">Stripe</a> API for the payment form, take a look at the <a href="/examples/validating-custom-stripe-form/">Validating custom Stripe form</a> example
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <div class="doc-alert doc-alert-info">
+                        You can use <a href="http://www.getcreditcardnumbers.com">www.getcreditcardnumbers.com</a> to generate fake credit card numbers.
+                    </div>
+
+                    <h3>Basic example</h3>
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>Asking credit card number to match with selected type</h3>
+                    <p>The following form asks to fill in the valid credit card number which matches the selected type.</p>
+                    {% include demo/tabs.html id="limit-type" frameworks="bootstrap" dir="limit-type" codes="programmatic" %}
+
+                    <h3>Showing card icon</h3>
+                    <p>The following example shows credit card icon provided by <a href="http://fontawesome.io/icons/#payment">Font Awesome</a> based on the card type.</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Card type</th>
+                                    <th>Icon</th>
+                                    <th>CSS class</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>American Express</td>
+                                    <td><i class="fa fa-cc-amex"></i></td>
+                                    <td><code>fa fa-cc-amex</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Discover</td>
+                                    <td><i class="fa fa-cc-discover"></i></td>
+                                    <td><code>fa fa-cc-discover</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Mastercard</td>
+                                    <td><i class="fa fa-cc-mastercard"></i></td>
+                                    <td><code>fa fa-cc-mastercard</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Visa</td>
+                                    <td><i class="fa fa-cc-visa"></i></td>
+                                    <td><code>fa fa-cc-visa</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Other</td>
+                                    <td><i class="fa fa-credit-card"></i></td>
+                                    <td><code>fa fa-credit-card</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        <a href="http://paymentfont.io/">PaymentFont</a> and <a href="http://www.orlandotm.com/payment-webfont/">Payment Webfont</a> provide more payment icons
+                    </div>
+
+                    {% include demo/tabs.html id="icon" frameworks="bootstrap" dir="icon" codes="programmatic" %}
+
+                    <h3>Accept test credit card numbers</h3>
+                    <p>Do you want some of fake, even invalid credit card numbers to be valid? For example, in the developing phase,
+                        you might want the creditCard validator to accept a few of particular card numbers.</p>
+                    <p>Of course, you don't need to modify the source code of creditCard validator and add your own numbers there.
+                        FormValidation allows you to do it in a nice way via the <a href="/settings/#validator-transformer">transformer</a> option.</p>
+                    <p>By using this option, we transform your test card numbers from an invalid to a valid one.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        The transformer option changes the card numbers for validation process only. When the form is submitted,
+                        you get the extract number that is initially provided by the user
+                    </div>
+
+                    {% include demo/tabs.html id="transformer" frameworks="bootstrap" dir="transformer" codes="programmatic" %}
+
+                    <p>For more usage of <code>transformer</code> option, you should take a look at the following example:</p>
+                    <ul class="doc-list">
+                        <li><a href="/examples/modifying-value-before-validating/">Modifying the value before validating</a></li>
+                    </ul>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateCreditCard($(this).html());
+
+        $(this)
+            .parents('tr').find('i')
+            .removeClass('fa-check fa-times')
+            .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

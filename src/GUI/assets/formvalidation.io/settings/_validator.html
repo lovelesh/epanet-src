@@ -1,0 +1,45 @@
+<section>
+    <h2 id="validator-settings">Validator settings</h2>
+    <p>The following table shows the common settings for validators (when using it, replace <code>{validatorname}</code> with the validator name). For specific settings of each validator, please look at its documentation.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Equivalent HTML attribute</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>enabled</code></td>
+                    <td><code>data-fv-{validatorname}</code></td>
+                </tr>
+                <tr>
+                    <td><code>message</code></td>
+                    <td><code>data-fv-{validatorname}-message</code></td>
+                </tr>
+                <tr>
+                    <td><code>transformer</code></td>
+                    <td>n/a</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="doc-hr-short"></div>
+
+    {% include_relative validator/_enabled.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative validator/_message.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative validator/_transformer.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative validator/_dynamicOption.html %}
+    <div class="doc-hr-short"></div>
+
+    {% include_relative validator/_dynamicMessage.html %}
+</section>

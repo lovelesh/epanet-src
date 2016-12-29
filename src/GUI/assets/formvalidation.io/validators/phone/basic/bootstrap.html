@@ -1,0 +1,24 @@
+---
+layout: demo/bootstrap
+title: phone validator &rarr; Basic example
+permalink: /validators/phone/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidatePhone(phone, country) {
+    var $form = $('form');
+    $form
+        .find('select[name="countrySelectBox"]')
+            .val(country)
+            .end()
+        .find('input[name="phoneNumber"]')
+            .val(phone)
+            .end()
+        .formValidation('revalidateField', 'phoneNumber');
+
+    return $form.data('formValidation').isValidField('phoneNumber');
+}
+</script>

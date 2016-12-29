@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article#">
+    {% include demo/head.html %}
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    {% bundle %}
+    - /vendor/formvalidation/css/formValidation.min.css
+    - /asset/css/demo.css
+    {% endbundle %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/vendor/modernizr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation/foundation.tooltip.min.js"></script>
+
+    {% bundle %}
+    - /vendor/formvalidation/js/formValidation.min.js
+    - /vendor/formvalidation/js/framework/foundation5.min.js
+    - /asset/js/demo.js
+    {% endbundle %}
+</head>
+<body class="demo-foundation">
+    <div class="row">
+        <div class="small-12 columns" id="demoContainer">
+            {{ content }}
+        </div>
+    </div>
+
+<script>
+$(document).ready(function() {
+    $(document).foundation();
+});
+</script>
+</body>
+</html>

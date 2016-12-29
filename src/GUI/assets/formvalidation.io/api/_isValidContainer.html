@@ -1,0 +1,35 @@
+<section>
+    <h2 id="is-valid-container">isValidContainer</h2>
+
+    <p><code>isValidContainer(container<sup>*</sup>): Boolean</code> &mdash; It can take one of three values:</p>
+    <ul class="doc-list">
+        <li><code>true</code> if all fields belonging to the container are valid</li>
+        <li><code>false</code> if all fields belonging to the container are already validated and there is at least one invalid field</li>
+        <li><code>null</code> if the container consists of at least one field that isn't validated yet</li>
+    </ul>
+
+    <p>Using with the <a href="#validate-container">validateContainer(container)</a> method, these methods are useful when working with a wizard-like such as tabs, collapsible panels.</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>container</code></td>
+                    <td>String|jQuery</td>
+                    <td>The container selector or container element</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Examples</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/#wizard">Wizard examples</a></li>
+    </ul>
+</section>

@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: ean validator &rarr; Basic example
+permalink: /validators/ean/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateEan(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="ean"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'ean');
+
+    return $form.data('formValidation').isValidField('ean');
+}
+</script>

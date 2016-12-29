@@ -1,0 +1,97 @@
+---
+layout: default
+title: greaterThan validator
+permalink: /validators/greaterThan/
+prev:
+    url: /validators/file/
+    title: file validator
+next:
+    url: /validators/grid/
+    title: grid validator
+related:
+    - between
+    - lessThan
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>greaterThan validator</h1>
+        <p>Return true if the value is greater than or equals to given number</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>inclusive</code></td>
+                                    <td><code>data-fv-greaterthan-inclusive</code></td>
+                                    <td>Boolean</td>
+                                    <td>Can be <code>true</code> or <code>false</code>.<br />If <code>true</code>, the input value must be greater than or equal to the comparison one.<br />If <code>false</code>, the input value must be greater than the comparison one</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-greaterthan-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>value</code><sup>*</sup></td>
+                                    <td><code>data-fv-greaterthan-value</code></td>
+                                    <td>Float</td>
+                                    <td>The number to make a comparison to.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-greaterthan="true".<br/>
+                        You don't need to do that when using HTML 5 min="..." attribute.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>If you want the value to support custom format, such as a comma for thousand separator, you should use the <a href="/settings/#validator-transformer">transformer</a> option.
+                        The <a href="/examples/modifying-value-before-validating/">modifying the value before validating</a> example is good starting point.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

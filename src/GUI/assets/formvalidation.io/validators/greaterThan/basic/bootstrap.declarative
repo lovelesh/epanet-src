@@ -1,0 +1,22 @@
+<form id="profileForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-5 control-label">Your age (18+ required)</label>
+        <div class="col-xs-5">
+            <input class="form-control" type="text" name="age"
+                   data-fv-greaterthan="true" />
+                   data-fv-greaterthan-value="18" />
+                   data-fv-greaterthan-message="The value must be greater than or equal to 18" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#profileForm').formValidation();
+});
+</script>

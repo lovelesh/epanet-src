@@ -1,0 +1,24 @@
+<section>
+    <h3 id="field-excluded">excluded</h3>
+
+    <p><code>excluded: Boolean|Function</code> &mdash; Indicate whether or not the field is excluded.</p>
+    <p>To exclude a set of fields, you should use the <a href="#form-excluded">excluded</a> option for form.</p>
+
+{% highlight javascript %}
+// Use Boolean value
+excluded: true or false
+
+// Use the return value of a callback function
+excluded: function($field, validator) {
+    // $field is the field element
+    // validator is the plugin instance
+    return true;    // or false
+}
+{% endhighlight %}
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/terms-conditions-agreement-validation/#showing-terms-and-conditions-in-a-modal">Terms and conditions agreement validation</a></li>
+        <li><a href="/examples/validating-multiple-inputs-one/">Validating multiple inputs as one</a></li>
+    </ul>
+</section>

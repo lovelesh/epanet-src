@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: ip validator &rarr; Basic example
+permalink: /validators/ip/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIpAddress(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="ip"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'ip');
+
+    return $form.data('formValidation').isValidField('ip');
+}
+</script>

@@ -1,0 +1,166 @@
+---
+layout: default
+title: Use jQuery's Deferred to validate field's value
+permalink: /validators/promise/
+prev:
+    url: /validators/phone/
+    title: phone validator
+next:
+    url: /validators/regexp/
+    title: regexp validator
+related:
+    - callback
+    - remote
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>promise validator</h1>
+        <p>Use jQuery's Deferred to validate field's value</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <p>This validator is available from v0.6.2.</p>
+
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-promise-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>promise</code><sup>*</sup></td>
+                                    <td><code>data-fv-promise-promise</code></td>
+                                    <td>String|Function</td>
+                                    <td>The callback returns promise instance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-promise="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+
+                    <p>The <code>promise</code> option must be a function or the name of function which has the following syntax:</p>
+
+{% highlight javascript %}
+function(value, validator, $field) {
+    // value is the value of field
+    // validator is the instance of plugin
+    // $field is the field element
+
+    var dfd = new $.Deferred();
+
+    // Do something ...
+
+    // Resolve when particular task is done
+    dfd.resolve({
+        valid: true, // or false,   // Required
+        message: 'Other message',   // Optional
+        key: value                  // You can attach more data to reuse later
+    });
+
+    // You can reject if there's error
+    dfd.reject({
+        message: 'Other message',   // Optional
+        key: value                  // You can attach more data to reuse later
+    });
+
+    return dfd.promise();
+}
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        <p>The validator is <a href="/examples/ignoring-validation/">ignored</a> if it resolves { valid: null }</p>
+                        <p>dfd.resolve({ valid: null });</p>
+                    </div>
+
+                    <p>If the validation process takes time, it's recommended to use the tips introduced in the
+                        <a href="/examples/getting-notified-field-being-validated/">Getting notified while field is being validated</a> example
+                        to improve the user experience of the application.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        Look at this <a href="/examples/using-data-returned-validator/">example</a> if you want to attach more data to the returned value and reuse them later
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>The following form asks user to upload an avatar which both width and height must be less than 300px.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        Use the <a href="/validators/file/">file</a> validator if you want to validate size of an image
+                    </div>
+
+                    <p>They can be determined using Deferred as seen in the following snippet:</p>
+
+{% highlight javascript %}
+var dfd = new $.Deferred(),
+    img = new Image();
+
+img.onload = function() {
+    // Get the width and height after the image is loaded completely
+    var w = this.width,
+        h = this.height;
+
+    dfd.resolve({
+        valid: (w <= 300 && h <= 300),
+        message: 'The avatar width and height must be less than 300 px',
+        source: img.src,    // We will use it later to show the preview
+        width: w,
+        height: h
+    });
+};
+
+img.onerror = function() {
+    // Called when the image isn't loaded successfully
+    // For example, the user doesn't choose an image
+    dfd.reject({
+        message: 'Please choose an image'
+    });
+};
+{% endhighlight %}
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

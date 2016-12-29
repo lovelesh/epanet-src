@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: color validator &rarr; Basic example
+permalink: /validators/color/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateColor(color) {
+    var $form = $('form');
+    $form
+        .find('input[name="color"]')
+            .val(color)
+            .end()
+        .formValidation('revalidateField', 'color');
+
+    return $form.data('formValidation').isValidField('color');
+}
+</script>

@@ -1,0 +1,38 @@
+<form id="identicalForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Retype password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" name="confirmPassword" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#identicalForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            confirmPassword: {
+                validators: {
+                    identical: {
+                        field: 'password',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

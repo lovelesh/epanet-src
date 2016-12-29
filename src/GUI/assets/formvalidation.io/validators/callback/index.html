@@ -1,0 +1,167 @@
+---
+layout: default
+title: callback validator
+permalink: /validators/callback/
+prev:
+    url: /validators/bic/
+    title: bic validator
+next:
+    url: /validators/choice/
+    title: choice validator
+related:
+    - promise
+    - remote
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>callback validator</h1>
+        <p>Return the validity from a callback method</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>callback</code><sup>*</sup></td>
+                                    <td><code>data-fv-callback-callback</code></td>
+                                    <td>Function</td>
+                                    <td>The callback method</td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-callback-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-callback="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message option can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> method
+                    </div>
+
+                    <p>The callback method must follow the format below:</p>
+
+{% highlight javascript %}
+function(value, validator, $field) {
+    // value is the value of field
+    // validator is instance of BootstrapValidator
+    // $field is the jQuery object representing the field element
+
+    // Check the field validity
+    return true;    // or false
+}
+{% endhighlight %}
+
+                    <div class="doc-alert doc-alert-info">
+                        The validator is <a href="/examples/ignoring-validation/">ignored</a> if the callback method returns null
+                    </div>
+
+                    <p>If you want to return a dynamic message, the callback function must return an object containing the <code>valid</code> and <code>message</code> members:</p>
+
+{% highlight javascript %}
+function(value, validator, $field) {
+    // ... Do your logic checking
+    if (...) {
+        return {
+            valid: true,    // or false
+            message: 'The error message'
+        }
+    }
+
+    return {
+        valid: false,       // or true
+        message: 'Other error message'
+    }
+}
+{% endhighlight %}
+                    <p>Look at the <a href="#dynamic-message-example">dynamic message</a> example.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        If the validation process takes time, it's recommended to use the tips introduced in the
+                        <a href="/examples/getting-notified-field-being-validated/">Getting notified while field is being validated</a> example
+                        to improve the user experience of the application
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        Look at this <a href="/examples/using-data-returned-validator/">example</a> if you want to attach more data to the returned value and reuse them later
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    <p>In the following form, user is asked to enter a correct answer of simple operation which is generated randomly.</p>
+                    <p>The captcha is also generated after form submission by triggering the <a href="/settings/#event-form">err.form.fv</a> event.</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>Dynamic message example</h3>
+                    <p>The form below ask to enter a secure password, which must satisfies all the following conditions:</p>
+                    <ul class="doc-list">
+                        <li>Must be more than 8 characters long</li>
+                        <li>Must contain at least one upper case character</li>
+                        <li>Must contain at least one lower case character</li>
+                        <li>Must contain at least one digit</li>
+                    </ul>
+
+                    {% include demo/tabs.html id="dynamic" frameworks="bootstrap" dir="dynamic-message" codes="programmatic" %}
+
+                    <h4>Showing all messages</h4>
+                    <p>It's also possible to show all the messages initially. Then whenever the password passes a particular rule, the message associated with the rule will disappear.</p>
+                    <p>Again, we need to trigger events to archive this. This time, the <a href="/settings/#event-field">field events</a> (<code>err.field.fv</code> and <code>success.field.fv</code>) are used.</p>
+
+                    {% include demo/tabs.html id="all-message" frameworks="bootstrap" dir="all-message" codes="programmatic" %}
+
+                    <h5>Example</h5>
+                    <ul class="doc-list">
+                        <li><a href="/examples/asking-fields-be-unique/">Asking fields to be unique</a></li>
+                        <li><a href="/examples/building-password-strength-meter/">Building a password strength meter with Dropbox's zxcvbn libary</a></li>
+                        <li><a href="/examples/contact-form/">Contact form</a></li>
+                        <li><a href="/examples/preventing-user-have-same-value-placeholder/">Preventing user to have same value as the placeholder</a></li>
+                        <li><a href="/examples/supporting-multiple-date-formats/">Supporting multiple date formats</a></li>
+                        <li><a href="/examples/terms-conditions-agreement-validation/#showing-terms-and-conditions-in-a-modal">Terms and conditions agreement validation</a></li>
+                        <li><a href="/examples/validating-international-phone-numbers/#using-the-callback-validator">Validating international phone numbers</a></li>
+                        <li><a href="/examples/validating-percentage-values/">Validating percentage values</a></li>
+                    </ul>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

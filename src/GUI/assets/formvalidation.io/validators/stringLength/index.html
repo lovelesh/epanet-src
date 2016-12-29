@@ -1,0 +1,159 @@
+---
+layout: default
+title: Validate length of a string
+permalink: /validators/stringLength/
+prev:
+    url: /validators/stringCase/
+    title: stringCase validator
+next:
+    url: /validators/uri/
+    title: uri validator
+related:
+    - notEmpty
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>stringLength validator</h1>
+        <p>Validate the length of a string</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>max</code></td>
+                                    <td><code>data-fv-stringlength-max</code> or <code>maxlength</code></td>
+                                    <td>Number</td>
+                                    <td>The maximum length.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-stringlength-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>min</code></td>
+                                    <td><code>data-fv-stringlength-min</code> or <code>minlength</code></td>
+                                    <td>Number</td>
+                                    <td>The minimum length.<br/>It's <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>utf8Bytes</code></td>
+                                    <td><code>data-fv-stringlength-utf8bytes</code></td>
+                                    <td>Boolean</td>
+                                    <td>Evaluate string length in UTF-8 bytes. Default to <code>false</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>trim</code></td>
+                                    <td><code>data-fv-stringlength-trim</code></td>
+                                    <td>Boolean</td>
+                                    <td>Indicate the length will be calculated after trimming the value or not. Default to <code>false</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>At least one of <code>min</code> and <code>max</code> options is required.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-stringlength="true".<br/>
+                        You don't need to do that when using either HTML 5 maxlength="..." or minlength="..." attribute.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <h3>Using with Rails form</h3>
+                    <p>Rails' forms count new lines as two characters (<code>\r\n</code>). Meanwhile, the stringLength validator counts new lines as one character.
+                        So the user can input more than number of allowed characters as long as they enter a new line.</p>
+                    <p>This problem can be solved by using the <a href="/settings/#dynamic-option">dynamic option</a> feature which is provided by the <code>max</code> option:</p>
+
+{% highlight html %}
+<div class="post">
+    <%= form_for @post do |f| %>
+    <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control', rows: 3 %>
+    </div>
+    <%= f.submit 'Save', class: 'btn btn-default' %>
+    <% end %>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.post form').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            'post[body]': {
+                validators: {
+                    notEmpty: {
+                        message: 'Post content is required'
+                    },
+                    stringLength: {
+                        message: 'Post content must be less than 120 characters',
+                        max: function (value, validator, $field) {
+                            return 120 - (value.match(/\r/g) || []).length;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+
+                    <p>In the following form, the <strong>Full name</strong> and <strong>Bio</strong> fields must be less than 50 and 200 characters respectively.</p>
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>HTML 5 example</h3>
+
+                    <p>The following example demonstrates an usage of the stringLength validator with <code>maxlength</code> and <code>minlength</code> attributes.</p>
+                    {% include demo/tabs.html id="html5" frameworks="bootstrap" dir="html5" codes="declarative" %}
+
+                    <h5>Example</h5>
+                    <ul class="doc-list">
+                        <li><a href="/examples/contact-form/">Contact form</a></li>
+                    </ul>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

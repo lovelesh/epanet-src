@@ -1,4 +1,0 @@
-SHELL = /bin/sh
-all:
-	gcc -g -O3 -fPIC -o epanet_valve_optim_wisl09  -L ./  -lepanet2 -lm ../../src/epanet_valve_optim.c
-

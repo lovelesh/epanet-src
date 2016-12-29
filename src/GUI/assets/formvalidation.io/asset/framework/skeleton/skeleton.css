@@ -1,0 +1,56 @@
+.fv-form-skeleton .row {
+    margin-bottom: 15px;
+}
+
+.fv-form-skeleton input,
+.fv-form-skeleton select,
+.fv-form-skeleton textarea {
+    margin-bottom: 0;
+}
+
+.fv-form-skeleton .fv-control-feedback {
+    top: 0;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.fv-form-skeleton label~.fv-control-feedback {
+    top: 29px;
+}
+
+.fv-form-skeleton label>.label-body {
+    padding-top: 7px;
+}
+
+/* Stacked form without label */
+.fv-form-skeleton label~.fv-control-feedback.fv-icon-no-label {
+    top: 0;
+}
+
+/* Horizontal form */
+.fv-form-horizontal.fv-form-skeleton label.fv-checkbox~.fv-control-feedback,
+.fv-form-horizontal.fv-form-skeleton label.fv-radio~.fv-control-feedback {
+    top: 0;
+}
+
+.fv-form-skeleton .fv-help-block {
+    margin-top: 5px;
+}
+
+/* You can customize the color of success and error classes */
+.fv-form-skeleton .fv-has-error label,
+.fv-form-skeleton .fv-has-error .fv-help-block,
+.fv-form-skeleton .fv-has-error .fv-control-feedback {
+    color: red;
+}
+.fv-form-skeleton .fv-has-success label,
+.fv-form-skeleton .fv-has-success .fv-control-feedback {
+    color: green;
+}
+
+/* You can customize the disabled button styles */
+.fv-form-skeleton .fv-button-disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}

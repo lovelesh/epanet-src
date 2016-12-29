@@ -1,0 +1,22 @@
+<form id="stringCaseForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Credit card holder</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="name"
+                data-fv-stringcase="true"
+                data-fv-stringcase-case="upper"
+                data-fv-stringcase-message="The card holder must be in uppercase" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#stringCaseForm').formValidation();
+});
+</script>

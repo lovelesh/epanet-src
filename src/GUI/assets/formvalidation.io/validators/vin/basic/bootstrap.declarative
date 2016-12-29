@@ -1,0 +1,21 @@
+<form id="vinForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">VIN</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="vin"
+                data-fv-vin="true"
+                data-fv-vin-message="The value is not valid VIN" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#vinForm').formValidation();
+});
+</script>

@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: iban validator &rarr; Basic example
+permalink: /validators/iban/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateIban(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="iban"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'iban');
+
+    return $form.data('formValidation').isValidField('iban');
+}
+</script>

@@ -1,0 +1,95 @@
+<style type="text/css">
+#groupForm i.form-control-feedback {
+    top: 5px !important;
+    right: 5px;
+}
+</style>
+
+<p>We would like to know 5 recent projects you have done:</p>
+<form id="groupForm">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Role</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" name="project[]" /></td>
+                    <td><input type="text" class="form-control" name="role[]" /></td>
+                    <td><input type="text" class="form-control" name="url[]" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="project[]" /></td>
+                    <td><input type="text" class="form-control" name="role[]" /></td>
+                    <td><input type="text" class="form-control" name="url[]" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="project[]" /></td>
+                    <td><input type="text" class="form-control" name="role[]" /></td>
+                    <td><input type="text" class="form-control" name="url[]" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="project[]" /></td>
+                    <td><input type="text" class="form-control" name="role[]" /></td>
+                    <td><input type="text" class="form-control" name="url[]" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="project[]" /></td>
+                    <td><input type="text" class="form-control" name="role[]" /></td>
+                    <td><input type="text" class="form-control" name="url[]" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-default">Validate</button>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#groupForm').formValidation({
+        framework: 'bootstrap',
+        err: {
+            container: 'tooltip'
+        },
+        row: {
+            selector: 'td'
+        },
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            'project[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The project name is required'
+                    }
+                }
+            },
+            'role[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The role is required'
+                    }
+                }
+            },
+            'url[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The URL is required'
+                    },
+                    uri: {
+                        message: 'The URL is invalid'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

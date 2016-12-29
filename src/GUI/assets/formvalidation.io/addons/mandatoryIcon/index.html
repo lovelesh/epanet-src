@@ -1,0 +1,261 @@
+---
+layout: default
+title: mandatoryIcon add-on
+permalink: /addons/mandatoryIcon/
+image: /addons/mandatoryIcon/cover.png
+file: "mandatoryIcon-v0.1.1.zip"
+download: "https://github.com/formvalidation/addon-mandatoryicon/releases/download/v0.1.1/mandatoryIcon-v0.1.1.zip"
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>mandatoryIcon add-on</h1>
+        <p>Show required icons for mandatory fields</p>
+        <p>&larr; <a href="/addons/">Add-ons</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p>Follow these steps to use this add-on:</p>
+
+                <section>
+                    <h2>Including the add-on</h2>
+                    <ul class="doc-list">
+                        <li>Download <a href="{{ page.download }}" class="addonDownloadButton" data-placement="bottom" data-container="body">mandatoryIcon</a> add-on</li>
+                        <li>Include <code>mandatoryIcon.min.js</code> (located in the <code>dist</code> directory) to your page. Ensure that it's placed after <code>formValidation(.min).js</code></li>
+                    </ul>
+{% highlight html %}
+<!-- FormValidation plugin -->
+<script src="/vendor/formvalidation/dist/js/formValidation.min.js"></script>
+
+<!-- Add-ons. You should place it inside /vendor/formvalidation/dist/js/addons directory -->
+<script src="/vendor/formvalidation/dist/js/addons/mandatoryIcon.js"></script>
+{% endhighlight %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Calling the add-on</h2>
+                    <p>It's possible to call the add-on in both programmatic and declarative ways:</p>
+
+                    <div class="doc-demo">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#programmatic-tab" data-toggle="tab">Programmatic code</a></li>
+                            <li><a href="#declarative-tab" data-toggle="tab">Declarative code</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="programmatic-tab">
+{% highlight javascript %}
+$('#productForm').formValidation({
+    framework: '...',
+    icon: {
+        ...
+    },
+    addOns: {
+        mandatoryIcon: {
+            icon: 'glyphicon glyphicon-asterisk'
+        }
+    },
+    fields: {
+        ...
+    }
+});
+{% endhighlight %}
+                            </div>
+
+                            <div class="tab-pane" id="declarative-tab">
+                                <div class="doc-alert doc-alert-info">
+                                    <p>If you want to use multiple add-ons, just simply separate them by a comma in data-fv-addons attribute:</p>
+                                    <p>data-fv-addons="i18n, mandatoryIcon, recaptcha2"</p>
+                                </div>
+
+{% highlight html %}
+<form id="signUpForm" method="post" class="form-horizontal"
+    data-fv-addons="mandatoryIcon"
+    data-fv-addons-mandatoryicon-icon="glyphicon glyphicon-asterisk">
+    ...
+</form>
+{% endhighlight %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>The mandatoryIcon add-on provides the following options:</p>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>icon</code><sup>*</sup></td>
+                                    <td><code>data-fv-addons-mandatoryicon-icon</code></td>
+                                    <td><code>String</code></td>
+                                    <td>The list of icon classes which are added to the <a href="/settings/#form-icon">feedback icon</a> if the field is required</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The mandatory and feedback icons are usually in the same icon sets:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Icon sets</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="http://getbootstrap.com/components/#glyphicons">Glyphicons</a></td>
+                                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'glyphicon glyphicon-ok',
+    invalid: 'glyphicon glyphicon-remove',
+    validating: 'glyphicon glyphicon-refresh'
+},
+addOns: {
+    mandatoryIcon: {
+        icon: 'glyphicon glyphicon-asterisk'
+    }
+}
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://fontawesome.io/icons">FontAwesome</a></td>
+                                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'fa fa-check',
+    invalid: 'fa fa-times',
+    validating: 'fa fa-refresh'
+},
+addOns: {
+    mandatoryIcon: {
+        icon: 'fa fa-asterisk'
+    }
+}
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://semantic-ui.com/elements/icon.html">Semantic icons</a></td>
+                                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'checkmark icon',
+    invalid: 'remove icon',
+    validating: 'refresh icon'
+},
+addOns: {
+    mandatoryIcon: {
+        icon: 'asterisk icon'
+    }
+}
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://getuikit.com/docs/icon.html">UIKit</a></td>
+                                    <td>
+{% highlight javascript %}
+icon: {
+    valid: 'uk-icon-check',
+    invalid: 'uk-icon-times',
+    validating: 'uk-icon-refresh'
+},
+addOns: {
+    mandatoryIcon: {
+        icon: 'uk-icon-asterisk'
+    }
+}
+{% endhighlight %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The mandatory icon is also shown when calling the <a href="/api/#reset-form">resetForm()</a> or <a href="/api/#reset-field">resetField()</a> methods.
+                        You can see it in action by clicking the <strong>Add product</strong> and then <strong>Reset form</strong> buttons.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <p>Below is the piece of code showing programmatic and declarative usages:</p>
+
+                    {% include demo/tabs.html id="demo" frameworks="bootstrap" codes="programmatic,declarative" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Change log</h2>
+
+                    <ul class="doc-list">
+                        <li>
+                            <p>v0.1.1:</p>
+                            <ul class="doc-list">
+                                <li>Don't add the mandatory icon to the field that the notEmpty or validators aren't enabled</li>
+                                <li>Add Grunt build and minified files</li>
+                            </ul>
+                        </li>
+                        <li>v0.1.0: First release</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                <div class="doc-addon">
+                    <div class="doc-addon-image"><img class="img-responsive" src="/addons/mandatoryIcon/cover.png" alt="FormValidation mandatoryIcon add-on" /></div>
+
+                    <div class="doc-addon-meta">
+                        <a href="{{ page.download }}" class="btn btn-success addonDownloadButton" data-placement="bottom" data-container="body"><i class="fa fa-download"></i> {{ page.file }}</a>
+                    </div>
+                </div>
+
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    var ADDON_NAME = 'mandatoryIcon';
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'https://api.github.com/repos/formvalidation/addon-mandatoryicon/releases',
+        success: function(response) {
+            var total = 0;
+            if (response.data) {
+                for (var i in response.data) {
+                    for (var j in response.data[i].assets) {
+                        if (response.data[i].assets[j].name.substr(0, ADDON_NAME.length) === ADDON_NAME) {
+                            total += (response.data[i].assets[j].download_count || 0);
+                        }
+                    }
+                }
+            }
+            $('.addonDownloadButton').attr('data-title', total + (total <= 1 ? ' download' : ' downloads')).tooltip();
+        }
+    })
+});
+</script>

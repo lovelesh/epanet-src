@@ -1,0 +1,29 @@
+<section>
+    <h2 id="reset-form">resetForm</h2>
+
+    <p><code>resetForm(resetFormData): FormValidation</code> &mdash; Reset form. It hides all error elements and feedback icons. All the fields are marked as not validated yet.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>resetFormData</code></td>
+                    <td>Boolean</td>
+                    <td>If <code>true</code>, the method resets the fields which have validator rules.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% highlight javascript %}
+$(form).formValidation(options);
+$(form).data('formValidation').resetForm();
+{% endhighlight %}
+</section>

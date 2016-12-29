@@ -1,0 +1,391 @@
+---
+layout: default
+title: Validate a color in different formats
+permalink: /validators/color/
+prev:
+    url: /validators/choice/
+    title: choice validator
+next:
+    url: /validators/creditCard/
+    title: creditCard validator
+color_types:
+    - name: hex
+      valid:
+            - "#0000FF"
+            - "#00F"
+      invalid:
+            - 123
+            - 112233
+            - "#4567"
+    - name: hsl
+      valid:
+            - hsl(120,50%,50%)
+            - hsl( 120 , 50% , 50% )
+            - hsl(  120,  50%,       50%  )
+            - hsl(-120,50%,50%)
+            - hsl(480,50%,50%)
+      invalid:
+            - hsl(10,-50%,50%)
+            - hsl(10,50%,-50%)
+            - 120,50%,50%
+            - hsl(120,100%,101%)
+            - hsl (120,50%,50%)
+            #- " hsl(120,50%,50%)"
+            #- "hsl(120,50%,50%) "
+            - hsl(50%, 50%, 100%)
+            - hsl(120, 50, 100%)
+            - hsl(120, 50%, 100)
+    - name: hsla
+      valid:
+            - hsla(120,50%,50%,1)
+            - hsla( 120 , 50% , 50%, 1 )
+            - hsla(  120,  50%,       50% ,   1  )
+            - hsla(-120,50%,50%,1)
+            - hsla(480,50%,50%,1)
+            - hsla(120,50%,100%,0)
+            - hsla(120,50%,100%,1)
+            - hsla(120,50%,100%,0.5)
+            - hsla(120,50%,100%,.5)
+            - hsla(120,50%,100%,.524141)
+      invalid:
+            - hsla(120,50%,100%,50%)
+            - hsla(120,50%,100%,2)
+            - hsla(120,50%,100%,-1)
+            - hsla(120,50%,100%,1.000000000001)
+            - hsla(120,50%,100%,-0.5)
+            - hsla(120,50%,100%,2.3)
+            - hsla(10,-50%,50%,1)
+            - hsla(10,50%,-50%,1)
+            - 120,50%,50%,1
+            - hsla(120,100%,101%,1)
+            - hsla (120,50%,50%,1)
+            #- " hsla(120,50%,50%,1)"
+            #- "hsla(120,50%,50%,1) "
+            - hsla(50%, 50%, 100%,1)
+            - hsla(120, 50, 100%,1)
+            - hsla(120, 50%, 100,1)
+    - name: keyword
+      valid:
+            - transparent
+            - blue
+      invalid:
+            - blueviolet red
+            - shady
+            - blueish
+    - name: rgb
+      valid:
+            - rgb(255,255,255)
+            - rgb( 255 , 255 , 255 )
+            - rgb(  255,  255,       255  )
+            - rgb(255,255,255)
+            - rgb(100%,100%,100%)
+      invalid:
+            - rgb(255,255,100%)
+            - rgb(-10,255,255)
+            - rgb(-10%,100%,100%)
+            - 255,255,255
+            - rgb(255,255,256)
+            - rgb(100%,100%,101%)
+            - rgb (255,255,255)
+            #- " rgb(255,255,255)"
+            #- "rgb(255,255,255) "
+    - name: rgba
+      valid:
+            - rgba(255,255,255,1)
+            - rgba( 255 , 255 , 255 , 1 )
+            - rgba(  255  ,  255    ,       255 ,  1     )
+            - rgba(255,255,255,1)
+            - rgba(100%,100%,100%,1)
+            - rgba(255,255,255,0)
+            - rgba(255,255,255,1)
+            - rgba(255,255,255,0.5)
+            - rgba(255,255,255,.5)
+            - rgba(255,255,255,.524141)
+            - rgba(100%,100%,100%,0)
+            - rgba(100%,100%,100%,1)
+            - rgba(100%,100%,100%,0.5)
+            - rgba(100%,100%,100%,.5)
+            - rgba(100%,100%,100%,.524141)
+      invalid:
+            - rgba(100%,100%,100%,50%)
+            - rgba(255,255,255,2)
+            - rgba(255,255,255,-1)
+            - rgba(255,255,255,1.000000000001)
+            - rgba(255,255,255,-0.5)
+            - rgba(255,255,255,2.3)
+            - rgba(255,255,100%,1)
+            - rgba(-10,255,255,1)
+            - rgba(-10%,100%,100%,1)
+            - 255,255,255,1
+            - rgba(255,255,256),1
+            - rgba(100%,100%,101%,1)
+            - rgba (255,255,255,1)
+            #- " rgba(255,255,255,1)"
+            #- "rgba(255,255,255,1) "
+related:
+    - regexp
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>color validator</h1>
+        <p>Validate a color in different formats</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-color-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>type</code></td>
+                                    <td><code>data-fv-color-type</code></td>
+                                    <td>String|String[]</td>
+                                    <td>
+                                        <p>The type of color. It can be:</p>
+                                        <ul class="doc-list">
+                                            <li>One of <a href="#supported-types">supported types</a> listed below</li>
+                                            <li>Array of supported types</li>
+                                            <li>A string consists of supported types, separated by a comma</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-color="true".
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Supported types</h2>
+
+                    <p>Following is the list of supported types:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Valid sample</th>
+                                    <th>Invalid sample</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for type in page.color_types %}
+                                <tr>
+                                    <td>{{ type.name }}</td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in type.valid %}
+                                            <li><a href="javascript: void(0);" class="sample">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="doc-sample-list">
+                                            {% for sample in type.invalid %}
+                                            <li><a href="javascript: void(0);" class="sample">{{ sample }}</a> <i class="fa"></i></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>The <code>keyword</code> type accepts the following colors:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Starting with</th>
+                                    <th>Colors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A</td>
+                                    <td><pre><code>aliceblue, antiquewhite, aqua, aquamarine, azure</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>B</td>
+                                    <td><pre><code>beige, bisque, black, blanchedalmond, blue, blueviolet, brown, burlywood</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>C</td>
+                                    <td><pre><code>cadetblue, chartreuse, chocolate, coral, cornflowerblue, cornsilk, crimson, cyan</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>D</td>
+                                    <td>
+<pre><code>darkblue, darkcyan, darkgoldenrod, darkgray, darkgreen, darkgrey, darkkhaki, darkmagenta,
+darkolivegreen, darkorange, darkorchid, darkred, darksalmon, darkseagreen, darkslateblue,
+darkslategray, darkslategrey, darkturquoise, darkviolet, deeppink, deepskyblue, dimgray,
+dimgrey, dodgerblue</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F</td>
+                                    <td><pre><code>firebrick, floralwhite, forestgreen, fuchsia</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>G</td>
+                                    <td><pre><code>gainsboro, ghostwhite, gold, goldenrod, gray, green, greenyellow, grey</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>H</td>
+                                    <td><pre><code>honeydew, hotpink</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>I</td>
+                                    <td><pre><code>indianred, indigo, ivory</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>K</td>
+                                    <td><pre><code>khaki</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>
+<pre><code>lavender, lavenderblush, lawngreen, lemonchiffon, lightblue, lightcoral, lightcyan,
+lightgoldenrodyellow, lightgray, lightgreen, lightgrey, lightpink, lightsalmon, lightseagreen,
+lightskyblue, lightslategray, lightslategrey, lightsteelblue, lightyellow, lime, limegreen,
+linen</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>
+<pre><code>magenta, maroon, mediumaquamarine, mediumblue, mediumorchid, mediumpurple, mediumseagreen,
+mediumslateblue, mediumspringgreen, mediumturquoise, mediumvioletred, midnightblue, mintcream,
+mistyrose, moccasin</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>N</td>
+                                    <td><pre><code>navajowhite, navy</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>O</td>
+                                    <td><pre><code>oldlace, olive, olivedrab, orange, orangered, orchid</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>P</td>
+                                    <td>
+<pre><code>palegoldenrod, palegreen, paleturquoise, palevioletred, papayawhip, peachpuff, peru, pink,
+plum, powderblue, purple</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>R</td>
+                                    <td><pre><code>red, rosybrown, royalblue</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>S</td>
+                                    <td>
+<pre><code>saddlebrown, salmon, sandybrown, seagreen, seashell, sienna, silver, skyblue, slateblue,
+slategray, slategrey, snow, springgreen, steelblue</code></pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T</td>
+                                    <td><pre><code>tan, teal, thistle, tomato, transparent, turquoise</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>V</td>
+                                    <td><pre><code>violet</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>W</td>
+                                    <td><pre><code>wheat, white, whitesmoke</code></pre></td>
+                                </tr>
+                                <tr>
+                                    <td>Y</td>
+                                    <td><pre><code>yellow, yellowgreen</code></pre></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>HTML5 example</h3>
+                    <p>The color validator will be turned on automatically if the input uses HTML 5 <code>type="color"</code> attribute.</p>
+                    <p>According to the <a href="http://www.w3.org/TR/html-markup/input.color.html#input.color.attrs.value">W3C specification</a>, the color input only accepts 6 hex character values. 3 hex character values as #FFF is not valid.</p>
+
+                    {% include demo/tabs.html id="html5" frameworks="bootstrap" dir="html5" codes="declarative" %}
+
+                    <h3>Color picker example</h3>
+                    <p>The following form uses a <a href="http://mjolnic.github.io/bootstrap-colorpicker/">Bootstrap Color Picker</a>.</p>
+
+                    {% include demo/tabs.html id="color-picker" frameworks="bootstrap" dir="color-picker" codes="programmatic" %}
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sample').on('click', function() {
+        var formWindow = $('#basic-frame').get(0).contentWindow,
+            isValid    = formWindow.revalidateColor($(this).html());
+
+        $(this)
+            .parent()
+                .removeClass('doc-sample-error doc-sample-success')
+                .addClass(isValid ? 'doc-sample-success' : 'doc-sample-error')
+            .find('i')
+                .removeClass('fa-check fa-times')
+                .addClass(isValid ? 'fa-check' : 'fa-times');
+    });
+});
+</script>

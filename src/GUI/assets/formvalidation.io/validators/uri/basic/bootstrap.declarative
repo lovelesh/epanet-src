@@ -1,0 +1,21 @@
+<form id="uriForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Your website</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="website"
+                data-fv-uri="true"
+                data-fv-uri-message="The website address is not valid" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#uriForm').formValidation();
+});
+</script>

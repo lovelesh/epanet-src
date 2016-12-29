@@ -1,0 +1,59 @@
+<section>
+    <h3 id="form-button">button</h3>
+
+{% highlight javascript %}
+button: {
+    // The submit buttons selector
+    selector: '[type="submit"]:not([formnovalidate])',
+
+    // The disabled class
+    disabled: ''
+}
+{% endhighlight %}
+
+    <h4 id="form-button-selector">selector</h4>
+
+    <p><code>selector: String</code> &mdash; The CSS selector indicates the submit buttons.</p>
+    <p>Clicking on these buttons will validate the form. They will be disabled when the form input are invalid to prevent the valid form from multiple submissions.</p>
+
+    <h4 id="form-button-disabled">disabled</h4>
+
+    <p><code>disabled: String</code> &mdash; The CSS class for disabled button. The default value is defined by specific frameworks as following:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>Disabled button class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://getbootstrap.com/css/#buttons-disabled">Bootstrap</a></td>
+                    <td><code>disabled</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://foundation.zurb.com/docs/components/buttons.html#button-colors">Foundation</a></td>
+                    <td><code>disabled</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://purecss.io/buttons/#disabled-buttons">Pure</a></td>
+                    <td><code>pure-button-disabled</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://semantic-ui.com/elements/button.html#disabled">Semantic</a></td>
+                    <td><code>disabled</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://getuikit.com/docs/button.html">UIKit</a></td>
+                    <td><code>disabled</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h5>Example</h5>
+    <ul class="doc-list">
+        <li><a href="/examples/skip-validation-specific-submit-button/">Skip validation on specific submit button</a></li>
+    </ul>
+</section>

@@ -1,0 +1,297 @@
+---
+layout: default
+title: Validate a date
+permalink: /validators/date/
+prev:
+    url: /validators/cvv/
+    title: cvv validator
+next:
+    url: /validators/different/
+    title: different validator
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>date validator</h1>
+        <p>Validate a date</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>format</code><sup>*</sup></td>
+                                    <td><code>data-fv-date-format</code></td>
+                                    <td>String</td>
+                                    <td>The date format. It is <code>MM/DD/YYYY</code>, by default</td>
+                                </tr>
+                                <tr>
+                                    <td><code>max</code></td>
+                                    <td><code>data-fv-date-max</code></td>
+                                    <td>String|Date</td>
+                                    <td>The value must be earlier than this option. It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-date-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message</td>
+                                </tr>
+                                <tr>
+                                    <td><code>min</code></td>
+                                    <td><code>data-fv-date-min</code></td>
+                                    <td>String|Date</td>
+                                    <td>The value must be later than this option. It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>separator</code></td>
+                                    <td><code>data-fv-date-separator</code></td>
+                                    <td>String</td>
+                                    <td>
+                                        <p>Used to separate the day, month, and year. If it's not defined, the validator will look for the following separators automatically:</p>
+                                        <ul class="doc-list">
+                                            <li>/</li>
+                                            <li>-</li>
+                                            <li>. (which is used in most European countries)</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-date="true".<br/>
+                        You don't need to do that when using HTML 5 type="date" attribute (the format then will be forced to be YYYY-MM-DD).
+                    </div>
+
+                    <p>The <code>min</code> and <code>max</code> options can be either a date string in the format of YYYY-MM-DD or a Date object.
+                        If the form need to validate start and end date, you should take a look at the <a href="/examples/validating-fields-depend-each-other/">Validating fields that depend on each other</a> or <a href="/examples/validating-start-end-datetimes/#comparing-dates">Compraing dates</a> example.
+                    </p>
+
+                    <p>The <code>format</code> can combine date, time, and AM/PM indicator sections:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Section</th>
+                                    <th>Token</th>
+                                    <th>Separator</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>DD, MM, YYYY</td>
+                                    <td>Defined by the <code>separator</code> option.<br/>Most popular examples are a slash (/), hyphen (-), or dot (.)</td>
+                                </tr>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>h, m, s</td>
+                                    <td>a colon (:)</td>
+                                </tr>
+                                <tr>
+                                    <td>AM/PM</td>
+                                    <td>A</td>
+                                    <td>n/a</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The <a href="/examples/validating-multiple-inputs-one/">Validating multiple inputs as one</a> example give you an idea of validating a date field which is combined by three separated fields presenting day, month and year.
+                    </div>
+
+                    <p>The following table describes the token meanings, defined by <a href="http://momentjs.com/docs/#/displaying/format/">momentjs</a>, one of most popular Javascript datetime library:</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Description</th>
+                                    <th>Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MM</td>
+                                    <td>Month number</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>DD</td>
+                                    <td>Day of month</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>YYYY</td>
+                                    <td>4 digit year</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>h</td>
+                                    <td>12 hour time</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>m</td>
+                                    <td>Minutes</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>s</td>
+                                    <td>Seconds</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>A</td>
+                                    <td>AM/PM</td>
+                                    <td>No</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>The date validator requires day, month and year. If you are looking for hour and time validator, HH:mm, for example, you should use the <a href="/validators/regexp">regexp</a> validator.
+                        See the <a href="/validators/regexp#html-5-example">time</a> example.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        Use the <a href="/validators/callback/">callback</a> validator in case you want to validate
+                        the date which one of year, month or day part is missing such as <a href="/examples/validating-credit-card-expiration-date/">credit card expiration date</a>
+                    </div>
+
+                    <p>Below are some example of possible formats:</p>
+                    <ul class="doc-list">
+                        <li>YYYY/DD/MM</li>
+                        <li>YYYY/DD/MM h</li>
+                        <li>YYYY/DD/MM h A</li>
+                        <li>YYYY/DD/MM h:m</li>
+                        <li>YYYY/DD/MM h:m A</li>
+                        <li>YYYY/DD/MM h:m:s</li>
+                        <li>YYYY/DD/MM h:m:s A</li>
+                        <li>YYYY-MM-DD</li>
+                        <li>YYYY-MM-DD h:m A</li>
+                        <li>DD/MM/YYYY</li>
+                        <li>DD/MM/YYYY h:m A</li>
+                        <li>MM-DD-YYYY</li>
+                        <li>MM-DD-YYYY h:m A</li>
+                        <li>DD-MM-YYYY</li>
+                        <li>DD-MM-YYYY h:m A</li>
+                    </ul>
+
+                    <p>It's possible to support other date format by using <a href="/validators/callback">callback</a> validator as shown in the <a href="#custom-format-example">Custom format example</a>.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        The date validator also checks the number of days in February of leap year. For example, 2000/02/29 is a valid date, while 2001/02/29 is invalid one.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Examples</h2>
+
+                    <h3>Basic example</h3>
+                    <p>The following form might be used in a profile setting page:</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>Datetime picker example</h3>
+                    <p>The form below is an example of using the date validator with <a href="http://eonasdan.github.io/bootstrap-datetimepicker/">Bootstrap Datetime Picker</a>:</p>
+
+                    <ul class="doc-list">
+                        <li><a href="/examples/bootstrap-datepicker/">Integrating with Bootstrap Datepicker</a></li>
+                        <li><a href="/examples/jquery-ui-datepicker/">Integrating with jQuery UI Datepicker</a></li>
+                        <li><a href="/examples/pickadate/">Integrating with Pickadate</a></li>
+                    </ul>
+
+                    {% include demo/tabs.html id="picker" frameworks="bootstrap" dir="picker" codes="programmatic" %}
+
+                    <h3>Disabling date example</h3>
+
+                    <p>It's possible to disable a particular date by triggering the <a href="/settings/#event-validator">success.validator.fv</a> event and using the <a href="/api/#update-status">updateStatus()</a> method.
+                        The example below shows how to treat all Sundays as not valid date.</p>
+                    <p>You can try to choose a Sunday from the picker to see how it works in action.</p>
+
+                    {% include demo/tabs.html id="disabling-dates" frameworks="bootstrap" dir="disabling-dates" codes="programmatic" %}
+
+                    <p>If you want to show another message when user choose a Sunday, you can use the <a href="/api/#update-message">updateMessage()</a> method:</p>
+
+{% highlight javascript %}
+$('#eventForm')
+    .formValidation({
+        ...
+    })
+    .on('success.validator.fv', function(e, data) {
+        if (data.field === 'eventDate' && data.validator === 'date' && data.result.date) {
+            var currentDate = data.result.date,
+                day         = currentDate.getDay();
+
+            // If the selected date is Sunday
+            if (day === 0) {
+                // Treat the field as invalid
+                data.fv
+                    .updateStatus(data.field, data.fv.STATUS_INVALID, data.validator)
+                    // Update the message
+                    .updateMessage(data.field, data.validator, 'Please choose a day except Sunday');
+            } else {
+                // Reset the message
+                data.fv.updateMessage(data.field, data.validator, 'The date is not valid');
+            }
+        }
+    });
+{% endhighlight %}
+
+                    <h3>Custom format example</h3>
+
+                    <p>This example illustrates the ability of validating date in custom format by using the <a href="/validators/callback">callback</a> validator and <a href="http://momentjs.com/">momentjs</a> to parse/validate.</p>
+                    {% include demo/tabs.html id="custom-format" frameworks="bootstrap" dir="custom-format" codes="programmatic" %}
+
+                    <ul class="doc-list">
+                        <li><a href="/examples/supporting-multiple-date-formats/">Supporting multiple date formats</a></li>
+                    </ul>
+
+                    <h3>Date range example</h3>
+
+                    <p>The following form asks you to enter a date in the range of 2000/01/01 and 2020/12/30.</p>
+                    <p>It can be implemented by using the <code>min</code> and <code>max</code> options.</p>
+
+                    {% include demo/tabs.html id="range" frameworks="bootstrap" dir="range" codes="programmatic" %}
+
+                    <p>You also can use the <a href="/validators/callback">callback</a> validator and <a href="http://momentjs.com/docs/#/query/is-before/"><code>isBefore()</code></a>, <a href="http://momentjs.com/docs/#/query/is-after/"><code>isAfter()</code></a> methods provided <a href="http://momentjs.com/">momentjs</a>
+                    to check if the date is in the range.</p>
+
+                    {% include demo/tabs.html id="range-moment" frameworks="bootstrap" dir="range-moment" codes="programmatic" %}
+                </section>
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

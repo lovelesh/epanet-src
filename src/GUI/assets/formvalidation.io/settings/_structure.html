@@ -1,0 +1,81 @@
+<section>
+    <h2>Settings structure</h2>
+
+    <p>There are three levels of settings which are form, field, and validators.</p>
+    <p>The FormValidation plugin can be called as following:</p>
+
+{% highlight javascript %}
+$(formSelector).formValidation({
+    // Indicate the framework
+    // It can be: bootstrap, bootstrap4, foundation5, foundation, pure, semantic, uikit
+    framework: 'bootstrap',
+
+    // ... Form settings go here ...
+    fields: {
+        fieldName: {
+            // ... Field settings go here ...
+
+            validators: {
+                specificValidatorName: {
+                    // ... common validator settings go here ...
+
+                    // ... specific validator settings ...
+                }
+            }
+        }
+    }
+});
+{% endhighlight %}
+
+    <div class="doc-alert doc-alert-info">
+        If the field name contains special characters such as ., [, ], you must wrap it between single or double quote.
+        See the <a href="/examples/validating-field-special-name/">Validating field with special name</a> example
+    </div>
+
+    <p>Most of settings can be set via HTML 5 attributes prefixed with <code>data-fv</code>.</p>
+    <p>For example, the following call:</p>
+
+{% highlight javascript %}
+$(formSelector).formValidation({
+    framework: 'bootstrap',
+    excluded: [':disabled', ':hidden', ':not(:visible)'],
+    icon: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    live: 'enabled',
+    message: 'This value is not valid',
+    trigger: null,
+    fields: ...
+});
+{% endhighlight %}
+
+    <p>is equivalent with the one below:</p>
+
+{% highlight html %}
+<form
+    data-fv-framework="bootstrap"
+    data-fv-message="This value is not valid"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh"
+    data-fv-live="enabled">
+    ...
+</form>
+
+<script>
+$(document).ready(function() {
+    $(formSelector).formValidation({
+        fields: ...
+    });
+});
+</script>
+{% endhighlight %}
+
+    <div class="doc-alert doc-alert-info">
+        The <a href="/examples/attribute/">Setting validator options via HTML attributes</a> example shows how to use the declarative code in action.
+    </div>
+
+    <p>In the next sections, you will see the full list of options for each level.</p>
+</section>

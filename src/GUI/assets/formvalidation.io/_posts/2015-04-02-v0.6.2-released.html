@@ -1,0 +1,67 @@
+---
+layout: post
+title: FormValidation v0.6.2 Released
+date: 2015-04-02 08:00:00 +0700
+author: nghuuphuoc
+---
+
+<h3>Highlight <i class="fa fa-star"></i></h3>
+<ul class="doc-list">
+    <li>Add new <a href="/validators/promise/">promise</a> validator</li>
+    <li>Add <code>STATUS_IGNORED</code> status. The field will be ignored for the current validation if the validator returns <code>null</code></li>
+</ul>
+
+<h3>New features</h3>
+<ul class="doc-list">
+    <li><a href="/validators/iban/">iban</a> validator adds new sepa option that requires the IBAN number must be (or not) from the SEPA countries</li>
+    <li><a href="/validators/iban/">iban</a> validator now supports East Timor, Kosovo countries</li>
+</ul>
+
+<h3>Improvements</h3>
+<ul class="doc-list">
+    <li><a href="/validators/date/">date</a> validator supports dot (.) separator for European countries</li>
+    <li>#57, #82: <a href="/validators/iban/">iban</a> validator will return <code>false</code> if the country is not supported</li>
+    <li>#62: Allow to use callback for field's <a href="/settings/#field-excluded">excluded</a> option</li>
+    <li>#91: <a href="/examples/skip-validation-specific-submit-button/">Skip validation</a> on button using <code>formnovalidate</code> attribute</li>
+    <li>Add more examples for iban test suite</li>
+    <li>The field container and its feedback icon don't have success/error class if all field validators are disabled</li>
+</ul>
+
+<h3>Bug fixes</h3>
+<ul class="doc-list">
+    <li>#47: Spanish VAT validator doesn't work with some examples</li>
+    <li>#48: Override the options when adding field</li>
+    <li>#50: The Brazilian <a href="/validators/id/">ID</a> (CPF) number must have 11 digits</li>
+    <li>The <a href="/api/#update-message">updateMessage()</a> method must return the plugin instance for chaining</li>
+    <li>When calling <a href="/api/#reset-field">resetField(true)</a> and <a href="/api/#reset-form">resetForm(true)</a> methods, the field need be reset value before updating the status</li>
+</ul>
+
+<h3>Document</h3>
+<ul class="doc-list">
+    <li>#38: Add <a href="/examples/loading-saving-data-modal/">Loading and saving data in a modal</a> example</li>
+    <li>#43: Add <a href="/examples/bootstrap-combobox/">Playing with Bootstrap Combobox</a> example</li>
+    <li>#45: Update the <a href="/validators/creditCard/#showing-card-icon">Showing card icon</a> example</li>
+    <li>#49: Add <a href="/examples/switching-validators-same-field/">Switching validators on the same field</a> example</li>
+    <li>#54: Add <a href="/examples/geocomplete/">Playing with geocomplete</a> example</li>
+    <li>#61: Add <a href="/examples/validating-fields-depend-each-other/">Validating fields that depend on each other</a> example</li>
+    <li>#71: Add <a href="/examples/skip-validation-specific-submit-button/">Skip validation on specific submit button</a> example</li>
+    <li>#86: Update the <a href="/examples/summernote/">summernote</a> example that uses the latest version of Summernote</li>
+    <li>#88: Add <a href="/examples/cant-submit-form-after-validation/">Can't submit form after validation</a> example</li>
+    <li>Add <a href="/examples/conditional-validation/">Conditional validation</a> example</li>
+    <li>Add <a href="/examples/modifying-value-before-validating/">Modifying the value before validating</a> example</li>
+    <li>Add <a href="/examples/fuel-ux/">Playing with Fuel UX</a> example</li>
+    <li>Add <a href="/examples/using-data-returned-validator/">Using data returned by validator</a> example</li>
+    <li>Add <a href="/examples/using-multiple-buttons/">Using multiple buttons</a> example</li>
+    <li>Add <a href="/examples/using-tooltip-to-show-message/">Using tooltip to show message</a> example</li>
+    <li>Add <a href="/examples/validating-array-inputs/">Validating array of inputs</a> example</li>
+    <li>Fix the <a href="/examples/clearing-field-when-clicking-icon/">Clearing field when clicking the icon</a> example</li>
+    <li>Fix the <a href="/settings/#event-validator">validator event</a> description</li>
+    <li>Fix various links in the <a href="/examples/modal/">Bootstrap modal</a> example</li>
+    <li>Update the Ajax example, adding a section showing how to <a href="/examples/ajax-submit/#using-ajax-to-submit-form-data-including-files">upload files</a> with FormData</li>
+    <li>Update the <a href="/examples/icheck/">iCheck</a> example to support mobile browsers</li>
+</ul>
+
+<h3>Download</h3>
+<div>
+    <a class="btn btn-primary" href="/download/" title="Download FormValidation v0.6.2">FormValidation v0.6.2</a>
+</div>

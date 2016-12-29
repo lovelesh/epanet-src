@@ -1,0 +1,30 @@
+<form id="latlongForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Latitude</label>
+        <div class="col-xs-5">
+            <input class="form-control" name="latitude"
+                   type="text" min="-90" max="90"
+                   data-fv-between-message="The latitude must be between -90.0 and 90.0" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Longitude</label>
+        <div class="col-xs-5">
+            <input class="form-control" name="longitude"
+                   type="text" min="-180" max="180"
+                   data-fv-between-message="The longitude must be between -180.0 and 180.0" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#latlongForm').formValidation();
+});
+</script>

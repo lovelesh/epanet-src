@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: cusip validator &rarr; Basic example
+permalink: /validators/cusip/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateCusip(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="cusip"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'cusip');
+
+    return $form.data('formValidation').isValidField('cusip');
+}
+</script>

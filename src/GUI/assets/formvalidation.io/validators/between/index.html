@@ -1,0 +1,118 @@
+---
+layout: default
+title: between validator
+permalink: /validators/between/
+prev:
+    url: /validators/base64/
+    title: base64 validator
+next:
+    url: /validators/bic/
+    title: bic validator
+related:
+    - greaterThan
+    - lessThan
+---
+
+<div class="doc-content-container">
+    <div class="doc-heading">
+        <h1>between validator</h1>
+        <p>Check if the input value is between (strictly or not) two given numbers</p>
+        <p>&larr; <a href="/validators">Validators</a></p>
+        {% include share.html %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <section>
+                    <h2>Options</h2>
+
+                    <p><sup>*</sup> &mdash; Required option</p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>HTML attribute</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>inclusive</code></td>
+                                    <td><code>data-fv-between-inclusive</code></td>
+                                    <td>Boolean</td>
+                                    <td>Can be <code>true</code> or <code>false</code>. If <code>true</code>, the input value must be in the range strictly</td>
+                                </tr>
+                                <tr>
+                                    <td><code>max</code><sup>*</sup></td>
+                                    <td><code>data-fv-between-max</code> or <code>max</code></td>
+                                    <td>Float</td>
+                                    <td>The upper value in the range.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                                <tr>
+                                    <td><code>message</code></td>
+                                    <td><code>data-fv-between-message</code></td>
+                                    <td>String</td>
+                                    <td>The error message. The <a href="/settings/#dynamic-message">dynamic message</a> is supported</td>
+                                </tr>
+                                <tr>
+                                    <td><code>min</code><sup>*</sup></td>
+                                    <td><code>data-fv-between-min</code> or <code>min</code></td>
+                                    <td>Float</td>
+                                    <td>The lower value in the range.<br/>It's a <a href="/settings/#dynamic-option">dynamic option</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>If you use <code>min</code> and <code>max</code> attributes, please set <code>type="range"</code>.</p>
+
+                    <div class="doc-alert doc-alert-info">
+                        When setting options via HTML attributes, remember to enable the validator by setting data-fv-between="true".<br/>
+                        You don't need to do that when using all of HTML 5 type="range", min="...", max="..." attributes.
+                    </div>
+
+                    <div class="doc-alert doc-alert-info">
+                        The message and other options can be updated on the fly via the <a href="/api/#update-message">updateMessage()</a> and <a href="/api/#update-option">updateOption()</a> methods
+                    </div>
+
+                    <p>If you want the value to support custom format, such as a comma for thousand separator, you should use the <a href="/settings/#validator-transformer">transformer</a> option.
+                        The <a href="/examples/modifying-value-before-validating/">modifying the value before validating</a> example is good starting point.</p>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                <section>
+                    <h2>Example</h2>
+
+                    <h3>Basic example</h3>
+                    <p>The following example validates latitude and longitude values.</p>
+                    <p>A valid latitude must be between -90.0 and 90.0, and valid longitude may range from -180.0 to 180.0.</p>
+
+                    {% include demo/tabs.html id="basic" frameworks="bootstrap" dir="basic" codes="programmatic,declarative" %}
+
+                    <h3>Dynamic option example</h3>
+                    <p>The following form asks you to enter the number of floors of building and the your floor number. Your floor number must be between 1 and the number of floors.</p>
+
+                    {% include demo/tabs.html id="dynamic" frameworks="bootstrap" dir="dynamic-option" codes="programmatic" %}
+
+                    <h5>Example</h5>
+                    <ul class="doc-list">
+                        <li><a href="/examples/validating-percentage-values/">Validating percentage values</a></li>
+                    </ul>
+                </section>
+
+                <div class="doc-hr"></div>
+
+                {% include related.html %}
+
+                {% include pagination.html %}
+            </div>
+
+            <div class="col-md-3 hidden-print hidden-xs hidden-sm">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</div>

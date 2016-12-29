@@ -1,0 +1,21 @@
+---
+layout: demo/bootstrap
+title: meid validator &rarr; Basic example
+permalink: /validators/meid/basic/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateMeid(value) {
+    var $form = $('form');
+    $form
+        .find('input[name="meid"]')
+            .val(value)
+            .end()
+        .formValidation('revalidateField', 'meid');
+
+    return $form.data('formValidation').isValidField('meid');
+}
+</script>

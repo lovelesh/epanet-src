@@ -1,0 +1,26 @@
+---
+layout: demo/bootstrap
+title: numeric validator &rarr; Supporting locales
+permalink: /validators/numeric/locale/bootstrap.html
+sitemap: false
+---
+
+{% include_relative bootstrap.programmatic %}
+
+<script>
+function revalidateNumber(thousandsSeparator, decimalSeparator, country, number) {
+    var $form = $('form'),
+        fv    = $form.data('formValidation');
+
+    $form
+        .find('[name="country"]').val(country).end()
+        .find('[name="number"]').val(number).end();
+
+    fv
+        .updateOption('number', 'numeric', 'thousandsSeparator', thousandsSeparator)
+        .updateOption('number', 'numeric', 'decimalSeparator', decimalSeparator)
+        .revalidateField('number');
+
+    return fv.isValidField('number');
+}
+</script>

@@ -1,0 +1,21 @@
+<form id="ibanForm" class="form-horizontal"
+    data-fv-framework="bootstrap"
+    data-fv-icon-valid="glyphicon glyphicon-ok"
+    data-fv-icon-invalid="glyphicon glyphicon-remove"
+    data-fv-icon-validating="glyphicon glyphicon-refresh">
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">IBAN</label>
+        <div class="col-xs-7">
+            <input type="text" class="form-control" name="iban"
+                data-fv-iban="true"
+                data-fv-iban-message="The value is not valid IBAN" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#ibanForm').formValidation();
+});
+</script>

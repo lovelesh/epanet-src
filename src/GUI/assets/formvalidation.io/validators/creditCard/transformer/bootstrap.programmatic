@@ -1,0 +1,56 @@
+<p>Test (invalid) credit card numbers that you want it to be valid:</p>
+<ul class="doc-list">
+    <li>3333222233332222</li>
+    <li>30030008444444</li>
+</ul>
+
+<form id="acceptTestNumberForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Credit card number</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" name="cc" />
+        </div>
+    </div>
+</form>
+
+<script>
+$(document).ready(function() {
+    // List of test credit card numbers that you want it to be passed
+    // although they can be invalid one
+    var TEST_CARD_NUMBERS = ['3333222233332222', '30030008444444'];
+
+    // We will transform those test card numbers into a valid one as below
+    var VALID_CARD_NUMBER = '4444111144441111';
+
+    $('#acceptTestNumberForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            cc: {
+                validators: {
+                    creditCard: {
+                        message: 'The credit card number is not valid',
+                        transformer: function($field, validatorName, validator) {
+                            // Get the number provided by user
+                            var value = $field.val();
+
+                            // Check if it's one of test card numbers
+                            if (value !== '' && $.inArray(value, TEST_CARD_NUMBERS) != -1) {
+                                // then turn it to be a valid one defined by VALID_CARD_NUMBER
+                                return VALID_CARD_NUMBER;
+                            } else {
+                                // Otherwise, just return the initial value
+                                return value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
