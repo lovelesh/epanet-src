@@ -26,6 +26,8 @@ $(function(){
    $('#file-op-line').hide();
    $('#durationRow').hide();
    $('#startTimeRow').hide();
+   $('#path2row').show();
+   $('#path5row').hide();
 
    $('#startTime').on("input", setTotalDur);
    $('#duration').on("input", setTotalDur);
@@ -201,7 +203,7 @@ function changeType() {
       $('#uploadButton').prop("disabled", false);
       $('#advanced-button').prop("disabled", true);
       $('#valveSolPath').prop("disabled",false);
-      $('#path2').prop("disabled", true);
+      $('#path2').prop("disabled", false);
       $('#path1').prop("disabled", false);
       $('#path3').prop("disabled", false);
       $('#path4').prop("disabled", false);
@@ -209,7 +211,7 @@ function changeType() {
       $('#startTime').prop("disabled", true);
       $('#durationWarning').hide();
       $('#totalDurationRow').hide();
-      $('#path2row').hide();
+      $('#path2row').show();
       $('#path5row').hide();
       $('#startTime').prop("disabled", true);
       $('#duration').prop("disabled", true);
