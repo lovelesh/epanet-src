@@ -251,9 +251,17 @@ function viewTankFile() {
    var downloadUrl;
    if(Index == '2'){
       downloadUrl= '/download-sim-tank';
+      $('#sim-tank-download').show();
+      $('#sim-valve-download').show();
+      $('#valve-download').hide();
+      $('#tank-download').hide();
    }
    else{
       downloadUrl= '/download-tank';
+      $('#sim-tank-download').hide();
+      $('#sim-valve-download').hide();
+      $('#valve-download').show();
+      $('#tank-download').show();      
    }
    $("#tank-file-output").empty();
 

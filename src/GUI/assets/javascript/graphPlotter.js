@@ -1,5 +1,5 @@
 function plotGraphFromCsv() {
-function GETCSVFILE (url) {
+    function GETCSVFILE (url) {
       var jqXHR = $.ajax({
 	 async: false,
 	 type: "GET",
