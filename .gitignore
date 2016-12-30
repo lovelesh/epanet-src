@@ -28,7 +28,10 @@ valve.csv
 doxygen_out/
 
 #node modules
-node_modules/*
+src/GUI/node_modules/*
+
+#GUI Uploads
+src/GUI/uploads/*
 
 # Mac Stuff
 .DS_Store
