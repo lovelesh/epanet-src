@@ -57,10 +57,12 @@ app.get('/download-valve', function(req, res) {
 });
 
 app.get('/download-sim-tank', function(req, res) {
-   res.download('../../result/sim_tank.csv');
+    console.log("\nDownload request received for sim_tank.csv");
+    res.download('../../result/sim_tank.csv');
 });
 
 app.get('/download-sim-valve', function(req, res) {
+   console.log("\nDownload request received for sim_valve.csv");
    res.download('../../result/sim_valve.csv');
 });
 

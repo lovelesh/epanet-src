@@ -307,7 +307,7 @@ function viewValveFile() {
 	 $('#file-op-line').show();
 	 $('#valve-op-line').show();
 	 $("#valve-file-output").append(generateTable(array));
-	 plotGraphFromCsv();
+	 plotGraphFromCsv(Index);
       },
       error: function(res) {
 	 $('#download-button').text('Failed');

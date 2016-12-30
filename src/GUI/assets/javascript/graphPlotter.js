@@ -1,4 +1,5 @@
-function plotGraphFromCsv() {
+function plotGraphFromCsv(mode) {
+    
     function GETCSVFILE (url) {
       var jqXHR = $.ajax({
 	 async: false,
@@ -17,7 +18,16 @@ function plotGraphFromCsv() {
    var csv, json;
    
    (function () {
-       csv = GETCSVFILE ('/download-tank');
+      var downloadUrl;
+      if(mode=='2'){
+        console.log("Mode=2, download sim tank");
+        csv = GETCSVFILE ('/download-sim-tank');
+      }
+      else{
+        console.log("Mode=" + mode + ", download sim tank");
+        csv = GETCSVFILE ('/download-tank');
+      }
+       //csv = GETCSVFILE (downloadUrl);
       //call the CSV2JSON function with the csvFile uploaded
       json = CSV2JSON(csv);
       $('#container1').highcharts({
@@ -109,7 +119,14 @@ function plotGraphFromCsv() {
       });
    }) ();
    (function () {
-      csv = GETCSVFILE ('/download-valve');
+      var downloadUrl;
+      if(mode=='2'){
+        csv = GETCSVFILE ('/download-sim-valve');  
+      }
+      else{
+        csv = GETCSVFILE ('/download-valve');
+      }       
+      //csv = GETCSVFILE ('/download-valve');
       //call the CSV2JSON function with the csvFile uploaded
       json = CSV2JSON(csv);
       $('#container2').highcharts({
