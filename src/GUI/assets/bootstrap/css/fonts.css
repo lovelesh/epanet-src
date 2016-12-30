@@ -9,9 +9,17 @@
     src: url('../fonts/Montserrat-Light.otf');
 }
 
+@font-face {
+    font-family: 'UbuntuRegular';
+    src: url('../fonts/UbuntuRegular.ttf');
+}
 
-h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif !important; }
+@font-face {
+    font-family: 'UbuntuM';
+    src: url('../fonts/Ubuntu-M.ttf');
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'UbuntuRegular', sans-serif !important; color: gray !important; }
 
-label { font-family: 'Montserrat', sans-serif !important; color: dimgray !important; }
+label,header { font-family: 'UbuntuRegular' !important; color: dimgray !important; }
 
-td {font-family: 'Montserrat-light', sans-serif !important; font-size:1rem; }
+td {font-family: 'UbuntuRegular' !important; font-size: 1rem; color: dimgray !important;}
