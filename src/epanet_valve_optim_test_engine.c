@@ -327,10 +327,10 @@ int main(int argc, char *argv[])
 		fflush(fptr);
 		targetMode = FALSE;
 		f_epanet_input = argv[2]; 			// 2nd argument is EPANET input file
-		f_demand_input = "/home/amit/AMIT/epanet/epanet-src/Input_Files/temp_demand_all.csv"; 			// 3rd argument is Tank demand data file
-		f_job_input = argv[3];				// 4th argument is the joblist file
-		f_solution_level_input = argv[4];		// 5th argument is solution file
-		f_valve_level_input = argv[5];			// 6th argument is solution file
+		f_demand_input = argv[3]; 			// 3rd argument is Tank demand data file
+		f_job_input = argv[4];				// 4th argument is the joblist file
+		f_solution_level_input = argv[5];		// 5th argument is solution file
+		f_valve_level_input = argv[6];			// 6th argument is solution file
 	}
 	else {
 		printf("Invalid Mode \n");
