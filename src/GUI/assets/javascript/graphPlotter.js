@@ -27,8 +27,7 @@ function plotGraphFromCsv(mode) {
         console.log("Mode=" + mode + ", download sim tank");
         csv = GETCSVFILE ('/download-tank');
       }
-       //csv = GETCSVFILE (downloadUrl);
-      //call the CSV2JSON function with the csvFile uploaded
+
       json = CSV2JSON(csv);
       $('#container1').highcharts({
 	 plotOptions: {
@@ -52,7 +51,10 @@ function plotGraphFromCsv(mode) {
 	 },
 	 chart: {
 	    type: 'line',
-	    zoomType: 'xAxis'
+	    zoomType: 'xAxis',
+            style: {
+               fontFamily: 'segoe'
+            }
 	 },
 	 xAxis: {
 	    categories: [],
@@ -61,7 +63,7 @@ function plotGraphFromCsv(mode) {
 	 },
 	 yAxis: {
 	    title: {
-	       text: 'Y'
+	       text: 'Tank Fill (%)'
 	    },
 	    plotLines: [{
 	       value: 0,
@@ -126,8 +128,7 @@ function plotGraphFromCsv(mode) {
       else{
         csv = GETCSVFILE ('/download-valve');
       }       
-      //csv = GETCSVFILE ('/download-valve');
-      //call the CSV2JSON function with the csvFile uploaded
+
       json = CSV2JSON(csv);
       $('#container2').highcharts({
 	 plotOptions: {
@@ -151,7 +152,10 @@ function plotGraphFromCsv(mode) {
 	 },
 	 chart: {
 	    type: 'line',
-	    zoomType: 'xAxis'
+	    zoomType: 'xAxis',
+            style: {
+               fontFamily: 'segoe'
+            }
 	 },
 	 xAxis: {
 	    type: 'category',
@@ -160,7 +164,7 @@ function plotGraphFromCsv(mode) {
 	 },
 	 yAxis: {
 	    title: {
-	       text: 'Y'
+	       text: 'Flow (lps)'
 	    },
 	    plotLines: [{
 	       value: 0,

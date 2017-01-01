@@ -16,7 +16,7 @@
       <script src="bootstrap/js/bootstrap.min.js"></script>
    </head>
    <body>
-      <section id="form1-0" style="background-color: rgb(255, 255, 255);">
+      <section id="form1-0">
 	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;" >
 
 	    <div class="row" style="padding:20px;padding-bottom:0px">
@@ -30,7 +30,7 @@
                 
             </div>
 	    <div class="row" style="padding:20px;padding-top:0px">
-	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,245);">
+	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
 		  <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
 
 		     <div class="row">
@@ -237,22 +237,21 @@
 		     <hr class="fancy-line">
 
 		     <div class="mbr-buttons row" align="center">
-			<button class="mbr-buttons__btn btn btn-primary" 
-			   id="advanced-button" style="border-radius:0rem !important; width:120px !important; padding-left: 14px !important" 
+			<button class="mbr-buttons__btn btn btn-primary btn-def" 
+			   id="advanced-button" style="border-radius:0rem !important; 
 			   onclick="showOpts()" type="button">Advanced  <i class="fa fa-sliders" aria-hidden="true"></i></button>
 
-			<button type="submit" class="mbr-buttons__btn btn btn-success"
+			<button type="submit" class="mbr-buttons__btn btn btn-success btn-def"
 			   style="border-radius:0rem !important; width:140px !important; padding-left: 14px !important" id="uploadButton" 
 			   name="uploadButton">
 			   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
 
-		     <!--<div class="mbr-buttons" align="center" id="start-stop-btns" style="padding-top:20px">-->
-                	<button type="button" class="mbr-buttons__btn btn btn-danger" 
+                	<button type="button" class="mbr-buttons__btn btn btn-danger btn-def" 
 			   id="cancel-button" name="cancel-button" 
 			   style="border-radius:0rem !important; width:100px !important; padding-left: 14px !important" 
 			   onclick="cancelSimulation()">Cancel  <i class="fa fa-times" aria-hidden="true"></i></button>
 			
-			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
 			   id="start-button" name="start-button" 
 			   style="border-radius:0rem !important" onclick="loadDoc()">
 			    Start Simulation  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
@@ -261,7 +260,7 @@
 		     <!--</div>-->
 		     
 		     <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
-			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
 			   style="border-radius:0rem !important" 
 			   id="tank-view-button" 
 			   onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
@@ -276,11 +275,6 @@
 	          <table class="table table-striped table-bordered" id="test"></table>
 	       </div>
             </div>
-            <!--<div class="row" style="padding:20px;padding-bottom:0px">
-                <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
-                    <h2 style="color: white !important;text-align: center"><i class="fa fa-tint" style="color:white" aria-hidden="true"></i>  WaterOpt</h2>
-                </div>
-            </div>-->
 	 </div>
       </section>
       <hr>
