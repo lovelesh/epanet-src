@@ -5,7 +5,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="WaterOpt">
-
+      <link rel="shortcut icon" href="bootstrap/css/img/favicon-tint.ico" type="image/png">
+      <title>WaterOpt</title>
       
       <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="bootstrap/css/moreStyles.css">
@@ -13,17 +14,24 @@
       <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
       <script src="jquery/jquery.min.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
-      <link rel="canonical" href="http://epanet.de/js/" />
    </head>
    <body>
-      <section id="form1-0" style="background-color: rgb(255, 255, 255);">
+      <section id="form1-0">
 	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;" >
 
-	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
+	    <div class="row" style="padding:20px;padding-bottom:0px">
+                <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
+                    <h2 style="color: white !important"><i class="fa fa-tint" style="color:white" aria-hidden="true"></i>  WaterOpt</h2>
+                </div>
+                
+                <div class="col-md-6 col-md-offset-1" style="padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
+                    <h2 style="color: white !important;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output</h2>
+                </div>
+                
+            </div>
+	    <div class="row" style="padding:20px;padding-top:0px">
+	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
 		  <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
-		     <h2 style="color:dimgray"><i class="fa fa-tint" style="color:dimgray" aria-hidden="true"></i>  WaterOpt</h2>
-		     <hr class="fancy-line"><br>
 
 		     <div class="row">
 			<div class="col-md-3">
@@ -115,7 +123,7 @@
 			</div>
 		     </div>		     
 		     
-		     <div class="row">
+		     <div class="row" id="path5row">
 			<div class="col-md-3">
 			   <div class="form-group">
 			      <label>Current level File</label>
@@ -228,45 +236,41 @@
 
 		     <hr class="fancy-line">
 
-		     <div class="mbr-buttons" align="center">
-			<button class="mbr-buttons__btn btn btn-primary" 
-			   id="advanced-button" style="border-radius:0rem !important" 
-			   onclick="showOpts()" type="button">Advanced</button>
-			
-			<button type="submit" class="mbr-buttons__btn btn btn-success" 
-			   style="border-radius:0rem !important" id="uploadButton" 
+		     <div class="mbr-buttons row" align="center">
+			<button class="mbr-buttons__btn btn btn-primary btn-def" 
+			   id="advanced-button" style="border-radius:0rem !important; 
+			   onclick="showOpts()" type="button">Advanced  <i class="fa fa-sliders" aria-hidden="true"></i></button>
+
+			<button type="submit" class="mbr-buttons__btn btn btn-success btn-def"
+			   style="border-radius:0rem !important; width:140px !important; padding-left: 14px !important" id="uploadButton" 
 			   name="uploadButton">
 			   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
-			
-			<button type="button" class="mbr-buttons__btn btn btn-danger" 
+
+                	<button type="button" class="mbr-buttons__btn btn btn-danger btn-def" 
 			   id="cancel-button" name="cancel-button" 
-			   style="border-radius:0rem !important" 
-			   onclick="cancelSimulation()">Cancel</button>  
+			   style="border-radius:0rem !important; width:100px !important; padding-left: 14px !important" 
+			   onclick="cancelSimulation()">Cancel  <i class="fa fa-times" aria-hidden="true"></i></button>
 			
-			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
 			   id="start-button" name="start-button" 
 			   style="border-radius:0rem !important" onclick="loadDoc()">
-			    Start Simulation
-                        </button>
+			    Start Simulation  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </button>     
 		     </div>
+		     <!--</div>-->
 		     
 		     <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
-			<button type="button" class="mbr-buttons__btn btn btn-success" 
+			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
 			   style="border-radius:0rem !important" 
 			   id="tank-view-button" 
-			   name="tank-download-button" 
 			   onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
 			   <i class="fa fa-line-chart" aria-hidden="true"></i>
 			</button>
-
-			<!--<button type="button" class="mbr-buttons__btn btn btn-success" style="border-radius:0rem !important" id="valve-view-button" name="valve-download-button" onclick="plotGraphFromCsv()">Plot Graphs <i class="fa fa-eye" aria-hidden="true"></i></button>-->
 		     </div>		     
 		  </form>
 	       </div>
 	    
-	       <div class="col-md-7" style="padding-left:50px;padding-top:20px;">
-	       <h2 style="color:dimgray;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output Dashboard</h2>
-		     <hr class="fancy-line"><br>
+	       <div class="col-md-6 col-md-offset-1" style="padding:0px; box-shadow: 0 0 0px black;">
 	          <div class="table-responsive">
 	          <table class="table table-striped table-bordered" id="test"></table>
 	       </div>
@@ -275,10 +279,10 @@
       </section>
       <hr>
 
-      <section id="form1-1" style="background-color: rgb(245,245,245);">
+      <section id="form1-1">
 	 <div class="container" id="file-op-line" style="padding-top:40px;padding-bottom:50px;margin-left:20px; max-width:100%;">
 	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6 col-md-offset-0" id="tank-op-line" style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
+	       <div class="col-md-6 col-md-offset-0" id="tank-op-line" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,245);">
 		  <h2 style="color:dimgray" id="file-op-heading">
 		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Tank File
 		  </h2>
@@ -287,13 +291,20 @@
 		  <div class="table-responsive">
 		     <table class="table table-striped table-bordered" id="tank-file-output" style="padding-bottom:15px"></table>
 		  </div>
-		  <div align="center">
+		  <div align="center" id="tank-download">
 		     <a href="download-tank" style="border-radius:0rem !important" id="export-button-tank" class="btn btn-success" role="button" align="center">
 			<i class="fa fa-download" aria-hidden="true"></i> Download tank.csv
 		     </a>
 		  </div>
+
+                   <div align="center" id="sim-tank-download">
+		     <a href="download-sim-tank" style="border-radius:0rem !important" id="export-sim-tank" class="btn btn-success" role="button" align="center">
+			<i class="fa fa-download" aria-hidden="true"></i> Download sim_tank.csv
+		     </a>
+		  </div> 
+
 	       </div>
-	       <div id="valve-op-line" class="col-md-6 col-md-offset-1" style="width:40%;padding:20px; box-shadow: 0 0 10px black; background-color: rgb(250,250,245);">
+	       <div id="valve-op-line" class="col-md-6 col-md-offset-1" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,245);">
 
 		  <h2 style="color:dimgray" id="file-op-heading">
 		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Valve File
@@ -305,7 +316,7 @@
 		     <table class="table table-striped table-bordered" id="valve-file-output" style="padding-bottom:15px"></table>
 		  </div>
 
-		  <div align="center">
+		  <div align="center" id="valve-download">
 		     <a href="download-valve" 
 	                 style="border-radius:0rem !important" 
                          id="export-button-valve" 
@@ -313,28 +324,33 @@
 			 align="center"><i class="fa fa-download" aria-hidden="true"></i> Download valve.csv
 		     </a>
 		  </div>
+
+                  <div align="center" id="sim-valve-download">
+		     <a href="download-sim-valve" style="border-radius:0rem !important" id="export-sim-valve" class="btn btn-success" role="button" align="center">
+			<i class="fa fa-download" aria-hidden="true"></i> Download sim_valve.csv
+		     </a>
+		  </div>
+
 	       </div>
 	    </div>
 
 	    <!--Second Row for graphs-->
-	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6 col-md-offset-0" style="width:40%;padding:20px;">
-		  <section class="panel">
-		     <header id="container1_header" class="text-404 panel-heading gifLoading">
-			<center>TANK</center>
-		     </header>
-		     <div id="container1" class="panel-body text-center">
-		     </div>
-		  </section>
+	    <div class="row" style="padding:20px; padding-bottom:0px" id="graph-row">
+	       <div class="col-md-6" style="width:40%;box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
+	          <label style="color:white !important; text-align:center !important; padding:5px !important">TANK GRAPH</label>
 	       </div>
-	       <div class="col-md-6 col-md-offset-1" style="width:40%;padding:20px;">
-		  <section class="panel">
-		     <header id="container2_header" class="text-404 panel-heading gifLoading">
-			<center>VALVE</center>
-		     </header>
-		     <div id="container2" class="panel-body text-center">
-		     </div>
-		  </section>
+            
+               <div class="col-md-6 col-md-offset-1" style="width:40%; box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
+	          <label style="color:white !important; text-align:center !important; padding:5px !important">VALVE GRAPH</label>
+	       </div>
+            </div>
+            
+            <div class="row" style="padding:20px; padding-top:0px" id="graph-row">
+	       <div class="col-md-6" style="width:40%;padding:20px; padding-top:0px; box-shadow: 0 0 1px black;">
+		  <section class="panel"><div id="container1" class="panel-body text-center"></div></section>
+	       </div>
+	       <div class="col-md-6 col-md-offset-1" style="width:40%;padding:20px;padding-top:0px; box-shadow: 0 0 1px black;">
+		  <section class="panel"><div id="container2" class="panel-body text-center"></div></section>
 	       </div>
 	    </div>
 	 </div>
@@ -347,7 +363,9 @@
       <script src="/socket.io/socket.io.js"></script>
       <script src="javascript/jquery-csv.js"></script>
       <script src="javascript/simController.js"></script>
-      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <script src="Highcharts-5.0.6/code/highcharts.js"></script>
+      <script src="Highcharts-5.0.6/code/js/modules/exporting.js"></script>
+      <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
       <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
       <script src="javascript/graphPlotter.js"></script>
 

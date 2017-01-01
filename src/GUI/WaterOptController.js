@@ -49,13 +49,23 @@ app.post('/sumit-upload',function(req,res){
 //============================================================
   
 app.get('/download-tank', function(req, res) {
-    res.download('../../result/tank.csv');
+   res.download('../../result/tank.csv');
 });
 
 app.get('/download-valve', function(req, res) {
-    console.log("\nDownload request received..\n");
-    res.download('../../result/valve.csv');
+   res.download('../../result/valve.csv');
 });
+
+app.get('/download-sim-tank', function(req, res) {
+    console.log("\nDownload request received for sim_tank.csv");
+    res.download('../../result/sim_tank.csv');
+});
+
+app.get('/download-sim-valve', function(req, res) {
+   console.log("\nDownload request received for sim_valve.csv");
+   res.download('../../result/sim_valve.csv');
+});
+
   
 app.get('/', function(req, res) {
    /*var fsd = require('fs-extra')

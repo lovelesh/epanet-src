@@ -261,6 +261,11 @@ int main(int argc, char *argv[])
 		f_job_input = argv[4];				// 4th argument is the joblist file
 		sscanf(argv[5],"%d", &startTime); 		// 5th argument is StartTime [0-23 hours].
 		sscanf(argv[6],"%d", &duration); 		// 6th argument is duartion [1-24 hours].
+		sscanf(argv[7],"%d", &w12);	 		// 8th argument is w12.
+		sscanf(argv[8],"%d", &w3);	 		// 9th argument is w3.
+		sscanf(argv[9],"%d", &w4);	 		// 10th argument is w4.
+		sscanf(argv[10],"%d", &w5);	 		// 11th argument is w5.
+		sscanf(argv[11],"%f", &w6);	 		// 12th argument is w6.
 		timeperiod = startTime + duration + 1;		
 		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
@@ -438,10 +443,8 @@ int main(int argc, char *argv[])
 		// Reading Valve Solution File
 		ENReadValveSolutionFile(f_valve_level_input, tankcontrol);
 
-		// caaling sim main function
-		//printf("calling sim func()\n");
+		// calling sim main function
 		compute_sim(tankcontrol, valvecontrol);
-		//printf("calling sim func finish\n");
 		exit(0);
 	}
 
@@ -1020,6 +1023,26 @@ void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct)
 	ENcloseH();
 	fflush(valvePtr);
 	fclose(valvePtr);
+
+	fflush(tankPtr);
+	fclose(tankPtr);
+
+	// SIM Tank Output File copy
+	char finalOutput[1024];
+	sprintf(finalOutput, "cp %s ../../result/sim_tank.csv ", tankFileName);
+	int res = system(finalOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
+	
+	// SIM Valve Output File copy
+	char valveOutput[1024];
+	sprintf(valveOutput, "cp %s ../../result/sim_valve.csv ", valveFileName);
+	res = system(valveOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
+	
 }
 
 void compute_flows(struct TankStruct *tankstruct, struct ValveStruct *valvestruct, int simulation_time)
