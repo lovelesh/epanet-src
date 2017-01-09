@@ -56,6 +56,9 @@ function plotGraphFromCsv(mode) {
             }
 	 },
 	 xAxis: {
+	    title: {
+	       text: 'Hours'
+	    },
 	    categories: [],
 	    type: 'category',
 	    allowDecimals: false                       	
@@ -157,6 +160,9 @@ function plotGraphFromCsv(mode) {
             }
 	 },
 	 xAxis: {
+	    title: {
+	       text: 'Hours'
+	    },
 	    type: 'category',
 	    allowDecimals: false,
 	    categories: []

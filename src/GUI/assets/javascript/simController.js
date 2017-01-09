@@ -84,6 +84,7 @@ function loadDoc() {
   $("#tank-file-output").empty();
   $("#valve-file-output").empty();
   $('#start-button').prop("disabled", true);
+  $('#uploadSuccess').hide();
   $('#cancel-button').prop("disabled", false);
   $('#uploadButton').prop("disabled", true);
   $('#file-op-line').hide();
@@ -154,6 +155,7 @@ function loadDoc() {
 }
 
 function changeType() {
+   $('#uploadSuccess').hide();
    var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
    if(Index == 0) {
       $('#uploadButton').prop("disabled", false);
