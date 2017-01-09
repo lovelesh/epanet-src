@@ -13,7 +13,6 @@ function plotGraphFromCsv(mode) {
    }
    //Getting the files from the file specified
    var i, j = -1, flag = 0, len;
-   var color = ['#ffc40d', '#00a300', '#1e7145', '#9f00a7', '#e3a21a', '#99b433', '#603cba', '#2d89ef', '#080808', '#3a3a3a', '#ff3c3c', '#ad7a7a', '#3090C7', '#6AA121', '#EE9A4D', '#C11B17', '#F6358A', '#6A287E', '#E238EC', '#2B1B17', '#008080', '#667C26', '#EAC117', '#7D1B7E'];
    var csv, json;
    
    (function () {
@@ -57,7 +56,7 @@ function plotGraphFromCsv(mode) {
 	 },
 	 xAxis: {
 	    title: {
-	       text: 'Hours'
+	       text: 'Time (hours)'
 	    },
 	    categories: [],
 	    type: 'category',
@@ -65,7 +64,7 @@ function plotGraphFromCsv(mode) {
 	 },
 	 yAxis: {
 	    title: {
-	       text: 'Tank Fill (%)'
+	       text: 'Water Level (%)'
 	    },
 	    plotLines: [{
 	       value: 0,
@@ -88,7 +87,6 @@ function plotGraphFromCsv(mode) {
 		  //addSeries
 		  chart1.addSeries({                        
 		     name: key,
-		     color: color[i++],
 		     data: (function () {
 			var data1 = [];
 			data1.push([
@@ -161,7 +159,7 @@ function plotGraphFromCsv(mode) {
 	 },
 	 xAxis: {
 	    title: {
-	       text: 'Hours'
+	       text: 'Time (hours)'
 	    },
 	    type: 'category',
 	    allowDecimals: false,
@@ -194,7 +192,6 @@ function plotGraphFromCsv(mode) {
 		  //addSeries
 		  chart2.addSeries({                        
 		     name: key,
-		     color: color[i++],
 		     data: (function () {
 			var data2 = [];
 			data2.push([
