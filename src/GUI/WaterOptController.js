@@ -85,7 +85,7 @@ app.get('/', function(req, res) {
 app.post('/cancelSimulation', function(req, res) {
    var msg = {};
    if(client_binary){
-      msg.Data = 'Signal SIGHUP sent to running simulation.';
+      msg.Data = '------  Signal SIGHUP sent to running simulation ------';
       client_binary.kill('SIGHUP');
       client_binary = null;
    }
@@ -156,7 +156,12 @@ io.on('connection', function(socket) {
 
 	 client_binary.on('close', function (code) {
 	    msg = {};
-	    msg.Result = 'All Iterations completed, process closed with code ' + code;
+            if(code == '0'){
+	        msg.Result = 'All Iterations completed successfully, exit code : ' + code;
+            }
+            else{
+                msg.Result = 'Simulation ended abnormally, exit code : ' + code;
+            }
 	    msg.ExitCode = code;
 	    socket.emit('newdata', JSON.stringify(msg));
 	    console.log('Process closed.');
