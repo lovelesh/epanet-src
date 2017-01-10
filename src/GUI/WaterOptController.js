@@ -56,6 +56,10 @@ app.get('/download-valve', function(req, res) {
    res.download('../../result/valve.csv');
 });
 
+app.get('/download-job', function(req, res) {
+   res.download('../../result/Job-Output.csv');
+});
+
 app.get('/download-sim-tank', function(req, res) {
     console.log("\nDownload request received for sim_tank.csv");
     res.download('../../result/sim_tank.csv');
@@ -81,7 +85,7 @@ app.get('/', function(req, res) {
 app.post('/cancelSimulation', function(req, res) {
    var msg = {};
    if(client_binary){
-      msg.Data = 'Sending signal SIGHUP to running simulation.';
+      msg.Data = 'Signal SIGHUP sent to running simulation.';
       client_binary.kill('SIGHUP');
       client_binary = null;
    }
