@@ -263,6 +263,7 @@ function viewTankFile() {
       $('#tank-download').hide();
    }
    else{
+      viewJoblistFile();
       downloadUrl= '/download-tank';
       $('#sim-tank-download').hide();
       $('#sim-valve-download').hide();
@@ -278,9 +279,6 @@ function viewTankFile() {
       dataType: 'text',
       type: "get",
       success: function(res) {
-         if(Index != '2'){
-            viewJoblistFile();
-         }
 	 viewValveFile();
 	 var array = $.csv.toArrays(res);
 	 $('#file-op-line').show();
