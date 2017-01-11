@@ -30,6 +30,9 @@ doxygen_out/
 #node modules
 node_modules/*
 
+#upload
+uploads/*
+
 #result
 result/*
 
