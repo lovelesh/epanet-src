@@ -30,11 +30,12 @@ var upload = multer({ storage : storage}).any();
 
 app.post('/sumit-upload',function(req,res){
    //Delete the intermediate files created by simulation process
-      fs.readdir('./uploads', (err, files)=>{
+   /*   fs.readdir('./uploads', (err, files)=>{
          for (var i = 0, len = files.length; i < len; i++) {
 	    fs.unlink('./uploads/' + files[i]);
          }
       });
+   */
    var uploadStatus = 0;
    upload(req,res,function(err) {
       filenames = req;
@@ -110,13 +111,13 @@ io.on('connection', function(socket) {
 
    socket.on('message', function(message) {
       //Delete the intermediate files created by simulation process
-      fs.readdir('.', (err, files)=>{
-         for (var i = 0, len = files.length; i < len; i++) {
-	    var match = files[i].match(/en.*/);
-	    if(match !== null)
-	      fs.unlink(match[0]);
-         }
-      });
+   //   fs.readdir('.', (err, files)=>{
+   //      for (var i = 0, len = files.length; i < len; i++) {
+   //	    var match = files[i].match(/en.*/);
+   //	    if(match !== null)
+   //	      fs.unlink(match[0]);
+   //      }
+   //   });
 
       obj = JSON.parse(message);
       Type = obj.Type;
