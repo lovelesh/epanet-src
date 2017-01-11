@@ -5,8 +5,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="WaterOpt">
-      <link rel="shortcut icon" href="bootstrap/css/img/favicon-tint.ico" type="image/png">
-      <title>WaterOpt</title>
+      <link rel="shortcut icon" href="bootstrap/css/img/iisclogo_transparent.png" type="image/png">
+      <title>IISc WaterOpt</title>
       
       <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="bootstrap/css/moreStyles.css">
@@ -15,9 +15,21 @@
       <script src="jquery/jquery.min.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
    </head>
+
    <body>
+
+      <section id="title">
+          <div class="container" style="padding:0px; max-width:100%">
+	    <div class="row" style="background-color: dimgray;">
+                <div align="center">
+                    <a href="http://www.iisc.ac.in/"><img src="bootstrap/css/img/iisclogo.png" style="margin:auto;width:20%; height:auto; padding-left:20px"/></a>
+                </div>
+            </div>
+          </div>
+      </section>
+
       <section id="form1-0">
-	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;" >
+	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;">
 
 	    <div class="row" style="padding:20px;padding-bottom:0px">
                 <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
@@ -47,7 +59,7 @@
 				 <option selected value="none">Select Type..</option>
 				 <option value="1">TARGET</option>
 				 <option value="0">SEARCH</option>
-				 <option value="2">SIM</option>
+				 <option value="2">SIMULATION</option>
 			      </select>			
 			   </div>  	
 			</div>
@@ -176,49 +188,49 @@
 		     </div>
 		     
 		     <div class="row" id="advancedOptions">
-			<div class="col-md-3">
+			<div  class="col-md-3">
 			   <div class="form-group">
 			      <label>Advanced Options</label>
 			   </div>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-9">
 			   <div class="form-group">
 			      <div class="input-group">
-			        <span class="input-group-addon" id="basic-addon1">W12</span>
-			        <input type="number" min="1" max="10" id="w12" name="w12" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
+			        <span class="input-group-addon" id="basic-addon1" style="width:230px">Distance from Mid Point</span>
+			        <input type="number" min="1" max="10" id="w12" style="width:80px" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
                               </div>
  			   </div>
  			   
                            <div class="form-group">
                              <div class="input-group">
-                              <span class="input-group-addon" id="basic-addon1">W3 </span>
-			      <input type="number" min="50" max="150" id="w3" name="w3" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
+                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Periodicity</span>
+			      <input type="number" min="50" max="150" id="w3" style="width:80px" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
 			     </div>
 			   </div>
                     
 			   <div class="form-group">
 			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1">W4 </span>
-			      <input type="number" min="100" max="500" id="w4" name="w4" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
+			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Important Valve Change</span>
+			      <input type="number" min="100" max="500" id="w4" style="width:80px" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
 			     </div>
 			   </div>
+                           <div class="form-group">
+			     <div class="input-group">
+			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Negative Flow</span>
+			      <input type="number" min="0.1" max="0.5" step="0.1" id="w6" style="width:80px" value="0.5" class="form-control" placeholder="W6" required tabindex="2"/>
+			     </div>
+			   </div>
+			   <div class="form-group">
+			     <div class="input-group">
+			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Flow Greater than Max Flow</span>
+			      <input type="number" min="1" max="10" id="w5" style="width:80px" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
+			     </div>
+			   </div>
+
 			</div>
-			<div class="col-md-4 col-md-offset-1">
-			   <div class="form-group">
-			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1">W5 </span>
-			      <input type="number" min="1" max="10" id="w5" name="w5" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
-			     </div>
-			   </div>
-			   
-			   <div class="form-group">
-			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1">W6 </span>
-			      <input type="number" min="0.1" max="0.5" step="0.1" id="w6" name="w6" value="0.1" class="form-control" placeholder="W6" required tabindex="2"/>
-			     </div>
-			   </div>
-			</div> 
+			<div>
+			</div>
 		     </div>
 		     
 		     <div class="row" id="uploadSuccess">
@@ -238,8 +250,8 @@
 
 		     <div class="mbr-buttons row" align="center">
 			<button class="mbr-buttons__btn btn btn-primary btn-def" 
-			   id="advanced-button" style="border-radius:0rem !important; 
-			   onclick="showOpts()" type="button">Advanced  <i class="fa fa-sliders" aria-hidden="true"></i></button>
+			   id="advanced-button" style="border-radius:0rem !important;"
+			   onclick="showOpts()" type="button">Advance <i class="fa fa-sliders" aria-hidden="true"></i></button>
 
 			<button type="submit" class="mbr-buttons__btn btn btn-success btn-def"
 			   style="border-radius:0rem !important; width:140px !important; padding-left: 14px !important" id="uploadButton" 
@@ -266,6 +278,7 @@
 			   onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
 			   <i class="fa fa-line-chart" aria-hidden="true"></i>
 			</button>
+
 		     </div>		     
 		  </form>
 	       </div>
@@ -281,10 +294,29 @@
 
       <section id="form1-1">
 	 <div class="container" id="file-op-line" style="padding-top:40px;padding-bottom:50px;margin-left:20px; max-width:100%;">
-	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6 col-md-offset-0" id="tank-op-line" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,245);">
+
+            <div class="row" id="joblist-file-row" style="padding:20px;">
+	       <div id="job-op-line" style="width:88.4%; max-height:450px; overflow:auto;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
 		  <h2 style="color:dimgray" id="file-op-heading">
-		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Tank File
+		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Joblist File
+		  </h2>
+
+		  <hr class="fancy-line"><br>
+		  <div class="table-responsive">
+		     <table class="table table-striped table-bordered" id="job-file-output" style="padding-bottom:15px"></table>
+		  </div>
+		  <div align="center" id="job-download">
+		     <a href="download-job" style="border-radius:0rem !important" id="export-button-job" class="btn btn-success" role="button" align="center">
+			<i class="fa fa-download" aria-hidden="true"></i> Download job.csv
+		     </a>
+		  </div> 
+	       </div>
+             </div>
+
+	    <div class="row" style="padding:20px;">
+	       <div class="col-md-6" id="tank-op-line" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
+		  <h2 style="color:dimgray" id="file-op-heading">
+		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Tank File
 		  </h2>
 
 		  <hr class="fancy-line"><br>
@@ -304,10 +336,10 @@
 		  </div> 
 
 	       </div>
-	       <div id="valve-op-line" class="col-md-6 col-md-offset-1" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,245);">
+	       <div id="valve-op-line" class="col-md-6 col-md-offset-1" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
 
 		  <h2 style="color:dimgray" id="file-op-heading">
-		     <i class="fa fa-file" style="color:cornflowerblue" aria-hidden="true"></i>  Valve File
+		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Valve File
 		  </h2>
 
 		  <hr class="fancy-line"><br>
@@ -337,11 +369,11 @@
 	    <!--Second Row for graphs-->
 	    <div class="row" style="padding:20px; padding-bottom:0px" id="graph-row">
 	       <div class="col-md-6" style="width:40%;box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
-	          <label style="color:white !important; text-align:center !important; padding:5px !important">TANK GRAPH</label>
+	          <label style="color:white !important; text-align:center !important; padding-top: 5px !important">TANK GRAPH</label>
 	       </div>
             
                <div class="col-md-6 col-md-offset-1" style="width:40%; box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
-	          <label style="color:white !important; text-align:center !important; padding:5px !important">VALVE GRAPH</label>
+	          <label style="color:white !important; text-align:center !important; padding-top: 5px !important">VALVE GRAPH</label>
 	       </div>
             </div>
             

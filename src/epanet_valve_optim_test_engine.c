@@ -1965,6 +1965,15 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		// Check the queue
 		Qdisplay();
 	}
+	
+	// Job Output File
+	char jobOutput[1024];
+	sprintf(jobOutput, "cp %s ../../result/Job-Output.csv", fileName);
+	int res = system(jobOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
+
 	// shift the clock to the first job time
 	//elapsed_time = ((p.hours * 60) + p.minutes);
 	/*p = Qpop();

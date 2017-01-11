@@ -28,6 +28,7 @@ $(function(){
    $('#startTimeRow').hide();
    $('#path2row').show();
    $('#path5row').hide();
+   $('#joblist-file-row').hide();
 
    $('#startTime').on("input", setTotalDur);
    $('#duration').on("input", setTotalDur);
@@ -64,11 +65,11 @@ function setTotalDur() {
    if(isNaN(sum))
        sum = 0;
    if(sum <=24) {
-       $('#totalDuration').css('color', 'black');
+       $('#totalDuration').css('background-color', '');
        $('#totalDuration').val(sum + " hours");
    }
    else {
-      $('#totalDuration').css('color', 'red');
+      $('#totalDuration').css('background-color', 'bisque');
       $('#totalDuration').val(sum + " hours (Warning: Greater than 24)");
    }
 }
@@ -84,8 +85,10 @@ function loadDoc() {
   $("#tank-file-output").empty();
   $("#valve-file-output").empty();
   $('#start-button').prop("disabled", true);
+  $('#uploadSuccess').hide();
   $('#cancel-button').prop("disabled", false);
   $('#uploadButton').prop("disabled", true);
+  $('#job-view-button').prop("disabled",true);
   $('#file-op-line').hide();
   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
   var message = {};
@@ -94,7 +97,7 @@ function loadDoc() {
       console.log("StartTime: " + $('#startTime').val() + "\n");
       console.log("Duration: " + $('#duration').val() + "\n");
     message = {
-        Type: document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value,
+        Type: '0',
         StartTime: $('#startTime').val(),
         Duration: $('#duration').val(),
         w12: $('#w12').val(),
@@ -144,16 +147,17 @@ function loadDoc() {
          $('#cancel-button').prop("disabled", true);
       }  
       if(key == 'ExitCode' && value == 0) {
-          $('#tank-view-button').prop("disabled", false);
-          $('#valve-view-button').prop("disabled", false);
-          $('#export-button').prop("disabled", false);
-          $('#uploadButton').prop("disabled", false);
+	  $('#tank-view-button').prop("disabled", false);
+	  $('#valve-view-button').prop("disabled", false);
+	  $('#export-button').prop("disabled", false);
+	  $('#uploadButton').prop("disabled", false);
       }
     });
   })
 }
 
 function changeType() {
+   $('#uploadSuccess').hide();
    var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
    if(Index == 0) {
       $('#uploadButton').prop("disabled", false);
@@ -259,11 +263,12 @@ function viewTankFile() {
       $('#tank-download').hide();
    }
    else{
+      viewJoblistFile();
       downloadUrl= '/download-tank';
       $('#sim-tank-download').hide();
       $('#sim-valve-download').hide();
       $('#valve-download').show();
-      $('#tank-download').show();      
+      $('#tank-download').show();
    }
    $("#tank-file-output").empty();
 
@@ -313,6 +318,30 @@ function viewValveFile() {
       },
       error: function(res) {
 	 $('#download-button').text('Failed');
+	 $('#testArea').html('Failure response:' + res);
+      }
+   });
+}
+
+
+function viewJoblistFile() {
+
+   var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
+   var downloadUrl= '/download-job';
+   $("#job-file-output").empty();
+   $.ajax({
+      url: downloadUrl,
+      async: 'true',
+      dataType: "text",
+      type: "get",
+      success: function(res) {
+	 var array = $.csv.toArrays(res);
+         $('#joblist-file-row').show();
+	 $("#job-file-output").append(generateTable(array));
+	 plotGraphFromCsv(Index);
+      },
+      error: function(res) {
+	 $('#download-button').text('Downloading Failed');
 	 $('#testArea').html('Failure response:' + res);
       }
    });

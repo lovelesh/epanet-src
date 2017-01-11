@@ -29,6 +29,13 @@ var storage =   multer.diskStorage({
 var upload = multer({ storage : storage}).any();
 
 app.post('/sumit-upload',function(req,res){
+   //Delete the intermediate files created by simulation process
+   /*   fs.readdir('./uploads', (err, files)=>{
+         for (var i = 0, len = files.length; i < len; i++) {
+	    fs.unlink('./uploads/' + files[i]);
+         }
+      });
+   */
    var uploadStatus = 0;
    upload(req,res,function(err) {
       filenames = req;
@@ -56,6 +63,10 @@ app.get('/download-valve', function(req, res) {
    res.download('../../result/valve.csv');
 });
 
+app.get('/download-job', function(req, res) {
+   res.download('../../result/Job-Output.csv');
+});
+
 app.get('/download-sim-tank', function(req, res) {
     console.log("\nDownload request received for sim_tank.csv");
     res.download('../../result/sim_tank.csv');
@@ -81,7 +92,7 @@ app.get('/', function(req, res) {
 app.post('/cancelSimulation', function(req, res) {
    var msg = {};
    if(client_binary){
-      msg.Data = 'Sending signal SIGHUP to running simulation.';
+      msg.Data = '------  Signal SIGHUP sent to running simulation ------';
       client_binary.kill('SIGHUP');
       client_binary = null;
    }
@@ -99,6 +110,15 @@ io.on('connection', function(socket) {
    console.log('new user connected');
 
    socket.on('message', function(message) {
+      //Delete the intermediate files created by simulation process
+   //   fs.readdir('.', (err, files)=>{
+   //      for (var i = 0, len = files.length; i < len; i++) {
+   //	    var match = files[i].match(/en.*/);
+   //	    if(match !== null)
+   //	      fs.unlink(match[0]);
+   //      }
+   //   });
+
       obj = JSON.parse(message);
       Type = obj.Type;
       duration = obj.Duration;
@@ -152,7 +172,12 @@ io.on('connection', function(socket) {
 
 	 client_binary.on('close', function (code) {
 	    msg = {};
-	    msg.Result = 'All Iterations completed, process closed with code ' + code;
+            if(code == '0'){
+	        msg.Result = 'All Iterations completed successfully, exit code : ' + code;
+            }
+            else{
+                msg.Result = 'Simulation ended abnormally, exit code : ' + code;
+            }
 	    msg.ExitCode = code;
 	    socket.emit('newdata', JSON.stringify(msg));
 	    console.log('Process closed.');

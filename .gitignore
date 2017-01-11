@@ -38,6 +38,18 @@ src/GUI/node_modules/*
 #GUI Uploads
 src/GUI/uploads/*
 
+#upload
+uploads/*
+
+#result
+result/*
+
+#Output Files
+Output_Files/*
+
+#Log
+Log/*
+
 # Mac Stuff
 .DS_Store
 *.swp
