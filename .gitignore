@@ -35,18 +35,6 @@ doxygen_out/
 #node modules
 node_modules/*
 
-#upload
-uploads/*
-
-#result
-result/*
-
-#Output Files
-Output_Files/*
-
-#Log
-Log/*
-
 # Mac Stuff
 .DS_Store
 *.swp
