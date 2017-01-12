@@ -33,10 +33,7 @@ sim_valve.csv
 doxygen_out/
 
 #node modules
-src/GUI/node_modules/*
-
-#GUI Uploads
-src/GUI/uploads/*
+node_modules/*
 
 #upload
 uploads/*
