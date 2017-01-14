@@ -30,11 +30,11 @@ var upload = multer({ storage : storage}).any();
 
 app.post('/sumit-upload',function(req,res){
    //Delete the intermediate files created by simulation process
-      fs.readdir('./uploads', (err, files)=>{
-         for (var i = 0, len = files.length; i < len; i++) {
-	    fs.unlink('./uploads/' + files[i]);
-         }
-      });
+    //  fs.readdir('./uploads', (err, files)=>{
+  //       for (var i = 0, len = files.length; i < len; i++) {
+//	    fs.unlink('./uploads/' + files[i]);
+      //   }
+     // });
    var uploadStatus = 0;
    upload(req,res,function(err) {
       filenames = req;
@@ -110,13 +110,13 @@ io.on('connection', function(socket) {
 
    socket.on('message', function(message) {
       //Delete the intermediate files created by simulation process
-      fs.readdir('.', (err, files)=>{
-         for (var i = 0, len = files.length; i < len; i++) {
-	    var match = files[i].match(/en.*/);
-	    if(match !== null)
-	      fs.unlink(match[0]);
-         }
-      });
+      //fs.readdir('.', (err, files)=>{
+        // for (var i = 0, len = files.length; i < len; i++) {
+	  //  var match = files[i].match(/en.*/);
+	   // if(match !== null)
+	     // fs.unlink(match[0]);
+         //}
+      //});
 
       obj = JSON.parse(message);
       Type = obj.Type;
@@ -128,7 +128,7 @@ io.on('connection', function(socket) {
 	 var file1 = './uploads/' + filenames.files[0].originalname;
 	 var file2 = './uploads/' + filenames.files[1].originalname;
 	 var file3 = './uploads/' + filenames.files[2].originalname;
-	 client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6]);
+	 client_binary = spawn('../../build/Linux/epanet_wateropt' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6]);
       }
 
       else if(Type == 1) {
@@ -142,7 +142,7 @@ io.on('connection', function(socket) {
 	 var file3 = './uploads/' + filenames.files[2].originalname;
 	 var file4 = './uploads/' + filenames.files[3].originalname;
 	 var file5 = './uploads/' + filenames.files[4].originalname;
-	 client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
+	 client_binary = spawn('../../build/Linux/epanet_wateropt' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
       }
 
       else if(Type == 2) {
@@ -151,7 +151,7 @@ io.on('connection', function(socket) {
 	 var file3 = './uploads/' + filenames.files[2].originalname;
 	 var file4 = './uploads/' + filenames.files[3].originalname;
 	 var file5 = './uploads/' + filenames.files[4].originalname;
-	 client_binary = spawn('../../build/Linux_WISL09_temp/epanet_valve_optim_wisl09' ,['2', file1, file2, file3, file4, file5]);
+	 client_binary = spawn('../../build/Linux/epanet_wateropt' ,['2', file1, file2, file3, file4, file5]);
       }
 
       var msg = {};
