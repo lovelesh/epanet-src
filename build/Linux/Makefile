@@ -108,5 +108,7 @@ check:
 clean:
 	-/bin/rm *.o $(libname) $(exename) $(runcmdname)
 	rm -rf en*
+	rm -rf ../../src/GUI/en*
 	rm -rf temp.out
+	rm -rf ../../src/GUI/temp.out
 	rm -rf epanet_wateropt

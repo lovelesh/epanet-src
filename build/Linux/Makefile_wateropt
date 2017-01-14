@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 all:
-	gcc -g -fno-stack-protector -fPIC -o epanet_wateropt ../../src/epanet_valve_optim_test_engine.c -L ./  -lepanet2 -lm
+	gcc -g -fno-stack-protector -fPIC -o epanet_wateropt ../../src/epanet_wateropt.c -L ./  -lepanet2 -lm
 
 clean:
 	rm -rf epanet_wateropt
