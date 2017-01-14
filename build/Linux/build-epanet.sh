@@ -6,4 +6,4 @@ make clean
 make
 
 # make the epanet engine file
-make -f Makefile_wisl09
+make -f Makefile_wateropt

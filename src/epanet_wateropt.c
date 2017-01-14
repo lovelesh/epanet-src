@@ -161,6 +161,7 @@ void ENReadCurrentFile(char *f_current_input, struct TankStruct *tankcontrol);
 void ENReadSolutionFile(char *f_solution_level_input, struct TankStruct *tankcontrol);
 void ENReadValveSolutionFile(char *f_valve_level_input, struct TankStruct *tankcontrol);
 void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct);
+void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol);
 
 
 // Global Variable Declarations
@@ -187,6 +188,8 @@ unsigned int w5 = 1;	// Cost of violating the MAX VALVE value; DEFAULT VALUE: 1;
 float w6 = 0.5;	// Cost of having negative flows in a VALVE; DAFAULT VALUE: -0.5; RANGE: -0.5 ~ -0.1
 int mode = 0;          // Mode of operation
 
+float function_delta = 0.000001;  //Arbitary value taken
+int functionValueCounter = 0;
 int simDuration = 0;
 // Logging file pointer
 FILE *fptr = NULL;
@@ -710,6 +713,14 @@ void ENOptimiseValve(struct TankStruct *tankcontrol, struct ValveStruct *valveco
 
 		// Runs this section every 100 iteration
 		if((((iteration_count%PRINT_INTERVAL_FUNCTIONVALUE)==0))) {
+			float functionValueDiff = function_value_previous - function_value_current;
+			if( functionValueDiff >= function_delta) 
+				functionValueCounter = 0;
+			else 
+				functionValueCounter++;
+			if(functionValueCounter >= 6)
+				exitprocedure(tankcontrol, valvecontrol);
+
 			printf("\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
 			fflush(stdout);
 			fprintf(fptr, "\n Iteration Count = %d\tFunction Value = %f \t Percentage Difference = %f",iteration_count,function_value_current,(function_value_current-function_value_previous)/function_value_previous);
@@ -1436,6 +1447,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	}
 
 	printf("\nOutput Tank File Path -> %s\n", tankFileName);
+	fflush(stdout);
 	printf("\nOutput Valve File Path -> %s\n", valveFileName);
 	fflush(stdout);
 	fprintf(fptr, "\nOutput Tank File Path -> %s\n", tankFileName);
@@ -1551,6 +1563,132 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	}
 	fprintf(fptr, "\n==============================================================================================\n");
 	fflush(fptr);
+}
+
+void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecontrol)
+{
+	/*
+	 * Displays the output of Tank and Valve structures and close the running program.
+	 * tankcontrol_current : Current Tank structure compatible with EPANET.
+	 * valvecontrol_current : Current Valve structure compatible with EPANET.
+	 */
+
+	int temp_count;
+	int temp_count2;
+	int timeperiod = tankcontrol[0].TimePeriod;
+
+	time_t currentTime;
+	currentTime = time(NULL);
+	struct tm tm = *localtime(&currentTime);
+	char tankFileName[128];
+	sprintf(tankFileName, "../../Output_Files/Tank-Output-%d-%d-%d::%d:%d:%d.csv", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+
+	char valveFileName[128];
+	sprintf(valveFileName, "../../Output_Files/Valve-Output-%d-%d-%d::%d:%d:%d.csv", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+
+	FILE *tankPtr;
+	FILE *valvePtr;
+
+	tankPtr = fopen(tankFileName, "w");
+	valvePtr = fopen(valveFileName, "w");
+
+	if(tankPtr == NULL || valvePtr == NULL) {
+		perror("Error in opening the file\n");
+		exit(1);
+	}
+
+	printf("Simulation Failure :: Not feasible\n");
+	fflush(stdout);
+	printf("\nOutput Tank File Path -> %s\n", tankFileName);
+	fflush(stdout);
+	printf("\nOutput Valve File Path -> %s\n", valveFileName);
+	fflush(stdout);
+	fprintf(fptr, "Simulation Failure :: Not feasible\n");
+	fprintf(fptr, "\nOutput Tank File Path -> %s\n", tankFileName);
+	fprintf(fptr, "\nOutput Valve File Path -> %s\n", valveFileName); 
+
+	// Display all the Valve Settings and Tank Levels till elapsed time
+	// Elapsed time is the time till the valve or demand settings are made
+	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
+
+	// Creating Tank and valve setting final output file
+	fprintf(tankPtr, "Time,");
+	fprintf(valvePtr, "Time,");
+	fflush(tankPtr);
+	fflush(valvePtr);
+
+	for(temp_count = 0; temp_count< Ntanks; temp_count++) {
+		fprintf(tankPtr, "%s,", tankcontrol[temp_count].TankID);
+		fflush(tankPtr);
+		if(temp_count == Ntanks-1) {
+			fprintf(tankPtr, "\n");
+			fflush(tankPtr);
+		}
+	}
+	for(temp_count = 0; temp_count< Nvalves; temp_count++) {
+		fprintf(valvePtr, "%s,", valvecontrol[temp_count].ValveID);
+		fflush(valvePtr);
+		if(temp_count == Nvalves-1) {
+			fprintf(valvePtr, "\n");
+			fflush(valvePtr);
+		}
+	}
+	fflush(fptr);
+	fflush(tankPtr);
+	fflush(valvePtr);
+
+	temp_count2 = ((targetMode == TRUE)? currentLevel.timeVal:startTime );
+	for(; temp_count2 < timeperiod; temp_count2 += hourly_scheduler) {
+		fprintf(tankPtr, "%d,", temp_count2);
+		fflush(tankPtr);
+
+		fprintf(valvePtr, "%d,", temp_count2);
+		fflush(valvePtr);
+		for(temp_count = 0; temp_count< Ntanks; temp_count++) {
+			fprintf(tankPtr, "%f,", (tankcontrol[temp_count].TankLevels[temp_count2])*100/tankcontrol[temp_count].MaxTankLevel);
+			fflush(tankPtr);
+			if(temp_count == Ntanks-1) {
+				fprintf(tankPtr, "\n");
+				fflush(tankPtr);
+			}
+		}
+		for(temp_count = 0; temp_count< Nvalves; temp_count++) {
+			fprintf(valvePtr, "%f,", valvecontrol[temp_count].ValveValues[temp_count2]*100/valvecontrol[temp_count].MaxValue);
+			fflush(valvePtr);
+			if(temp_count == Nvalves-1) {
+				fprintf(valvePtr, "\n");
+				fflush(valvePtr);
+			}
+		}
+	}
+
+	fflush(fptr);
+	fflush(tankPtr);
+	fclose(tankPtr);
+
+	fflush(valvePtr);
+	fclose(valvePtr);
+
+	// Tank Output File copy
+	char finalOutput[1024];
+	sprintf(finalOutput, "cp %s ../../result/tank.csv ", tankFileName);
+	int res = system(finalOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
+	
+	// Valve Output File copy
+	char valveOutput[1024];
+	sprintf(valveOutput, "cp %s ../../result/valve.csv ", valveFileName);
+	res = system(valveOutput);	
+	
+	if(res != 0)
+		perror("system command fail");
+	
+	fprintf(fptr, "\n==============================================================================================\n");
+	fflush(fptr);
+	exit(1);
 }
 
 int Queueing_Engine(char *f_job_input)
@@ -1909,6 +2047,8 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 				if(push_avg_flag) {
 					valve_val = avg[temp_count];
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+					fprintf(jptr, "%d, %s, %f \n", temp_count2, valvecontrol[temp_count].ValveID,valve_val);
+					fflush(jptr);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 						fflush(fptr);
@@ -1924,6 +2064,8 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 				if(push_avg_flag) {
 					valve_val = avg[temp_count];
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+					fprintf(jptr, "%d, %s, %f \n", temp_count2, valvecontrol[temp_count].ValveID,valve_val);
+					fflush(jptr);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 						fflush(fptr);
@@ -1938,6 +2080,8 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 				if(push_set_flag) {
 					valve_val = valvecontrol[temp_count].ValveValues[temp_count2];
 					Qpush("valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
+					fprintf(jptr, "%d, %s, %f \n", temp_count2, valvecontrol[temp_count].ValveID,valve_val);
+					fflush(jptr);
 					if(DEBUG) {
 						fprintf(fptr, "[%s,%d,%d,%s,%f] \n","valve",temp_count2,0,valvecontrol[temp_count].ValveID,valve_val);
 						fflush(fptr);
@@ -1947,8 +2091,6 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 					push_avg_flag = 1;
 				}	
 			}
-			fprintf(jptr, "%d, %s, %f \n", temp_count2, valvecontrol[temp_count].ValveID,valve_val);
-			fflush(jptr);
 		}
 
 		// RESET the appropriate flags

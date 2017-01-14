@@ -3,60 +3,52 @@
 
 $(function(){
 
-   //Register the form dynamic validation
-   //$('#uploadForm').formValidation();
-   $('#totalDuration').css('background-color', 'transparent');
-   $('#start-button').prop("disabled", true);
-   $('#cancel-button').prop("disabled", true);
-   $('#advanced-button').prop("disabled", true);
-   $('#path1').prop("disabled", true);
-   $('#path2').prop("disabled", true);
-   $('#path3').prop("disabled", true);
-   $('#path4').prop("disabled", true);
-   $('#path5').prop("disabled", true);
-   $('#valveSolPath').prop("disabled", true);
-   $('#advancedOptions').hide();
-   $('#tank-view-button').prop("disabled", true);
-   $('#valve-view-button').prop("disabled", true);
-   $('#uploadButton').prop("disabled", true);
+    $('#uploadForm :input').prop("disabled", true);
+    $('#uploadForm select').prop("disabled", false);
+    hideElementsDefault();
 
-   $('#durationWarning').hide();
-   $('#totalDurationRow').hide();
-   $('#uploadSuccess').hide();
-   $('#file-op-line').hide();
-   $('#durationRow').hide();
-   $('#startTimeRow').hide();
-   $('#path2row').show();
-   $('#path5row').hide();
-   $('#joblist-file-row').hide();
+    $('#totalDuration').css('background-color', 'transparent');
 
-   $('#startTime').on("input", setTotalDur);
-   $('#duration').on("input", setTotalDur);
+    $('#startTime').on("input", setTotalDur);
+    $('#duration').on("input", setTotalDur);
 
-   var form = document.forms.namedItem("uploadForm");
+    var form = document.forms.namedItem("uploadForm");
 
-   form.addEventListener('submit', function(ev) {
+    form.addEventListener('submit', function(ev) {
 
-      var oData = new FormData(form);
+        var oData = new FormData(form);
 
-      var oReq = new XMLHttpRequest();
-      oReq.open("POST", "sumit-upload", true);
-      oReq.onload = function(oEvent) {
-	 if (oReq.status == 200) {
-            $('#uploadSuccess').show();
-	    $('#uploadStatus').html("Files Uploaded Successfully!");
-	    $('#start-button').prop("disabled", false);
-	 } 
-	 else {
-	    oOutput.innerHTML = "Error " + oReq.status + " occurred when trying to upload file.<br \/>";
-	 }
-      };
+        var oReq = new XMLHttpRequest();
+        oReq.open("POST", "sumit-upload", true);
+        oReq.onload = function(oEvent) {
+            if (oReq.status == 200) {
+                $('#uploadSuccess').show();
+                $('#uploadStatus').html("Files Uploaded Successfully!");
+                $('#start-button').prop("disabled", false);
+            } 
+            else {
+                oOutput.innerHTML = "Error " + oReq.status + " occurred when trying to upload file.<br \/>";
+            }
+        };
 
-      oReq.send(oData);
-      ev.preventDefault();
-   }, false);
+        oReq.send(oData);
+        ev.preventDefault();
+    }, false);
 
 });
+
+function hideElementsDefault(){
+    $('#durationWarning').hide();
+    $('#totalDurationRow').hide();
+    $('#uploadSuccess').hide();
+    $('#file-op-line').hide();
+    $('#durationRow').hide();
+    $('#startTimeRow').hide();
+    $('#path2row').show();
+    $('#path5row').hide();
+    $('#joblist-file-row').hide();
+    $('#advancedOptions').hide();
+}
 
 function setTotalDur() {
    var start = parseInt($('#startTime').val(),10),
@@ -222,6 +214,11 @@ function changeType() {
 
       $('#durationRow').hide();
       $('#startTimeRow').hide();
+   }
+   else if(Index == 'none'){
+      $('#uploadForm :input').prop("disabled", true);
+      $('#uploadForm select').prop("disabled", false);
+      hideElementsDefault();
    }
 }
 
