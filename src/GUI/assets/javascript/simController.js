@@ -90,6 +90,7 @@ function hideOpts() {
 function loadDoc() {
 
     $("#test").empty();  
+    $('#joblist-file-row').hide();
     $("#tank-file-output").empty();
     $("#valve-file-output").empty();
     $('#start-button').prop("disabled", true);
@@ -161,7 +162,13 @@ function loadDoc() {
                     $('#export-button').prop("disabled", false);
                     $('#uploadButton').prop("disabled", false);
                     if(value == 1){
+                        $('#joblist-file-row').hide();
+                        console.log("\nReturn value is 1.");
                         joblistToDisplay = 1;
+                    }
+                    else{
+                        console.log("\nReturn value is 0.");
+                        joblistToDisplay = 0;
                     }
                 }
             }
@@ -298,6 +305,7 @@ function viewTankFile() {
     }
     else{
         if(joblistToDisplay == 0){
+            console.log("\nCalling viewJoblistFile() function");
             viewJoblistFile();
         }
         downloadUrl= '/download-tank';
@@ -361,6 +369,7 @@ function viewValveFile() {
 
 function viewJoblistFile() {
 
+    console.log("\nInside viewJoblistFile() function");
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     var downloadUrl= '/download-job';
     $("#job-file-output").empty();

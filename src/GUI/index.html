@@ -33,363 +33,372 @@
       </section>
 
       <section id="form1-0">
-	 <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;">
+          <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;">
 
-	    <div class="row" style="padding:20px;padding-bottom:0px">
-                <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
-                    <h2 style="color: white !important"><i class="fa fa-list-alt" style="color:white" aria-hidden="true"></i> Control Panel</h2>
-                </div>
-                
-                <div class="col-md-6 col-md-offset-1" style="padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
-                    <h2 style="color: white !important;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output</h2>
-                </div>
-                
-            </div>
-	    <div class="row" style="padding:20px;padding-top:0px">
-	       <div class="col-md-6 col-md-offset-0" id="formDiv" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
-		  <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
+              <div class="row" style="padding:20px;padding-bottom:0px">
+                  <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
+                      <h2 style="color: white !important"><i class="fa fa-sliders" style="color:white" aria-hidden="true"></i> Control Panel</h2>
+                  </div>
 
-		     <div class="row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Type</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <select class="form-control btn" 
-				 id="Type" name="Type" onchange="changeType()" 
-				 style="border-radius:0rem !important; background-color: lavender">
-				 <option selected value="none">Select Type..</option>
-				 <option value="1">TARGET</option>
-				 <option value="0">SEARCH</option>
-				 <option value="2">SIMULATION</option>
-			      </select>			
-			   </div>  	
-			</div>
-		     </div>
+                  <div class="col-md-6 col-md-offset-1" style="padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
+                      <h2 style="color: white !important;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output</h2>
+                  </div>
 
-		     <div class="row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Network File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <input type="file" id="path1" name="path1" class="form-control" required
-                                data-fv-notempty="true"
-                                data-fv-notempty-message="Please select a Network file"
-                                data-fv-file="true"
-                                data-fv-file-extension="inp"
-                                data-fv-file-message="The selected Network file is invalid"/>
-			   </div>
-			</div>
-		     </div>
+              </div>
+              <div class="row" style="padding:20px;padding-top:0px">
+                  <div class="col-md-6 col-md-offset-0" id="formDiv" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
+                      <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
 
-		     <div class="row" id="path2row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Demand File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			   <input type="file" id="path2" name="path2" class="form-control" required />
-			   </div>
-			</div>
-		     </div>
-		     
-		     <div class="row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Joblist File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-                              <input type="file" id="path3" name="path3" class="form-control" required />
-			   </div>
-			</div>
-		     </div>
-		     
-		     <div class="row" id="tank-sol-row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Tank Solution File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-                              <input type="file" id="path4" name="path4" class="form-control" required/>
-			   </div>
-			</div>
-		     </div>		     
-		     
-		     <div class="row" id="valve-sol-row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Valve Solution File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-                              <input type="file" id="valveSolPath" name="valveSolPath" class="form-control" required/>
-			   </div>
-			</div>
-		     </div>		     
-		     
-		     <div class="row" id="path5row">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Current level File</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-                              <input type="file" id="path5" name="path5" class="form-control" required/>
-			   </div>
-			</div>
-		     </div>		     
-		     
-		     <div class="row" id="startTimeRow">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Start (0-23 hrs)</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <input type="number" min="0" max="23" id="startTime" required data-fv-notempty="true" data-fv-notempty-message="Enter start time" name="startTime" class="form-control" placeholder="Start(0-23 hrs)" tabindex="2"/>
-			   </div>
-			</div>
-		     </div>		     
-		     
-		     <div class="row" id="durationRow">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>Duration(1-24)</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <input type="number" min="1" max="24" id="duration" required required data-fv-notempty="true" data-fv-notempty-message="Duration Cannot be empty" name="duration" value="1" class="form-control" placeholder="Duration (1-24 hrs)" tabindex="2"/>
-			   </div>
-			</div>
-		     </div>
-		     
-		     <div class="row" id="totalDurationRow">
-			<div class="col-md-3">
-			   <div class="form-group">
-			      <label>End Time</label>
-			   </div>
-			</div>
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <input type="text" id="totalDuration" name="totalDuration" value="1" class="form-control" placeholder="Total Duration" tabindex="2" disabled/>
-			   </div>
-			</div>
-		     </div>
-		     
-		     <div class="row" id="advancedOptions">
-			<div  class="col-md-3">
-			   <div class="form-group">
-			      <label>Advanced Options</label>
-			   </div>
-			</div>
-			
-			<div class="col-md-9">
-			   <div class="form-group">
-			      <div class="input-group">
-			        <span class="input-group-addon" id="basic-addon1" style="width:230px">Distance from Mid Point</span>
-			        <input type="number" min="1" max="10" id="w12" style="width:80px" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Type</label>
+                                  </div>
                               </div>
- 			   </div>
- 			   
-                           <div class="form-group">
-                             <div class="input-group">
-                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Periodicity</span>
-			      <input type="number" min="50" max="150" id="w3" style="width:80px" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
-			     </div>
-			   </div>
-                    
-			   <div class="form-group">
-			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Important Valve Change</span>
-			      <input type="number" min="100" max="500" id="w4" style="width:80px" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
-			     </div>
-			   </div>
-                           <div class="form-group">
-			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Negative Flow</span>
-			      <input type="number" min="0.1" max="0.5" step="0.1" id="w6" style="width:80px" value="0.5" class="form-control" placeholder="W6" required tabindex="2"/>
-			     </div>
-			   </div>
-			   <div class="form-group">
-			     <div class="input-group">
-			      <span class="input-group-addon" id="basic-addon1" style="width:230px">Flow Greater than Max Flow</span>
-			      <input type="number" min="1" max="10" id="w5" style="width:80px" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
-			     </div>
-			   </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <select class="form-control btn" 
+                                              id="Type" name="Type" onchange="changeType()" 
+                                                                    style="border-radius:0rem !important; background-color: lavender">
+                                          <option selected value="none">Select Type..</option>
+                                          <option value="1">TARGET</option>
+                                          <option value="0">SEARCH</option>
+                                          <option value="2">SIMULATION</option>
+                                      </select>			
+                                  </div>  	
+                              </div>
+                          </div>
 
-			</div>
-			<div>
-			</div>
-		     </div>
-		     
-		     <div class="row" id="uploadSuccess">
-                        <div class="form-group">
-                            <hr>
-                            <i class="fa fa-check-square-o" style="color:darkgreen" aria-hidden="true"></i>
-			    <label>Files Uploaded Successfully.</label>
-                        </div>
-		     </div>
-		     <div class="row" id="durationWarning">
-                        <div class="form-group">
-			    <label>Note: The sum of Start time(in current level file) and Duration should not exceed 24 hours. If it exceeds 24 hours, the default value will be set to 24.</label>
-                        </div>
-		     </div>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Network File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="path1" name="path1" class="form-control" required/>
+                                  </div>
+                              </div>
+                          </div>
 
-		     <hr class="fancy-line">
+                          <div class="row" id="path2row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Demand File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="path2" name="path2" class="form-control" required />
+                                  </div>
+                              </div>
+                          </div>
 
-		     <div class="mbr-buttons row" align="center">
-			<button class="mbr-buttons__btn btn btn-primary btn-def" 
-			   id="advanced-button" style="border-radius:0rem !important;"
-			   onclick="showOpts()" type="button">Advance <i class="fa fa-sliders" aria-hidden="true"></i></button>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Joblist File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="path3" name="path3" class="form-control" required />
+                                  </div>
+                              </div>
+                          </div>
 
-			<button type="submit" class="mbr-buttons__btn btn btn-success btn-def"
-			   style="border-radius:0rem !important; width:140px !important; padding-left: 14px !important" id="uploadButton" 
-			   name="uploadButton">
-			   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
+                          <div class="row" id="tank-sol-row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Tank Solution File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="path4" name="path4" class="form-control" required/>
+                                  </div>
+                              </div>
+                          </div>		     
 
-                	<button type="button" class="mbr-buttons__btn btn btn-danger btn-def" 
-			   id="cancel-button" name="cancel-button" 
-			   style="border-radius:0rem !important; width:100px !important; padding-left: 14px !important" 
-			   onclick="cancelSimulation()">Cancel  <i class="fa fa-times" aria-hidden="true"></i></button>
-			
-			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
-			   id="start-button" name="start-button" 
-			   style="border-radius:0rem !important" onclick="loadDoc()">
-			    Start Simulation  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                        </button>     
-		     </div>
-		     <!--</div>-->
-		     
-		     <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
-			<button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
-			   style="border-radius:0rem !important" 
-			   id="tank-view-button" 
-			   onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
-			   <i class="fa fa-line-chart" aria-hidden="true"></i>
-			</button>
+                          <div class="row" id="valve-sol-row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Valve Solution File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="valveSolPath" name="valveSolPath" class="form-control" required/>
+                                  </div>
+                              </div>
+                          </div>		     
 
-		     </div>		     
-		  </form>
-	       </div>
-	    
-	       <div class="col-md-6 col-md-offset-1" id="outputDiv" style="padding:0px; box-shadow: 0 0 1px black;">
-	          <div class="table-responsive">
-	          <table class="table table-striped table-bordered" id="test"></table>
-	       </div>
-            </div>
-	 </div>
+                          <div class="row" id="path5row">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Current level File</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="file" id="path5" name="path5" class="form-control" required/>
+                                  </div>
+                              </div>
+                          </div>		     
+
+                          <div class="row" id="startTimeRow">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Start (0-23 hrs)</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="number" min="0" max="23" id="startTime" required data-fv-notempty="true" data-fv-notempty-message="Enter start time" name="startTime" class="form-control" placeholder="Start(0-23 hrs)" tabindex="2"/>
+                                  </div>
+                              </div>
+                          </div>		     
+
+                          <div class="row" id="durationRow">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Duration(1-24)</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="number" min="1" max="24" id="duration" required required data-fv-notempty="true" data-fv-notempty-message="Duration Cannot be empty" name="duration" value="1" class="form-control" placeholder="Duration (1-24 hrs)" tabindex="2"/>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row" id="totalDurationRow">
+                              <div class="col-md-3">
+                                  <div class="form-group">
+                                      <label>End Time</label>
+                                  </div>
+                              </div>
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <input type="text" id="totalDuration" name="totalDuration" value="1" class="form-control" placeholder="Total Duration" tabindex="2" disabled/>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row" id="advancedOptions">
+                              <div  class="col-md-3">
+                                  <div class="form-group">
+                                      <label>Advanced Options</label>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-9">
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Distance from Mid Point</span>
+                                          <input type="number" min="1" max="10" id="w12" style="width:80px" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Periodicity</span>
+                                          <input type="number" min="50" max="150" id="w3" style="width:80px" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Important Valve Change</span>
+                                          <input type="number" min="100" max="500" id="w4" style="width:80px" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Negative Flow</span>
+                                          <input type="number" min="0.1" max="0.5" step="0.1" id="w6" style="width:80px" value="0.5" class="form-control" placeholder="W6" required tabindex="2"/>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Flow Greater than Max Flow</span>
+                                          <input type="number" min="1" max="10" id="w5" style="width:80px" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
+                                      </div>
+                                  </div>
+
+                              </div>
+                              <div>
+                              </div>
+                          </div>
+
+                          <div class="row" id="uploadSuccess">
+                              <div class="form-group">
+                                  <hr>
+                                  <i class="fa fa-check-square-o" style="color:darkgreen" aria-hidden="true"></i>
+                                  <label>Files Uploaded Successfully.</label>
+                              </div>
+                          </div>
+                          <div class="row" id="durationWarning">
+                              <div class="form-group">
+                                  <label>Note: The sum of Start time(in current level file) and Duration should not exceed 24 hours. If it exceeds 24 hours, the default value will be set to 24.</label>
+                              </div>
+                          </div>
+
+                          <hr class="fancy-line">
+
+                          <div class="mbr-buttons row" align="center">
+                              <button class="mbr-buttons__btn btn btn-primary btn-def" 
+                                      id="advanced-button" style="border-radius:0rem !important;"
+                                                           onclick="showOpts()" type="button">Advance <i class="fa fa-sliders" aria-hidden="true"></i></button>
+
+                              <button type="submit" class="mbr-buttons__btn btn btn-success btn-def"
+                                                    style="border-radius:0rem !important; width:140px !important; padding-left: 14px !important" id="uploadButton" 
+                                                                                                                                                 name="uploadButton">
+                                  <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
+
+                              <button type="button" class="mbr-buttons__btn btn btn-danger btn-def" 
+                                                    id="cancel-button" name="cancel-button" 
+                                                                       style="border-radius:0rem !important; width:100px !important; padding-left: 14px !important" 
+                                                                       onclick="cancelSimulation()">Cancel  <i class="fa fa-times" aria-hidden="true"></i></button>
+
+                              <button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
+                                                    id="start-button" name="start-button" 
+                                                                      style="border-radius:0rem !important" onclick="loadDoc()">
+                                  Start Simulation  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                              </button>     
+                          </div>
+                          <!--</div>-->
+
+                          <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
+                              <button type="button" class="mbr-buttons__btn btn btn-success btn-def" 
+                                                    style="border-radius:0rem !important" 
+                                                    id="tank-view-button" 
+                                                    onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
+                                                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                              </button>
+
+                          </div>		     
+                      </form>
+              </div>
+
+              <div class="col-md-6 col-md-offset-1" id="outputDiv" style="padding:0px; box-shadow: 0 0 1px black;">
+                  <div class="table-responsive">
+                      <table class="table table-striped table-bordered" id="test"></table>
+                  </div>
+              </div>
+          </div>
       </section>
       <hr>
 
       <section id="form1-1">
-	 <div class="container" id="file-op-line" style="padding-top:40px;padding-bottom:50px;margin-left:20px; max-width:100%;">
+          <div class="container" id="file-op-line" style="padding-top:40px;padding-bottom:50px;margin-left:20px; max-width:100%;">
 
-            <div class="row" id="joblist-file-row" style="padding:20px;">
-	       <div id="job-op-line" style="width:88.4%; max-height:450px; overflow:auto;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
-		  <h2 style="color:dimgray" id="file-op-heading">
-		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Joblist File
-		  </h2>
+              <div class="row" id="joblist-file-row" style="width:90%;padding:20px; padding-bottom:0px; margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" id="job-op-line" style="box-shadow: 0 0 1px black;max-height:450px;padding:20px;">
+                      <h2 style="color:dimgray" id="file-op-heading">
+                          <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Joblist File
+                      </h2>
 
-		  <hr class="fancy-line"><br>
-		  <div class="table-responsive">
-		     <table class="table table-striped table-bordered" id="job-file-output" style="padding-bottom:15px"></table>
-		  </div>
-		  <div align="center" id="job-download">
-		     <a href="download-job" style="border-radius:0rem !important" id="export-button-job" class="btn btn-success" role="button" align="center">
-			<i class="fa fa-download" aria-hidden="true"></i> Download job.csv
-		     </a>
-		  </div> 
-	       </div>
-             </div>
+                      <hr class="fancy-line"><br>
+                      <div class="table-responsive" style="overflow:auto; max-height:250px">
+                          <table class="table table-striped table-bordered" id="job-file-output" style="padding-bottom:15px;"></table>
+                      </div>
+                      <div align="center" id="job-download">
+                          <a href="download-job" style="border-radius:0rem !important" id="export-button-job" class="btn btn-success" role="button" align="center">
+                              <i class="fa fa-download" aria-hidden="true"></i> Download job.csv
+                          </a>
+                      </div> 
+                  </div>
+              </div>
 
-	    <div class="row" style="padding:20px;">
-	       <div class="col-md-6" id="tank-op-line" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
-		  <h2 style="color:dimgray" id="file-op-heading">
-		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Tank File
-		  </h2>
+              <div class="row" style="width:90%;padding:20px; margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" id="tank-op-line" style="max-height:450px;padding:20px; box-shadow: 0 0 1px black;">
+                      <h2 style="color:dimgray" id="file-op-heading">
+                          <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Tank File
+                      </h2>
 
-		  <hr class="fancy-line"><br>
-		  <div class="table-responsive">
-		     <table class="table table-striped table-bordered" id="tank-file-output" style="padding-bottom:15px"></table>
-		  </div>
-		  <div align="center" id="tank-download">
-		     <a href="download-tank" style="border-radius:0rem !important" id="export-button-tank" class="btn btn-success" role="button" align="center">
-			<i class="fa fa-download" aria-hidden="true"></i> Download tank.csv
-		     </a>
-		  </div>
+                      <hr class="fancy-line"><br>
+                      <div class="table-responsive" style="overflow:auto; max-height:250px">
+                          <table class="table table-striped table-bordered" id="tank-file-output" style="padding-bottom:15px"></table>
+                      </div>
+                      <div align="center" id="tank-download">
+                          <a href="download-tank" style="border-radius:0rem !important" id="export-button-tank" class="btn btn-success" role="button" align="center">
+                              <i class="fa fa-download" aria-hidden="true"></i> Download tank.csv
+                          </a>
+                      </div>
 
-                   <div align="center" id="sim-tank-download">
-		     <a href="download-sim-tank" style="border-radius:0rem !important" id="export-sim-tank" class="btn btn-success" role="button" align="center">
-			<i class="fa fa-download" aria-hidden="true"></i> Download sim_tank.csv
-		     </a>
-		  </div> 
+                      <div align="center" id="sim-tank-download">
+                          <a href="download-sim-tank" style="border-radius:0rem !important" id="export-sim-tank" class="btn btn-success" role="button" align="center">
+                              <i class="fa fa-download" aria-hidden="true"></i> Download sim_tank.csv
+                          </a>
+                      </div> 
+                  </div>
+              </div>
 
-	       </div>
-	       <div id="valve-op-line" class="col-md-6 col-md-offset-1" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
+              <div class="row" style="width:90%;padding:20px; margin-right: auto; margin-left: auto;">
+                  <div id="valve-op-line" class="col-md-10" style="max-height:450px;padding:20px; box-shadow: 0 0 1px black;">
+                      <h2 style="color:dimgray" id="file-op-heading">
+                          <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Valve File
+                      </h2>
 
-		  <h2 style="color:dimgray" id="file-op-heading">
-		     <i class="fa fa-file-text" style="color:dimgray" aria-hidden="true"></i>  Valve File
-		  </h2>
+                      <hr class="fancy-line"><br>
+                      <div class="table-responsive" style="overflow:auto; max-height:250px">
+                          <table class="table table-striped table-bordered" id="valve-file-output" style="padding-bottom:15px"></table>
+                      </div>
 
-		  <hr class="fancy-line"><br>
+                      <div align="center" id="valve-download">
+                          <a href="download-valve" style="border-radius:0rem !important" id="export-button-valve" class="btn btn-success" role="button" align="center">
+                              <i class="fa fa-download" aria-hidden="true"></i> Download valve.csv
+                          </a>
+                      </div>
 
-		  <div class="table-responsive">
-		     <table class="table table-striped table-bordered" id="valve-file-output" style="padding-bottom:15px"></table>
-		  </div>
+                      <div align="center" id="sim-valve-download">
+                          <a href="download-sim-valve" style="border-radius:0rem !important" id="export-sim-valve" class="btn btn-success" role="button" align="center">
+                              <i class="fa fa-download" aria-hidden="true"></i> Download sim_valve.csv
+                          </a>
+                      </div>
+                  </div>
+              </div>
 
-		  <div align="center" id="valve-download">
-		     <a href="download-valve" 
-	                 style="border-radius:0rem !important" 
-                         id="export-button-valve" 
-                         class="btn btn-success" role="button" 
-			 align="center"><i class="fa fa-download" aria-hidden="true"></i> Download valve.csv
-		     </a>
-		  </div>
+              <!--Second Row for graphs-->
+              <div class="row" style="width:90%;padding:20px; padding-bottom:0px; margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" style="box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
+                      <label style="color:white !important; text-align:center !important; padding-top: 5px !important">TANK GRAPH</label>
+                  </div>
+                  <div class="col-md-10" style="padding:20px; padding-top:0px; box-shadow: 0 0 1px black;">
+                      <section class="panel"><div id="container1" class="panel-body text-center"></div></section>
+                  </div>
+              </div>
 
-                  <div align="center" id="sim-valve-download">
-		     <a href="download-sim-valve" style="border-radius:0rem !important" id="export-sim-valve" class="btn btn-success" role="button" align="center">
-			<i class="fa fa-download" aria-hidden="true"></i> Download sim_valve.csv
-		     </a>
-		  </div>
+              <div class="row" style="width:90%;padding:20px; margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" style="box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
+                      <label style="color:white !important; text-align:center !important; padding-top: 5px !important">VALVE GRAPH</label>
+                  </div>
+                  <div class="col-md-10" style="padding:20px;padding-top:0px; box-shadow: 0 0 1px black;">
+                      <section class="panel"><div id="container2" class="panel-body text-center"></div></section>
+                  </div>
+              </div>
 
-	       </div>
-	    </div>
+              <div class="row" style="width:90%;padding:20px; margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" style="box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
+                      <label style="color:white !important; text-align:center !important; padding-top: 5px !important">TANK</label>
+                  </div>
+                  <div class="col-md-10" style="padding:20px; box-shadow: 0 0 1px black;">
+                      <section class="panel"><div id="container3" class="panel-body text-center"></div></section>
+                  </div>
+              </div>
 
-	    <!--Second Row for graphs-->
-	    <div class="row" style="padding:20px; padding-bottom:0px" id="graph-row">
-	       <div class="col-md-6" style="width:40%;box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
-	          <label style="color:white !important; text-align:center !important; padding-top: 5px !important">TANK GRAPH</label>
-	       </div>
-            
-               <div class="col-md-6 col-md-offset-1" style="width:40%; box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
-	          <label style="color:white !important; text-align:center !important; padding-top: 5px !important">VALVE GRAPH</label>
-	       </div>
-            </div>
-            
-            <div class="row" style="padding:20px; padding-top:0px" id="graph-row">
-	       <div class="col-md-6" style="width:40%;padding:20px; padding-top:0px; box-shadow: 0 0 1px black;">
-		  <section class="panel"><div id="container1" class="panel-body text-center"></div></section>
-	       </div>
-	       <div class="col-md-6 col-md-offset-1" style="width:40%;padding:20px;padding-top:0px; box-shadow: 0 0 1px black;">
-		  <section class="panel"><div id="container2" class="panel-body text-center"></div></section>
-	       </div>
-	    </div>
-	 </div>
+              <div class="row" style="width:90%;padding:20px;margin-right: auto; margin-left: auto;">
+                  <div class="col-md-10" style="box-shadow: 0 0 1px black;background-color: CornflowerBlue;">
+                      <label style="color:white !important; text-align:center !important; padding-top: 5px !important">VALVE</label>
+                  </div>
+                  <div class="col-md-10" style="padding:20px; box-shadow: 0 0 1px black;">
+                      <section class="panel"><div id="container4" class="panel-body text-center"></div></section>
+                  </div>
+              </div>
+
+         </div>
       </section>
 
       <script src="bootstrap-filestyle-1.2.1/src/bootstrap-filestyle.min.js"></script>
