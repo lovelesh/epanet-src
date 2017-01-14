@@ -1688,7 +1688,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	
 	fprintf(fptr, "\n==============================================================================================\n");
 	fflush(fptr);
-	exit(0);
+	exit(1);
 }
 
 int Queueing_Engine(char *f_job_input)
