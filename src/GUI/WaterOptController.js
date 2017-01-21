@@ -116,13 +116,14 @@ io.on('connection', function(socket) {
     console.log('new user connected');
     socket.on('message', function(message) {
         //Delete the intermediate files created by simulation process
-        fs.readdir('.', (err, files)=>{
-            for (var i = 0, len = files.length; i < len; i++) {
-                var match = files[i].match(/en.*/);
-                if(match !== null)
-                    fs.unlink(match[0]);
-            }
-        });
+//        fs.readdir('.', (err, files)=>{
+//            for (var i = 0, len = files.length; i < len; i++) {
+//                var match = files[i].match(/en.*/);
+//                if(match !== null)
+//                    fs.unlink(match[0]);
+//            }
+//        });
+
         //   fs.readdir('.', (err, files)=>{
         //      for (var i = 0, len = files.length; i < len; i++) {
         //	    var match = files[i].match(/en.*/);
@@ -148,14 +149,14 @@ io.on('connection', function(socket) {
             var file2 = './uploads/' + filenames.files[1].originalname;
             var file3 = './uploads/' + filenames.files[2].originalname;
             client_binary = spawn('../../build/Linux/epanet_wateropt' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6]);
-            client_binary.on('error', (err) => {
+/*            client_binary.on('error', (err) => {
                 isSimulationStarted = 0;
                 var msg={};
                 msg.Result = "Unable to spawn binary at path" + err.path;
                 console.log('whoops! There was an uncaught error', JSON.stringify(msg));
                 console.log('\nisSimulationStarted: ' + isSimulationStarted);
                 socket.emit('newdata', JSON.stringify(msg));
-            });
+            });*/
         }
 
         else if(Type == 1) {
@@ -170,13 +171,13 @@ io.on('connection', function(socket) {
             var file4 = './uploads/' + filenames.files[3].originalname;
             var file5 = './uploads/' + filenames.files[4].originalname;
             client_binary = spawn('../../build/Linux/epanet_wateropt' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
-            client_binary.on('error', (err) => {
+/*            client_binary.on('error', (err) => {
                 isSimulationStarted = 0;
                 var msg={};
                 msg.Result = "Unable to spawn binary at path" + err.path;
                 console.log('whoops! There was an uncaught error', JSON.stringify(msg));
                 socket.emit('newdata', JSON.stringify(msg));
-            });
+            });*/
         }
 
         else if(Type == 2) {
@@ -186,14 +187,14 @@ io.on('connection', function(socket) {
             var file4 = './uploads/' + filenames.files[3].originalname;
             var file5 = './uploads/' + filenames.files[4].originalname;
             client_binary = spawn('../../build/Linux/epanet_wateropt' ,['2', file1, file2, file3, file4, file5]);
-            client_binary.on('error', (err) => {
+/*            client_binary.on('error', (err) => {
                 isSimulationStarted = 0;
                 var msg={};
                 msg.Result = "Unable to spawn binary at path" + err.path;
                 console.log('whoops! There was an uncaught error', JSON.stringify(msg));
                 console.log('\nisSimulationStarted: ' + isSimulationStarted);
                 socket.emit('newdata', JSON.stringify(msg));
-            });
+            });*/
         }
 
         var msg = {};

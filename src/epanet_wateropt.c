@@ -248,7 +248,7 @@ int main(int argc, char *argv[])
 	fptr = fopen(fileName, "a+");
 	if(fptr == NULL) {
 		perror("ERROR in creating LOG file :: ");
-		exit(1);
+		exit(-1);
 	}
 
 
@@ -340,7 +340,7 @@ int main(int argc, char *argv[])
 		fflush(stdout);
 		fprintf(fptr, "Invalid Mode \n");
 		fflush(fptr);
-		exit(1);
+		exit(-1);
 	}
 
 	ENopen(f_epanet_input, f_epanet_Rpt,f_blank); 				// Open Epanet input file
@@ -907,7 +907,7 @@ void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct)
 
 	if(tankPtr == NULL || valvePtr == NULL) {
 		perror("Error in opening the file\n");
-		exit(1);
+		exit(-1);
 	}
 
 	printf("\nSimulation :: Output Tank File Path -> %s\n", tankFileName);
@@ -1443,7 +1443,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 
 	if(tankPtr == NULL || valvePtr == NULL) {
 		perror("Error in opening the file\n");
-		exit(1);
+		exit(-1);
 	}
 
 	printf("\nOutput Tank File Path -> %s\n", tankFileName);
@@ -1594,7 +1594,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 
 	if(tankPtr == NULL || valvePtr == NULL) {
 		perror("Error in opening the file\n");
-		exit(1);
+		exit(-1);
 	}
 
 	printf("Simulation Failure :: Not feasible\n");
@@ -2032,7 +2032,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	FILE *jptr = fopen(fileName, "w");
 	if(jptr == NULL) {
 		perror("ERROR in creating Job file :: ");
-		exit(1);
+		exit(-1);
 	}
 
 	fprintf(jptr, "Time, Valve ID, Valve Value\n");
