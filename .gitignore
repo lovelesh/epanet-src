@@ -12,16 +12,21 @@ epanet2
 *.lai
 *.la
 *.a
+
+# Input/Output Files
 Output-20*.csv
 output.csv
 Job-Output.csv
-
 Tank-Simulation-Output*.csv
 Valve-Output*.csv
 Tank-Output*.csv
 Valve-Simulation-Output*.csv
 tank.csv
 valve.csv
+sim_tank.csv
+sim_valve.csv
+*.csv~
+
 # Log files
 *.log
 

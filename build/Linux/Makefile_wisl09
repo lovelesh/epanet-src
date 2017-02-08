@@ -1,0 +1,7 @@
+SHELL = /bin/sh
+all:
+	gcc -g -fno-stack-protector -fPIC -o epanet_valve_optim_wisl09 ../../src/epanet_valve_optim_test_engine.c -L ./  -L /home/amit/AMIT/epanet/waterProject/epanet-src/build/Linux_WISL09_temp/ -lepanet2 -lm
+
+clean:
+	rm -rf epanet_valve_optim_wisl09
+
