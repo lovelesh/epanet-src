@@ -1,1 +1,1 @@
-This directory stores the result for the simulation
+This directory holds intermediate files for displaying graphs and other tables

@@ -1,1 +1,1 @@
-This directory temporarily stores the uploaded files
+This directory holds all the temporary files uploaded by the user

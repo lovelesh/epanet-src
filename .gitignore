@@ -5,7 +5,7 @@
 
 # Compiled Dynamic libraries
 *.so
-epanet_valve_optim_wisl09
+epanet_wateropt
 epanet2
 
 # Compiled Static libraries
@@ -16,6 +16,7 @@ epanet2
 # Input/Output Files
 Output-20*.csv
 output.csv
+Job-Output.csv
 Tank-Simulation-Output*.csv
 Valve-Output*.csv
 Tank-Output*.csv
@@ -34,6 +35,9 @@ doxygen_out/
 
 #node modules
 node_modules/*
+
+#Log
+Log/*
 
 # Mac Stuff
 .DS_Store

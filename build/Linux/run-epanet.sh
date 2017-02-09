@@ -13,7 +13,7 @@ set -x
 #run the simulation
 LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH 
 echo $LD_LIBRARY_PATH
-./epanet_valve_optim_wisl09 ../../Input_Files/Devanoor_10DMA_demand_zero_changed.inp ../../Input_Files/temp_demand_all.csv ../../Input_Files/joblist.txt 25
+./epanet_wateropt ../../Input_Files/Devanoor_10DMA_demand_zero_changed.inp ../../Input_Files/temp_demand_all.csv ../../Input_Files/joblist.txt 25
 #LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH ./epanet_valve_optim_wisl09 ../../Input_Files/Devanoor_10DMA_demand_zero_changed.inp ../../Input_Files/temp_demand_all.csv ../../Input_Files/joblist.txt 25|tee $filename
 
 #valgrind checking

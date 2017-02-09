@@ -1,1 +1,1 @@
-This directory stores all the files generated during the simulation
+This directory holds all the generated output for the user simulation
