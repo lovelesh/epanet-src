@@ -2,9 +2,11 @@
 
 var joblistToDisplay = 0;
 var formHeight;
+var userId;
 
 $(function(){
 
+    userId = Math.floor((1 + Math.random()) * 0x10000).toString();
     $('#uploadForm :input').prop("disabled", true);
     $('#uploadForm select').prop("disabled", false);
     $('#w12').prop("disabled", false);
@@ -26,9 +28,13 @@ $(function(){
     form.addEventListener('submit', function(ev) {
 
         var oData = new FormData(form);
+        //var id = {uid: userId};
+        oData.append('uid',userId);
 
         var oReq = new XMLHttpRequest();
-        oReq.open("POST", "sumit-upload", true);
+        var reqUrl = "p?uid=" + userId;
+        //oReq.open("POST", "sumit-upload", true);
+        oReq.open("POST", reqUrl, true);
         oReq.onload = function(oEvent) {
             if (oReq.status == 200) {
                 formHeight = $('#formDiv').outerHeight();
@@ -106,30 +112,33 @@ function loadDoc() {
         console.log("StartTime: " + $('#startTime').val() + "\n");
         console.log("Duration: " + $('#duration').val() + "\n");
         message = {
-            Type: '0',
-            StartTime: $('#startTime').val(),
-            Duration: $('#duration').val(),
-            w12: $('#w12').val(),
-            w3: $('#w3').val(),
-            w4: $('#w4').val(),
-            w5: $('#w5').val(),
-            w6: $('#w6').val()
+            Type: '0'
+            , StartTime: $('#startTime').val()
+            , Duration: $('#duration').val()
+            , w12: $('#w12').val()
+            , w3: $('#w3').val()
+            , w4: $('#w4').val()
+            , w5: $('#w5').val()
+            , w6: $('#w6').val()
+            , uid: userId
         };
     }
     else if(Index == 1) {
         message = {
-            Type: '1',
-            Duration: $('#duration').text(),
-            w12: $('#w12').val(),
-            w3: $('#w3').val(),
-            w4: $('#w4').val(),
-            w5: $('#w5').val(),
-            w6: $('#w6').val()
+            Type: '1'
+            , Duration: $('#duration').text()
+            , w12: $('#w12').val()
+            , w3: $('#w3').val()
+            , w4: $('#w4').val()
+            , w5: $('#w5').val()
+            , w6: $('#w6').val()
+            , uid: userId
         };
     }
     else if(Index == 2) {
         message = {
             Type: '2'
+            , uid: userId
         };
     }
 
@@ -270,19 +279,22 @@ function changeType() {
 
 function cancelSimulation(){
 
+   var user = {uid:userId};
    $.ajax({
       url: '/cancelSimulation',
       async: 'true',
       type: "post",
+      dataType: 'json',
+      data: user,
       success: function(res) {
-	 $('#uploadButton').prop("disabled", false);
-	 $('#cancel-button').prop("disabled", true);
-	 $('#start-button').prop("disabled", false);
-	 var json = JSON.parse(res);
-	 $.each(json, function(key, value){
-	    var table = $("#test");
-	    table.append("<tr><td></td><td>" + value + "</td></tr>"); 
-	 });
+          $('#uploadButton').prop("disabled", false);
+          $('#cancel-button').prop("disabled", true);
+          $('#start-button').prop("disabled", false);
+          var json = JSON.parse(res);
+          $.each(json, function(key, value){
+              var table = $("#test");
+              table.append("<tr><td></td><td>" + value + "</td></tr>"); 
+          });
       },
       error: function(res) {
 	 $('#start-button').text('Failed');
@@ -427,4 +439,19 @@ function generateTable(data) {
     }
 
     return html;
+}
+
+function removeSession() {
+    console.log("INSIDE REMOVE SESSION FUNCTION");
+    $.ajax({
+        url: "removeSession?uid=" + userId,
+        async: 'true',
+        dataType: "text",
+        type: "post",
+        success: function(res) {
+            alert("All simulation data generated for this session will be lost. \nAre you sure?");
+        },
+        error: function(res) {
+        }
+    });   
 }

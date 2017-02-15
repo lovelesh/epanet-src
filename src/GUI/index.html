@@ -16,7 +16,7 @@
       <script src="bootstrap/js/bootstrap.min.js"></script>
    </head>
 
-   <body>
+   <body onbeforeunload="return removeSession()">
 
 	<section id="title">
           <div class="container" style="padding:0px; max-width:100%">
@@ -292,9 +292,9 @@
               </div>
           </div>
       </section>
-      <hr>
 
       <section id="form1-1">
+      <hr>
           <div class="container" id="file-op-line" style="padding-top:40px;padding-bottom:50px;margin-left:20px; max-width:100%;">
 
               <div class="row" id="joblist-file-row" style="width:90%;padding:20px; padding-bottom:0px; margin-right: auto; margin-left: auto;">
