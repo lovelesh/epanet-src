@@ -38,255 +38,249 @@
       </section>
 
       <section id="form1-0">
-          <div class="container" style="padding-top:40px; padding-bottom:10px; margin-left:20px; max-width:100%;">
-
-              <div class="row" style="padding:20px;padding-bottom:0px">
-                  <div class="col-md-6" style="width:40%;padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
-                      <h2 style="color: white !important"><i class="fa fa-sliders" style="color:white" aria-hidden="true"></i> Control Panel</h2>
+          <div class="container-fluid">
+              <div class="col-md-5">
+                  <div class="row" style="padding-top:20px">
+                      <div class="ui huge blue label fluid">Control Panel</div>
                   </div>
 
-                  <div class="col-md-6 col-md-offset-1" style="padding:10px; box-shadow: 0 0 1px black; background-color: CornflowerBlue;">
-                      <h2 style="color: white !important;"><i class="fa fa-list-alt" aria-hidden="true"></i> Iteration Output</h2>
+                  <div class="row">
+                      <div id="formDiv" style="padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
+                          <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
+
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Type</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <select class="ui dropdown form-control" 
+                                                  id="Type" name="Type" onchange="changeType()">
+                                              <option selected value="none">Select Type..</option>
+                                              <option value="1">TARGET</option>
+                                              <option value="0">SEARCH</option>
+                                              <option value="2">SIMULATION</option>
+                                          </select>			
+                                      </div>  	
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Network File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="path1" name="path1" class="form-control" required/>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row" id="path2row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Demand File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="path2" name="path2" class="form-control" required />
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Joblist File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="path3" name="path3" class="form-control" required />
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row" id="tank-sol-row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Tank Solution File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="path4" name="path4" class="form-control" required/>
+                                      </div>
+                                  </div>
+                              </div>		     
+
+                              <div class="row" id="valve-sol-row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Valve Solution File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="valveSolPath" name="valveSolPath" class="form-control" required/>
+                                      </div>
+                                  </div>
+                              </div>		     
+
+                              <div class="row" id="path5row">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Current Level File</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="file" id="path5" name="path5" class="form-control" required/>
+                                      </div>
+                                  </div>
+                              </div>		     
+
+                              <div class="row" id="startTimeRow">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Start (0-23 hrs)</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="number" min="0" max="23" id="startTime" required class="form-control" placeholder="Start(0-23 hrs)" tabindex="2"/>
+                                      </div>
+                                  </div>
+                              </div>		     
+
+                              <div class="row" id="durationRow">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Duration (1-24 hrs)</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="number" min="1" max="24" id="duration" required value="1" class="form-control" placeholder="Duration (1-24 hrs)"/>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="row" id="totalDurationRow">
+                                  <div class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">End Time</div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <input type="text" id="totalDuration" name="totalDuration" value="1" class="form-control" placeholder="Total Duration" tabindex="2" disabled/>
+                                      </div>
+                                  </div>
+                              </div>
+
+
+                              <div class="ui divider"></div>
+                              <div class="col-md-4"></div>
+                              <div class="col-md-8">
+                                  <div class="ui toggle checkbox">
+                                      <input type="checkbox" id="advanced-button">
+                                      <label><b>Advanced Options</b></label>
+                                  </div>
+                              </div>
+
+                              <div class="row" id="advancedOptions" style="display:none">
+                                  <div  class="col-md-4">
+                                      <div class="form-group">
+                                          <div class="ui right pointing label fluid">Advanced Options</div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-8">
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Distance from Mid Point</span>
+                                              <input type="number" min="1" max="10" id="w12" style="width:80px" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Periodicity</span>
+                                              <input type="number" min="50" max="150" id="w3" style="width:80px" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Important Valve Change</span>
+                                              <input type="number" min="100" max="500" id="w4" style="width:80px" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Negative Flow</span>
+                                              <input type="number" min="0.1" max="0.5" step="0.1" id="w6" style="width:80px" value="0.5" class="form-control" placeholder="W6" required tabindex="2"/>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <div class="input-group">
+                                              <span class="input-group-addon" id="basic-addon1" style="width:230px">Flow Greater than Max Flow</span>
+                                              <input type="number" min="1" max="10" id="w5" style="width:80px" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div>
+                                  </div>
+                              </div>
+
+                              <div class="row" id="uploadSuccess">
+                                  <div class="form-group">
+                                      <hr>
+                                      <i class="fa fa-check-square-o" style="color:darkgreen" aria-hidden="true"></i>
+                                      <label>Files Uploaded Successfully.</label>
+                                  </div>
+                              </div>
+                              <div class="row" id="durationWarning">
+                                  <div class="form-group">
+                                      <label>Note: The sum of Start time(in current level file) and Duration should not exceed 24 hours. If it exceeds 24 hours, the default value will be set to 24.</label>
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="ui buttons fluid">
+                                          <button type="submit" class="ui grey button" id="uploadButton">Upload Files</button>
+
+                                          <button type="button" class="negative ui button" id="cancel-button" name="cancel-button" onclick="cancelSimulation()">Cancel</button>
+
+                                          <button type="button" class="ui green button" id="start-button" name="start-button" onclick="loadDoc()">Start Simulation</button>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
+                                  <button type="button" class="ui green button" 
+                                                        id="tank-view-button" 
+                                                        onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
+                                                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                  </button>
+
+                              </div>		     
+                          </form>
+                      </div>
                   </div>
+              </div> <!-- col-md-5 ends here -->
 
-              </div>
-              <div class="row" style="padding:20px;padding-top:0px">
-                  <div class="col-md-6 col-md-offset-0" id="formDiv" style="width:40%;padding:20px; box-shadow: 0 0 1px black; background-color: rgb(250,250,250);">
-                      <form id="uploadForm" enctype="multipart/form-data" name="uploadForm">
-
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Type</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <select class="ui dropdown form-control" 
-                                              id="Type" name="Type" onchange="changeType()">
-                                          <option selected value="none">Select Type..</option>
-                                          <option value="1">TARGET</option>
-                                          <option value="0">SEARCH</option>
-                                          <option value="2">SIMULATION</option>
-                                      </select>			
-                                  </div>  	
-                              </div>
-                          </div>
-
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Network File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="path1" name="path1" class="form-control" required/>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="row" id="path2row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Demand File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="path2" name="path2" class="form-control" required />
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Joblist File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="path3" name="path3" class="form-control" required />
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="row" id="tank-sol-row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Tank Solution File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="path4" name="path4" class="form-control" required/>
-                                  </div>
-                              </div>
-                          </div>		     
-
-                          <div class="row" id="valve-sol-row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Valve Solution File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="valveSolPath" name="valveSolPath" class="form-control" required/>
-                                  </div>
-                              </div>
-                          </div>		     
-
-                          <div class="row" id="path5row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Current Level File</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="file" id="path5" name="path5" class="form-control" required/>
-                                  </div>
-                              </div>
-                          </div>		     
-
-                          <div class="row" id="startTimeRow">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Start (0-23 hrs)</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="number" min="0" max="23" id="startTime" required class="form-control" placeholder="Start(0-23 hrs)" tabindex="2"/>
-                                  </div>
-                              </div>
-                          </div>		     
-
-                          <div class="row" id="durationRow">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Duration (1-24 hrs)</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="number" min="1" max="24" id="duration" required value="1" class="form-control" placeholder="Duration (1-24 hrs)"/>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="row" id="totalDurationRow">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">End Time</div>
-                                  </div>
-                              </div>
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <input type="text" id="totalDuration" name="totalDuration" value="1" class="form-control" placeholder="Total Duration" tabindex="2" disabled/>
-                                  </div>
-                              </div>
-                          </div>
-
-
-						  <div class="ui divider"></div>
-						  <div class="col-md-4"></div>
-						  <div class="col-md-8">
-							  <div class="ui toggle checkbox">
-								  <input type="checkbox" id="advanced-button">
-								  <label><b>Advanced Options</b></label>
-							  </div>
-						  </div>
-
-                          <div class="row" id="advancedOptions" style="display:none">
-                              <div  class="col-md-4">
-                                  <div class="form-group">
-                                      <div class="ui right pointing label fluid">Advanced Options</div>
-                                  </div>
-                              </div>
-
-                              <div class="col-md-8">
-                                  <div class="form-group">
-                                      <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Distance from Mid Point</span>
-                                          <input type="number" min="1" max="10" id="w12" style="width:80px" class="form-control" value="1" placeholder="W12" required tabindex="2"/>
-                                      </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Periodicity</span>
-                                          <input type="number" min="50" max="150" id="w3" style="width:80px" value="75" class="form-control" placeholder="W3" required tabindex="2"/>
-                                      </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Important Valve Change</span>
-                                          <input type="number" min="100" max="500" id="w4" style="width:80px" value="300" class="form-control" placeholder="W4" required tabindex="2"/>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Negative Flow</span>
-                                          <input type="number" min="0.1" max="0.5" step="0.1" id="w6" style="width:80px" value="0.5" class="form-control" placeholder="W6" required tabindex="2"/>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <div class="input-group">
-                                          <span class="input-group-addon" id="basic-addon1" style="width:230px">Flow Greater than Max Flow</span>
-                                          <input type="number" min="1" max="10" id="w5" style="width:80px" value="1" class="form-control" placeholder="W5" required tabindex="2"/>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div>
-                              </div>
-                          </div>
-
-                          <div class="row" id="uploadSuccess">
-                              <div class="form-group">
-                                  <hr>
-                                  <i class="fa fa-check-square-o" style="color:darkgreen" aria-hidden="true"></i>
-                                  <label>Files Uploaded Successfully.</label>
-                              </div>
-                          </div>
-                          <div class="row" id="durationWarning">
-                              <div class="form-group">
-                                  <label>Note: The sum of Start time(in current level file) and Duration should not exceed 24 hours. If it exceeds 24 hours, the default value will be set to 24.</label>
-                              </div>
-                          </div>
-
-                           <div class="ui buttons fluid">
-                               <!--<button class="ui blue button" id="advanced-button" onclick="showOpts()" 
-                                   type="button">Advance <i class="fa fa-sliders" aria-hidden="true"></i></button>-->
- 
-                               <button type="submit" class="ui grey button" id="uploadButton" name="uploadButton">
-                                   <i class="fa fa-upload" aria-hidden="true"></i> Upload Files</button>
- 
-                               <button type="button" class="negative ui button" id="cancel-button" name="cancel-button"
-                                                     onclick="cancelSimulation()">Cancel  <i class="fa fa-times" aria-hidden="true"></i></button>
- 
-                               <button type="button" class="ui green button" id="start-button" name="start-button" onclick="loadDoc()">
-                                   Start Simulation  <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                               </button>
-                           </div>
-
-                         <!--</div>-->
-
-                          <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
-                              <button type="button" class="ui green button" 
-                                                    id="tank-view-button" 
-                                                    onclick="viewTankFile()"><i class="fa fa-eye" aria-hidden="true"></i>View csv and Plot Graphs
-                                                    <i class="fa fa-line-chart" aria-hidden="true"></i>
-                              </button>
-
-                          </div>		     
-                      </form>
-              </div>
-
-              <div class="col-md-6 col-md-offset-1" id="outputDiv" style="padding:0px; box-shadow: 0 0 1px black;">
+              <div class="col-md-5 col-md-offset-1" id="outputDiv">
+                  <div class="row" style="padding-top:20px">
+                      <div class="ui huge blue label fluid">Iteration Output</div>
+                  </div>
                   <div class="table-responsive">
                       <table class="table table-striped table-bordered" id="test"></table>
                   </div>
