@@ -6,6 +6,10 @@ var userId;
 
 $(function(){
 
+    $('.ui.dropdown').dropdown();
+    $('#advanced-button').click(function() {
+            $("#advancedOptions").toggle(this.checked);
+    });
     userId = Math.floor((1 + Math.random()) * 0x10000).toString();
     $('#uploadForm :input').prop("disabled", true);
     $('#uploadForm select').prop("disabled", false);
@@ -85,13 +89,17 @@ function setTotalDur() {
    }
 }
 
-function showOpts() {
-    $('#advancedOptions').show();
+function advancedOpts() {
+	if($('#advanced-button').checked)
+		$('#advancedOptions').show();
+	else
+		$('#advancedOptions').hide();
 }
 
 function hideOpts() {
     $('#advancedOptions').hide();
 }
+
 // Function to start simulation
 function loadDoc() {
 

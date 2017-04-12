@@ -89,3 +89,7 @@
     margin-top: 0px !important;
     margin-bottom: 4px;
 }
+
+.ui.label { background-color: #EEE; color: #666 !important; font-size: 13px; }
+.ui.label .icon:before { content: '\f00d'; font-family: segoe; font-style: normal; font-size: 12px; padding-left: 5px; position: relative; top: -1px; }
+.ui.label .icon:hover:before { color: #F00; }
