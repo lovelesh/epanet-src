@@ -9,6 +9,7 @@ $(function(){
     $('.ui.dropdown').dropdown();
     $('#advanced-button').click(function() {
             $("#advancedOptions").toggle(this.checked);
+            //$("#advancedOptions").transition('fade');
     });
     userId = Math.floor((1 + Math.random()) * 0x10000).toString();
     $('#uploadForm :input').prop("disabled", true);
