@@ -75,9 +75,14 @@ app.post('/removeSession',function(req,res){
     }
 
     var path = './uploads/' + uid;
+    var resultPath = '../../result/' + uid;
 
     if(fs.existsSync(path)){
         fs.removeSync(path);
+    }
+
+    if(fs.existsSync(resultPath)){
+        fs.removeSync(resultPath);
     }
     console.log("cleanup for uid " + uid + " , path " + path + " complete!");
     res.status(200);
