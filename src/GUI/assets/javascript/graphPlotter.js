@@ -1,4 +1,5 @@
 function plotGraphFromCsv(mode, uid) {
+            console.log("******** plot function: uid received: " + uid);
 
     function GETCSVFILE (url) {
         var jqXHR = $.ajax({

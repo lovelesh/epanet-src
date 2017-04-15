@@ -86,27 +86,32 @@ app.post('/removeSession',function(req,res){
   
 app.get('/download-tank', function(req, res) {
 	var uid = req.query.uid;
+    console.log("request for download for uid " + uid + " received");
     res.download('../../result/' + uid +'/tank.csv');
 });
 
 app.get('/download-valve', function(req, res) {
 	var uid = req.query.uid;
+    console.log("request for download for uid " + uid + " received");
     res.download('../../result/' + uid +'/valve.csv');
 });
 
 app.get('/download-job', function(req, res) {
 	var uid = req.query.uid;
+    console.log("request for download for uid " + uid + " received");
     res.download('../../result/' + uid + '/Job-Output.csv');
 });
 
 app.get('/download-sim-tank', function(req, res) {
 	var uid = req.query.uid;
+    console.log("request for download for uid " + uid + " received");
     console.log("\nDownload request received for sim_tank.csv");
     res.download('../../result/' + uid + '/sim_tank.csv');
 });
 
 app.get('/download-sim-valve', function(req, res) {
 	var uid = req.query.uid;
+    console.log("request for download for uid " + uid + " received");
     console.log("\nDownload request received for sim_valve.csv");
     res.download('../../result/' + uid + '/sim_valve.csv');
 });

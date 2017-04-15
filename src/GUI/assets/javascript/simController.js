@@ -56,7 +56,6 @@ $(function(){
         oReq.send(oData);
         ev.preventDefault();
     }, false);
-
 });
 
 function hideElementsDefault(){
@@ -379,7 +378,9 @@ function viewValveFile() {
             $('#file-op-line').show();
             $('#valve-op-line').show();
             $("#valve-file-output").append(generateTable(array));
-            plotGraphFromCsv(Index);
+
+            console.log("\n******* SENDING uid " + userId + "to plot function");
+            plotGraphFromCsv(Index, userId);
         },
         error: function(res) {
             $('#testArea').html('Failure response:' + res);
@@ -403,7 +404,8 @@ function viewJoblistFile() {
             var array = $.csv.toArrays(res);
             $('#joblist-file-row').show();
             $("#job-file-output").append(generateTable(array));
-            plotGraphFromCsv(Index);
+            console.log("\n******* SENDING uid " + userId + "to plot function");
+            plotGraphFromCsv(Index, userId);
         },
         error: function(res) {
             $('#download-button').text('Downloading Failed');
