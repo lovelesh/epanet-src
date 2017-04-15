@@ -2,6 +2,7 @@ function plotGraphFromCsv(mode, uid) {
             console.log("******** plot function: uid received: " + uid);
 
     function GETCSVFILE (url) {
+        console.log('URL received: ' + url);
         var jqXHR = $.ajax({
             async: false,
             type: "GET",
@@ -26,8 +27,9 @@ function plotGraphFromCsv(mode, uid) {
             csv = GETCSVFILE (reqUrl);
         }
         else{
-            console.log("Mode=" + mode + ", download sim tank");
+            console.log("Mode=" + mode + ", download tank");
             var reqUrl = '/download-tank?uid=' + uid;
+            console.log('sending url: ' + reqUrl);
             csv = GETCSVFILE (reqUrl);
         }
 

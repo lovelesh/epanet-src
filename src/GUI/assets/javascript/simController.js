@@ -33,7 +33,6 @@ $(function(){
     form.addEventListener('submit', function(ev) {
 
         var oData = new FormData(form);
-        //var id = {uid: userId};
         oData.append('uid',userId);
 
         var oReq = new XMLHttpRequest();
@@ -317,7 +316,7 @@ function viewTankFile() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     var downloadUrl;
     if(Index == '2'){
-        downloadUrl= '/download-sim-tank';
+        downloadUrl= '/download-sim-tank?uid=' + uid;
         $('#sim-tank-download').show();
         $('#sim-valve-download').show();
         $('#valve-download').hide();
@@ -328,7 +327,7 @@ function viewTankFile() {
             console.log("\nCalling viewJoblistFile() function");
             viewJoblistFile();
         }
-        downloadUrl= '/download-tank';
+        downloadUrl= '/download-tank?uid=' + userId;
         $('#sim-tank-download').hide();
         $('#sim-valve-download').hide();
         $('#valve-download').show();
@@ -361,10 +360,10 @@ function viewValveFile() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     var downloadUrl;
     if(Index == '2'){
-        downloadUrl= '/download-sim-valve';
+        downloadUrl= '/download-sim-valve?uid=' + userId;
     }
     else{
-        downloadUrl= '/download-valve';
+        downloadUrl= '/download-valve?uid=' + userId;
     }
 
     $("#valve-file-output").empty();
@@ -393,7 +392,7 @@ function viewJoblistFile() {
 
     console.log("\nInside viewJoblistFile() function");
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
-    var downloadUrl= '/download-job';
+    var downloadUrl= '/download-job?uid=' + userId;
     $("#job-file-output").empty();
     $.ajax({
         url: downloadUrl,
