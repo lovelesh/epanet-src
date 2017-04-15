@@ -193,6 +193,7 @@ int functionValueCounter = 0;
 int simDuration = 0;
 // Logging file pointer
 FILE *fptr = NULL;
+int f_dir_name = 0;
 // Main function starts here
 /*
 Type :-
@@ -269,6 +270,7 @@ int main(int argc, char *argv[])
 		sscanf(argv[9],"%d", &w4);	 		// 10th argument is w4.
 		sscanf(argv[10],"%d", &w5);	 		// 11th argument is w5.
 		sscanf(argv[11],"%f", &w6);	 		// 12th argument is w6.
+		sscanf(argv[12], "%d", &f_dir_name);
 		timeperiod = startTime + duration + 1;		
 		if(timeperiod > 25) {
 			timeperiod = 25;			// Duration can't be more than 25 hours.resetiing it to 25 hours
@@ -293,6 +295,7 @@ int main(int argc, char *argv[])
 		sscanf(argv[10],"%d", &w4);	 		// 10th argument is w4.
 		sscanf(argv[11],"%d", &w5);	 		// 11th argument is w5.
 		sscanf(argv[12],"%f", &w6);	 		// 12th argument is w6.
+		sscanf(argv[13], "%d", &f_dir_name);
 		// Reading startTime Value from current level file
 		int timeVal;
 		char line[1024];				// Read line by line and store in line
@@ -334,6 +337,7 @@ int main(int argc, char *argv[])
 		f_job_input = argv[4];				// 4th argument is the joblist file
 		f_solution_level_input = argv[5];		// 5th argument is solution file
 		f_valve_level_input = argv[6];			// 6th argument is solution file
+		sscanf(argv[7], "%d", &f_dir_name);
 	}
 	else {
 		printf("Invalid Mode \n");
@@ -342,6 +346,10 @@ int main(int argc, char *argv[])
 		fflush(fptr);
 		exit(-1);
 	}
+
+	char dir[1024];
+	sprintf(dir, "mkdir -p ../../result/%d", f_dir_name);
+	system(dir);
 
 	ENopen(f_epanet_input, f_epanet_Rpt,f_blank); 				// Open Epanet input file
 	ENsetreport("MESSAGES NO"); //suppresses warnings and erros
@@ -1040,7 +1048,7 @@ void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct)
 
 	// SIM Tank Output File copy
 	char finalOutput[1024];
-	sprintf(finalOutput, "cp %s ../../result/sim_tank.csv ", tankFileName);
+	sprintf(finalOutput, "cp %s ../../result/%d/sim_tank.csv ", tankFileName, f_dir_name);
 	int res = system(finalOutput);	
 	
 	if(res != 0)
@@ -1048,7 +1056,7 @@ void compute_sim(struct TankStruct *tankstruct, struct ValveStruct *valvestruct)
 	
 	// SIM Valve Output File copy
 	char valveOutput[1024];
-	sprintf(valveOutput, "cp %s ../../result/sim_valve.csv ", valveFileName);
+	sprintf(valveOutput, "cp %s ../../result/%d/sim_valve.csv ", valveFileName, f_dir_name);
 	res = system(valveOutput);	
 	
 	if(res != 0)
@@ -1518,7 +1526,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 
 	// Tank Output File copy
 	char finalOutput[1024];
-	sprintf(finalOutput, "cp %s ../../result/tank.csv ", tankFileName);
+	sprintf(finalOutput, "cp %s ../../result/%d/tank.csv ", tankFileName, f_dir_name);
 	int res = system(finalOutput);	
 	
 	if(res != 0)
@@ -1526,7 +1534,7 @@ void Display_Output(struct TankStruct *tankcontrol, struct ValveStruct *valvecon
 	
 	// Valve Output File copy
 	char valveOutput[1024];
-	sprintf(valveOutput, "cp %s ../../result/valve.csv ", valveFileName);
+	sprintf(valveOutput, "cp %s ../../result/%d/valve.csv ", valveFileName, f_dir_name);
 	res = system(valveOutput);	
 	
 	if(res != 0)
@@ -1597,7 +1605,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 		exit(-1);
 	}
 
-	printf("Simulation Failure :: Not feasible\n");
+	printf("\nSimulation Failure :: Not feasible\n");
 	fflush(stdout);
 	printf("\nOutput Tank File Path -> %s\n", tankFileName);
 	fflush(stdout);
@@ -1672,7 +1680,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 
 	// Tank Output File copy
 	char finalOutput[1024];
-	sprintf(finalOutput, "cp %s ../../result/tank.csv ", tankFileName);
+	sprintf(finalOutput, "cp %s ../../result/%d/tank.csv ", tankFileName, f_dir_name);
 	int res = system(finalOutput);	
 	
 	if(res != 0)
@@ -1680,7 +1688,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	
 	// Valve Output File copy
 	char valveOutput[1024];
-	sprintf(valveOutput, "cp %s ../../result/valve.csv ", valveFileName);
+	sprintf(valveOutput, "cp %s ../../result/%d/valve.csv ", valveFileName, f_dir_name);
 	res = system(valveOutput);	
 	
 	if(res != 0)
@@ -1688,6 +1696,7 @@ void exitprocedure(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	
 	fprintf(fptr, "\n==============================================================================================\n");
 	fflush(fptr);
+	fclose(fptr);
 	exit(1);
 }
 
@@ -2110,7 +2119,7 @@ void Job_Scheduler(struct TankStruct *tankcontrol, struct ValveStruct *valvecont
 	
 	// Job Output File
 	char jobOutput[1024];
-	sprintf(jobOutput, "cp %s ../../result/Job-Output.csv", fileName);
+	sprintf(jobOutput, "cp %s ../../result/%d/Job-Output.csv", fileName, f_dir_name);
 	int res = system(jobOutput);	
 	
 	if(res != 0)
