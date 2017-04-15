@@ -85,33 +85,34 @@ app.post('/removeSession',function(req,res){
 });
   
 app.get('/download-tank', function(req, res) {
-    res.download('../../result/tank.csv');
+	var uid = req.query.uid;
+    res.download('../../result/' + uid +'/tank.csv');
 });
 
 app.get('/download-valve', function(req, res) {
-    res.download('../../result/valve.csv');
+	var uid = req.query.uid;
+    res.download('../../result/' + uid +'/valve.csv');
 });
 
 app.get('/download-job', function(req, res) {
-    res.download('../../result/Job-Output.csv');
+	var uid = req.query.uid;
+    res.download('../../result/' + uid + '/Job-Output.csv');
 });
 
 app.get('/download-sim-tank', function(req, res) {
+	var uid = req.query.uid;
     console.log("\nDownload request received for sim_tank.csv");
-    res.download('../../result/sim_tank.csv');
+    res.download('../../result/' + uid + '/sim_tank.csv');
 });
 
 app.get('/download-sim-valve', function(req, res) {
+	var uid = req.query.uid;
     console.log("\nDownload request received for sim_valve.csv");
-    res.download('../../result/sim_valve.csv');
+    res.download('../../result/' + uid + '/sim_valve.csv');
 });
 
   
 app.get('/', function(req, res) {
-    /*var fsd = require('fs-extra')
-      fsd.emptyDir('./uploads', function (err) {
-      if (!err) console.log('success!')
-      })*/
     fs.readFile('index.html', 'utf8', function(err, text){
         console.log(req);
         res.send(text);

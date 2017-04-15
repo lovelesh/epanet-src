@@ -290,25 +290,25 @@ function cancelSimulation(){
 
    var user = {uid:userId};
    $.ajax({
-      url: '/cancelSimulation',
-      async: 'true',
-      type: "post",
-      dataType: 'json',
-      data: user,
-      success: function(res) {
-          $('#uploadButton').prop("disabled", false);
-          $('#cancel-button').prop("disabled", true);
-          $('#start-button').prop("disabled", false);
-          var json = JSON.parse(res);
-          $.each(json, function(key, value){
-              var table = $("#test");
-              table.append("<tr><td></td><td>" + value + "</td></tr>"); 
-          });
-      },
-      error: function(res) {
-	 $('#start-button').text('Failed');
-	 $('#testArea').html('Failure response:' + res);
-      }
+       url: '/cancelSimulation',
+       async: 'true',
+       type: "post",
+       dataType: 'json',
+       data: user,
+       success: function(res) {
+           $('#uploadButton').prop("disabled", false);
+           $('#cancel-button').prop("disabled", true);
+           $('#start-button').prop("disabled", false);
+           var json = JSON.parse(res);
+           $.each(json, function(key, value){
+               var table = $("#test");
+               table.append("<tr><td></td><td>" + value + "</td></tr>"); 
+           });
+       },
+       error: function(res) {
+           $('#start-button').text('Failed');
+           $('#testArea').html('Failure response:' + res);
+       }
    });
 }
 
