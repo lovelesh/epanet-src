@@ -20,22 +20,37 @@
 
    <body onbeforeunload="return removeSession()">
 
-	<section id="title">
-          <div class="container" style="padding:0px; max-width:100%">
-              <div class="row" style="background-color: dimgray;">
-                  <div class="col-md-1">
-                      <img src="bootstrap/css/img/WaterDroplet.png" style="margin-left:40px; width:100%; height: auto; float:left;margin-top:20px"/>
-                  </div>
-                  <div class="col-md-3" style="height:100%;margin-top:50px">
-                      <h2 style="color: white !important;"> WaterOpt</h2>
-                  </div>
+       <section id="title">
+           <div class="container-fluid" style="padding:0px">
+               <div class="row" style="background-color: dimgray;">
+                   <table class="ui inverted table">
+                       <tbody>
+                           <tr>
+                               <td class="collapsing" style="vertical-align:middle">
+                                   <img src="bootstrap/css/img/WaterDroplet.png" style="margin-left:40px; height: auto; float:left;margin-top:20px"/>
+                               </td>
+                               <td style="vertical-align:middle"><h1 style="color:white !important">WaterOpt</h1></td>
+                               <td>
+                                   <a href="http://www.iisc.ac.in/"><img src="bootstrap/css/img/iisclogo.png" style="margin-right: 8px; width: 30%; height: auto; float: right; padding-right: 15px;"/></a>
+                               </td>
+                           </tr>
+                       </tbody>
+                   </table>
+                   <!--
+                   <div class="col-md-1">
+                       <img src="bootstrap/css/img/WaterDroplet.png" style="margin-left:40px; height: auto; float:left;margin-top:20px"/>
+                   </div>
+                   <div class="col-md-3">
+                       <h2 style="color: white !important;"> WaterOpt</h2>
+                   </div>
 
-                <div class="col-md-6 col-md-offset-1">
-                    <a href="http://www.iisc.ac.in/"><img src="bootstrap/css/img/iisclogo.png" style="margin-right: 8px; width: 40%; height: auto; float: right; padding-right: 15px;"/></a>
-                </div>
-            </div>
-          </div>
-      </section>
+                   <div class="col-md-6 col-md-offset-1">
+                       <a href="http://www.iisc.ac.in/"><img src="bootstrap/css/img/iisclogo.png" style="margin-right: 8px; width: 40%; height: auto; float: right; padding-right: 15px;"/></a>
+                   </div>
+                   -->
+               </div>
+           </div>
+       </section>
 
       <section id="form1-0">
           <div class="container-fluid">
@@ -185,17 +200,16 @@
                               </div>
 
 
-                              <div class="ui divider"></div>
-
                               <div class="row">
-                                  <div class="col-md-4"></div>
-                                  <div class="col-md-8">
+                                  <div class="col-md-12" align="center">
                                       <div class="ui toggle checkbox">
                                           <input type="checkbox" id="advanced-button">
                                           <label><b>Advanced Options</b></label>
                                       </div>
                                   </div>
                               </div>
+                              <!--<div class="ui divider"></div>-->
+
 
                               <div class="row" id="advancedOptions" style="display:none">
                                   <div  class="col-md-4">
@@ -257,16 +271,24 @@
                               </div>
 
                               <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="ui buttons fluid">
-                                          <button type="submit" class="ui grey button" id="uploadButton">Upload Files</button>
-
-                                          <button type="button" class="negative ui button" id="cancel-button" name="cancel-button" onclick="cancelSimulation()">Cancel</button>
-
-                                          <button type="button" class="ui green button" id="start-button" name="start-button" onclick="loadDoc()">Start Simulation</button>
-                                      </div>
+                                  <div class="ui divider"></div>
+                                  <div class="col-md-3 col-md-offset-1" align="center"> 
+                                      <button type="submit" class="ui blue icon button fluid" id="uploadButton">
+                                          Upload Files
+                                      </button>
+                                  </div>
+                                  <div class="col-md-3" align="center"> 
+                                      <button type="button" class="ui negative icon button fluid" id="cancel-button" name="cancel-button" onclick="cancelSimulation()">
+                                          <i class="remove circle icon"></i>  Abort Simulation
+                                      </button>
+                                  </div>
+                                  <div class="col-md-4" align="center"> 
+                                      <button type="button" class="ui green icon button fluid" id="start-button" name="start-button" onclick="loadDoc()">
+                                          <i class="play circle icon"></i>  Start Simulation
+                                      </button>
                                   </div>
                               </div>
+                              <div class="ui divider"></div>
 
                               <div class="mbr-buttons" align="center" id="export-button-grp" style="padding-top:20px">
                                   <button type="button" class="ui green button" 
