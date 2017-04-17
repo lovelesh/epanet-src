@@ -199,7 +199,8 @@ function changeType() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
 
     if(Index == 0) {
-        document.getElementById("uploadForm").reset();
+        //document.getElementById("uploadForm").reset();
+        $('#uploadForm').find('input:text, input:file').val(''); 
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", false);
         $('#path2row').show();
@@ -227,7 +228,8 @@ function changeType() {
         $('#duration').prop("disabled", false);
     }
     else if(Index == 1) {
-        document.getElementById("uploadForm").reset();
+        $('#uploadForm').find('input:text, input:file').val(''); 
+        //document.getElementById("uploadForm").reset();
         $('#startTimeRow').hide();
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
@@ -252,7 +254,8 @@ function changeType() {
         $('#duration').prop("disabled", false);
     }
     else if(Index == 2) {
-        document.getElementById("uploadForm").reset();
+        $('#uploadForm').find('input:text, input:file').val(''); 
+        //document.getElementById("uploadForm").reset();
         //$('#uploadForm').reset();
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
