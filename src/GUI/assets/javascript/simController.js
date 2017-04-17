@@ -347,6 +347,13 @@ function viewTankFile() {
             $('#file-op-line').show();
             $('#tank-op-line').show();
             $("#tank-file-output").append(generateTable(array));
+
+            var hrefVal = 'download-tank?uid=' + userId;
+            $('#export-button-tank').attr('href', hrefVal);
+            $('#export-button-job').attr('href', 'download-job?uid=' + userId);
+            $('#export-sim-tank').attr('href', 'download-sim-tank?uid=' + userId);
+            $('#export-button-valve').attr('href', 'download-valve?uid=' + userId);
+            $('#export-sim-valve').attr('href', 'download-sim-valve?uid=' + userId);
         },
         error: function(res) {
             $('#download-button').text('Failed');
@@ -377,8 +384,6 @@ function viewValveFile() {
             $('#file-op-line').show();
             $('#valve-op-line').show();
             $("#valve-file-output").append(generateTable(array));
-
-            console.log("\n******* SENDING uid " + userId + "to plot function");
             plotGraphFromCsv(Index, userId);
         },
         error: function(res) {
