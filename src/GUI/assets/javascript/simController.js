@@ -83,7 +83,7 @@ function setTotalDur() {
        $('#totalDuration').val(sum + " hours");
    }
    else {
-      $('#totalDuration').css('background-color', 'bisque');
+      $('#totalDuration').css('background-color', 'khaki');
       $('#totalDuration').val(sum + " hours (Warning: Greater than 24)");
    }
 }
@@ -194,12 +194,15 @@ function loadDoc() {
 
 function changeType() {
 
+    $('#myCheckbox').prop('checked', true);
     $('#start-button').prop("disabled", true);
     $('#uploadSuccess').hide();
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
 
     if(Index == 0) {
         //document.getElementById("uploadForm").reset();
+        $('#uploadForm :input').prop("disabled", false);
+        $('#totalDuration').prop("disabled", true);
         $('#uploadForm').find('input:text, input:file').val(''); 
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", false);
@@ -229,7 +232,7 @@ function changeType() {
     }
     else if(Index == 1) {
         $('#uploadForm').find('input:text, input:file').val(''); 
-        //document.getElementById("uploadForm").reset();
+        $('#uploadForm :input').prop("disabled", false);
         $('#startTimeRow').hide();
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
@@ -255,8 +258,6 @@ function changeType() {
     }
     else if(Index == 2) {
         $('#uploadForm').find('input:text, input:file').val(''); 
-        //document.getElementById("uploadForm").reset();
-        //$('#uploadForm').reset();
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", true);
@@ -290,7 +291,6 @@ function changeType() {
 }
 
 // Function to halt an in-progress simulation
-
 function cancelSimulation(){
 
    var user = {uid:userId};
