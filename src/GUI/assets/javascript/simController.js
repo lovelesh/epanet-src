@@ -2,9 +2,16 @@
 
 var joblistToDisplay = 0;
 var formHeight;
+var userId;
 
 $(function(){
 
+    $('.ui.dropdown').dropdown();
+    $('#advanced-button').click(function() {
+            $("#advancedOptions").toggle(this.checked);
+            //$("#advancedOptions").transition('fade');
+    });
+    userId = Math.floor((1 + Math.random()) * 0x10000).toString();
     $('#uploadForm :input').prop("disabled", true);
     $('#uploadForm select').prop("disabled", false);
     $('#w12').prop("disabled", false);
@@ -26,9 +33,12 @@ $(function(){
     form.addEventListener('submit', function(ev) {
 
         var oData = new FormData(form);
+        oData.append('uid',userId);
 
         var oReq = new XMLHttpRequest();
-        oReq.open("POST", "sumit-upload", true);
+        var reqUrl = "p?uid=" + userId;
+        //oReq.open("POST", "sumit-upload", true);
+        oReq.open("POST", reqUrl, true);
         oReq.onload = function(oEvent) {
             if (oReq.status == 200) {
                 formHeight = $('#formDiv').outerHeight();
@@ -45,7 +55,6 @@ $(function(){
         oReq.send(oData);
         ev.preventDefault();
     }, false);
-
 });
 
 function hideElementsDefault(){
@@ -74,18 +83,22 @@ function setTotalDur() {
        $('#totalDuration').val(sum + " hours");
    }
    else {
-      $('#totalDuration').css('background-color', 'bisque');
+      $('#totalDuration').css('background-color', 'khaki');
       $('#totalDuration').val(sum + " hours (Warning: Greater than 24)");
    }
 }
 
-function showOpts() {
-    $('#advancedOptions').show();
+function advancedOpts() {
+	if($('#advanced-button').checked)
+		$('#advancedOptions').show();
+	else
+		$('#advancedOptions').hide();
 }
 
 function hideOpts() {
     $('#advancedOptions').hide();
 }
+
 // Function to start simulation
 function loadDoc() {
 
@@ -106,30 +119,33 @@ function loadDoc() {
         console.log("StartTime: " + $('#startTime').val() + "\n");
         console.log("Duration: " + $('#duration').val() + "\n");
         message = {
-            Type: '0',
-            StartTime: $('#startTime').val(),
-            Duration: $('#duration').val(),
-            w12: $('#w12').val(),
-            w3: $('#w3').val(),
-            w4: $('#w4').val(),
-            w5: $('#w5').val(),
-            w6: $('#w6').val()
+            Type: '0'
+            , StartTime: $('#startTime').val()
+            , Duration: $('#duration').val()
+            , w12: $('#w12').val()
+            , w3: $('#w3').val()
+            , w4: $('#w4').val()
+            , w5: $('#w5').val()
+            , w6: $('#w6').val()
+            , uid: userId
         };
     }
     else if(Index == 1) {
         message = {
-            Type: '1',
-            Duration: $('#duration').text(),
-            w12: $('#w12').val(),
-            w3: $('#w3').val(),
-            w4: $('#w4').val(),
-            w5: $('#w5').val(),
-            w6: $('#w6').val()
+            Type: '1'
+            , Duration: $('#duration').text()
+            , w12: $('#w12').val()
+            , w3: $('#w3').val()
+            , w4: $('#w4').val()
+            , w5: $('#w5').val()
+            , w6: $('#w6').val()
+            , uid: userId
         };
     }
     else if(Index == 2) {
         message = {
             Type: '2'
+            , uid: userId
         };
     }
 
@@ -178,11 +194,16 @@ function loadDoc() {
 
 function changeType() {
 
+    $('#myCheckbox').prop('checked', true);
     $('#start-button').prop("disabled", true);
     $('#uploadSuccess').hide();
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
 
     if(Index == 0) {
+        //document.getElementById("uploadForm").reset();
+        $('#uploadForm :input').prop("disabled", false);
+        $('#totalDuration').prop("disabled", true);
+        $('#uploadForm').find('input:text, input:file').val(''); 
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", false);
         $('#path2row').show();
@@ -210,6 +231,8 @@ function changeType() {
         $('#duration').prop("disabled", false);
     }
     else if(Index == 1) {
+        $('#uploadForm').find('input:text, input:file').val(''); 
+        $('#uploadForm :input').prop("disabled", false);
         $('#startTimeRow').hide();
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
@@ -234,6 +257,7 @@ function changeType() {
         $('#duration').prop("disabled", false);
     }
     else if(Index == 2) {
+        $('#uploadForm').find('input:text, input:file').val(''); 
         $('#advancedOptions').hide();
         $('#uploadButton').prop("disabled", false);
         $('#advanced-button').prop("disabled", true);
@@ -267,27 +291,29 @@ function changeType() {
 }
 
 // Function to halt an in-progress simulation
-
 function cancelSimulation(){
 
+   var user = {uid:userId};
    $.ajax({
-      url: '/cancelSimulation',
-      async: 'true',
-      type: "post",
-      success: function(res) {
-	 $('#uploadButton').prop("disabled", false);
-	 $('#cancel-button').prop("disabled", true);
-	 $('#start-button').prop("disabled", false);
-	 var json = JSON.parse(res);
-	 $.each(json, function(key, value){
-	    var table = $("#test");
-	    table.append("<tr><td></td><td>" + value + "</td></tr>"); 
-	 });
-      },
-      error: function(res) {
-	 $('#start-button').text('Failed');
-	 $('#testArea').html('Failure response:' + res);
-      }
+       url: '/cancelSimulation',
+       async: 'true',
+       type: "post",
+       dataType: 'json',
+       data: user,
+       success: function(res) {
+           $('#uploadButton').prop("disabled", false);
+           $('#cancel-button').prop("disabled", true);
+           $('#start-button').prop("disabled", false);
+           var json = JSON.parse(res);
+           $.each(json, function(key, value){
+               var table = $("#test");
+               table.append("<tr><td></td><td>" + value + "</td></tr>"); 
+           });
+       },
+       error: function(res) {
+           $('#start-button').text('Failed');
+           $('#testArea').html('Failure response:' + res);
+       }
    });
 }
 
@@ -297,7 +323,7 @@ function viewTankFile() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     var downloadUrl;
     if(Index == '2'){
-        downloadUrl= '/download-sim-tank';
+        downloadUrl= '/download-sim-tank?uid=' + uid;
         $('#sim-tank-download').show();
         $('#sim-valve-download').show();
         $('#valve-download').hide();
@@ -308,7 +334,7 @@ function viewTankFile() {
             console.log("\nCalling viewJoblistFile() function");
             viewJoblistFile();
         }
-        downloadUrl= '/download-tank';
+        downloadUrl= '/download-tank?uid=' + userId;
         $('#sim-tank-download').hide();
         $('#sim-valve-download').hide();
         $('#valve-download').show();
@@ -328,6 +354,13 @@ function viewTankFile() {
             $('#file-op-line').show();
             $('#tank-op-line').show();
             $("#tank-file-output").append(generateTable(array));
+
+            var hrefVal = 'download-tank?uid=' + userId;
+            $('#export-button-tank').attr('href', hrefVal);
+            $('#export-button-job').attr('href', 'download-job?uid=' + userId);
+            $('#export-sim-tank').attr('href', 'download-sim-tank?uid=' + userId);
+            $('#export-button-valve').attr('href', 'download-valve?uid=' + userId);
+            $('#export-sim-valve').attr('href', 'download-sim-valve?uid=' + userId);
         },
         error: function(res) {
             $('#download-button').text('Failed');
@@ -341,10 +374,10 @@ function viewValveFile() {
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
     var downloadUrl;
     if(Index == '2'){
-        downloadUrl= '/download-sim-valve';
+        downloadUrl= '/download-sim-valve?uid=' + userId;
     }
     else{
-        downloadUrl= '/download-valve';
+        downloadUrl= '/download-valve?uid=' + userId;
     }
 
     $("#valve-file-output").empty();
@@ -358,7 +391,7 @@ function viewValveFile() {
             $('#file-op-line').show();
             $('#valve-op-line').show();
             $("#valve-file-output").append(generateTable(array));
-            plotGraphFromCsv(Index);
+            plotGraphFromCsv(Index, userId);
         },
         error: function(res) {
             $('#testArea').html('Failure response:' + res);
@@ -371,7 +404,7 @@ function viewJoblistFile() {
 
     console.log("\nInside viewJoblistFile() function");
     var Index = document.uploadForm.Type.options[document.uploadForm.Type.selectedIndex].value;
-    var downloadUrl= '/download-job';
+    var downloadUrl= '/download-job?uid=' + userId;
     $("#job-file-output").empty();
     $.ajax({
         url: downloadUrl,
@@ -382,7 +415,8 @@ function viewJoblistFile() {
             var array = $.csv.toArrays(res);
             $('#joblist-file-row').show();
             $("#job-file-output").append(generateTable(array));
-            plotGraphFromCsv(Index);
+            console.log("\n******* SENDING uid " + userId + "to plot function");
+            plotGraphFromCsv(Index, userId);
         },
         error: function(res) {
             $('#download-button').text('Downloading Failed');
@@ -427,4 +461,19 @@ function generateTable(data) {
     }
 
     return html;
+}
+
+function removeSession() {
+    console.log("INSIDE REMOVE SESSION FUNCTION");
+    $.ajax({
+        url: "removeSession?uid=" + userId,
+        async: 'true',
+        dataType: "text",
+        type: "post",
+        success: function(res) {
+            alert("All simulation data generated for this session will be lost. \nAre you sure?");
+        },
+        error: function(res) {
+        }
+    });   
 }

@@ -3,92 +3,126 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var os = require('os');
-var fs = require('fs');
+var fs = require('fs-extra');
 var util  = require('util'),
     spawn = require('child_process').spawn;
 var multer  = require('multer');
+var Hashmap = require('hashmap');
+var qs = require('querystring');
 
 app.use(express.static('assets'));
 app.set('port', process.env.PORT || 7000);
-var client_binary;
+//var client_binary;
 var isSimulationStarted = 1;
 var filenames;
 var obj,Type,startTime,duration,w12,w3,w4,w5,w6;
+var userCount = 0;
+var binary_map = new Hashmap();
 
 //=======================================================
 
-var storage =   multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './uploads/');
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.originalname);
-  }
+var storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, './uploads/');
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    }
 });
 
 var upload = multer({ storage : storage}).any();
 
-app.post('/sumit-upload',function(req,res){
-    //Delete the intermediate files created by simulation process
-    //  fs.readdir('./uploads', (err, files)=>{
-    //       for (var i = 0, len = files.length; i < len; i++) {
-    //	    fs.unlink('./uploads/' + files[i]);
-    //   }
-    // });
-    /*   fs.readdir('./uploads', (err, files)=>{
-         for (var i = 0, len = files.length; i < len; i++) {
-         fs.unlink('./uploads/' + files[i]);
-         }
-         });
-         */
+//app.post('/sumit-upload',function(req,res){
+app.post('/p',function(req,res){
+	var uid = req.query.uid;
+	var uploadStatus = 0;
+	upload(req,res,function(err) {
+		console.log("*************  body: %j", req.body);
+		filenames = req;
+		if(err) {
+			uploadStatus = 1;
+			return res.end("Error uploading files.");
+		}
+		else {
+			if(!fs.existsSync('./uploads/'+uid)){
+				fs.mkdirSync('./uploads/'+uid);
+			}
+			req.files.forEach(function(f) {
+				//console.log(f);
+				fs.rename(f.path, './uploads/' + uid + '/' + f.originalname, function (err) {
+					if (err) throw err;
+					console.log('renamed complete');
+				});
+			});
+		}
+	});
+	if(uploadStatus) {
+		res.status(500);   
+	}
+	console.log("SUCCESSFULLY UPLOADED");
+	res.status(200);
+	res.send('SUCCESS');
+});
 
-    var uploadStatus = 0;
-    upload(req,res,function(err) {
-        filenames = req;
-        if(err) {
-            uploadStatus = 1;
-            return res.end("Error uploading files.");
-        }
-    });
-    if(uploadStatus) {
-        res.status(500);   
+//============================================================
+
+app.post('/removeSession',function(req,res){
+    var uid = req.query.uid;
+
+    console.log("request for cleanup for uid " + uid + " received");
+    if(binary_map.has(uid)) {
+        binary_map.remove(uid);
     }
-    console.log("SUCCESSFULLY UPLOADED");
+
+    var path = './uploads/' + uid;
+    var resultPath = '../../result/' + uid;
+
+    if(fs.existsSync(path)){
+        fs.removeSync(path);
+    }
+
+    if(fs.existsSync(resultPath)){
+        fs.removeSync(resultPath);
+    }
+    console.log("cleanup for uid " + uid + " , path " + path + " complete!");
     res.status(200);
     res.send('SUCCESS');
 });
-
-
-//============================================================
   
 app.get('/download-tank', function(req, res) {
-    res.download('../../result/tank.csv');
+	var uid = req.query.uid;
+    console.log("request for download tank.csv for uid " + uid + " received");
+    res.download('../../result/' + uid +'/tank.csv');
 });
 
 app.get('/download-valve', function(req, res) {
-    res.download('../../result/valve.csv');
+	var uid = req.query.uid;
+    console.log("request for download valve.csv for uid " + uid + " received");
+    res.download('../../result/' + uid +'/valve.csv');
 });
 
 app.get('/download-job', function(req, res) {
-    res.download('../../result/Job-Output.csv');
+	var uid = req.query.uid;
+    console.log("request for download Job-Output.csv for uid " + uid + " received");
+    res.download('../../result/' + uid + '/Job-Output.csv');
 });
 
 app.get('/download-sim-tank', function(req, res) {
+	var uid = req.query.uid;
+    console.log("request for download for sim_tank.csv uid " + uid + " received");
     console.log("\nDownload request received for sim_tank.csv");
-    res.download('../../result/sim_tank.csv');
+    res.download('../../result/' + uid + '/sim_tank.csv');
 });
 
 app.get('/download-sim-valve', function(req, res) {
+	var uid = req.query.uid;
+    console.log("request for download sim_valve.csv for uid " + uid + " received");
     console.log("\nDownload request received for sim_valve.csv");
-    res.download('../../result/sim_valve.csv');
+    res.download('../../result/' + uid + '/sim_valve.csv');
 });
 
   
 app.get('/', function(req, res) {
-    /*var fsd = require('fs-extra')
-      fsd.emptyDir('./uploads', function (err) {
-      if (!err) console.log('success!')
-      })*/
     fs.readFile('index.html', 'utf8', function(err, text){
         console.log(req);
         res.send(text);
@@ -97,23 +131,39 @@ app.get('/', function(req, res) {
 
 app.post('/cancelSimulation', function(req, res) {
     var msg = {};
-    if(client_binary){
-        msg.Data = '------  Signal SIGHUP sent to running simulation ------';
-        client_binary.kill('SIGHUP');
-        client_binary = null;
-    }
-    else{
-        msg.Data = 'Simulation already stopped/not running'; 
-    }
-    res.send(JSON.stringify(msg));
+    var body='';
+    var id;
+    req.on('data', function(data){
+        body += data;   
+        console.log("***** BODY IS: " + body);
+        var post = qs.parse(body);
+        id = post['uid'];
+    });
+    req.on('end', function(){
+        var post = qs.parse(body);
+        id = post['uid'];
+        var bin = binary_map.get(id);
+
+        if(bin){
+            msg.Data = '------ Signal SIGHUP sent to running simulation ------';
+            bin.kill('SIGHUP');
+            bin = null;
+            binary_map.remove(id);
+        }
+        else {
+            msg.Data = 'Simulation already stopped/not running'; 
+        }
+        res.send(JSON.stringify(msg));
+    });
 });  
-  
+
 http.listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
-})
+});
 
 io.on('connection', function(socket) {
-    console.log('new user connected');
+    userCount++;
+    console.log('' + userCount + ' users connected');
     socket.on('message', function(message) {
         //Delete the intermediate files created by simulation process
 //        fs.readdir('.', (err, files)=>{
@@ -123,18 +173,10 @@ io.on('connection', function(socket) {
 //                    fs.unlink(match[0]);
 //            }
 //        });
-
-        //   fs.readdir('.', (err, files)=>{
-        //      for (var i = 0, len = files.length; i < len; i++) {
-        //	    var match = files[i].match(/en.*/);
-        //	    if(match !== null)
-        //	      fs.unlink(match[0]);
-        //      }
-        //   });
-
         obj = JSON.parse(message);
         Type = obj.Type;
         duration = obj.Duration;
+        var uid = obj.uid;
 
         console.log(obj);
 
@@ -145,18 +187,20 @@ io.on('connection', function(socket) {
             w4 = obj.w4;
             w5 = obj.w5;
             w6 = obj.w6;
-            var file1 = './uploads/' + filenames.files[0].originalname;
-            var file2 = './uploads/' + filenames.files[1].originalname;
-            var file3 = './uploads/' + filenames.files[2].originalname;
-            client_binary = spawn('../../build/Linux/epanet_wateropt' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6]);
-/*            client_binary.on('error', (err) => {
-                isSimulationStarted = 0;
-                var msg={};
-                msg.Result = "Unable to spawn binary at path" + err.path;
-                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
-                console.log('\nisSimulationStarted: ' + isSimulationStarted);
-                socket.emit('newdata', JSON.stringify(msg));
-            });*/
+            var fpath = './uploads/' + uid;
+            var file1 = fpath + '/' + filenames.files[0].originalname;
+            var file2 = fpath + '/' + filenames.files[1].originalname;
+            var file3 = fpath + '/' + filenames.files[2].originalname;
+            var client_binary = spawn('../../build/Linux/epanet_wateropt' ,['0', file1, file2, file3, startTime, duration, w12, w3, w4, w5, w6, uid]);
+//            client_binary.on('error', (err) => {
+//                isSimulationStarted = 0;
+//                var msg={};
+//                msg.Result = "Unable to spawn binary at path" + err.path;
+//                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
+//                console.log('\nisSimulationStarted: ' + isSimulationStarted);
+//                socket.emit('newdata', JSON.stringify(msg));
+//            });
+            binary_map.set(obj.uid,client_binary);
         }
 
         else if(Type == 1) {
@@ -165,36 +209,41 @@ io.on('connection', function(socket) {
             w4 = obj.w4;
             w5 = obj.w5;
             w6 = obj.w6;
-            var file1 = './uploads/' + filenames.files[0].originalname;
-            var file2 = './uploads/' + filenames.files[1].originalname;
-            var file3 = './uploads/' + filenames.files[2].originalname;
-            var file4 = './uploads/' + filenames.files[3].originalname;
-            var file5 = './uploads/' + filenames.files[4].originalname;
-            client_binary = spawn('../../build/Linux/epanet_wateropt' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6]);
-/*            client_binary.on('error', (err) => {
-                isSimulationStarted = 0;
-                var msg={};
-                msg.Result = "Unable to spawn binary at path" + err.path;
-                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
-                socket.emit('newdata', JSON.stringify(msg));
-            });*/
+            var fpath = './uploads/' + uid;
+            var file1 = fpath + '/' + filenames.files[0].originalname;
+            var file2 = fpath + '/' + filenames.files[1].originalname;
+            var file3 = fpath + '/' + filenames.files[2].originalname;
+            var file4 = fpath + '/' + filenames.files[3].originalname;
+            var file5 = fpath + '/' + filenames.files[4].originalname;
+            var client_binary = spawn('../../build/Linux/epanet_wateropt' ,['1', file1, file2, file3, file4, file5, duration, w12, w3, w4, w5, w6, uid]);
+//            client_binary.on('error', (err) => {
+//                isSimulationStarted = 0;
+//                var msg={};
+//                msg.Result = "Unable to spawn binary at path" + err.path;
+//                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
+//                socket.emit('newdata', JSON.stringify(msg));
+//            });
+            binary_map.set(obj.uid,client_binary);
+            console.log("***************** CL_BIN :" + client_binary);
         }
 
         else if(Type == 2) {
-            var file1 = './uploads/' + filenames.files[0].originalname;
-            var file2 = './uploads/' + filenames.files[1].originalname;
-            var file3 = './uploads/' + filenames.files[2].originalname;
-            var file4 = './uploads/' + filenames.files[3].originalname;
-            var file5 = './uploads/' + filenames.files[4].originalname;
-            client_binary = spawn('../../build/Linux/epanet_wateropt' ,['2', file1, file2, file3, file4, file5]);
-/*            client_binary.on('error', (err) => {
-                isSimulationStarted = 0;
-                var msg={};
-                msg.Result = "Unable to spawn binary at path" + err.path;
-                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
-                console.log('\nisSimulationStarted: ' + isSimulationStarted);
-                socket.emit('newdata', JSON.stringify(msg));
-            });*/
+            var fpath = './uploads/' + uid;
+            var file1 = fpath + '/' + filenames.files[0].originalname;
+            var file2 = fpath + '/' + filenames.files[1].originalname;
+            var file3 = fpath + '/' + filenames.files[2].originalname;
+            var file4 = fpath + '/' + filenames.files[3].originalname;
+            var file5 = fpath + '/' + filenames.files[4].originalname;
+            var client_binary = spawn('../../build/Linux/epanet_wateropt' ,['2', file1, file2, file3, file4, file5, uid]);
+//            client_binary.on('error', (err) => {
+//                isSimulationStarted = 0;
+//                var msg={};
+//                msg.Result = "Unable to spawn binary at path" + err.path;
+//                console.log('whoops! There was an uncaught error', JSON.stringify(msg));
+//                console.log('\nisSimulationStarted: ' + isSimulationStarted);
+//                socket.emit('newdata', JSON.stringify(msg));
+//            });
+            binary_map.set(obj.uid,client_binary);
         }
 
         var msg = {};
@@ -204,17 +253,17 @@ io.on('connection', function(socket) {
 
         /* Do some action whenever there is some data on standard
            output due to first binary execution */
-        if(client_binary) {
+        if(binary_map.get(uid)) {
             console.log('\nFLAG: ' + isSimulationStarted + '\n');
             if(isSimulationStarted) {
-                client_binary.stdout.on('data', function(data){
+                binary_map.get(uid).stdout.on('data', function(data){
                     msg.Data = chunk + data;
                     socket.emit('newdata', JSON.stringify(msg));
                 });
 
                 // Send a response to browser/client when first binary execution is completed
 
-                client_binary.on('close', function (code) {
+                binary_map.get(uid).on('close', function (code) {
                     msg = {};
                     if(code == '0'){
                         msg.Result = 'All Iterations completed successfully, exit code : ' + code;
@@ -228,8 +277,7 @@ io.on('connection', function(socket) {
                     client_binary = null;
                 });
 
-
-                client_binary.stderr.on('data', function (data) {
+                binary_map.get(uid).stderr.on('data', function (data) {
                     console.log('Failed to start child process 1.');
                 });
             }
@@ -240,4 +288,7 @@ io.on('connection', function(socket) {
             }
         }
     });
+	socket.on('disconnect', function() {
+        console.log("***************** CLIENT DISCONNECTED *****************");
+	});
 });
